@@ -23,7 +23,7 @@
             <a href="${base}about.html">About</a>
             <a href="${base}speaking.html">Speaking</a>
           </div>
-          <a href="${base}index.html#subscribe" class="btn btn-primary btn-sm">Subscribe</a>
+          <!-- <a href="${base}index.html#subscribe" class="btn btn-primary btn-sm">Subscribe</a> -->
         </div>
       </nav>`;
   }
