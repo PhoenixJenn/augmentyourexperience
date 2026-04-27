@@ -244,7 +244,7 @@ window.POSTS_DATA = {
       "title": "Augmented World Expo June 1-3 2022, Santa Clara",
       "date": "2021-06-03",
       "excerpt": "What an amazing time to be alive! Kicking off Augmented World Expo 2021 with a keynote by Ori Inbar , including a blast from the past, Max Headroom. So many advancements in\u2026",
-      "image": "images/wp/2024/05/AWE_2021_Jenn.jpg",
+      "image": "images/wp/2024/05/AWE_2021_2.jpg",
       "imagePosition": "center center",
       "tags": [
         "AWE",
