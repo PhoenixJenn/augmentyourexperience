@@ -359,6 +359,7 @@ window.POSTS_DATA = {
       "date": "2020-07-24",
       "excerpt": "Recently I've been listening to a Podcast called Imaginary Worlds, which is about science fiction and other fantasy genres - hosted by Eric Molinsky. I'm completely hooked. At\u2026",
       "image": "images/wp/2020/08/ImaginaryWorlds.jpeg",
+      "cardImage": "images/wp/2020/08/ImaginaryWorldBanner.jpg",
       "imagePosition": "center center",
       "tags": [
         "Books & Podcasts"
