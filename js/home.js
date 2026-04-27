@@ -113,7 +113,7 @@
       line2: '<em>This is what I\'m learning.</em>'
     },
     {
-      line1: 'When the technology gets seamless enough that you forget it\'s there, it stops being technology and starts feeling like magic.',
+      line1: 'When you forget it is technology, it starts feeling like magic.',
       line2: '<span style="color:var(--accent)">That\'s what I\'m chasing.</span>'
     },
     {
