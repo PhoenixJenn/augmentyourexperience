@@ -106,6 +106,31 @@
     });
   }
 
+  // ── Hero tagline rotation ──────────────────────────────────────
+  const HERO_TAGLINES = [
+    {
+      line1: 'I wear AR glasses.',
+      line2: '<em>This is what I\'m learning.</em>'
+    },
+    {
+      line1: 'When the technology gets seamless enough,',
+      line2: '<em>it stops being technology and starts feeling like magic.</em>'
+    },
+    {
+      line1: 'The seam between physical and digital',
+      line2: '<em>is the most interesting place to build.</em>'
+    }
+  ];
+
+  function rotateHeroTagline() {
+    const h1 = document.getElementById('hero-h1');
+    if (!h1) return;
+    const pick = HERO_TAGLINES[Math.floor(Math.random() * HERO_TAGLINES.length)];
+    h1.innerHTML =
+      `<span class="line-wrap"><span class="line">${pick.line1}</span></span>` +
+      `<span class="line-wrap"><span class="line">${pick.line2}</span></span>`;
+  }
+
   // ── Hero animations ────────────────────────────────────────────
   function initHeroAnimations() {
     if (!window.gsap) return;
@@ -129,6 +154,7 @@
 
   // ── Init ───────────────────────────────────────────────────────
   window.addEventListener('DOMContentLoaded', () => {
+    rotateHeroTagline();
     loadPosts();
     initHeroAnimations();
   });
