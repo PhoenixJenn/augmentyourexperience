@@ -113,8 +113,8 @@
       line2: '<em>This is what I\'m learning.</em>'
     },
     {
-      line1: 'When the technology gets seamless enough,',
-      line2: '<em>it stops being technology and starts feeling like magic.</em>'
+      line1: 'When the technology gets seamless enough that you forget it\'s there, it stops being technology and starts feeling like magic.',
+      line2: '<span style="color:var(--accent)">That\'s what I\'m chasing.</span>'
     },
     {
       line1: 'The seam between physical and digital',
