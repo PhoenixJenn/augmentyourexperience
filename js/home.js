@@ -116,10 +116,6 @@
       line1: 'When you forget it is technology, it starts feeling like magic.',
       line2: '<span style="color:var(--accent)">That\'s what I\'m chasing.</span>'
     },
-    {
-      line1: 'The seam between physical and digital',
-      line2: '<em>is the most interesting place to build.</em>'
-    }
   ];
 
   function rotateHeroTagline() {
