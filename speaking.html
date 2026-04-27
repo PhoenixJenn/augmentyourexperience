@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!-- 🎨 EASTER EGG: Triple-click the logo to reveal the theme switcher -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speaking — Jenn Lee</title>
+  <meta name="description" content="Jenn Lee speaks on spatial computing, XR, AI, and emerging technology. Keynotes, panels, and tech talks since 2017.">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    .speaking-body {
+      max-width: 720px;
+      margin: 2rem auto 4rem;
+      padding: 0 1.5rem;
+    }
+    .speaking-body p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .speaking-body p:first-child { font-size: 1.1rem; }
+
+    /* ── Talk list ── */
+    .talk-section {
+      margin-top: 3rem;
+    }
+    .talk-section h2 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .talk {
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      gap: 0 1.25rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .talk:last-child { border-bottom: none; }
+    .talk-year {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      padding-top: 0.2rem;
+    }
+    .talk-title {
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+    .talk-venue {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .talk-detail {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      opacity: 0.7;
+      margin-top: 0.15rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="nav-mount"></div>
+
+  <div class="post-header">
+    <span class="hero-tag">Speaking</span>
+    <h1>On Stage and On Screen</h1>
+  </div>
+
+  <div class="speaking-body">
+
+    <p>I've been speaking at conferences, meetups, and company events since 2017 — on topics ranging from surviving a technical interview to what it actually feels like to build in virtual reality during a pandemic. Most of my talks sit at the intersection of emerging technology and the humans trying to use it.</p>
+
+    <p>I'm particularly energized by audiences who are curious but skeptical — people who want to understand what spatial computing, AI, or XR actually means for their work, without the hype. If that sounds like your event, let's talk.</p>
+
+    <!-- KEYNOTES -->
+    <div class="talk-section">
+      <h2>Keynotes</h2>
+
+      <div class="talk">
+        <div class="talk-year">2020</div>
+        <div>
+          <div class="talk-title">Reality Bytes: Virtual and Augmented Reality</div>
+          <div class="talk-venue">Women Impact Tech</div>
+          <div class="talk-detail">Keynote + hosted the conference meetup inside AltspaceVR — one of the first tech conference events held entirely in a virtual world</div>
+        </div>
+      </div>
+
+      <div class="talk">
+        <div class="talk-year">2019</div>
+        <div>
+          <div class="talk-title">The Future Is Female?</div>
+          <div class="talk-venue">Women Impact Tech</div>
+          <div class="talk-detail">500+ attendees</div>
+        </div>
+      </div>
+
+      <div class="talk">
+        <div class="talk-year">2019</div>
+        <div>
+          <div class="talk-title">This Is Audible</div>
+          <div class="talk-venue">Grace Hopper Celebration for Women in Computing</div>
+          <div class="talk-detail">300 attendees</div>
+        </div>
+      </div>
+
+      <div class="talk">
+        <div class="talk-year">2017</div>
+        <div>
+          <div class="talk-title">Surviving the Technical Interview</div>
+          <div class="talk-venue">Grace Hopper Celebration for Women in Computing</div>
+          <div class="talk-detail">500+ attendees</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PANELS & TALKS -->
+    <div class="talk-section">
+      <h2>Panels &amp; Talks</h2>
+
+      <div class="talk">
+        <div class="talk-year">2023</div>
+        <div>
+          <div class="talk-title">Building Your Community</div>
+          <div class="talk-venue">GroWIT @ Reddit — Panelist</div>
+        </div>
+      </div>
+
+      <div class="talk">
+        <div class="talk-year">2022</div>
+        <div>
+          <div class="talk-title">Moonshot or Mars Shot: How Taking Calculated Risks Can Be Good for Your Career</div>
+          <div class="talk-venue">WITS</div>
+        </div>
+      </div>
+
+      <div class="talk">
+        <div class="talk-year">2021</div>
+        <div>
+          <div class="talk-title">Driving Innovation: Introducing New Tech Into a Company</div>
+          <div class="talk-venue">Mursion</div>
+        </div>
+      </div>
+
+      <div class="talk">
+        <div class="talk-year">2020</div>
+        <div>
+          <div class="talk-title">AWS Interactive Video Service and Audible Live</div>
+          <div class="talk-venue">AWS Boston User Group</div>
+        </div>
+      </div>
+
+      <div class="talk">
+        <div class="talk-year">2020</div>
+        <div>
+          <div class="talk-title">Virtual Reality</div>
+          <div class="talk-venue">Tribe Academy &amp; Inclusive Tech Hub</div>
+        </div>
+      </div>
+
+      <div class="talk">
+        <div class="talk-year">2017</div>
+        <div>
+          <div class="talk-title">Intro to HTML &amp; CSS · JavaScript: It's ALIVE!</div>
+          <div class="talk-venue">Geek Girl Cape Cod</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- AWARDS -->
+    <div class="talk-section">
+      <h2>Awards</h2>
+
+      <div class="talk">
+        <div class="talk-year">2017</div>
+        <div>
+          <div class="talk-title">Best in Show</div>
+          <div class="talk-venue">FactSet Research Systems Hackathon</div>
+          <div class="talk-detail">Out of 620+ participants</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="footer-mount"></div>
+  <div id="switcher-mount"></div>
+  <script src="js/shared.js" data-base=""></script>
+
+</body>
+</html>

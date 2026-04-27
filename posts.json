@@ -1,0 +1,441 @@
+{
+  "posts": [
+    {
+      "id": "2026-04-gaussian-splats",
+      "slug": "posts/2026-04-gaussian-splats.html",
+      "title": "Reconstructing Reality: Why Gaussian Splats Change Everything",
+      "date": "2026-04-18",
+      "excerpt": "I've been doing photogrammetry for years. Then I met someone at the West Side Digital Mix who actually creates them professionally — and realized how much I didn't know.",
+      "image": "images/posts/2026-04-gaussian-splats.png",
+      "imagePosition": "center center",
+      "tags": [
+        "3D Capture & Create",
+        "Spatial Computing"
+      ],
+      "readTime": 5,
+      "featured": true
+    },
+    {
+      "id": "2026-01-ces-2026-spatial",
+      "slug": "posts/2026-01-ces-2026-spatial.html",
+      "title": "Scan It, Print It, Build It, Own It: The Only Thing CES Was Missing Was Daft Punk",
+      "date": "2026-01-15",
+      "excerpt": "Creality, XTool, laser-cut guitars, a $46.7M Kickstarter record, and the only thing CES 2026 was missing was Daft Punk. Part three of my CES 2026 report.",
+      "image": "images/ces-2026/IMG_2371-creality-booth.jpeg",
+      "imagePosition": "center center",
+      "tags": [
+        "3D Capture & Create",
+        "CES",
+        "AI",
+        "Conferences, Events and Experiences"
+      ],
+      "readTime": 4,
+      "featured": false
+    },
+    {
+      "id": "2026-01-ces-2026-beyond-the-glasses",
+      "slug": "posts/2026-01-ces-2026-beyond-the-glasses.html",
+      "title": "Robots and Autonomous Vehicles at CES 2026",
+      "date": "2026-01-14",
+      "excerpt": "I rode in a driverless Zoox taxi on the Las Vegas Strip, met humanoid robots, and drove through a tunnel under Vegas in a Tesla. Part two of my CES 2026 report.",
+      "image": "images/ces-2026/IMG_2242-zoox-las-vegas-strip.jpeg",
+      "imagePosition": "center center",
+      "tags": [
+        "CES",
+        "AI",
+        "Autonomous Vehicles",
+        "Conferences, Events and Experiences"
+      ],
+      "readTime": 4,
+      "featured": false
+    },
+    {
+      "id": "2026-01-ces-2026-smart-glasses-got-serious",
+      "slug": "posts/2026-01-ces-2026-smart-glasses-got-serious.html",
+      "title": "The Year Smart Glasses Got Serious",
+      "date": "2026-01-13",
+      "excerpt": "I walked CES 2026 with Meta Ray-Bans on my face. Here's what I saw when the rest of the world finally caught up to spatial computing.",
+      "image": "images/ces-2026/IMG_2103-namibox-learning-glasses.jpeg",
+      "imagePosition": "center center",
+      "tags": [
+        "CES",
+        "Smart Glasses",
+        "Conferences, Events and Experiences",
+        "AI",
+        "AR"
+      ],
+      "readTime": 5,
+      "featured": false,
+      "cardImage": "images/posts/mojie.jpeg"
+    },
+    {
+      "id": "2025-09-september-2025-where-did-you-go-apple-vision-pro",
+      "slug": "posts/2025-09-september-2025-where-did-you-go-apple-vision-pro.html",
+      "title": "September 2025 — Where Did You Go, Apple Vision Pro?",
+      "date": "2025-09-04",
+      "excerpt": "When Apple announced the Vision Pro back in 2023, it felt like a seismic moment. Headlines were calling it the iPhone of spatial computing. Developers scrambled for the SDK. Demos…",
+      "image": "images/wp/2025/09/avp.jpeg",
+      "imagePosition": "center center",
+      "tags": [
+        "Apple Vision Pro",
+        "Spatial Computing",
+        "VR",
+        "AR"
+      ],
+      "readTime": 2,
+      "featured": false
+    },
+    {
+      "id": "2024-06-book-review-whats-next-is-now-how-to-live-future-ready-by-dr",
+      "slug": "posts/2024-06-book-review-whats-next-is-now-how-to-live-future-ready-by-dr.html",
+      "title": "Book Review: \"What's Next Is Now: How to Live Future Ready \" by Dr. Frederik Pferdt",
+      "date": "2024-06-30",
+      "excerpt": "Dr. Frederik Pferdt, former Chief Innovation Evangelist at Google and Stanford professor, expertly guides readers through the realm of innovation and creativity in his book,…",
+      "image": "images/wp/2024/06/Screenshot-2024-06-30-at-11.07.16 AM-205x300.png",
+      "imagePosition": "center center",
+      "tags": [
+        "Innovation",
+        "Books & Podcasts"
+      ],
+      "readTime": 1,
+      "featured": false,
+      "cardImage": "images/posts/2024-06-book-review-whats-next-is-now.jpg"
+    },
+    {
+      "id": "2024-06-augmented-world-expo-2024",
+      "slug": "posts/2024-06-augmented-world-expo-2024.html",
+      "title": "Augmented World Expo 2024!",
+      "date": "2024-06-21",
+      "excerpt": "From June 17-20, the Long Beach Convention Center in California buzzed with excitement as the Augmented World Expo (AWE) took place, attracting thousands of XR enthusiasts,…",
+      "image": "images/wp/2024/07/AWE_Vision_Workshop.png",
+      "imagePosition": "center center",
+      "tags": [
+        "AWE",
+        "Conferences, Events and Experiences"
+      ],
+      "readTime": 6,
+      "featured": false
+    },
+    {
+      "id": "2024-06-dub-dub-24-unveils-vision-os-2-apples-leap-into-the-future",
+      "slug": "posts/2024-06-dub-dub-24-unveils-vision-os-2-apples-leap-into-the-future.html",
+      "title": "Dub Dub '24 Unveils Vision OS 2: Apple's Leap into the Future",
+      "date": "2024-06-10",
+      "excerpt": "Apple’s WWDC '24 took off with a bang on June 10, 2024, featuring skydiving stunts and Tim Cook's iconic rooftop address at Infinite Loop. I caught the keynote from my Apple…",
+      "image": "images/wp/2024/06/IMG_0015.png",
+      "imagePosition": "center center",
+      "tags": [
+        "Apple Vision Pro",
+        "Spatial Computing",
+        "AR",
+        "Apple WWDC"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2022-03-embracing-inspiration-my-experience-at-the-neal-stephenson-k",
+      "slug": "posts/2022-03-embracing-inspiration-my-experience-at-the-neal-stephenson-k.html",
+      "title": "Embracing Inspiration: My Experience at the Neal Stephenson Keynote at SXSW",
+      "date": "2022-03-19",
+      "excerpt": "As a devoted fan of Neal Stephenson's work, attending his keynote at SXSW was a dream come true. Ballroom D was filled with an electric energy as enthusiasts gathered to hear from…",
+      "image": "images/wp/2024/05/SXSW_NealStephensonSnowCrash.jpg",
+      "imagePosition": "center center",
+      "tags": [
+        "SXSW",
+        "VR",
+        "Conferences, Events and Experiences"
+      ],
+      "readTime": 2,
+      "featured": false
+    },
+    {
+      "id": "2022-03-exploring-the-future-of-immersive-technology-my-volumetric-c",
+      "slug": "posts/2022-03-exploring-the-future-of-immersive-technology-my-volumetric-c.html",
+      "title": "From Human to Holographic Hero: My Volumetric Capture Experience at SXSW",
+      "date": "2022-03-18",
+      "excerpt": "Recently, I had the incredible opportunity to immerse myself in the world of volumetric capture at SXSW. As a volunteer for the demo, I found myself standing amidst metal trusses,…",
+      "image": "images/wp/2024/05/SXSW_VolumetricVideo.jpg",
+      "imagePosition": "center top",
+      "tags": [
+        "SXSW",
+        "3D Capture & Create",
+        "Conferences, Events and Experiences"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2022-03-autonomous-vehicles-at-sxsw-2022",
+      "slug": "posts/2022-03-autonomous-vehicles-at-sxsw-2022.html",
+      "title": "What the truck?!? Autonomous Vehicles at SXSW 2022",
+      "date": "2022-03-13",
+      "excerpt": "Exciting developments in autonomous vehicle technology are reshaping the future of transportation, and I had the privilege of witnessing this firsthand at SXSW. Self-driving…",
+      "image": "images/wp/2024/05/SelfDrivingTrucks.jpg",
+      "imagePosition": "center center",
+      "tags": [
+        "SXSW",
+        "Autonomous Vehicles",
+        "Conferences, Events and Experiences"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2021-10-van-gogh-immersive-experience-adventure-in-an-artiverse",
+      "slug": "posts/2021-10-van-gogh-immersive-experience-adventure-in-an-artiverse.html",
+      "title": "Van Gogh Immersive Experience: Adventure in an Artiverse",
+      "date": "2021-10-30",
+      "excerpt": "Tonight, despite the pouring rain, I ventured to the Immersive Van Gogh exhibit at the Strand Theatre in Dorchester (MA), hoping to be transported into the world of Vincent Van…",
+      "image": "images/wp/2021/10/VanGoghVirtual.jpg",
+      "imagePosition": "center center",
+      "tags": [
+        "VR"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2021-10-mursion-virtual-reality-simulations-for-emotional-intelligen",
+      "slug": "posts/2021-10-mursion-virtual-reality-simulations-for-emotional-intelligen.html",
+      "title": "Mursion: Virtual reality simulations for emotional intelligence.",
+      "date": "2021-10-06",
+      "excerpt": "Today I had the privilege of participating in a panel discussion titled: “Driving Innovation: Introducing New Tech Into a Company” , along with Brian Collins, a former Disney…",
+      "image": "images/wp/2024/05/mursion-620x350-1.png",
+      "imagePosition": "center center",
+      "tags": [
+        "VR"
+      ],
+      "readTime": 2,
+      "featured": false
+    },
+    {
+      "id": "2021-07-team-bonding-through-virtual-perils-dr-crumbs-wacky-vr-escap",
+      "slug": "posts/2021-07-team-bonding-through-virtual-perils-dr-crumbs-wacky-vr-escap.html",
+      "title": "Team Bonding Through Virtual Perils: Dr. Crumb's Wacky VR Escape Room Adventure!",
+      "date": "2021-07-15",
+      "excerpt": "Team outings are a staple for building camaraderie and blowing off steam outside the office. Personally, I prefer outings that go beyond team lunches and leverage shared…",
+      "image": "images/wp/2021/07/ProteusVRTeam.jpg",
+      "imagePosition": "center 30%",
+      "tags": [
+        "VR"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2021-06-from-tiki-to-tech-how-i-turned-my-favorite-haunted-mansion-g",
+      "slug": "posts/2021-06-from-tiki-to-tech-how-i-turned-my-favorite-haunted-mansion-g.html",
+      "title": "From Tiki to Tech: How I Turned My Favorite Haunted Mansion Ghost into a VR Party Guest",
+      "date": "2021-06-26",
+      "excerpt": "Over the past weeks, I’ve been tinkering with photogrammetry, a technique which transforms real-world objects into immersive 3D models. My experiment began with capturing a series…",
+      "image": "images/wp/2021/06/PhotogrammetryVR.jpg",
+      "imagePosition": "center center",
+      "tags": [
+        "3D Capture & Create",
+        "Spatial Computing"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2021-06-augmented-world-expo-june-1-3-2022-santa-clara",
+      "slug": "posts/2021-06-augmented-world-expo-june-1-3-2022-santa-clara.html",
+      "title": "Augmented World Expo June 1-3 2022, Santa Clara",
+      "date": "2021-06-03",
+      "excerpt": "What an amazing time to be alive! Kicking off Augmented World Expo 2021 with a keynote by Ori Inbar , including a blast from the past, Max Headroom. So many advancements in…",
+      "image": "images/wp/2024/05/AWE_2021_Jenn.jpg",
+      "imagePosition": "center center",
+      "tags": [
+        "AWE",
+        "VR",
+        "Conferences, Events and Experiences"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2021-05-may-the-4th-be-with-us-a-virtual-celebration-in-newark-hq",
+      "slug": "posts/2021-05-may-the-4th-be-with-us-a-virtual-celebration-in-newark-hq.html",
+      "title": "May the 4th Be with Us: A Virtual Celebration in Newark HQ!",
+      "date": "2021-05-04",
+      "excerpt": "To celebrate “May the 4th”, we assembled in our Newark HQ in Virtual Reality for a special themed Happy Hour!",
+      "image": "images/wp/2024/05/Maythe4thAudible.png",
+      "imagePosition": "center center",
+      "tags": [
+        "VR"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2021-04-audibles-digital-twin-our-pandemic-hq-adventure",
+      "slug": "posts/2021-04-audibles-digital-twin-our-pandemic-hq-adventure.html",
+      "title": "Audible's Digital Twin: Our Pandemic HQ Adventure!",
+      "date": "2021-04-15",
+      "excerpt": "In a world where remote work has become the new norm, the concept of a physical office seems like a distant memory for many of us. But what if we could bring the essence of our…",
+      "image": "images/wp/2024/05/NewarkWorldCover.png",
+      "imagePosition": "center center",
+      "tags": [
+        "VR"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2021-02-graduation-day-again",
+      "slug": "posts/2021-02-graduation-day-again.html",
+      "title": "Graduation Day, Again!",
+      "date": "2021-02-07",
+      "excerpt": "Never stop learning! I just finished my 3rd course in Unity development and am already hungry for more. A special thank you to Nicolas Barone (who founded Universe while a CS…",
+      "image": "images/wp/2024/05/UnityVRFeb2020.jpg",
+      "imagePosition": "center center",
+      "tags": [
+        "VR"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2020-12-ready-player-two",
+      "slug": "posts/2020-12-ready-player-two.html",
+      "title": "Ready Player Two",
+      "date": "2020-12-05",
+      "excerpt": "Tonight I attended a Q&A with Ernest Cline in Bigscreen VR! (https://lnkd.in/eTU_QNc) Ernest Cline, renowned author of \"Ready Player One,\" discussed his fascination with virtual…",
+      "image": "images/wp/2020/12/Screen-Shot-2020-12-05-at-7.40.13-AM.png",
+      "imagePosition": "center center",
+      "tags": [
+        "VR"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2020-11-building-bonds-beyond-digital-borders-the-power-of-virtual-r",
+      "slug": "posts/2020-11-building-bonds-beyond-digital-borders-the-power-of-virtual-r.html",
+      "title": "Education in VR: The Power of Virtual Reality Communities",
+      "date": "2020-11-03",
+      "excerpt": "This week marked an exciting milestone as I attended the first class of course 2 in VR App Building with Nicolas Barone—a recent Cornell graduate whose innovative response to the…",
+      "image": "images/wp/2020/11/VRAppBuildingCourse2Nicolas.jpg",
+      "imagePosition": "center center",
+      "tags": [
+        "VR"
+      ],
+      "readTime": 2,
+      "featured": false
+    },
+    {
+      "id": "2020-07-graduation-day",
+      "slug": "posts/2020-07-graduation-day.html",
+      "title": "Graduation Day!",
+      "date": "2020-07-26",
+      "excerpt": "I graduated from Introduction to Unity! Interested in learning Unity? I highly recommend TryUniverse.com! Nicolas Barone teaches in AltspaceVR! (That is me on stage collecting my…",
+      "image": "images/wp/2020/08/graduation.jpeg",
+      "imagePosition": "center center",
+      "tags": [
+        "VR"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2020-07-immersedvr-escape-from-2d",
+      "slug": "posts/2020-07-immersedvr-escape-from-2d.html",
+      "title": "ImmersedVR...Escape from 2D!",
+      "date": "2020-07-25",
+      "excerpt": "Getting VC fatigue? Sick of staring at the same 2D screen all day? Me too. Wouldn't it be neat to be sitting in a lounge on a virtual space ship, staring at a larger than life…",
+      "image": "images/wp/2020/08/immersedvr.jpeg",
+      "imagePosition": "center center",
+      "tags": [
+        "VR"
+      ],
+      "readTime": 2,
+      "featured": false
+    },
+    {
+      "id": "2020-07-podcast-imaginary-worlds",
+      "slug": "posts/2020-07-podcast-imaginary-worlds.html",
+      "title": "Podcast: Imaginary Worlds",
+      "date": "2020-07-24",
+      "excerpt": "Recently I've been listening to a Podcast called Imaginary Worlds, which is about science fiction and other fantasy genres - hosted by Eric Molinsky. I'm completely hooked. At…",
+      "image": "images/wp/2020/08/ImaginaryWorlds.jpeg",
+      "imagePosition": "center center",
+      "tags": [
+        "Books & Podcasts"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2020-07-theatre-in-vr-absolutely",
+      "slug": "posts/2020-07-theatre-in-vr-absolutely.html",
+      "title": "Theatre in VR? Absolutely.",
+      "date": "2020-07-15",
+      "excerpt": "A Review of The Under Presents: Tempest Last night, I had the pleasure of attending the 8pm showing of The Under Presents: Tempest, an immersive theatrical performance by Tender…",
+      "image": "images/wp/2020/08/tempest.jpeg",
+      "imagePosition": "center center",
+      "tags": [
+        "VR"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2020-07-future-presence-by-peter-rubin",
+      "slug": "posts/2020-07-future-presence-by-peter-rubin.html",
+      "title": "Future Presence by Peter Rubin",
+      "date": "2020-07-11",
+      "excerpt": "This week I finished listening to Future Presence: How Virtual Reality Is Changing Human Connection, Intimacy, and the Limits of Ordinary Life by Peter Rubin. Well narrated,…",
+      "image": "images/wp/2020/07/futurepresence.jpg",
+      "imagePosition": "center center",
+      "tags": [
+        "Books & Podcasts"
+      ],
+      "readTime": 2,
+      "featured": false
+    },
+    {
+      "id": "2020-07-re-imagining-the-theme-park-experience-in-the-age-of-covid",
+      "slug": "posts/2020-07-re-imagining-the-theme-park-experience-in-the-age-of-covid.html",
+      "title": "Re-Imagining the Theme Park Experience in the Age of Covid",
+      "date": "2020-07-09",
+      "excerpt": "During today's lunch break, I embarked on a captivating journey through the world of virtual reality, courtesy of AltspaceVR. Donning my Oculus Quest in the comfort of my living…",
+      "image": "images/wp/2020/07/JennReImagineThemeParks.jpeg",
+      "imagePosition": "center center",
+      "tags": [
+        "VR"
+      ],
+      "readTime": 1,
+      "featured": false
+    },
+    {
+      "id": "2020-07-unity-development-and-world-hopping-in-altspacevr",
+      "slug": "posts/2020-07-unity-development-and-world-hopping-in-altspacevr.html",
+      "title": "Exploring the Boundless Possibilities of Virtual Education in Altspace VR with Unity",
+      "date": "2020-07-05",
+      "excerpt": "During quarantine, many of us found ourselves seeking new ways to stay engaged and connected, and for me, that journey led me to the immersive world of Altspace VR. Spending…",
+      "image": "images/wp/2020/07/UnityFieldTripCastle06-27_.png",
+      "imagePosition": "center center",
+      "tags": [
+        "VR"
+      ],
+      "readTime": 2,
+      "featured": false
+    },
+    {
+      "id": "2020-06-keynote-reality-bytes",
+      "slug": "posts/2020-06-keynote-reality-bytes.html",
+      "title": "Keynote: Reality Bytes",
+      "date": "2020-06-10",
+      "excerpt": "June 10th, Women Impact Tech Virtual Conference Technological changes over the past few decades have drastically influenced human behavior: how we do business, how we consume…",
+      "image": "images/wp/2020/07/RealityBytes.jpeg",
+      "imagePosition": "center center",
+      "tags": [
+        "Women Impact Tech",
+        "Conferences, Events and Experiences"
+      ],
+      "readTime": 1,
+      "featured": false
+    }
+  ]
+}

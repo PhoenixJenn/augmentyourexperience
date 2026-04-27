@@ -1,0 +1,17 @@
+# Exclude all markdown files except README
+*.md
+!README.md
+
+# OS files
+.DS_Store
+
+# WordPress migration artifacts
+*.xml
+wp_articles/
+migrate.py
+
+# Personal context / Claude workspace
+context/
+
+# Archive — working files, dev mockups, unused images
+_archive/
