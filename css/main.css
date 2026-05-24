@@ -46,6 +46,7 @@ body {
   transition: background-color 0.35s ease, color 0.35s ease;
   margin: 0;
   min-height: 100vh;
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5 { color: var(--text-primary); margin: 0; }
