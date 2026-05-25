@@ -28,6 +28,48 @@
     "new": false
   },
   {
+    "id": "gartner-summit-vegas-2026",
+    "name": "Gartner Summit Las Vegas 2026",
+    "date": "2026-06-09",
+    "date_end": "2026-06-11",
+    "date_approximate": true,
+    "event_type": "conference",
+    "location": "Las Vegas, NV",
+    "categories": ["ai"],
+    "description": "Gartner's annual Las Vegas summit — typically focused on data, analytics, and enterprise AI adoption. Confirm exact event name closer to the date; Gartner runs multiple branded events at this venue.",
+    "why_watching": "Gartner's market research shapes enterprise AI buying decisions. The hype cycles, quadrants, and vendor positioning announced here ripple through IT budget cycles for the following year.",
+    "keywords": ["Gartner", "Gartner Summit", "Gartner Las Vegas", "Gartner conference", "Gartner 2026"],
+    "new": false
+  },
+  {
+    "id": "aws-summit-dc-2026",
+    "name": "AWS Summit Washington DC 2026",
+    "date": "2026-06-10",
+    "date_end": "2026-06-11",
+    "date_approximate": true,
+    "event_type": "conference",
+    "location": "Washington, DC",
+    "categories": ["ai"],
+    "description": "One of the largest AWS Summit stops in North America. Enterprise cloud, AI/ML services, and government/public sector cloud adoption are the dominant tracks.",
+    "why_watching": "DC Summit draws heavy government and regulated-industry attendance — a signal for where federal AI adoption and cloud mandates are heading.",
+    "keywords": ["AWS Summit", "AWS Summit DC", "AWS Summit Washington", "Amazon Web Services", "AWS 2026"],
+    "new": false
+  },
+  {
+    "id": "aws-summit-nyc-2026",
+    "name": "AWS Summit New York 2026",
+    "date": "2026-07-08",
+    "date_end": "2026-07-09",
+    "date_approximate": true,
+    "event_type": "conference",
+    "location": "New York, NY",
+    "categories": ["ai"],
+    "description": "The East Coast flagship AWS Summit at the Javits Center. Bedrock, SageMaker, and agentic AI deployment patterns are typically the centerpiece announcements.",
+    "why_watching": "NYC Summit tends to be where AWS makes enterprise AI announcements for the second half of the year — a preview of what re:Invent will expand on in December.",
+    "keywords": ["AWS Summit", "AWS Summit New York", "AWS Summit NYC", "Amazon Web Services", "Javits", "AWS 2026"],
+    "new": false
+  },
+  {
     "id": "spacex-ipo",
     "name": "SpaceX IPO (SPCX)",
     "date": "2026-06-12",
