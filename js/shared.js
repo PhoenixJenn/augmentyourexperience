@@ -21,6 +21,7 @@
             <a href="${base}index.html">Home</a>
             <a href="${base}posts.html">Posts</a>
             <a href="${base}weekly-briefs/index.html">Weekly Briefs</a>
+            <a href="${base}intel/index.html">Intel</a>
             <a href="${base}about.html">About</a>
             <a href="${base}speaking.html">Speaking</a>
           </div>
