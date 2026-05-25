@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!-- 🎨 EASTER EGG: Triple-click the logo to reveal the theme switcher -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — Augment Your Experience</title>
+  <meta name="description" content="Upcoming conferences, product launches, and financial milestones in AI, XR, and spatial computing — tracked by the Morning Brief.">
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    /* ── Filter rows ─────────────────────────────────────────── */
+    .filter-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2.5rem; }
+    .filter-row   { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .filter-row-label {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-muted); width: 70px; flex-shrink: 0;
+    }
+
+    /* ── Past toggle ─────────────────────────────────────────── */
+    #past-toggle-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    #past-toggle-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+    #past-toggle-btn.active { color: var(--accent); border-color: var(--accent); }
+
+    .page-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    /* ── Month section ───────────────────────────────────────── */
+    .month-section { margin-bottom: 2.5rem; }
+    .month-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-muted);
+      margin-bottom: 0; padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Event row ───────────────────────────────────────────── */
+    .event-row {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .event-row.ev-hidden { display: none; }
+    .event-row.ev-past { opacity: 0.5; }
+    .event-row.ev-past:hover { opacity: 0.8; }
+
+    .ev-date {
+      flex-shrink: 0;
+      width: 80px;
+      text-align: right;
+      padding-top: 0.1rem;
+    }
+    .ev-day {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--border);
+    }
+    .ev-month-year {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+    .ev-range {
+      font-size: 0.62rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+      opacity: 0.7;
+    }
+    .ev-approx {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+      font-style: italic;
+      opacity: 0.6;
+    }
+
+    .ev-body { flex: 1; min-width: 0; }
+
+    .ev-title-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+    .ev-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .ev-location {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .ev-cats {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+    .ev-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      border: 1px solid;
+    }
+    .ev-badge.ai       { color: #a78bfa; border-color: #3b2e6e; }
+    .ev-badge.xr       { color: #34d399; border-color: #1a4a3a; }
+    .ev-badge.space    { color: #fbbf24; border-color: #4a3a10; }
+    .ev-badge.robotics { color: #f87171; border-color: #4a2020; }
+
+    .ev-type-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      background: var(--surface, #1a1a1a);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .ev-desc {
+      font-size: 0.85rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .ev-why {
+      font-size: 0.83rem;
+      line-height: 1.6;
+      color: var(--accent);
+      padding-left: 0.75rem;
+      border-left: 2px solid var(--accent);
+      opacity: 0.85;
+    }
+
+    #past-section { display: none; }
+  </style>
+</head>
+
+<body>
+  <div id="nav-mount"></div>
+
+  <div class="post-header">
+    <span class="hero-tag">Conferences · Launches · Finance</span>
+    <h1>Events on the Radar</h1>
+    <p style="color:var(--text-muted);font-size:1rem;margin-top:0.5rem;max-width:560px;">
+      Upcoming milestones in AI, XR, and spatial computing — surfaced by the
+      <a href="https://PhoenixJenn.github.io/morning-brief/feed.xml">Morning Brief</a>
+      and updated as dates are confirmed.
+    </p>
+  </div>
+
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem 5rem;">
+
+    <div class="page-header-row">
+      <div class="filter-group" style="margin-bottom:0;flex:1;">
+        <div class="filter-row tag-filter" id="type-filters">
+          <span class="filter-row-label">Type</span>
+          <button class="tag-btn active" data-type="all">All</button>
+          <button class="tag-btn" data-type="conference">Conferences</button>
+          <button class="tag-btn" data-type="launch">Launches</button>
+          <button class="tag-btn" data-type="finance">Finance</button>
+        </div>
+        <div class="filter-row tag-filter" id="cat-filters">
+          <span class="filter-row-label">Category</span>
+          <button class="tag-btn active" data-cat="all">All</button>
+          <button class="tag-btn" data-cat="ai">AI</button>
+          <button class="tag-btn" data-cat="xr">XR & Spatial</button>
+          <button class="tag-btn" data-cat="space">Space & Finance</button>
+          <button class="tag-btn" data-cat="robotics">Robotics & AV</button>
+        </div>
+      </div>
+      <button id="past-toggle-btn" onclick="togglePast()" style="margin-left:1.5rem;margin-top:0.25rem;">Show past</button>
+    </div>
+
+    <div id="events-root"></div>
+    <div id="past-section"></div>
+
+  </div>
+
+  <div id="footer-mount"></div>
+  <div id="switcher-mount"></div>
+  <script src="../js/shared.js" data-base="../"></script>
+
+  <script>
+    const EVENTS = [
+      {
+        id: "google-io-2026",
+        name: "Google I/O 2026",
+        date: "2026-05-20",
+        date_end: "2026-05-21",
+        event_type: "conference",
+        location: "Mountain View, CA / Online",
+        categories: ["ai", "xr"],
+        description: "Google's annual developer conference. Key announcements: Android XR seriousness, Gemini 2.5 updates, Project Astra live demo, Gemini Spark (multimodal for kids), free-tier Gemini limits.",
+        why_watching: "Android XR as a credible Apple Vision Pro alternative, and whether Google's AI integration across devices finally feels cohesive."
+      },
+      {
+        id: "wwdc-2026",
+        name: "WWDC 2026",
+        date: "2026-06-08",
+        event_type: "conference",
+        location: "Cupertino, CA / Online",
+        categories: ["ai", "xr"],
+        description: "Apple's annual developer conference. Tagline: \"Coming Bright Up.\" genai.apple.com subdomain registered ahead of the event.",
+        why_watching: "Siri overhaul / Apple Intelligence 2.0, on-device vs. cloud framing, Matter camera support, developer AI tooling. Avatar acquisition signals spatial/embodied AI direction."
+      },
+      {
+        id: "spacex-ipo",
+        name: "SpaceX IPO (SPCX)",
+        date: "2026-06-12",
+        date_approximate: true,
+        event_type: "finance",
+        location: "Nasdaq",
+        categories: ["space"],
+        description: "S-1 filed. $18.67B in 2025 revenue. Listing under SPCX on Nasdaq, potentially as early as June 12.",
+        why_watching: "Starlink is the actual revenue engine. The IPO separates SpaceX from xAI/Tesla financial entanglement — watch the prospectus framing."
+      },
+      {
+        id: "awe-usa-2026",
+        name: "AWE USA 2026",
+        date: "2026-06-15",
+        date_end: "2026-06-18",
+        event_type: "conference",
+        location: "Long Beach, CA",
+        categories: ["xr"],
+        description: "Augmented World Expo. Evan Spiegel keynoting for the second year running — likely a Snap Spectacles preview ahead of fall launch.",
+        why_watching: "Spiegel keynote is a Snap Spectacles signal. Also the right venue for the Anduril/Meta military XR conversation the industry keeps avoiding."
+      },
+      {
+        id: "samsung-galaxy-unpacked-2026",
+        name: "Samsung Galaxy Unpacked",
+        date: "2026-07-22",
+        event_type: "launch",
+        location: "London",
+        categories: ["xr"],
+        description: "Z Fold 8, Flip 8, and Samsung's first smart glasses — both display and display-less variants expected.",
+        why_watching: "First real Android XR glasses hardware. Display quality vs. Meta Ray-Bans is the make-or-break comparison — LetinAR optics supply chain is the leading indicator."
+      },
+      {
+        id: "snap-spectacles-launch",
+        name: "Snap Spectacles Consumer Launch",
+        date: "2026-09-01",
+        date_approximate: true,
+        event_type: "launch",
+        location: "TBD",
+        categories: ["xr"],
+        description: "Consumer AR glasses at ~$2,500. Evan Spiegel has been building toward this for years — the Spectacles developer edition has been the proving ground.",
+        why_watching: "The display quality question is the make-or-break. If Spectacles can deliver a compelling FOV at that price point, it resets the market."
+      },
+      {
+        id: "openai-ipo",
+        name: "OpenAI IPO",
+        date: "2026-09-15",
+        date_approximate: true,
+        event_type: "finance",
+        location: "NYSE / Nasdaq TBD",
+        categories: ["ai"],
+        description: "OpenAI targeting September 2026 IPO. Currently losing $1.25 per $1 of revenue. Microsoft partnership terms and compute costs are the story.",
+        why_watching: "The unit economics have to change between now and the S-1. Watch for revenue guidance and how they frame the path to profitability."
+      },
+      {
+        id: "meta-connect-2026",
+        name: "Meta Connect 2026",
+        date: "2026-09-23",
+        date_end: "2026-09-24",
+        event_type: "conference",
+        location: "Menlo Park, CA / Online",
+        categories: ["xr", "ai"],
+        description: "Meta's annual XR event. New smart glasses teased. Likely Quest 4 and/or mixed reality hardware alongside Orion AR glasses updates.",
+        why_watching: "The four-month smart glasses gauntlet (Google → Snap → Samsung → Meta) ends here. By September the competitive landscape will be clear."
+      }
+    ];
+
+    const MONTHS = ['January','February','March','April','May','June',
+                    'July','August','September','October','November','December'];
+    const CAT_LABELS = { ai: 'AI', xr: 'XR & Spatial', space: 'Space & Finance', robotics: 'Robotics & AV' };
+    const TYPE_LABELS = { conference: 'Conference', launch: 'Launch', finance: 'Finance' };
+
+    let activeType = 'all';
+    let activeCat  = 'all';
+    let showPast   = false;
+
+    const TODAY = new Date();
+    TODAY.setHours(0, 0, 0, 0);
+
+    function isPast(e) {
+      return new Date(e.date + 'T12:00:00') < TODAY;
+    }
+
+    function render() {
+      const upcoming = EVENTS.filter(e => !isPast(e)).sort((a,b) => a.date.localeCompare(b.date));
+      const past     = EVENTS.filter(e =>  isPast(e)).sort((a,b) => b.date.localeCompare(a.date));
+
+      // Upcoming grouped by month
+      const root = document.getElementById('events-root');
+      root.innerHTML = '';
+      const byMonth = {};
+      const monthOrder = [];
+      for (const e of upcoming) {
+        const d = new Date(e.date + 'T12:00:00');
+        const key = `${d.getFullYear()}-${d.getMonth()}`;
+        if (!byMonth[key]) { byMonth[key] = { d, events: [] }; monthOrder.push(key); }
+        byMonth[key].events.push(e);
+      }
+      for (const key of monthOrder) {
+        const { d, events } = byMonth[key];
+        const section = document.createElement('div');
+        section.className = 'month-section';
+        section.innerHTML = `<div class="month-label">${MONTHS[d.getMonth()]} ${d.getFullYear()}</div>`;
+        events.forEach(e => section.appendChild(buildRow(e, false)));
+        root.appendChild(section);
+      }
+
+      // Past section
+      const pastEl = document.getElementById('past-section');
+      pastEl.innerHTML = '';
+      if (past.length) {
+        const label = document.createElement('div');
+        label.className = 'month-label';
+        label.textContent = `Past events (${past.length})`;
+        pastEl.appendChild(label);
+        past.forEach(e => pastEl.appendChild(buildRow(e, true)));
+        document.getElementById('past-toggle-btn').style.display = '';
+      } else {
+        document.getElementById('past-toggle-btn').style.display = 'none';
+      }
+
+      applyFilter();
+    }
+
+    function buildRow(event, past) {
+      const d    = new Date(event.date + 'T12:00:00');
+      const dEnd = event.date_end ? new Date(event.date_end + 'T12:00:00') : null;
+      const mo   = MONTHS[d.getMonth()].slice(0, 3).toUpperCase();
+      const dayStr = event.date_approximate ? '~' + d.getDate() : d.getDate();
+
+      let rangeStr = '';
+      if (dEnd) {
+        rangeStr = d.getMonth() === dEnd.getMonth()
+          ? `${mo} ${d.getDate()}–${dEnd.getDate()}`
+          : `${mo} ${d.getDate()} – ${MONTHS[dEnd.getMonth()].slice(0,3).toUpperCase()} ${dEnd.getDate()}`;
+      }
+
+      const row = document.createElement('div');
+      row.className = `event-row${past ? ' ev-past' : ''}`;
+      row.dataset.cats = (event.categories || []).join(' ');
+      row.dataset.type = event.event_type || '';
+
+      const catBadges = (event.categories || [])
+        .map(c => `<span class="ev-badge ${c}">${CAT_LABELS[c] || c}</span>`)
+        .join('');
+      const typeBadge = event.event_type
+        ? `<span class="ev-type-badge">${TYPE_LABELS[event.event_type] || event.event_type}</span>`
+        : '';
+
+      row.innerHTML = `
+        <div class="ev-date">
+          <div class="ev-day">${dayStr}</div>
+          <div class="ev-month-year">${mo} ${d.getFullYear()}</div>
+          ${rangeStr ? `<div class="ev-range">${rangeStr}</div>` : ''}
+          ${event.date_approximate ? '<div class="ev-approx">approx.</div>' : ''}
+        </div>
+        <div class="ev-body">
+          <div class="ev-title-row">
+            <span class="ev-name">${esc(event.name)}</span>
+            ${event.location ? `<span class="ev-location">${esc(event.location)}</span>` : ''}
+          </div>
+          <div class="ev-cats">${catBadges}${typeBadge}</div>
+          <div class="ev-desc">${esc(event.description || '')}</div>
+          ${event.why_watching ? `<div class="ev-why">${esc(event.why_watching)}</div>` : ''}
+        </div>`;
+      return row;
+    }
+
+    function applyFilter() {
+      document.querySelectorAll('.event-row').forEach(row => {
+        const isPastRow = row.closest('#past-section') !== null;
+        if (isPastRow !== showPast) { row.classList.add('ev-hidden'); return; }
+        const typeOk = activeType === 'all' || row.dataset.type === activeType;
+        const catOk  = activeCat  === 'all' || row.dataset.cats.split(' ').includes(activeCat);
+        row.classList.toggle('ev-hidden', !(typeOk && catOk));
+      });
+    }
+
+    function togglePast() {
+      showPast = !showPast;
+      const btn = document.getElementById('past-toggle-btn');
+      btn.textContent = showPast ? 'Show upcoming' : 'Show past';
+      btn.classList.toggle('active', showPast);
+      document.getElementById('past-section').style.display = showPast ? 'block' : 'none';
+      document.getElementById('events-root').style.display  = showPast ? 'none' : 'block';
+      applyFilter();
+    }
+
+    document.getElementById('type-filters').addEventListener('click', e => {
+      const btn = e.target.closest('.tag-btn');
+      if (!btn) return;
+      document.querySelectorAll('#type-filters .tag-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeType = btn.dataset.type;
+      applyFilter();
+    });
+
+    document.getElementById('cat-filters').addEventListener('click', e => {
+      const btn = e.target.closest('.tag-btn');
+      if (!btn) return;
+      document.querySelectorAll('#cat-filters .tag-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCat = btn.dataset.cat;
+      applyFilter();
+    });
+
+    function esc(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    render();
+  </script>
+</body>
+</html>
