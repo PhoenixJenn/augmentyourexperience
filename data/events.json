@@ -84,17 +84,17 @@
     "new": false
   },
   {
-    "id": "star-wars-celebration-2026",
-    "name": "Star Wars Celebration 2026",
-    "date": "2026-07-01",
-    "date_end": "2026-07-05",
+    "id": "star-wars-celebration-2027",
+    "name": "Star Wars Celebration 2027",
+    "date": "2027-04-01",
+    "date_end": "2027-04-04",
     "date_approximate": true,
     "event_type": "conference",
     "location": "TBD",
     "categories": ["media"],
-    "description": "Lucasfilm's official fan convention. With The Mandalorian and Grogu in theaters this spring, expect major announcements on the next chapter of the franchise — streaming, gaming, theme park, and live experiences.",
+    "description": "Lucasfilm's official fan convention. With The Mandalorian and Grogu in theaters in 2026, expect major announcements on the next chapter of the franchise — streaming, gaming, theme park, and live experiences.",
     "why_watching": "Star Wars Celebration is where Disney signals the next 2-3 years of the franchise. Galaxy's Edge XR expansions, gaming tie-ins, and spatial entertainment plays get their first airing here.",
-    "keywords": ["Star Wars Celebration", "Lucasfilm", "Star Wars 2026", "Mandalorian", "Galaxy's Edge"],
+    "keywords": ["Star Wars Celebration", "Lucasfilm", "Star Wars 2027", "Mandalorian", "Galaxy's Edge"],
     "new": false
   },
   {
