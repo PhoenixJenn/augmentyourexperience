@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="../css/main.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    .intel-row.intel-hidden { display: none; }
+    .intel-card.intel-hidden { display: none; }
+  </style>
 </head>
 
 <body>
@@ -29,6 +33,15 @@
 
   <div style="max-width:860px;margin:0 auto;padding:0 1.5rem 5rem;">
 
+    <!-- FILTERS -->
+    <div class="tag-filter" id="intel-filter">
+      <button class="tag-btn active" data-filter="all">All</button>
+      <button class="tag-btn" data-filter="ai">AI</button>
+      <button class="tag-btn" data-filter="xr">XR & Spatial</button>
+      <button class="tag-btn" data-filter="robotics">Robotics & AV</button>
+      <button class="tag-btn" data-filter="3d">3D Printing</button>
+    </div>
+
     <!-- COMPANIES & PEOPLE -->
     <div style="margin-bottom:3rem;">
       <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted,#888);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border,#222);">Companies & People</div>
@@ -44,73 +57,73 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr class="intel-row" data-category="ai xr">
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Google</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">AI / XR / Platform</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">7</td>
               <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Google I/O: Android XR glasses (Warby Parker, Gentle Monster), Gemini 3.5 Flash, Project Genie + Street View, end of ten-blue-links Search, SynthID/C2PA, AI Overviews compressing publisher traffic. Gemini Spark APK teardown: autonomous purchasing with strict usage caps and liability-hedging disclaimers.</td>
             </tr>
-            <tr>
+            <tr class="intel-row" data-category="ai">
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Anthropic</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">AI Lab</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">7</td>
               <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Stainless acquisition, Glasswing, Karpathy hire, $43B ARR, xAI compute deal</td>
             </tr>
-            <tr>
+            <tr class="intel-row" data-category="xr">
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Snap Spectacles</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">XR Hardware</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">7</td>
               <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Consumer AR glasses, ~$2,500, fall 2026 — display quality is the make-or-break</td>
             </tr>
-            <tr>
+            <tr class="intel-row" data-category="ai">
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">OpenAI</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">AI Lab</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">7</td>
               <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">IPO target Sept 2026, Codex locked-Mac, country partnerships, losing $1.25 per $1 revenue</td>
             </tr>
-            <tr>
+            <tr class="intel-row" data-category="robotics">
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Tesla</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">AV / Robotics</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">5</td>
               <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Teleoperator disclosures, FSD China rollout, Optimus vs. Figure, xAI energy story</td>
             </tr>
-            <tr>
+            <tr class="intel-row" data-category="robotics">
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Waymo</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">AV</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">3</td>
               <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Flooded-road and freeway failures across 5 cities — edge-case data collection story</td>
             </tr>
-            <tr>
+            <tr class="intel-row" data-category="xr">
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Samsung</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">XR Hardware</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">3</td>
               <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Galaxy Unpacked July 22 London — display + display-less smart glasses, Z Fold 8</td>
             </tr>
-            <tr>
+            <tr class="intel-row" data-category="xr">
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">LetinAR</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">XR Optics</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">3</td>
               <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Pin-mirror AR optics, $18.5M raise, IPO 2026 — bellwether for smart glasses supply chain</td>
             </tr>
-            <tr>
+            <tr class="intel-row" data-category="robotics">
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Figure AI</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">Robotics</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">3</td>
               <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Humanoid pilot-to-commercial conversion — key signal through mid-2026</td>
             </tr>
-            <tr>
+            <tr class="intel-row" data-category="ai">
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">SpaceX</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">Space / Finance</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">3</td>
               <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">S-1 filed, IPO as early as June 12 (SPCX), $18.67B 2025 revenue</td>
             </tr>
-            <tr>
+            <tr class="intel-row" data-category="xr">
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Gracia</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">Spatial Media</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">2</td>
               <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">First streamable volumetric captures — Quest 3, no app/download, Vision Pro app coming</td>
             </tr>
-            <tr>
+            <tr class="intel-row" data-category="3d">
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Bambu Lab</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">3D Printing</td>
               <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">3</td>
@@ -128,7 +141,7 @@
 
       <div style="display:flex;flex-direction:column;gap:1.25rem;">
 
-        <div style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
+        <div class="intel-card" data-category="ai xr" style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
           <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.5rem;">
             <span style="font-size:1rem;font-weight:700;color:var(--text-primary,#fff);">Google I/O 2026</span>
             <span style="font-size:0.72rem;color:var(--text-muted,#888);white-space:nowrap;">May 19–20 · 5/7 briefs</span>
@@ -139,7 +152,7 @@
           <p style="font-size:0.875rem;color:var(--text-muted,#aaa);line-height:1.65;margin:0;"><strong style="color:var(--text-primary,#ddd);">Gemini Spark</strong> — surfaced via APK teardown after I/O. Strict usage caps and explicit disclaimers around autonomous purchasing actions, suggesting agentic capabilities paired with quiet liability hedging. Watch as a preview of how regulators will respond to AI agents that spend money on your behalf.</p>
         </div>
 
-        <div style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
+        <div class="intel-card" data-category="xr" style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
           <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.5rem;">
             <span style="font-size:1rem;font-weight:700;color:var(--text-primary,#fff);">Smart Glasses Platform Race</span>
             <span style="font-size:0.72rem;color:var(--text-muted,#888);white-space:nowrap;">7/7 briefs</span>
@@ -147,7 +160,7 @@
           <p style="font-size:0.875rem;color:var(--text-muted,#aaa);line-height:1.65;margin:0;">Four major launches in four months: Google I/O (done), Snap Specs (fall), Samsung Unpacked (July 22), Meta Connect (Sept 23–24). LetinAR's optics supply chain is the leading indicator on whether the form-factor problem is solved at scale.</p>
         </div>
 
-        <div style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
+        <div class="intel-card" data-category="ai xr" style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
           <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.5rem;">
             <span style="font-size:1rem;font-weight:700;color:var(--text-primary,#fff);">WWDC 2026 — June 8</span>
             <span style="font-size:0.72rem;color:var(--text-muted,#888);white-space:nowrap;">7/7 briefs</span>
@@ -155,7 +168,7 @@
           <p style="font-size:0.875rem;color:var(--text-muted,#aaa);line-height:1.65;margin:0;">Watch: Siri overhaul / Apple Intelligence 2.0, on-device vs. cloud framing, Matter camera support, developer AI tooling. <code style="font-size:0.8rem;background:var(--bg-secondary,#1a1a1a);padding:0.1rem 0.3rem;border-radius:3px;">genai.apple.com</code> subdomain registered. Animato acqui-hire signals embodied/spatial AI direction.</p>
         </div>
 
-        <div style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
+        <div class="intel-card" data-category="robotics" style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
           <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.5rem;">
             <span style="font-size:1rem;font-weight:700;color:var(--text-primary,#fff);">Humanoid Robot Pilot-to-Commercial</span>
             <span style="font-size:0.72rem;color:var(--text-muted,#888);white-space:nowrap;">4/7 briefs</span>
@@ -163,7 +176,7 @@
           <p style="font-size:0.875rem;color:var(--text-muted,#aaa);line-height:1.65;margin:0;">The make-or-break signal is pilot-to-contract conversion at BMW, Mercedes, and logistics players. Late-summer earnings updates are the moment of truth. Figure, Optimus, and 1X are all in the narrative war.</p>
         </div>
 
-        <div style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
+        <div class="intel-card" data-category="ai" style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
           <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.5rem;">
             <span style="font-size:1rem;font-weight:700;color:var(--text-primary,#fff);">AI Capex vs. Labor Economics</span>
             <span style="font-size:0.72rem;color:var(--text-muted,#888);white-space:nowrap;">5/7 briefs</span>
@@ -171,7 +184,7 @@
           <p style="font-size:0.875rem;color:var(--text-muted,#aaa);line-height:1.65;margin:0;">Meta cutting 8,000 jobs to fund a $145–200B AI buildout. "Tokenmaxxing" driving cost crises at Microsoft, Meta, and Amazon. OpenAI losing $1.25 per $1 revenue pre-IPO. Whether productivity gains catch up to the layoffs is the four-quarter story.</p>
         </div>
 
-        <div style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
+        <div class="intel-card" data-category="ai" style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
           <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.5rem;">
             <span style="font-size:1rem;font-weight:700;color:var(--text-primary,#fff);">AI Publishing / Open Web Compression</span>
             <span style="font-size:0.72rem;color:var(--text-muted,#888);white-space:nowrap;">3/7 briefs</span>
@@ -179,7 +192,7 @@
           <p style="font-size:0.875rem;color:var(--text-muted,#aaa);line-height:1.65;margin:0;">Google AI Overviews compressing publisher traffic. AI models training on the content economy they're degrading. The licensing and regulatory response is the slow-burn story of the year.</p>
         </div>
 
-        <div style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
+        <div class="intel-card" data-category="xr" style="border:1px solid var(--border,#222);border-radius:8px;padding:1.25rem 1.5rem;">
           <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.5rem;">
             <span style="font-size:1rem;font-weight:700;color:var(--text-primary,#fff);">Defense Funding in Consumer XR</span>
             <span style="font-size:0.72rem;color:var(--text-muted,#888);white-space:nowrap;">3/7 briefs</span>
@@ -206,6 +219,31 @@
   <div id="switcher-mount"></div>
 
   <script src="../js/shared.js" data-base="../"></script>
+  <script>
+    (function () {
+      const filter = document.getElementById('intel-filter');
+      if (!filter) return;
+
+      filter.addEventListener('click', function (e) {
+        const btn = e.target.closest('.tag-btn');
+        if (!btn) return;
+
+        filter.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const active = btn.dataset.filter;
+
+        document.querySelectorAll('.intel-row, .intel-card').forEach(el => {
+          if (active === 'all') {
+            el.classList.remove('intel-hidden');
+          } else {
+            const cats = (el.dataset.category || '').split(' ');
+            el.classList.toggle('intel-hidden', !cats.includes(active));
+          }
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
