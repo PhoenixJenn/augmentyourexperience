@@ -12,6 +12,61 @@
   <style>
     .intel-row.intel-hidden { display: none; }
     .intel-card.intel-hidden { display: none; }
+    .intel-section { display: none; }
+    .intel-section.section-active { display: block; }
+
+    /* Section toggle pills */
+    .section-toggle {
+      display: flex;
+      gap: 0.375rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .section-btn {
+      background: transparent;
+      border: 1px solid var(--border, #333);
+      border-radius: 999px;
+      color: var(--text-muted, #888);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.35rem 1rem;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .section-btn:hover {
+      border-color: var(--accent, #7c6bff);
+      color: var(--text-primary, #fff);
+    }
+    .section-btn.active {
+      background: var(--accent, #7c6bff);
+      border-color: var(--accent, #7c6bff);
+      color: #fff;
+    }
+
+    /* Affiliation badge */
+    .affiliation-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border, #333);
+      color: var(--accent, #7c6bff);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .affiliation-badge:hover {
+      background: color-mix(in srgb, var(--accent, #7c6bff) 12%, transparent);
+    }
+
+    /* Shared table cell styles */
+    .itd { padding: 0.65rem 1rem 0.65rem 0; border-bottom: 1px solid var(--border, #1e1e1e); }
+    .itd-last { padding: 0.65rem 0; border-bottom: 1px solid var(--border, #1e1e1e); }
+    .ith { text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: var(--text-muted, #888); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid var(--border, #222); white-space: nowrap; }
+    .ith-center { text-align: center; }
   </style>
 </head>
 
@@ -25,7 +80,7 @@
     <span class="hero-tag">AI · XR · Spatial Computing · Robotics · Media</span>
     <h1>Intel</h1>
     <p style="color:var(--muted);font-size:1rem;margin-top:0.5rem;max-width:560px;">
-      Companies, themes, and signals I'm tracking — surfaced by the
+      Companies, people, and themes I'm tracking — surfaced by the
       <a href="https://PhoenixJenn.github.io/morning-brief/feed.xml">Morning Brief</a>
       daily podcast and updated weekly.
     </p>
@@ -33,8 +88,15 @@
 
   <div style="max-width:860px;margin:0 auto;padding:0 1.5rem 5rem;">
 
-    <!-- FILTERS -->
-    <div class="tag-filter" id="intel-filter">
+    <!-- SECTION TOGGLES -->
+    <div class="section-toggle" id="section-toggle">
+      <button class="section-btn active" data-section="themes">Recurring Themes</button>
+      <button class="section-btn" data-section="companies">Companies</button>
+      <button class="section-btn" data-section="people">People</button>
+    </div>
+
+    <!-- CATEGORY FILTERS -->
+    <div class="tag-filter" id="intel-filter" style="margin-bottom:2rem;">
       <button class="tag-btn active" data-filter="all">All</button>
       <button class="tag-btn" data-filter="ai">AI</button>
       <button class="tag-btn" data-filter="xr">XR & Spatial</button>
@@ -44,113 +106,10 @@
       <button class="tag-btn" data-filter="media">Media & Entertainment</button>
     </div>
 
-    <!-- COMPANIES & PEOPLE -->
-    <div style="margin-bottom:3rem;">
-      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted,#888);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border,#222);">Companies & People</div>
-
-      <div style="overflow-x:auto;">
-        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
-          <thead>
-            <tr>
-              <th style="text-align:left;padding:0.5rem 1rem 0.5rem 0;color:var(--text-muted,#888);font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid var(--border,#222);white-space:nowrap;">Name</th>
-              <th style="text-align:left;padding:0.5rem 1rem 0.5rem 0;color:var(--text-muted,#888);font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid var(--border,#222);white-space:nowrap;">Category</th>
-              <th style="text-align:center;padding:0.5rem 1rem 0.5rem 0;color:var(--text-muted,#888);font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid var(--border,#222);white-space:nowrap;">Signals</th>
-              <th style="text-align:left;padding:0.5rem 0;color:var(--text-muted,#888);font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid var(--border,#222);">Why It Matters</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="intel-row" data-category="ai xr">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Google</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">AI / XR / Platform</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">7</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Google I/O: Android XR glasses (Warby Parker, Gentle Monster), Gemini 3.5 Flash, Project Genie + Street View, end of ten-blue-links Search, SynthID/C2PA, AI Overviews compressing publisher traffic. Gemini Spark APK teardown: autonomous purchasing with strict usage caps and liability-hedging disclaimers.</td>
-            </tr>
-            <tr class="intel-row" data-category="ai">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Anthropic</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">AI Lab</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">7</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Stainless acquisition, Glasswing, Karpathy hire, $43B ARR, xAI compute deal</td>
-            </tr>
-            <tr class="intel-row" data-category="xr">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Snap Spectacles</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">XR Hardware</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">7</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Consumer AR glasses, ~$2,500, fall 2026 — display quality is the make-or-break</td>
-            </tr>
-            <tr class="intel-row" data-category="ai">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">OpenAI</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">AI Lab</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">7</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">IPO target Sept 2026, Codex locked-Mac, country partnerships, losing $1.25 per $1 revenue</td>
-            </tr>
-            <tr class="intel-row" data-category="robotics">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Tesla</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">AV / Robotics</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">5</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Teleoperator disclosures, FSD China rollout, Optimus vs. Figure, xAI energy story</td>
-            </tr>
-            <tr class="intel-row" data-category="robotics">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Waymo</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">AV</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">3</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Flooded-road and freeway failures across 5 cities — edge-case data collection story</td>
-            </tr>
-            <tr class="intel-row" data-category="xr">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Samsung</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">XR Hardware</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">3</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Galaxy Unpacked July 22 London — display + display-less smart glasses, Z Fold 8</td>
-            </tr>
-            <tr class="intel-row" data-category="xr">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">LetinAR</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">XR Optics</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">3</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Pin-mirror AR optics, $18.5M raise, IPO 2026 — bellwether for smart glasses supply chain</td>
-            </tr>
-            <tr class="intel-row" data-category="robotics">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Figure AI</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">Robotics</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">3</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Humanoid pilot-to-commercial conversion — key signal through mid-2026</td>
-            </tr>
-            <tr class="intel-row" data-category="ai">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">SpaceX</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">Space / Finance</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">3</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">S-1 filed, IPO as early as June 12 (SPCX), $18.67B 2025 revenue</td>
-            </tr>
-            <tr class="intel-row" data-category="xr">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Gracia</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">Spatial Media</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">2</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">First streamable volumetric captures — Quest 3, no app/download, Vision Pro app coming</td>
-            </tr>
-            <tr class="intel-row" data-category="3d">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Bambu Lab</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">3D Capture & Create</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">3</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">A1 safety issues, community legal fight, potential share shift to Prusa/Creality</td>
-            </tr>
-            <tr class="intel-row" data-category="xr">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Xreal</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">XR Hardware</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">4</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Google's Android XR smart glasses partner; ROG XREAL R1 (240Hz microOLED, $850) in preorders; CEO Chi Xu argues phone-tethered display-glasses is the winning architecture; risk is Google eventually cutting out the middleman</td>
-            </tr>
-            <tr class="intel-row" data-category="xr">
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Chi Xu</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);white-space:nowrap;">XR Founder</td>
-              <td style="padding:0.65rem 1rem 0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#888);text-align:center;">1</td>
-              <td style="padding:0.65rem 0;border-bottom:1px solid var(--border,#1e1e1e);color:var(--text-muted,#aaa);line-height:1.5;">Founder & CEO of Xreal; TechCrunch interview claiming smart glasses inflection point — optical stack matured, compute shifted to phone-tether, AI layer gives glasses a job without app-store dependency</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p style="font-size:0.75rem;color:var(--text-muted,#666);margin-top:0.75rem;">Signals = number of daily Morning Brief episodes mentioning this entity. Tracking started May 18, 2026.</p>
-    </div>
-
-    <!-- RECURRING THEMES -->
-    <div style="margin-bottom:3rem;">
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- RECURRING THEMES SECTION                               -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section id="section-themes" class="intel-section section-active" style="margin-bottom:3rem;">
       <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted,#888);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border,#222);">Recurring Themes</div>
 
       <div style="display:flex;flex-direction:column;gap:1.25rem;">
@@ -215,7 +174,152 @@
         </div>
 
       </div>
-    </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- COMPANIES SECTION                                      -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section id="section-companies" class="intel-section" style="margin-bottom:3rem;">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted,#888);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border,#222);">Companies</div>
+
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+          <thead>
+            <tr>
+              <th class="ith">Name</th>
+              <th class="ith">Category</th>
+              <th class="ith ith-center">Signals</th>
+              <th class="ith" style="padding-right:0;">Why It Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="intel-row" data-category="ai xr" data-entity-type="company" data-company-id="google">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Google</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">AI / XR / Platform</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">7</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">Google I/O: Android XR glasses (Warby Parker, Gentle Monster), Gemini 3.5 Flash, Project Genie + Street View, end of ten-blue-links Search, SynthID/C2PA, AI Overviews compressing publisher traffic. Gemini Spark APK teardown: autonomous purchasing with strict usage caps and liability-hedging disclaimers.</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="company" data-company-id="anthropic">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Anthropic</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">AI Lab</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">7</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">Stainless acquisition, Glasswing, Karpathy hire, $43B ARR, xAI compute deal</td>
+            </tr>
+            <tr class="intel-row" data-category="xr" data-entity-type="company" data-company-id="snap-spectacles">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Snap Spectacles</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">XR Hardware</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">7</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">Consumer AR glasses, ~$2,500, fall 2026 — display quality is the make-or-break</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="company" data-company-id="openai">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">OpenAI</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">AI Lab</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">7</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">IPO target Sept 2026, Codex locked-Mac, country partnerships, losing $1.25 per $1 revenue</td>
+            </tr>
+            <tr class="intel-row" data-category="robotics" data-entity-type="company" data-company-id="tesla">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Tesla</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">AV / Robotics</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">5</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">Teleoperator disclosures, FSD China rollout, Optimus vs. Figure, xAI energy story</td>
+            </tr>
+            <tr class="intel-row" data-category="robotics" data-entity-type="company" data-company-id="waymo">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Waymo</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">AV</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">3</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">Flooded-road and freeway failures across 5 cities — edge-case data collection story</td>
+            </tr>
+            <tr class="intel-row" data-category="xr" data-entity-type="company" data-company-id="samsung">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Samsung</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">XR Hardware</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">3</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">Galaxy Unpacked July 22 London — display + display-less smart glasses, Z Fold 8</td>
+            </tr>
+            <tr class="intel-row" data-category="xr" data-entity-type="company" data-company-id="letinar">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">LetinAR</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">XR Optics</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">3</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">Pin-mirror AR optics, $18.5M raise, IPO 2026 — bellwether for smart glasses supply chain</td>
+            </tr>
+            <tr class="intel-row" data-category="robotics" data-entity-type="company" data-company-id="figure-ai">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Figure AI</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">Robotics</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">3</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">Humanoid pilot-to-commercial conversion — key signal through mid-2026</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="company" data-company-id="spacex">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">SpaceX</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">Space / Finance</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">3</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">S-1 filed, IPO as early as June 12 (SPCX), $18.67B 2025 revenue</td>
+            </tr>
+            <tr class="intel-row" data-category="xr" data-entity-type="company" data-company-id="gracia">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Gracia</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">Spatial Media</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">2</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">First streamable volumetric captures — Quest 3, no app/download, Vision Pro app coming</td>
+            </tr>
+            <tr class="intel-row" data-category="3d" data-entity-type="company" data-company-id="bambu-lab">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Bambu Lab</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">3D Capture & Create</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">3</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">A1 safety issues, community legal fight, potential share shift to Prusa/Creality</td>
+            </tr>
+            <tr class="intel-row" data-category="xr" data-entity-type="company" data-company-id="xreal">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Xreal</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">XR Hardware</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">4</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">Google's Android XR smart glasses partner; ROG XREAL R1 (240Hz microOLED, $850) in preorders; CEO Chi Xu argues phone-tethered display-glasses is the winning architecture; risk is Google eventually cutting out the middleman</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="company" data-company-id="deepseek">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">DeepSeek</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">AI Lab</td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">2</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">Pricing strategy and global enterprise adoption — watching as signal for US-China AI gap closing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.75rem;color:var(--text-muted,#666);margin-top:0.75rem;">Signals = number of Morning Brief episodes mentioning this entity. Tracking started May 18, 2026.</p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- PEOPLE SECTION                                         -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section id="section-people" class="intel-section" style="margin-bottom:3rem;">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted,#888);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border,#222);">People</div>
+
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+          <thead>
+            <tr>
+              <th class="ith">Name</th>
+              <th class="ith">Role</th>
+              <th class="ith">Affiliation</th>
+              <th class="ith ith-center">Signals</th>
+              <th class="ith" style="padding-right:0;">Why They Matter</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="intel-row" data-category="xr" data-entity-type="person" data-company-id="xreal" data-person-id="chi-xu">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Chi Xu</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">Founder & CEO</td>
+              <td class="itd" style="white-space:nowrap;"><a class="affiliation-badge" href="#" data-link-company="xreal">Xreal</a></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">TechCrunch interview claiming smart glasses inflection point — optical stack matured, compute shifted to phone-tether, AI layer gives glasses a job without app-store dependency</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="anthropic" data-person-id="andrej-karpathy">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Andrej Karpathy</td>
+              <td class="itd" style="color:var(--text-muted,#888);white-space:nowrap;">Researcher</td>
+              <td class="itd" style="white-space:nowrap;"><a class="affiliation-badge" href="#" data-link-company="anthropic">Anthropic</a></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">2</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);line-height:1.5;">High-profile hire signals Anthropic doubling down on AI safety research with public-facing credibility; Karpathy's education-focused public presence adds a new communication vector for the lab</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.75rem;color:var(--text-muted,#666);margin-top:0.75rem;">Affiliation badges link to the corresponding company entry. Signals = Morning Brief mentions. Tracking started May 18, 2026.</p>
+    </section>
 
     <!-- SOURCE -->
     <div style="border-top:1px solid var(--border,#222);padding-top:1.5rem;">
@@ -235,19 +339,67 @@
   <script src="../js/shared.js" data-base="../"></script>
   <script>
     (function () {
-      const filter = document.getElementById('intel-filter');
-      if (!filter) return;
 
-      filter.addEventListener('click', function (e) {
-        const btn = e.target.closest('.tag-btn');
+      // ── Section toggles ────────────────────────────────────────────────────
+      const sectionToggle = document.getElementById('section-toggle');
+      const sections = {
+        themes:    document.getElementById('section-themes'),
+        companies: document.getElementById('section-companies'),
+        people:    document.getElementById('section-people'),
+      };
+
+      function activateSection(key) {
+        // Deactivate all
+        sectionToggle.querySelectorAll('.section-btn').forEach(function (b) {
+          b.classList.remove('active');
+        });
+        Object.values(sections).forEach(function (s) {
+          s.classList.remove('section-active');
+        });
+        // Activate the chosen one
+        sectionToggle.querySelector('[data-section="' + key + '"]').classList.add('active');
+        if (sections[key]) sections[key].classList.add('section-active');
+        applyFilter(currentFilter);
+      }
+
+      sectionToggle.addEventListener('click', function (e) {
+        const btn = e.target.closest('.section-btn');
         if (!btn) return;
+        activateSection(btn.dataset.section);
+      });
 
-        filter.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+      // ── Affiliation badge — jump to Companies section ──────────────────────
+      document.querySelectorAll('.affiliation-badge[data-link-company]').forEach(function (badge) {
+        badge.addEventListener('click', function (e) {
+          e.preventDefault();
+          const companyId = badge.dataset.linkCompany;
 
-        const active = btn.dataset.filter;
+          // Switch to Companies section
+          activateSection('companies');
 
-        document.querySelectorAll('.intel-row, .intel-card').forEach(el => {
+          // Scroll to the matching company row
+          const row = document.querySelector(
+            '#section-companies .intel-row[data-company-id="' + companyId + '"]'
+          );
+          if (row) {
+            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            row.style.transition = 'background 0.3s';
+            row.style.background = 'color-mix(in srgb, var(--accent, #7c6bff) 10%, transparent)';
+            setTimeout(function () { row.style.background = ''; }, 1500);
+          }
+        });
+      });
+
+      // ── Category filter ────────────────────────────────────────────────────
+      let currentFilter = 'all';
+      const filterBar = document.getElementById('intel-filter');
+
+      function applyFilter(active) {
+        document.querySelectorAll('.intel-row, .intel-card').forEach(function (el) {
+          // Only operate on elements inside a visible section
+          const section = el.closest('.intel-section');
+          if (section && !section.classList.contains('section-active')) return;
+
           if (active === 'all') {
             el.classList.remove('intel-hidden');
           } else {
@@ -255,7 +407,18 @@
             el.classList.toggle('intel-hidden', !cats.includes(active));
           }
         });
+      }
+
+      filterBar.addEventListener('click', function (e) {
+        const btn = e.target.closest('.tag-btn');
+        if (!btn) return;
+
+        filterBar.querySelectorAll('.tag-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        applyFilter(currentFilter);
       });
+
     })();
   </script>
 
