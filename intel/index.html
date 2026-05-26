@@ -107,13 +107,14 @@
       table-layout: fixed;
     }
 
-    .ai-models-table col.col-model  { width: 130px; }
-    .ai-models-table col.col-type   { width: 50px; }
-    .ai-models-table col.col-tier   { width: 46px; }
-    .ai-models-table col.col-price  { width: 112px; }
-    .ai-models-table col.col-ctx    { width: 72px; }
-    .ai-models-table col.col-uses   { }
-    .ai-models-table col.col-news   { width: 210px; }
+    .ai-models-table col.col-model    { width: 125px; }
+    .ai-models-table col.col-type     { width: 48px; }
+    .ai-models-table col.col-tier     { width: 44px; }
+    .ai-models-table col.col-price    { width: 108px; }
+    .ai-models-table col.col-ctx      { width: 68px; }
+    .ai-models-table col.col-uses     { }
+    .ai-models-table col.col-modality { width: 82px; }
+    .ai-models-table col.col-news     { width: 200px; }
 
     .ai-models-table th {
       text-align: left;
@@ -168,9 +169,10 @@
     .ai-model-tier.t-2    { color: #fbbf24; }
     .ai-model-tier.t-3    { color: #f97316; }
 
-    .ai-model-price { color: var(--text-muted, #888); font-size: 0.75rem; }
-    .ai-model-ctx   { color: var(--text-muted, #888); }
-    .ai-model-uses  { font-size: 0.76rem; color: var(--text-muted, #999); line-height: 1.5; }
+    .ai-model-price    { color: var(--text-muted, #888); font-size: 0.75rem; }
+    .ai-model-ctx      { color: var(--text-muted, #888); }
+    .ai-model-uses     { font-size: 0.76rem; color: var(--text-muted, #999); line-height: 1.5; }
+    .ai-model-modality { font-size: 0.74rem; color: var(--text-muted, #666); }
     .ai-model-news  { font-size: 0.76rem; color: var(--text-muted, #888); line-height: 1.4; }
     .ai-model-news-date { font-size: 0.6rem; color: var(--text-muted, #444); margin-top: 0.2rem; }
     .ai-model-stale {
@@ -607,17 +609,17 @@
           + '<table class="ai-models-table">'
           + '<colgroup>'
           + '<col class="col-model"><col class="col-type"><col class="col-tier">'
-          + '<col class="col-price"><col class="col-ctx"><col class="col-uses"><col class="col-news">'
+          + '<col class="col-price"><col class="col-ctx"><col class="col-uses"><col class="col-modality"><col class="col-news">'
           + '</colgroup>'
           + '<thead><tr>'
           + '<th>Model</th><th>Type</th><th>Tier</th>'
-          + '<th>Price / MTok</th><th>Context</th><th>Best For</th><th>Latest News</th>'
+          + '<th>Price / MTok</th><th>Context</th><th>Best For</th><th>Modalities</th><th>Latest News</th>'
           + '</tr></thead><tbody>';
 
         order.forEach(function (company) {
           const color = COMPANY_COLORS[company] || '#555';
           html += '<tr class="ai-models-company-row">'
-            + '<td colspan="7" style="border-left-color:' + color + ';border-top:2px solid ' + color + ';color:' + color + ';opacity:0.85;">'
+            + '<td colspan="8" style="border-left-color:' + color + ';border-top:2px solid ' + color + ';color:' + color + ';opacity:0.85;">'
             + esc(company) + '</td></tr>';
 
           grouped[company].forEach(function (m) {
@@ -635,6 +637,7 @@
               + '<td class="ai-model-price">' + esc(m.pricing || '—') + '</td>'
               + '<td class="ai-model-ctx">' + esc(m.context_window || '—') + '</td>'
               + '<td class="ai-model-uses">' + esc(uses) + '</td>'
+              + '<td class="ai-model-modality">' + esc((m.modalities || []).join(', ')) + '</td>'
               + '<td>'
               + (m.needs_update ? '<span class="ai-model-stale">⚠ stale</span><br>' : '')
               + '<span class="ai-model-news">' + esc(m.news || '—') + '</span>'
