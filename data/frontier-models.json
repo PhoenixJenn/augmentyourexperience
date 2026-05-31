@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-05-25",
+    "last_updated": "2026-05-31",
     "note": "Anthropic verified 2026-05-25 via platform.claude.com. xAI/Mistral/Meta/DeepSeek/Google verified 2026-05-25. Alibaba/Qwen/Microsoft/Phi/Cohere: needs_update=true (no source provided yet).",
     "update_sources": {
       "Anthropic": "https://platform.claude.com/docs/en/about-claude/models/overview",
@@ -26,9 +26,20 @@
       "pricing": "$5 / $25 per MTok in/out",
       "context_window": "1M",
       "max_output": "128K",
-      "modalities": ["text", "vision", "code"],
-      "best_for": ["complex reasoning", "deep analysis", "agentic coding", "long-form writing"],
-      "features": ["adaptive thinking"],
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "complex reasoning",
+        "deep analysis",
+        "agentic coding",
+        "long-form writing"
+      ],
+      "features": [
+        "adaptive thinking"
+      ],
       "knowledge_cutoff": "Jan 2026",
       "api": true,
       "needs_update": false,
@@ -46,9 +57,21 @@
       "pricing": "$3 / $15 per MTok in/out",
       "context_window": "1M",
       "max_output": "64K",
-      "modalities": ["text", "vision", "code"],
-      "best_for": ["coding", "analysis", "everyday tasks", "Claude Code default"],
-      "features": ["extended thinking", "adaptive thinking"],
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "coding",
+        "analysis",
+        "everyday tasks",
+        "Claude Code default"
+      ],
+      "features": [
+        "extended thinking",
+        "adaptive thinking"
+      ],
       "knowledge_cutoff": "Aug 2025",
       "api": true,
       "needs_update": false,
@@ -66,9 +89,19 @@
       "pricing": "$1 / $5 per MTok in/out",
       "context_window": "200K",
       "max_output": "64K",
-      "modalities": ["text", "vision", "code"],
-      "best_for": ["fast tasks", "high-volume pipelines", "summarization"],
-      "features": ["extended thinking"],
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "fast tasks",
+        "high-volume pipelines",
+        "summarization"
+      ],
+      "features": [
+        "extended thinking"
+      ],
       "knowledge_cutoff": "Feb 2025",
       "api": true,
       "needs_update": false,
@@ -86,9 +119,17 @@
       "pricing": "invite-only",
       "context_window": "TBD",
       "max_output": "TBD",
-      "modalities": ["text", "code"],
-      "best_for": ["defensive cybersecurity", "red team / vulnerability research"],
-      "features": ["Project Glasswing research preview"],
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "best_for": [
+        "defensive cybersecurity",
+        "red team / vulnerability research"
+      ],
+      "features": [
+        "Project Glasswing research preview"
+      ],
       "knowledge_cutoff": "TBD",
       "api": false,
       "needs_update": false,
@@ -105,8 +146,17 @@
       "tier": "$$$",
       "pricing": "$5 / $30 per MTok in/out",
       "context_window": "1M",
-      "modalities": ["text", "vision", "code", "audio"],
-      "best_for": ["flagship coding", "professional work", "complex reasoning"],
+      "modalities": [
+        "text",
+        "vision",
+        "code",
+        "audio"
+      ],
+      "best_for": [
+        "flagship coding",
+        "professional work",
+        "complex reasoning"
+      ],
       "knowledge_cutoff": "TBD",
       "api": true,
       "needs_update": false,
@@ -123,8 +173,16 @@
       "tier": "$$",
       "pricing": "$2.50 / $15 per MTok in/out",
       "context_window": "1M",
-      "modalities": ["text", "vision", "code", "audio"],
-      "best_for": ["professional applications", "balanced cost/capability"],
+      "modalities": [
+        "text",
+        "vision",
+        "code",
+        "audio"
+      ],
+      "best_for": [
+        "professional applications",
+        "balanced cost/capability"
+      ],
       "knowledge_cutoff": "TBD",
       "api": true,
       "needs_update": false,
@@ -141,8 +199,17 @@
       "tier": "$",
       "pricing": "$0.75 / $4.50 per MTok in/out",
       "context_window": "400K",
-      "modalities": ["text", "vision", "code"],
-      "best_for": ["high-volume tasks", "coding agents", "computer use", "subagents"],
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "high-volume tasks",
+        "coding agents",
+        "computer use",
+        "subagents"
+      ],
       "knowledge_cutoff": "TBD",
       "api": true,
       "needs_update": false,
@@ -159,8 +226,17 @@
       "tier": "$$",
       "pricing": "TBD",
       "context_window": "TBD",
-      "modalities": ["text", "vision", "code", "audio"],
-      "best_for": ["agentic tasks", "coding", "sustained frontier performance"],
+      "modalities": [
+        "text",
+        "vision",
+        "code",
+        "audio"
+      ],
+      "best_for": [
+        "agentic tasks",
+        "coding",
+        "sustained frontier performance"
+      ],
       "api": true,
       "needs_update": false,
       "news": "Stable. 'Most intelligent model for sustained frontier performance on agentic and coding tasks.' Production-ready.",
@@ -176,8 +252,18 @@
       "tier": "$$$",
       "pricing": "TBD",
       "context_window": "TBD",
-      "modalities": ["text", "vision", "code", "audio"],
-      "best_for": ["complex problem-solving", "advanced reasoning", "vibe coding", "agentic workflows"],
+      "modalities": [
+        "text",
+        "vision",
+        "code",
+        "audio"
+      ],
+      "best_for": [
+        "complex problem-solving",
+        "advanced reasoning",
+        "vibe coding",
+        "agentic workflows"
+      ],
       "api": true,
       "needs_update": false,
       "news": "Preview. 'Advanced intelligence, complex problem-solving, powerful agentic and vibe coding.' Not yet stable.",
@@ -193,8 +279,17 @@
       "tier": "$",
       "pricing": "TBD",
       "context_window": "TBD",
-      "modalities": ["text", "vision", "code", "audio"],
-      "best_for": ["cost-efficient tasks", "high-volume", "budget frontier performance"],
+      "modalities": [
+        "text",
+        "vision",
+        "code",
+        "audio"
+      ],
+      "best_for": [
+        "cost-efficient tasks",
+        "high-volume",
+        "budget frontier performance"
+      ],
       "api": true,
       "needs_update": false,
       "news": "Preview. 'Frontier-class performance rivaling larger models at a fraction of the cost.'",
@@ -210,8 +305,16 @@
       "tier": "$",
       "pricing": "TBD",
       "context_window": "TBD",
-      "modalities": ["text", "vision", "code"],
-      "best_for": ["budget tasks", "edge/lightweight deployments", "high-volume pipelines"],
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "budget tasks",
+        "edge/lightweight deployments",
+        "high-volume pipelines"
+      ],
       "api": true,
       "needs_update": false,
       "news": "Stable + Preview. Budget-friendly with performance comparable to larger models. Most affordable Gemini option.",
@@ -227,8 +330,19 @@
       "tier": "$$",
       "pricing": "TBD",
       "context_window": "TBD",
-      "modalities": ["text", "vision", "code", "audio", "video"],
-      "best_for": ["video creation", "multimodal editing", "world understanding", "create from anything"],
+      "modalities": [
+        "text",
+        "vision",
+        "code",
+        "audio",
+        "video"
+      ],
+      "best_for": [
+        "video creation",
+        "multimodal editing",
+        "world understanding",
+        "create from anything"
+      ],
       "api": false,
       "needs_update": false,
       "news": "'Create anything from anything — leap in world understanding, multimodality, and editing.' Available via Gemini app and Google Flow.",
@@ -244,9 +358,23 @@
       "tier": "$$",
       "pricing": "$1.25 / $2.50 per MTok in/out",
       "context_window": "1M",
-      "modalities": ["text", "vision", "code"],
-      "best_for": ["adjustable reasoning", "multi-agent workflows", "X/Twitter integration", "real-time web access"],
-      "features": ["adjustable reasoning effort", "function calling", "multi-agent", "prompt caching"],
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "adjustable reasoning",
+        "multi-agent workflows",
+        "X/Twitter integration",
+        "real-time web access"
+      ],
+      "features": [
+        "adjustable reasoning effort",
+        "function calling",
+        "multi-agent",
+        "prompt caching"
+      ],
       "knowledge_cutoff": "Nov 2024",
       "api": true,
       "needs_update": false,
@@ -263,9 +391,21 @@
       "tier": "$$",
       "pricing": "$0.50 / $1.50 per MTok in/out",
       "context_window": "256K",
-      "modalities": ["text", "vision", "code"],
-      "best_for": ["European data compliance", "multilingual", "complex reasoning", "open-weight frontier"],
-      "features": ["Modified MIT license", "open-weight"],
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "European data compliance",
+        "multilingual",
+        "complex reasoning",
+        "open-weight frontier"
+      ],
+      "features": [
+        "Modified MIT license",
+        "open-weight"
+      ],
       "api": true,
       "needs_update": false,
       "news": "Mistral Large 3 (v25.12): 256K context, $0.50/$1.50 per MTok — very cheap for frontier class. Open-weight under Modified MIT. Also notable: Devstral 2 (code agent, 262K, currently free API) and Magistral Medium 1.2 (reasoning, $2/$5 per MTok).",
@@ -279,12 +419,19 @@
       "type": "proprietary",
       "tier": "$$",
       "context_window": "128K",
-      "modalities": ["text", "code"],
-      "best_for": ["enterprise RAG", "grounded search", "document Q&A pipelines"],
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "best_for": [
+        "enterprise RAG",
+        "grounded search",
+        "document Q&A pipelines"
+      ],
       "api": true,
       "needs_update": true,
       "news": "",
-      "news_date": null
+      "news_date": "2026-05-25"
     },
     {
       "id": "llama-4",
@@ -295,9 +442,23 @@
       "tier": "free",
       "pricing": "Maverick $0.19/Mtok (cloud, blended); Scout free self-hosted",
       "context_window": "10M (Scout) / 1M (Maverick)",
-      "modalities": ["text", "vision", "code", "video"],
-      "best_for": ["self-hosted deployment", "fine-tuning", "multimodal reasoning", "cost-free inference at scale"],
-      "features": ["native multimodal (early-fusion)", "MoE architecture", "10M context (Scout)"],
+      "modalities": [
+        "text",
+        "vision",
+        "code",
+        "video"
+      ],
+      "best_for": [
+        "self-hosted deployment",
+        "fine-tuning",
+        "multimodal reasoning",
+        "cost-free inference at scale"
+      ],
+      "features": [
+        "native multimodal (early-fusion)",
+        "MoE architecture",
+        "10M context (Scout)"
+      ],
       "knowledge_cutoff": "Early 2025",
       "api": false,
       "needs_update": false,
@@ -312,12 +473,19 @@
       "type": "open-source",
       "tier": "free",
       "context_window": "128K",
-      "modalities": ["text", "code"],
-      "best_for": ["self-hosted", "budget cloud inference", "fine-tuning base"],
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "best_for": [
+        "self-hosted",
+        "budget cloud inference",
+        "fine-tuning base"
+      ],
       "api": false,
       "needs_update": false,
       "news": "",
-      "news_date": null
+      "news_date": "2026-05-25"
     },
     {
       "id": "deepseek-v4-flash",
@@ -330,9 +498,21 @@
       "pricing": "$0.14 / $0.28 per MTok in/out",
       "context_window": "1M",
       "max_output": "384K",
-      "modalities": ["text", "code"],
-      "best_for": ["cost-sensitive enterprise tasks", "high-volume pipelines", "document summarization"],
-      "features": ["thinking mode", "tool calls", "JSON output", "prompt caching"],
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "best_for": [
+        "cost-sensitive enterprise tasks",
+        "high-volume pipelines",
+        "document summarization"
+      ],
+      "features": [
+        "thinking mode",
+        "tool calls",
+        "JSON output",
+        "prompt caching"
+      ],
       "api": true,
       "needs_update": false,
       "news": "V4 Flash is the current fast/cheap model: 1M context, 384K max output, $0.14/$0.28 per MTok. Supports thinking and non-thinking modes. deepseek-chat alias deprecated.",
@@ -349,9 +529,20 @@
       "pricing": "$1.74 / $3.48 per MTok in/out (post-promo May 31)",
       "context_window": "1M",
       "max_output": "384K",
-      "modalities": ["text", "code"],
-      "best_for": ["reasoning", "math", "o1-class tasks at a fraction of the cost"],
-      "features": ["thinking mode default", "tool calls", "JSON output"],
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "best_for": [
+        "reasoning",
+        "math",
+        "o1-class tasks at a fraction of the cost"
+      ],
+      "features": [
+        "thinking mode default",
+        "tool calls",
+        "JSON output"
+      ],
       "api": true,
       "needs_update": false,
       "news": "V4 Pro is the premium reasoning model: 1M context, 384K output. deepseek-reasoner alias deprecated. Currently $0.435/$0.87 (75% promo discount, ends May 31 2026), reverts to $1.74/$3.48 after.",
@@ -368,9 +559,21 @@
       "pricing": "$2.50 / $7.50 per MTok in/out",
       "context_window": "1M",
       "max_output": "65K",
-      "modalities": ["text", "code"],
-      "best_for": ["multilingual (201 languages)", "long-context QA", "extended reasoning", "frontier-class tasks"],
-      "features": ["thinking mode default", "Anthropic Messages protocol support", "chain-of-thought"],
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "best_for": [
+        "multilingual (201 languages)",
+        "long-context QA",
+        "extended reasoning",
+        "frontier-class tasks"
+      ],
+      "features": [
+        "thinking mode default",
+        "Anthropic Messages protocol support",
+        "chain-of-thought"
+      ],
       "api": true,
       "needs_update": false,
       "news": "Qwen family has jumped from 2.5 to 3.7. Flagship Qwen3.7-Max (announced May 20, 2026): 1M context, $2.50/$7.50, native thinking, 97.1 on HMMT 2026. Open-weight Qwen3-235B-A22B (Apache 2.0) also available. Budget option: Qwen3.6-Plus at $0.33/$1.95 with 1M context + multimodal.",
@@ -384,12 +587,19 @@
       "type": "open-source",
       "tier": "free",
       "context_window": "16K",
-      "modalities": ["text", "code"],
-      "best_for": ["on-device / edge inference", "small footprint reasoning", "education"],
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "best_for": [
+        "on-device / edge inference",
+        "small footprint reasoning",
+        "education"
+      ],
       "api": false,
       "needs_update": true,
       "news": "",
-      "news_date": null
+      "news_date": "2026-05-25"
     },
     {
       "id": "gemma-4",
@@ -400,8 +610,17 @@
       "type": "open-source",
       "tier": "free",
       "context_window": "TBD",
-      "modalities": ["text", "vision", "code"],
-      "best_for": ["on-device", "lightweight deployment", "fine-tuning", "intelligence-per-parameter efficiency"],
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "on-device",
+        "lightweight deployment",
+        "fine-tuning",
+        "intelligence-per-parameter efficiency"
+      ],
       "api": false,
       "needs_update": false,
       "news": "'Most intelligent open models, built to maximize intelligence-per-parameter.' Available on Google AI Studio.",
@@ -415,12 +634,19 @@
       "type": "open-source",
       "tier": "free",
       "context_window": "64K",
-      "modalities": ["text", "code"],
-      "best_for": ["MoE architecture experimentation", "self-hosted capable model", "European open alternative"],
+      "modalities": [
+        "text",
+        "code"
+      ],
+      "best_for": [
+        "MoE architecture experimentation",
+        "self-hosted capable model",
+        "European open alternative"
+      ],
       "api": false,
       "needs_update": false,
       "news": "",
-      "news_date": null
+      "news_date": "2026-05-25"
     }
   ]
 }
