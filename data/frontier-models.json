@@ -146,6 +146,7 @@
       "tier": "$$$",
       "pricing": "$5 / $30 per MTok in/out",
       "context_window": "1M",
+      "max_output": "128K",
       "modalities": [
         "text",
         "vision",
@@ -157,11 +158,11 @@
         "professional work",
         "complex reasoning"
       ],
-      "knowledge_cutoff": "TBD",
+      "knowledge_cutoff": "Dec 2025",
       "api": true,
       "needs_update": false,
-      "news": "Flagship model. 'New class of intelligence for coding and professional work.' 1M context. $5/$30 per MTok.",
-      "news_date": "2026-05-25"
+      "news": "Flagship GPT-5 model. 'New class of intelligence for coding and professional work.' 1M context, 128K output. $5/$30 per MTok. Cutoff Dec 2025.",
+      "news_date": "2026-05-31"
     },
     {
       "id": "gpt-5-4",
@@ -173,6 +174,7 @@
       "tier": "$$",
       "pricing": "$2.50 / $15 per MTok in/out",
       "context_window": "1M",
+      "max_output": "128K",
       "modalities": [
         "text",
         "vision",
@@ -183,11 +185,11 @@
         "professional applications",
         "balanced cost/capability"
       ],
-      "knowledge_cutoff": "TBD",
+      "knowledge_cutoff": "Aug 2025",
       "api": true,
       "needs_update": false,
-      "news": "Mid-tier GPT-5 family. 1M context. More affordable alternative to GPT-5.5. $2.50/$15 per MTok.",
-      "news_date": "2026-05-25"
+      "news": "Mid-tier GPT-5 family. 1M context, 128K output. $2.50/$15 per MTok. Cutoff Aug 2025.",
+      "news_date": "2026-05-31"
     },
     {
       "id": "gpt-5-4-mini",
@@ -199,6 +201,7 @@
       "tier": "$",
       "pricing": "$0.75 / $4.50 per MTok in/out",
       "context_window": "400K",
+      "max_output": "128K",
       "modalities": [
         "text",
         "vision",
@@ -210,11 +213,11 @@
         "computer use",
         "subagents"
       ],
-      "knowledge_cutoff": "TBD",
+      "knowledge_cutoff": "Aug 2025",
       "api": true,
       "needs_update": false,
-      "news": "'Strongest mini model yet for coding, computer use, and subagents.' 400K context. $0.75/$4.50 per MTok.",
-      "news_date": "2026-05-25"
+      "news": "'Strongest mini model yet for coding, computer use, and subagents.' 400K context, 128K output. $0.75/$4.50 per MTok. Cutoff Aug 2025.",
+      "news_date": "2026-05-31"
     },
     {
       "id": "gemini-3-5-flash",
@@ -526,7 +529,7 @@
       "model_id": "deepseek-v4-pro",
       "type": "open-source",
       "tier": "$",
-      "pricing": "$1.74 / $3.48 per MTok in/out (post-promo May 31)",
+      "pricing": "$1.74 / $3.48 per MTok in/out",
       "context_window": "1M",
       "max_output": "384K",
       "modalities": [
@@ -545,8 +548,8 @@
       ],
       "api": true,
       "needs_update": false,
-      "news": "V4 Pro is the premium reasoning model: 1M context, 384K output. deepseek-reasoner alias deprecated. Currently $0.435/$0.87 (75% promo discount, ends May 31 2026), reverts to $1.74/$3.48 after.",
-      "news_date": "2026-05-25"
+      "news": "V4 Pro is the premium reasoning model: 1M context, 384K output. deepseek-reasoner alias deprecated. Standard pricing $1.74/$3.48 per MTok (75% promo ended May 31 2026).",
+      "news_date": "2026-05-31"
     },
     {
       "id": "qwen-3-7-max",
