@@ -111,7 +111,7 @@
     .ai-models-table col.col-type     { width: 48px; }
     .ai-models-table col.col-tier     { width: 44px; }
     .ai-models-table col.col-price    { width: 108px; }
-    .ai-models-table col.col-ctx      { width: 68px; }
+    .ai-models-table col.col-ctx      { width: 88px; }
     .ai-models-table col.col-uses     { }
     .ai-models-table col.col-modality { width: 82px; }
     .ai-models-table col.col-news     { width: 200px; }
@@ -170,7 +170,9 @@
     .ai-model-tier.t-3    { color: #f97316; }
 
     .ai-model-price    { color: var(--text-muted, #888); font-size: 0.75rem; }
-    .ai-model-ctx      { color: var(--text-muted, #888); }
+    .ai-model-ctx      { color: var(--text-muted, #888); font-size: 0.76rem; }
+    .ai-model-ctx-out  { font-size: 0.65rem; color: var(--text-muted, #555); margin-top: 0.15rem; }
+    .ai-model-cutoff   { font-size: 0.65rem; color: var(--text-muted, #555); margin-top: 0.2rem; }
     .ai-model-uses     { font-size: 0.76rem; color: var(--text-muted, #999); line-height: 1.5; }
     .ai-model-modality { font-size: 0.74rem; color: var(--text-muted, #666); }
     .ai-model-news  { font-size: 0.76rem; color: var(--text-muted, #888); line-height: 1.4; }
@@ -723,7 +725,7 @@
           + '<thead><tr>'
           + '<th>Model</th><th>Type</th><th>Tier</th>'
           + '<th>Price / MTok</th><th>Context</th><th>Best For</th><th>Modalities</th><th>Latest News</th>'
-          + '</tr></thead><tbody>';
+          + '</tr></thead><tbody>';  // Context col shows: ctx window + max output if known
 
         order.forEach(function (company) {
           const color = COMPANY_COLORS[company] || '#555';
@@ -744,12 +746,15 @@
               + (m.type === 'open-source' ? 'open' : 'prop') + '</span></td>'
               + '<td><span class="ai-model-tier ' + tierClass + '">' + esc(m.tier) + '</span></td>'
               + '<td class="ai-model-price">' + esc(m.pricing || '—') + '</td>'
-              + '<td class="ai-model-ctx">' + esc(m.context_window || '—') + '</td>'
+              + '<td class="ai-model-ctx">' + esc(m.context_window || '—')
+              + (m.max_output ? '<div class="ai-model-ctx-out">out: ' + esc(m.max_output) + '</div>' : '')
+              + '</td>'
               + '<td class="ai-model-uses">' + esc(uses) + '</td>'
               + '<td class="ai-model-modality">' + esc((m.modalities || []).join(', ')) + '</td>'
               + '<td>'
               + (m.needs_update ? '<span class="ai-model-stale">⚠ stale</span><br>' : '')
               + '<span class="ai-model-news">' + esc(m.news || '—') + '</span>'
+              + (m.knowledge_cutoff ? '<div class="ai-model-cutoff">Cutoff: ' + esc(m.knowledge_cutoff) + '</div>' : '')
               + (m.news_date ? '<div class="ai-model-news-date">Updated: ' + esc(m.news_date) + '</div>' : '')
               + '</td>'
               + '</tr>';
