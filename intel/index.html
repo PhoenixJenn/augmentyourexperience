@@ -750,7 +750,7 @@
               + '<td>'
               + (m.needs_update ? '<span class="ai-model-stale">⚠ stale</span><br>' : '')
               + '<span class="ai-model-news">' + esc(m.news || '—') + '</span>'
-              + (m.news_date ? '<div class="ai-model-news-date">' + esc(m.news_date) + '</div>' : '')
+              + (m.news_date ? '<div class="ai-model-news-date">Updated: ' + esc(m.news_date) + '</div>' : '')
               + '</td>'
               + '</tr>';
           });
