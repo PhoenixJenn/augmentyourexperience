@@ -15,3 +15,6 @@ context/
 
 # Archive — working files, dev mockups, unused images
 _archive/
+
+# Local backup files
+*.bak
