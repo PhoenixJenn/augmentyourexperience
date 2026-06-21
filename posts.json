@@ -1,6 +1,42 @@
 {
   "posts": [
     {
+      "id": "2026-05-ai-on-the-lot-volume",
+      "slug": "posts/2026-05-ai-on-the-lot-volume.html",
+      "title": "Inside Amazon’s Volume: AI Art at Film-Stage Scale",
+      "date": "2026-05-31",
+      "excerpt": "At AI on the Lot, Amazon opened Stage 15 for a happy hour. What was running on it: a Hieronymus Bosch energy drink commercial made in 48 hours by one person using Flora.",
+      "image": "images/ai-on-the-lot/volume-wide-flora.jpeg",
+      "imagePosition": "center center",
+      "tags": [
+        "Virtual Production",
+        "AI",
+        "Spatial Computing",
+        "Conferences, Events and Experiences"
+      ],
+      "readTime": 4,
+      "featured": false
+    },
+    {
+      "id": "2026-01-volumetric-capture",
+      "slug": "posts/2026-01-volumetric-capture.html",
+      "title": "From Capture to Immersion: Enter ‘The Volume’",
+      "date": "2026-01-10",
+      "excerpt": "Canon showed up at CES with SUGATA — iPhones, Gaussian Splatting, and a full stadium flyover. Not a souvenir photo booth. A broadcast-quality pipeline on a convention floor.",
+      "image": "images/ces-2026/volumentricBaseball-rotated.jpg",
+      "imagePosition": "center top",
+      "tags": [
+        "3D Capture & Create",
+        "CES",
+        "AI",
+        "Sports",
+        "Spatial Computing",
+        "Conferences, Events and Experiences"
+      ],
+      "readTime": 3,
+      "featured": false
+    },
+    {
       "id": "2026-04-gaussian-splats",
       "slug": "posts/2026-04-gaussian-splats.html",
       "title": "Reconstructing Reality: Why Gaussian Splats Change Everything",
