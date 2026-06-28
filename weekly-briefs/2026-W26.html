@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- 🎨 EASTER EGG: Triple-click the logo to reveal the theme switcher -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week in Review: June 22 – June 28, 2026 — Augment Your Experience</title>
+  <meta name="description" content="AI, XR, spatial computing, robotics, and media — a practitioner's digest of the week's most important tech developments.">
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    /* Widen brief content to match site full content width */
+    article.brief-content {
+      max-width: 1024px !important;
+    }
+    /* Override email's inner width constraint */
+    article.brief-content > div {
+      max-width: 100% !important;
+      padding: 0 !important;
+    }
+    /* Override email inline styles to match dark site theme */
+    .brief-content, .brief-content * {
+      color: var(--text-body) !important;
+    }
+    .brief-content strong {
+      color: var(--text-primary) !important;
+    }
+    .brief-content a {
+      color: var(--accent) !important;
+    }
+    /* Top stories box */
+    .brief-content div[style*="background-color:#f5f5f5"],
+    .brief-content div[style*="background-color: #f5f5f5"] {
+      background-color: var(--bg-surface-2) !important;
+      border: 1px solid var(--border) !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="nav-mount"></div>
+  <div class="post-header">
+    <span class="hero-tag">AI · XR · Spatial Computing · Robotics · Media</span>
+    <h1>Week in Review</h1>
+    <div class="post-meta">
+      <span class="post-meta-item">June 22 – June 28, 2026</span>
+      <span class="post-meta-divider">·</span>
+      <span class="post-meta-item">Morning Brief Weekly Digest</span>
+      <span class="post-meta-divider">·</span>
+      <span class="post-meta-item" style="color:var(--accent);">Weekly Brief</span>
+    </div>
+  </div>
+  <article class="prose brief-content">
+<div style="max-width:620px;margin:0 auto;padding:32px 24px;">
+
+  <!-- TOP STORIES -->
+  <div style="background-color:#f5f5f5;border-radius:6px;padding:22px 24px;margin-bottom:32px;">
+    <div style="font-size:11px;font-weight:700;color:#888888;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;">This Week's Top Stories</div>
+    <ul style="margin:0;padding:0 0 0 18px;line-height:1.7;">
+      <li style="margin-bottom:10px;"><strong>Oracle formally blames AI for 21,000 layoffs</strong> — In its annual SEC 10-K filing, Oracle stated that AI deployment contributed to a reduction from 162,000 to 141,000 employees, with more cuts signaled ahead. It's the first time a major tech company put AI-as-cause in a regulatory disclosure, setting a precedent every large enterprise will now follow.</li>
+      <li style="margin-bottom:10px;"><strong>Trump White House asks OpenAI to delay GPT-5.6</strong> — The administration requested a limited enterprise preview with the federal government approving customer access case-by-case, framed as national security review rather than safety. If this becomes standard practice, it's a structural shift in how frontier models ship — and the precedent applies to Anthropic and Google DeepMind too.</li>
+      <li style="margin-bottom:10px;"><strong>Meta launches own-brand smart glasses at $299</strong> — "Meta Glasses" (styles: Adventurer, Fury, plus a $399 Kylie Jenner "Starfire" collab) drop the Ray-Ban co-branding while keeping EssilorLuxottica manufacturing. The $299 price point pushes AI audio-and-camera glasses into impulse-buy territory; simultaneously, EssilorLuxottica inked a supply-chain deal with Applied Materials to finally bend the AR optics cost curve.</li>
+      <li style="margin-bottom:10px;"><strong>Memory shortage hits consumer hardware prices hard</strong> — Micron reported $41.5B in quarterly revenue (up 4× YoY) and $28.2B in profit, signing $100B in long-term supply agreements while its CEO said he has no idea when the crisis ends. Apple raised Vision Pro prices by $200–$300, MacBook and iPad prices by $200+, and Microsoft raised Xbox prices — all citing RAM and storage costs driven by AI data center demand.</li>
+      <li style="margin-bottom:10px;"><strong>OpenAI and Broadcom unveil custom inference chip "Jalapeño"</strong> — A reticle-sized ASIC for LLM inference at data center scale, built in nine months, OpenAI's first step toward vertical silicon integration away from Nvidia. Combined with IBM's claimed 0.7nm / 7-angstrom prototype packing ~100 billion transistors per chip, the AI compute infrastructure layer is rapidly fragmenting away from a single-vendor story.</li>
+      <li style="margin-bottom:0;"><strong>Anthropic wins the frontier talent war — and the paid-consumer market</strong> — Google Gemini researchers Jonas Adler and Alexander Pritzel departed for Anthropic (following Nobel laureate John Jumper and Noam Shazeer), while new data showed paid Claude subscribers outpacing paid ChatGPT growth. Menlo Ventures closed a $3B fund off the back of its 2024 Anthropic bet, signaling the ecosystem is now capitalizing around Claude at scale.</li>
+    </ul>
+  </div>
+
+  <!-- AI & INDUSTRY -->
+  <div style="margin-bottom:28px;">
+    <div style="font-size:11px;font-weight:700;color:#aaaaaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;">AI &amp; Industry</div>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>AI Labor Displacement Goes Official</strong> — Oracle's SEC filing explicitly tied 21,000 layoffs (162K→141K headcount) to AI deployment, with more cuts signaled. A concurrent Swiss study of 7.3 million job ads found entry-level postings down nearly a third from pre-generative-AI baselines. TechCrunch now maintains a running list of 2026 layoffs where employers cite AI — an editorial shift that mirrors the regulatory one: this story is no longer theoretical.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>OpenAI + Broadcom "Jalapeño" Chip</strong> — OpenAI and Broadcom unveiled their first custom inference ASIC, built in nine months, designed for LLM inference at data center scale. OpenAI framed it as generation one of a long roadmap — the same vertical integration move Google made with TPUs and Amazon with Trainium. For Cerebras, Groq, and TensorWave, the biggest single buyer of inference compute is now also a competitor in silicon. Cerebras stock fell on the same day after CEO Andrew Feldman walked back gross margin guidance on the company's first post-IPO earnings.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Anthropic's Government Alignment Play</strong> — Anthropic's pre-Mythos/post-Fable cybersecurity disclosure fight with the US government set the stage for a bigger week: the company sent a June 10 letter to Senators Scott and Warren accusing Alibaba of running "the largest cloning attack ever measured" against Claude, calling for policy consequences. Combined with the GPT-5.6 slow-roll request, the shape of the week's AI governance story is clear — US frontier labs are actively coordinating with Washington on both release timing and foreign extraction, and "voluntary commitments" as a framework is functionally over.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Anthropic Claude Tag for Slack</strong> — Claude now lives persistently in Slack channels, summoned by @mention and capturing organizational context as it's created. The strategic read: Anthropic is gunning for the institutional memory layer of enterprises — a stickier position than being the model behind a chat window, and a direct shot at Glean. Meanwhile Menlo Ventures closed a $3B fund on the back of its $750M Anthropic bet, and is expected to deploy heavily into the Claude ecosystem.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Capital Concentration</strong> — The week's major raises: MGX (Abu Dhabi) raised ~$50B for a single AI fund; Qualcomm in advanced talks to acquire Chris Lattner's Modular for ~$4B; Groq confirmed a $650M raise post-Nvidia deal; SpaceX signed a $150M/month compute deal with Reflection AI (a $5B+ contract through 2029) for GB300 access at Colossus 2; General Intuition raised $320M at $2.3B valuation for video-gameplay-as-agent-training-data; Patronus AI raised $50M for adversarial agent-testing environments. The common thread: capital is concentrating in infrastructure and reliability tooling as the demo era ends.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Agentic AI Economics Under Pressure</strong> — OpenAI published research on agents enabling longer multi-step workflows; Google launched Gemini 3.5 Flash with computer-use capabilities in the Gemini API and Enterprise Agent Platform. All three frontier labs have converged on the same OS-layer agent vision. Meanwhile, enterprises are scrambling to control token spend as "tokenmaxxing" gives way to "token rationing" — and OpenAI's new ChatGPT Enterprise spend controls, Tsuga's $35M raise for agent-era observability, and Patronus AI's stress-testing platform all reflect the same operational reality: letting agents run indefinitely is expensive and largely unmonitored.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>AI Hiring Bias Heads to Court</strong> — A California judge ruled that Workday must face a class action over AI hiring algorithms — described as the first case to broadly target AI screening software. Every HR tech vendor and recruiting tool with an LLM in it is now in scope. The legal vector and the product market are moving in opposite directions simultaneously.</p>
+
+    <p style="margin:0 0 0;line-height:1.7;"><strong>Chip Infrastructure Milestones</strong> — IBM claimed the world's first sub-1nm (0.7nm / 7Å) chip prototype, packing ~100 billion transistors at roughly 2× the density of its prior generation — potentially extending Moore's Law another decade. China reclaimed the TOP500 top spot with LineShine at 2.198 exaflops, the first system ever to break two exaflops sustained on HPL. And the White House dramatically accelerated the post-quantum cryptography transition deadline to December 31, 2026 — a tacit acknowledgment that "harvest now, decrypt later" attacks are no longer theoretical.</p>
+  </div>
+
+  <!-- SPATIAL COMPUTING & XR -->
+  <div style="margin-bottom:28px;">
+    <div style="font-size:11px;font-weight:700;color:#aaaaaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;">Spatial Computing &amp; XR</div>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Meta Launches Own-Brand Smart Glasses</strong> — Meta Glasses (Adventurer, Fury, and the $399 Kylie Jenner "Starfire" collab) launch starting at $299, dropping the Ray-Ban co-brand while keeping EssilorLuxottica manufacturing. Eight-hour battery life is the headline spec. Meta is simultaneously donating free glasses to 130,000+ legally blind US veterans through the Blinded Veterans Association — the strongest product-market-fit use case in the category. A $60 stainless steel charging stand (50% in 20 min) signals genuine accessory ecosystem buildout. Italian startup Lorika launched clip-on covers for Ray-Ban Metas. There is now a smart glasses accessories market. That's a maturity signal.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>EssilorLuxottica + Applied Materials Supply Deal</strong> — The optics giant signed a long-term joint development agreement with US semiconductor equipment maker Applied Materials to scale AR optics manufacturing. Waveguides, microdisplays, and holographic films have been chronic AR cost bottlenecks; Applied Materials brings semiconductor-scale process expertise. If you've been waiting for the AR optics cost curve to bend, this is the supplier-side move that does it.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Qualcomm Snapdragon Reality Elite</strong> — Qualcomm officially announced the Reality Elite XR chipset, successor to XR2 Gen 2, explicitly designed for lightweight AR and VR headsets. This is the silicon foundation for the next two product generations across Xreal, LetinAR, Snap Spectacles, and the optical see-through ecosystem. Expect device announcements pegged to Reality Elite in H2 2026.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Apple Vision Pro Price Hike</strong> — The 256GB model rose $200 to $3,699; the 1TB model rose $300 to $4,199. Apple is also reportedly skipping M6 Pro/Max chips entirely and fast-tracking AI-focused M7 silicon to 2027, suggesting the Vision Pro is being asked to absorb macro costs while Apple reorganizes its silicon roadmap around AI workloads. The device is now firmly enterprise/pro-only at these prices — the path to accessible mixed reality just got longer.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Snap's $100M RDJ Gamble</strong> — Snap is reportedly in talks to pay Robert Downey Jr. ~$100 million to make its $2,195 Spectacles AR glasses look cool. The fact that Snap's answer to a design perception problem is nine-figure celebrity spend — versus Meta's actual fashion-credible product partnerships at $299 — tells you everything about the relative strategic positions of the two companies in smart glasses.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>VR Content Economy Shows Stress Fractures</strong> — The Summer 2026 VR Games Showcase produced a healthy slate (PAYDAY: Aces High Korea, Breachers: Outbreak, Hot Dogs Horseshoes &amp; Hand Grenades 2, The Lightkeepers on September 10, Transformers: Beyond Reality Redux on September 3). But Ghosts of Tabor developer Combat Waffle Studios — one of VR's genuine commercial hits with $30M+ revenue and 10M units sold — announced layoffs, and three other VR titles (Quantaar, A Township Tale, Memoreum) shut down or exited full development citing poor sales. The rhythm and casual categories (Synth Riders Linkin Park pack, Trombone Champ Disney DLC, Walkabout Homestar Runner) remain healthy. Mid-budget shooters and persistent multiplayer are struggling.</p>
+
+    <p style="margin:0 0 0;line-height:1.7;"><strong>Valve and the Open Platform Play</strong> — Steam Machine ships June 29 starting at $1,049 (reservation-based), with Intel and Nvidia GPU support for SteamOS expanding. Valve is clearly treating the Steam Machine launch mechanics as a dress rehearsal for Steam Frame, their upcoming standalone headset. The Linux-based open alternative to Quest positioning is becoming more credible by the quarter.</p>
+  </div>
+
+  <!-- ROBOTICS & AVs -->
+  <div style="margin-bottom:28px;">
+    <div style="font-size:11px;font-weight:700;color:#aaaaaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;">Robotics &amp; AVs</div>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Agility Robotics Goes Public via SPAC</strong> — Agility is going public at a $2.5B valuation, expecting $620M in proceeds. Digit is actually deployed in warehouses today — unlike most humanoid competitors. The SPAC structure means we'll get the first real public financials on humanoid unit economics, which will be useful for the whole industry and possibly painful for the hype cycle. Compare to Faraday Future — which has sold ~15 cars — pivoting to pitch humanoids and a quadruped with an optional dog head. The signal-to-noise ratio in humanoid announcements has broken down.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Tesla Autopilot Under Dual Federal Investigation</strong> — An elderly Texas woman died after a driver told police he was relying on his Model 3's automated driver-assistance mode when he crashed. Both NHTSA and NTSB launched investigations. NTSB probes are thorough and tend to surface uncomfortable specifics. Separately, Rivian owners filed a class action alleging Rivian falsely promised hands-free driving on first-gen R1s for years and never delivered. The hardware-software promise gap is now a litigation pattern, not an isolated Tesla issue.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Slate Auto Prices the Affordable EV Truck</strong> — Base price: $24,950, range increased to 205 miles, tow rating doubled to 2,000 lbs. The original sub-$20K target slipped when the federal EV tax credit disappeared, but the revised number held. At roughly half the price of the average new US car, Slate resets the floor of the EV market if they can deliver in 2027. Watch preorder volume carefully.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Zoox Unveils Production Design + Global Robotaxi Safety Rules Drop</strong> — Zoox showed its updated robotaxi design ahead of Amazon's commercial launch, giving Waymo a credible second mover in the US. Simultaneously, the first global robotaxi safety rules were issued, with Digital Trends calling it "the Wild West era starting to end." Regulatory clarity benefits incumbents (Waymo, Zoox, Wayve) at the expense of late entrants — and the DOT's proposal to remove brake pedal requirements for fully automated vehicles clears the path for Tesla Cybercab-style purpose-built robotaxi hardware.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>GM Factory Zero: 50 FANUC Arms, 1,300 Workers Still on Layoff</strong> — GM quietly installed ~50 FANUC robot arms at its flagship Detroit EV plant while 1,300 workers remain on what was supposed to be a temporary layoff. The UAW is not pleased. The labor-substitution thesis is no longer theoretical — and the union policy and legal playbook being written at Factory Zero is the preview of what happens when humanoid robots actually scale on factory floors.</p>
+
+    <p style="margin:0 0 0;line-height:1.7;"><strong>Polestar Blocked from US Market</strong> — The Department of Commerce denied Polestar authorization to sell MY2027 vehicles under the Connected Vehicle Rule restricting Chinese-linked automakers. Polestar 5, Polestar 6, and all future models are done in the US. Any automaker with meaningful Chinese ownership or supply chain integration is now in a precarious position — and this is the connected car rule biting in earnest, not a warning shot.</p>
+  </div>
+
+  <!-- 3D CAPTURE & CREATE -->
+  <div style="margin-bottom:28px;">
+    <div style="font-size:11px;font-weight:700;color:#aaaaaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;">3D Capture &amp; Create</div>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Adobe Acquires Topaz Labs</strong> — Adobe acquired the professional image and video enhancement toolmaker whose upscaling and restoration tools are workhorses in serious post-production and photogrammetry pipelines. Expect Topaz capabilities to start appearing natively in Adobe products within the year, simplifying scan-to-edit workflows and potentially squeezing standalone tools. The acquisition signals Adobe is willing to buy rather than build in the AI enhancement category.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Diffusion Models Expanding Beyond Image/Video</strong> — Princeton researchers published work on AI-designed radio chips using inverse design and diffusion models — the same generative family powering modern 3D content creation, applied now to RFIC layouts. The methodology generalizes. Expect diffusion-based generative design to hit more engineering domains over the next year, including topology optimization in splat-to-mesh and splat-to-asset workflows. Separately, Databricks' former AI chief surfaced with Un-0, claiming to cut AI power consumption for image generation by 1,000× — worth tracking if benchmarks materialize.</p>
+
+    <p style="margin:0 0 0;line-height:1.7;"><strong>Almetra's Factory-Floor Digital Twins</strong> — Berlin-based Almetra raised €16.3M Series A to turn live factory camera feeds into structured production data, already deployed at Bosch and ABB plants. This passive computer vision approach — no special sensors, just cameras and inference — is a cleaner path to industrial digital twins than heavy IoT instrumentation. Bentley Systems' Rory Linehan made a parallel point this week: the assumption that digital twins are only for massive metropolitan governments is what's holding the field back. The unsexy mid-market is where actual deployment volume lives.</p>
+  </div>
+
+  <!-- IOT -->
+  <div style="margin-bottom:28px;">
+    <div style="font-size:11px;font-weight:700;color:#aaaaaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;">IoT</div>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Samsung to Charge for SmartThings API Access</strong> — Starting October, Samsung will charge $4.99/month for non-commercial developer API access to SmartThings. Home Assistant's SmartThings integration will be affected. Matter was supposed to reduce platform lock-in; instead, platforms are layering paid access on top of Matter integrations. The promise and the reality are diverging — if you have SmartThings-dependent infrastructure, build contingency plans now.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Honda Bets on QuantumScape Solid-State</strong> — Honda signed a new research deal with QuantumScape on solid-state batteries. Solid-state has been "five years away" for a decade, but a major OEM partnership is real validation. Solid-state changes the form factor for everything from EVs to home batteries to industrial IoT sensors — the downstream connected-device implications are significant when it productizes.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>SignalTrace: License Plate Readers Now Cataloging Bluetooth Devices</strong> — License plate reader companies developed SignalTrace, which wirelessly identifies and catalogs Bluetooth and Wi-Fi devices (iPhones, AirPods, wearables) in public using existing camera infrastructure, framed as law enforcement co-traveler analysis. If you're building any product that maintains persistent Bluetooth advertising — which is essentially every wearable and spatial device — your threat model just got more complex.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>SpaceX Starlink Direct-to-Consumer Mobile</strong> — SpaceX is reportedly preparing to launch Starlink mobile service direct to US consumers, built on the $17B EchoStar spectrum deal. For IoT specifically: pervasive satellite connectivity changes the design constraints for connected devices in rural and edge deployments — sensors that previously required cellular fallback or local mesh can potentially go direct to satellite.</p>
+
+    <p style="margin:0 0 0;line-height:1.7;"><strong>Google Home Speaker + Wear OS 7 Early Rollout</strong> — Google's new Gemini-powered Home Speaker is showing demand outstripping supply; Walmart accidentally listed it at 30% off clearance pricing before pulling the listing. Reviewers flag a hard-wired, non-replaceable power cable as a repairability failure on a $100 device. Wear OS 7 is rolling out earlier than usual to Pixel Watch 2, 3, and 4, breaking Google's traditional fall cadence — a sign Google is trying to accelerate its wearable software advantage ahead of expected Apple Watch updates.</p>
+  </div>
+
+  <!-- MEDIA & ENTERTAINMENT -->
+  <div style="margin-bottom:28px;">
+    <div style="font-size:11px;font-weight:700;color:#aaaaaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;">Media &amp; Entertainment</div>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Google DeepMind Invests $75M in A24</strong> — Structured as a research partnership to develop AI filmmaking tools, the deal is notable because A24 has cultural authority that major studios don't. The framing — explicitly rejecting the "make it cheaper and faster" pitch in favor of artist-led tooling — is genuinely different from prior AI-Hollywood deals. If A24 says AI creative tools are legitimate, that lands differently with filmmakers. Watch this against the backdrop of Hollywood workers quietly taking AI training gigs to make ends meet as production jobs dry up.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>GTA VI: $80 Price Tag, No Disc, November 19</strong> — $79.99 standard, $99.99 Ultimate, preloads from November 12. The physical edition ships with a download code in a box — no disc. If the biggest game launch in history sets the precedent that physical means "box with a code," physical media for AAA games is functionally dead. The $80 price point is the new AAA ceiling, and every major publisher will follow. Microsoft raised Xbox prices (third hike since May 2025) in the same week, citing memory costs — a genuinely odd supply-demand setup ahead of the biggest console-selling game event in years.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>YouTube Shorts Embraces the TikTok Playbook</strong> — YouTube added 2× playback speed to Shorts, a "clear screen" mode, replaced thumbs-up with a heart, and removed the dislike button. The 2× speed feature is the meaningful one — TikTok's version changed how power users consume the platform. Expect Shorts watch-time metrics to shift materially by next quarter. Instagram simultaneously expanded Instagram for TV to Samsung TVs in the US, going directly after YouTube's living room share. The big-screen short-form fight is now fully joined.</p>
+
+    <p style="margin:0 0 16px;line-height:1.7;"><strong>Polymarket Caught Faking Its Own Social Proof</strong> — The Wall Street Journal reported Polymarket paid creators to film fake bets on near-perfect copies of the Polymarket website, instructing them to hide that the trades were simulated. The "ordinary people winning big" campaign was largely staged. Prediction markets had been quietly normalizing as legitimate financial infrastructure. This brings regulatory scrutiny back, and it sets back the normalization project considerably.</p>
+
+    <p style="margin:0 0 0;line-height:1.7;"><strong>Kobo Rejected 45% of 2025 Submissions — 80%+ for AI Content</strong> — Kobo Writing Life's chief executive attributed more than 80% of 45% of all 2025 submissions being rejected to books judged manifestly AI-generated. That's the scale of the AI content firehose hitting consumer publishing platforms. The sustainable cost of running that filtering — and the edge cases where genuinely AI-assisted but human-crafted books get caught — is the unsolved problem every publishing platform now faces.</p>
+  </div>
+
+  <!-- BIG PICTURE -->
+  <div style="border-top:2px solid #1a1a1a;padding-top:22px;margin-bottom:32px;">
+    <div style="font-size:11px;font-weight:700;color:#aaaaaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;">Big Picture</div>
+
+    <p style="margin:0 0 14px;line-height:1.7;"><strong>The demo era is ending; execution is the new moat.</strong> Across humanoid robots (Agility going public, GM Factory Zero), autonomous vehicles (Zoox's production design, global safety rules), and AI agents (all three frontier labs converging on OS-layer computer use), the industry is transitioning from "look what it can do" to "does it work at margin, at scale, for hours." Agility's SPAC will publish the first real humanoid unit economics. That data will be clarifying — and likely sobering for parts of the hype cycle.</p>
+
+    <p style="margin:0 0 14px;line-height:1.7;"><strong>The US government is now inside the frontier model release process.</strong> The GPT-5.6 slow-roll request, the Anthropic-Alibaba cloning letter to the Senate, and the post-quantum cryptography deadline all point to the same structural shift: Washington has moved from observer to active participant in AI governance, and the "voluntary commitments" framework that defined 2023–2024 is functionally over. How Anthropic and Google DeepMind respond to the OpenAI precedent will define whether this becomes a norm or a one-off.</p>
+
+    <p style="margin:0 0 14px;line-height:1.7;"><strong>The memory shortage is the most underrated macro story of the summer.</strong> Micron's $28.2B single-quarter profit, $100B in long-term supply agreements, Apple and Microsoft raising consumer hardware prices, and the CEO saying he has no idea when the crisis ends — this is not a transient dip. AI data center demand is consuming memory supply at a rate that's restructuring consumer hardware pricing across every category simultaneously. Any hardware roadmap for 2027 that doesn't build in a meaningful BOM buffer is being written with faulty assumptions.</p>
+
+    <p style="margin:0 0 0;line-height:1.7;"><strong>Smart glasses are the one hardware category moving in the right direction.</strong> Meta's $299 own-brand glasses, the EssilorLuxottica + Applied Materials supply deal, Qualcomm's Reality Elite chipset, and the 130,000-veteran accessibility program all converge on the same signal: the consumer-viable AI glasses category is being built from the supply chain up, not just announced from the stage. Vision Pro got more expensive; Meta Glasses got cheaper. The bifurcation between mass-market AI audio-and-camera glasses and high-end mixed reality is now structural, and the volume market is clearly at the $300 end.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="border-top:1px solid #e5e5e5;padding-top:16px;">
+    <p style="font-size:11px;color:#aaaaaa;margin:0;line-height:1.6;">Morning Brief &nbsp;·&nbsp; Week of June 22 – June 28, 2026 &nbsp;·&nbsp; AI-curated daily podcast &nbsp;·&nbsp; Subscribe: <a href="https://PhoenixJenn.github.io/morning-brief/feed.xml" style="color:#aaaaaa;">https://PhoenixJenn.github.io/morning-brief/feed.xml</a></p>
+  </div>
+
+</div>
+  </article>
+  <div class="post-nav">
+    <a href="index.html">← All Weekly Briefs</a>
+    <a href="../index.html">All Posts</a>
+  </div>
+  <div id="footer-mount"></div>
+  <div id="switcher-mount"></div>
+  <script src="../js/shared.js" data-base="../"></script>
+</body>
+</html>
