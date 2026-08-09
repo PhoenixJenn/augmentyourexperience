@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-05-31",
-    "note": "Anthropic verified 2026-05-25 via platform.claude.com. xAI/Mistral/Meta/DeepSeek/Google verified 2026-05-25. Alibaba/Qwen/Microsoft/Phi/Cohere: needs_update=true (no source provided yet).",
+    "last_updated": "2026-08-09",
+    "note": "Anthropic verified 2026-08-09 via platform.claude.com. OpenAI verified 2026-08-09 via developers.openai.com. Google/Mistral/DeepSeek partially verified 2026-08-09 (pricing TBD on some). xAI/Qwen: needs_update (source returned 403/empty). Cohere/Microsoft: needs_update.",
     "update_sources": {
       "Anthropic": "https://platform.claude.com/docs/en/about-claude/models/overview",
       "OpenAI": "https://developers.openai.com/api/docs/models",
@@ -10,17 +10,47 @@
       "xAI": "https://x.ai/api",
       "Mistral AI": "https://docs.mistral.ai/models",
       "Meta": "https://ai.meta.com/resources/models-and-libraries/",
-      "DeepSeek": "https://api-docs.deepseek.com/api/list-models",
+      "DeepSeek": "https://api-docs.deepseek.com/quick_start/pricing",
       "Alibaba (Qwen)": "https://qwen.ai/apiplatform#api_flagship_models"
     }
   },
   "models": [
     {
-      "id": "claude-opus-4",
+      "id": "claude-fable-5",
       "company": "Anthropic",
       "family": "Claude",
-      "version": "Opus 4.7",
-      "model_id": "claude-opus-4-7",
+      "version": "Fable 5",
+      "model_id": "claude-fable-5",
+      "type": "proprietary",
+      "tier": "$$$$",
+      "pricing": "$10 / $50 per MTok in/out",
+      "context_window": "1M",
+      "max_output": "128K",
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "long-running agents",
+        "next-generation intelligence",
+        "complex agentic workflows"
+      ],
+      "features": [
+        "adaptive thinking (always on)"
+      ],
+      "knowledge_cutoff": "Jan 2026",
+      "api": true,
+      "needs_update": false,
+      "news": "Anthropic's most capable model, GA June 9 2026. 'Next-generation intelligence for long-running agents.' Adaptive thinking always on, extended thinking no. $10/$50 per MTok. Shares specs with invite-only Mythos 5 (Project Glasswing). New naming convention: Fable replaces Opus as top-tier.",
+      "news_date": "2026-08-09"
+    },
+    {
+      "id": "claude-opus-5",
+      "company": "Anthropic",
+      "family": "Claude",
+      "version": "Opus 5",
+      "model_id": "claude-opus-5",
       "type": "proprietary",
       "tier": "$$$",
       "pricing": "$5 / $25 per MTok in/out",
@@ -32,31 +62,30 @@
         "code"
       ],
       "best_for": [
-        "complex reasoning",
-        "deep analysis",
-        "agentic coding",
-        "long-form writing"
+        "complex agentic coding",
+        "enterprise work",
+        "deep analysis"
       ],
       "features": [
         "adaptive thinking"
       ],
-      "knowledge_cutoff": "Jan 2026",
+      "knowledge_cutoff": "May 2026",
       "api": true,
       "needs_update": false,
-      "news": "Most capable GA model. Step-change improvement in agentic coding over Opus 4.6. 1M context window with new tokenizer. Adaptive thinking yes, extended thinking no.",
-      "news_date": "2026-05-25"
+      "news": "'For complex agentic coding and enterprise work.' Most current training data of any Claude model — May 2026 cutoff. Adaptive thinking yes, extended thinking no. Replaces Opus 4.7/4.8 as the $5/$25 workhorse. Default for Claude Code complex tasks.",
+      "news_date": "2026-08-09"
     },
     {
-      "id": "claude-sonnet-4",
+      "id": "claude-sonnet-5",
       "company": "Anthropic",
       "family": "Claude",
-      "version": "Sonnet 4.6",
-      "model_id": "claude-sonnet-4-6",
+      "version": "Sonnet 5",
+      "model_id": "claude-sonnet-5",
       "type": "proprietary",
       "tier": "$$",
-      "pricing": "$3 / $15 per MTok in/out",
+      "pricing": "$3 / $15 per MTok in/out (intro: $2 / $10 through Aug 31 2026)",
       "context_window": "1M",
-      "max_output": "64K",
+      "max_output": "128K",
       "modalities": [
         "text",
         "vision",
@@ -64,19 +93,17 @@
       ],
       "best_for": [
         "coding",
-        "analysis",
         "everyday tasks",
-        "Claude Code default"
+        "best speed/intelligence balance"
       ],
       "features": [
-        "extended thinking",
         "adaptive thinking"
       ],
-      "knowledge_cutoff": "Aug 2025",
+      "knowledge_cutoff": "Jan 2026",
       "api": true,
       "needs_update": false,
-      "news": "Best speed/intelligence balance. 1M context. Both extended thinking and adaptive thinking. Default model for Claude Code.",
-      "news_date": "2026-05-25"
+      "news": "'Best combination of speed and intelligence.' Intro pricing $2/$10 per MTok through Aug 31 2026, then $3/$15. Adaptive thinking yes, extended thinking no. 1M context, 128K output. Replaces Sonnet 4.6.",
+      "news_date": "2026-08-09"
     },
     {
       "id": "claude-haiku-4",
@@ -105,22 +132,23 @@
       "knowledge_cutoff": "Feb 2025",
       "api": true,
       "needs_update": false,
-      "news": "Fastest model with near-frontier intelligence. Extended thinking yes, adaptive thinking no.",
-      "news_date": "2026-05-25"
+      "news": "Still the current fast/budget tier — no Haiku 5 released yet. Extended thinking yes, adaptive thinking no. 200K context, 64K output.",
+      "news_date": "2026-08-09"
     },
     {
       "id": "claude-mythos",
       "company": "Anthropic",
       "family": "Claude",
-      "version": "Mythos Preview",
-      "model_id": "invite-only",
+      "version": "Mythos 5",
+      "model_id": "claude-mythos-5",
       "type": "proprietary",
-      "tier": "$$$",
-      "pricing": "invite-only",
-      "context_window": "TBD",
-      "max_output": "TBD",
+      "tier": "$$$$",
+      "pricing": "$10 / $50 per MTok in/out (invite-only)",
+      "context_window": "1M",
+      "max_output": "128K",
       "modalities": [
         "text",
+        "vision",
         "code"
       ],
       "best_for": [
@@ -128,24 +156,25 @@
         "red team / vulnerability research"
       ],
       "features": [
-        "Project Glasswing research preview"
+        "adaptive thinking (always on)",
+        "Project Glasswing"
       ],
-      "knowledge_cutoff": "TBD",
+      "knowledge_cutoff": "Jan 2026",
       "api": false,
       "needs_update": false,
-      "news": "Research preview via Project Glasswing. Invite-only, no self-serve. Focused on defensive cybersecurity workflows.",
-      "news_date": "2026-05-25"
+      "news": "Upgraded to Mythos 5 on June 9 2026. Same specs as Fable 5 ($10/$50, 1M context, 128K output). Invite-only via Project Glasswing for approved customers focused on defensive cybersecurity. Contact Anthropic, AWS, or Google Cloud account team for access.",
+      "news_date": "2026-08-09"
     },
     {
-      "id": "gpt-5-5",
+      "id": "gpt-5-6-sol",
       "company": "OpenAI",
-      "family": "GPT-5",
-      "version": "GPT-5.5",
-      "model_id": "gpt-5.5",
+      "family": "GPT-5.6",
+      "version": "GPT-5.6 Sol",
+      "model_id": "gpt-5.6-sol",
       "type": "proprietary",
       "tier": "$$$",
       "pricing": "$5 / $30 per MTok in/out",
-      "context_window": "1M",
+      "context_window": "1.05M",
       "max_output": "128K",
       "modalities": [
         "text",
@@ -155,25 +184,31 @@
       ],
       "best_for": [
         "flagship coding",
-        "professional work",
+        "complex professional work",
         "complex reasoning"
       ],
-      "knowledge_cutoff": "Dec 2025",
+      "features": [
+        "functions",
+        "web search",
+        "file search",
+        "computer use"
+      ],
+      "knowledge_cutoff": "Feb 2026",
       "api": true,
       "needs_update": false,
-      "news": "Flagship GPT-5 model. 'New class of intelligence for coding and professional work.' 1M context, 128K output. $5/$30 per MTok. Cutoff Dec 2025.",
-      "news_date": "2026-05-31"
+      "news": "Current OpenAI flagship. 'Frontier model for complex professional work.' 1.05M context, 128K output. Replaces GPT-5.5. $5/$30 per MTok. Cutoff Feb 2026. Named tier: Sol (flagship) / Terra (mid) / Luna (budget).",
+      "news_date": "2026-08-09"
     },
     {
-      "id": "gpt-5-4",
+      "id": "gpt-5-6-terra",
       "company": "OpenAI",
-      "family": "GPT-5",
-      "version": "GPT-5.4",
-      "model_id": "gpt-5.4",
+      "family": "GPT-5.6",
+      "version": "GPT-5.6 Terra",
+      "model_id": "gpt-5.6-terra",
       "type": "proprietary",
       "tier": "$$",
-      "pricing": "$2.50 / $15 per MTok in/out",
-      "context_window": "1M",
+      "pricing": "$2 / $12 per MTok in/out",
+      "context_window": "1.05M",
       "max_output": "128K",
       "modalities": [
         "text",
@@ -182,25 +217,31 @@
         "audio"
       ],
       "best_for": [
-        "professional applications",
-        "balanced cost/capability"
+        "balanced cost/capability",
+        "professional applications"
       ],
-      "knowledge_cutoff": "Aug 2025",
+      "features": [
+        "functions",
+        "web search",
+        "file search",
+        "computer use"
+      ],
+      "knowledge_cutoff": "Feb 2026",
       "api": true,
       "needs_update": false,
-      "news": "Mid-tier GPT-5 family. 1M context, 128K output. $2.50/$15 per MTok. Cutoff Aug 2025.",
-      "news_date": "2026-05-31"
+      "news": "Mid-tier GPT-5.6. 'Balances intelligence with cost efficiency.' 1.05M context, 128K output. $2/$12 per MTok. Replaces GPT-5.4.",
+      "news_date": "2026-08-09"
     },
     {
-      "id": "gpt-5-4-mini",
+      "id": "gpt-5-6-luna",
       "company": "OpenAI",
-      "family": "GPT-5",
-      "version": "GPT-5.4 mini",
-      "model_id": "gpt-5.4-mini",
+      "family": "GPT-5.6",
+      "version": "GPT-5.6 Luna",
+      "model_id": "gpt-5.6-luna",
       "type": "proprietary",
       "tier": "$",
-      "pricing": "$0.75 / $4.50 per MTok in/out",
-      "context_window": "400K",
+      "pricing": "$0.20 / $1.20 per MTok in/out",
+      "context_window": "1.05M",
       "max_output": "128K",
       "modalities": [
         "text",
@@ -209,15 +250,21 @@
       ],
       "best_for": [
         "high-volume tasks",
+        "cost-sensitive workloads",
         "coding agents",
-        "computer use",
         "subagents"
       ],
-      "knowledge_cutoff": "Aug 2025",
+      "features": [
+        "functions",
+        "web search",
+        "file search",
+        "computer use"
+      ],
+      "knowledge_cutoff": "Feb 2026",
       "api": true,
       "needs_update": false,
-      "news": "'Strongest mini model yet for coding, computer use, and subagents.' 400K context, 128K output. $0.75/$4.50 per MTok. Cutoff Aug 2025.",
-      "news_date": "2026-05-31"
+      "news": "Budget GPT-5.6. 'Optimized for cost-sensitive workloads.' 1.05M context, 128K output. $0.20/$1.20 per MTok — frontier-class at micro-budget pricing. Replaces GPT-5.4 mini.",
+      "news_date": "2026-08-09"
     },
     {
       "id": "gemini-3-5-flash",
@@ -241,43 +288,16 @@
         "sustained frontier performance"
       ],
       "api": true,
-      "needs_update": false,
-      "news": "Stable. 'Most intelligent model for sustained frontier performance on agentic and coding tasks.' Production-ready.",
-      "news_date": "2026-05-25"
+      "needs_update": true,
+      "news": "Gemini 3.5 is the current stable frontier family. 'Combining frontier intelligence with action.' Gemini 3.6 Flash also appeared July 2026 as a speed/efficiency tier. Pricing and context window TBD — needs verification.",
+      "news_date": "2026-08-09"
     },
     {
-      "id": "gemini-3-1-pro",
+      "id": "gemini-3-6-flash",
       "company": "Google DeepMind",
       "family": "Gemini 3",
-      "version": "3.1 Pro",
-      "model_id": "gemini-3.1-pro-preview",
-      "type": "proprietary",
-      "tier": "$$$",
-      "pricing": "TBD",
-      "context_window": "TBD",
-      "modalities": [
-        "text",
-        "vision",
-        "code",
-        "audio"
-      ],
-      "best_for": [
-        "complex problem-solving",
-        "advanced reasoning",
-        "vibe coding",
-        "agentic workflows"
-      ],
-      "api": true,
-      "needs_update": false,
-      "news": "Preview. 'Advanced intelligence, complex problem-solving, powerful agentic and vibe coding.' Not yet stable.",
-      "news_date": "2026-05-25"
-    },
-    {
-      "id": "gemini-3-flash",
-      "company": "Google DeepMind",
-      "family": "Gemini 3",
-      "version": "3 Flash",
-      "model_id": "gemini-3-flash-preview",
+      "version": "3.6 Flash",
+      "model_id": "gemini-3.6-flash",
       "type": "proprietary",
       "tier": "$",
       "pricing": "TBD",
@@ -289,39 +309,14 @@
         "audio"
       ],
       "best_for": [
-        "cost-efficient tasks",
-        "high-volume",
-        "budget frontier performance"
+        "speed-optimized tasks",
+        "cost-efficient high-volume",
+        "budget frontier"
       ],
       "api": true,
-      "needs_update": false,
-      "news": "Preview. 'Frontier-class performance rivaling larger models at a fraction of the cost.'",
-      "news_date": "2026-05-25"
-    },
-    {
-      "id": "gemini-3-1-flash-lite",
-      "company": "Google DeepMind",
-      "family": "Gemini 3",
-      "version": "3.1 Flash-Lite",
-      "model_id": "gemini-3.1-flash-lite",
-      "type": "proprietary",
-      "tier": "$",
-      "pricing": "TBD",
-      "context_window": "TBD",
-      "modalities": [
-        "text",
-        "vision",
-        "code"
-      ],
-      "best_for": [
-        "budget tasks",
-        "edge/lightweight deployments",
-        "high-volume pipelines"
-      ],
-      "api": true,
-      "needs_update": false,
-      "news": "Stable + Preview. Budget-friendly with performance comparable to larger models. Most affordable Gemini option.",
-      "news_date": "2026-05-25"
+      "needs_update": true,
+      "news": "Introduced July 2026. 'Enhanced speed and efficiency tier.' Specs and pricing TBD — needs verification from Google AI Studio.",
+      "news_date": "2026-08-09"
     },
     {
       "id": "gemini-omni",
@@ -348,8 +343,33 @@
       ],
       "api": false,
       "needs_update": false,
-      "news": "'Create anything from anything — leap in world understanding, multimodality, and editing.' Available via Gemini app and Google Flow.",
-      "news_date": "2026-05-25"
+      "news": "'Create anything from anything — leap in world understanding, multimodality, and editing.' Available via Gemini app and Google Flow. Not in the API.",
+      "news_date": "2026-08-09"
+    },
+    {
+      "id": "gemma-4",
+      "company": "Google DeepMind",
+      "family": "Gemma",
+      "version": "Gemma 4 (31B)",
+      "model_id": "gemma-4",
+      "type": "open-source",
+      "tier": "free",
+      "context_window": "TBD",
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "on-device",
+        "lightweight deployment",
+        "fine-tuning",
+        "intelligence-per-parameter efficiency"
+      ],
+      "api": false,
+      "needs_update": false,
+      "news": "'Our most intelligent open models, built to maximize intelligence-per-parameter.' 31B params. Available on Google AI Studio.",
+      "news_date": "2026-08-09"
     },
     {
       "id": "grok-4-3",
@@ -380,9 +400,34 @@
       ],
       "knowledge_cutoff": "Nov 2024",
       "api": true,
-      "needs_update": false,
-      "news": "Grok 3 retired May 15. Grok 4.3 is the current flagship: 1M context, adjustable reasoning effort (low/high), multi-agent support, vision input. $1.25/$2.50 per MTok; cached input $0.20 (84% discount).",
-      "news_date": "2026-05-25"
+      "needs_update": true,
+      "news": "Data from May 2026. xAI API returned 403 on 2026-08-09 — unable to verify if Grok has been updated. Last known: flagship Grok 4.3, 1M context, $1.25/$2.50 per MTok. Needs re-verification.",
+      "news_date": "2026-08-09"
+    },
+    {
+      "id": "mistral-medium-3-5",
+      "company": "Mistral AI",
+      "family": "Mistral",
+      "version": "Medium 3.5",
+      "model_id": "mistral-medium-3-5",
+      "type": "proprietary",
+      "tier": "$$",
+      "pricing": "TBD",
+      "context_window": "TBD",
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "agentic tasks",
+        "coding",
+        "frontier multimodal"
+      ],
+      "api": true,
+      "needs_update": true,
+      "news": "Mistral's new frontier multimodal flagship (v26.04). 'Frontier-class multimodal model optimized for agentic and coding use cases.' Pricing and context TBD — needs verification.",
+      "news_date": "2026-08-09"
     },
     {
       "id": "mistral-large-3",
@@ -411,8 +456,8 @@
       ],
       "api": true,
       "needs_update": false,
-      "news": "Mistral Large 3 (v25.12): 256K context, $0.50/$1.50 per MTok — very cheap for frontier class. Open-weight under Modified MIT. Also notable: Devstral 2 (code agent, 262K, currently free API) and Magistral Medium 1.2 (reasoning, $2/$5 per MTok).",
-      "news_date": "2026-05-25"
+      "news": "Mistral Large 3 (v25.12) still available. Now joined by Medium 3.5 (new frontier multimodal, v26.04) and Small 4 (new hybrid instruct/reasoning/coding, v26.03). Also: Voxtral audio family, Codestral v25.08, OCR 4, Leanstral 1.5 (theorem proving). Pricing on new models TBD.",
+      "news_date": "2026-08-09"
     },
     {
       "id": "command-r-plus",
@@ -464,9 +509,9 @@
       ],
       "knowledge_cutoff": "Early 2025",
       "api": false,
-      "needs_update": false,
-      "news": "Llama 4 released Apr 2025. Scout (17B active/109B total, 10M context, single H100) and Maverick (17B active/400B total, 1M context, $0.19/Mtok cloud). Both natively multimodal: text+image+video. Llama 4 Behemoth (2T params) delayed to fall 2026 amid capability review.",
-      "news_date": "2026-05-25"
+      "needs_update": true,
+      "news": "Llama 4 Scout and Maverick released Apr 2025. Llama 4 Behemoth (2T params) was delayed to fall 2026 — status unconfirmed as of Aug 2026. Meta's models page wasn't detailed enough to verify current state. Needs re-check.",
+      "news_date": "2026-08-09"
     },
     {
       "id": "llama-3-3",
@@ -518,8 +563,8 @@
       ],
       "api": true,
       "needs_update": false,
-      "news": "V4 Flash is the current fast/cheap model: 1M context, 384K max output, $0.14/$0.28 per MTok. Supports thinking and non-thinking modes. deepseek-chat alias deprecated.",
-      "news_date": "2026-05-25"
+      "news": "Updated to DeepSeek-V4-Flash-0731 (July 31 2026). Fast/cheap model: 1M context, 384K max output. Pricing unchanged at $0.14/$0.28 per MTok — verify on next check.",
+      "news_date": "2026-08-09"
     },
     {
       "id": "deepseek-v4-pro",
@@ -548,8 +593,8 @@
       ],
       "api": true,
       "needs_update": false,
-      "news": "V4 Pro is the premium reasoning model: 1M context, 384K output. deepseek-reasoner alias deprecated. Standard pricing $1.74/$3.48 per MTok (75% promo ended May 31 2026).",
-      "news_date": "2026-05-31"
+      "news": "Premium reasoning model. 1M context, 384K output. $1.74/$3.48 per MTok (75% promo ended May 31 2026). deepseek-reasoner alias deprecated.",
+      "news_date": "2026-08-09"
     },
     {
       "id": "qwen-3-7-max",
@@ -578,9 +623,9 @@
         "chain-of-thought"
       ],
       "api": true,
-      "needs_update": false,
-      "news": "Qwen family has jumped from 2.5 to 3.7. Flagship Qwen3.7-Max (announced May 20, 2026): 1M context, $2.50/$7.50, native thinking, 97.1 on HMMT 2026. Open-weight Qwen3-235B-A22B (Apache 2.0) also available. Budget option: Qwen3.6-Plus at $0.33/$1.95 with 1M context + multimodal.",
-      "news_date": "2026-05-25"
+      "needs_update": true,
+      "news": "Data from May 2026. Qwen API page returned empty on 2026-08-09 — unable to verify current lineup. Last known: Qwen3.7-Max ($2.50/$7.50), open-weight Qwen3-235B-A22B (Apache 2.0), budget Qwen3.6-Plus. Needs re-verification.",
+      "news_date": "2026-08-09"
     },
     {
       "id": "phi-4",
@@ -602,31 +647,6 @@
       "api": false,
       "needs_update": true,
       "news": "",
-      "news_date": "2026-05-25"
-    },
-    {
-      "id": "gemma-4",
-      "company": "Google DeepMind",
-      "family": "Gemma",
-      "version": "Gemma 4",
-      "model_id": "gemma-4",
-      "type": "open-source",
-      "tier": "free",
-      "context_window": "TBD",
-      "modalities": [
-        "text",
-        "vision",
-        "code"
-      ],
-      "best_for": [
-        "on-device",
-        "lightweight deployment",
-        "fine-tuning",
-        "intelligence-per-parameter efficiency"
-      ],
-      "api": false,
-      "needs_update": false,
-      "news": "'Most intelligent open models, built to maximize intelligence-per-parameter.' Available on Google AI Studio.",
       "news_date": "2026-05-25"
     },
     {
