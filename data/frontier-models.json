@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-08-09",
-    "note": "Anthropic verified 2026-08-09 via platform.claude.com. OpenAI verified 2026-08-09 via developers.openai.com. Google/Mistral/DeepSeek partially verified 2026-08-09 (pricing TBD on some). xAI/Qwen: needs_update (source returned 403/empty). Cohere/Microsoft: needs_update.",
+    "last_updated": "2026-08-24",
+    "note": "Anthropic re-verified 2026-08-24 via platform.claude.com — lineup unchanged since 08-09. OpenAI re-verified 2026-08-24 — GPT-5.6 Sol price dropped ($5/$30 -> $4/$20). Google: new Gemini 3.7 Flash spotted as featured/flagship, supersedes 3.5/3.6 Flash as 'most intelligent workhorse'; specs still TBD. DeepSeek: pricing restructured to peak/off-peak + cache-hit/miss tiers, new deepseek-v4-flash-vision-exp spotted. Mistral unchanged, still TBD pricing. xAI/Qwen/Meta: still needs_update (403/empty/shallow page on 2026-08-24 re-check). Cohere/Microsoft: needs_update.",
     "update_sources": {
       "Anthropic": "https://platform.claude.com/docs/en/about-claude/models/overview",
       "OpenAI": "https://developers.openai.com/api/docs/models",
@@ -173,7 +173,7 @@
       "model_id": "gpt-5.6-sol",
       "type": "proprietary",
       "tier": "$$$",
-      "pricing": "$5 / $30 per MTok in/out",
+      "pricing": "$4 / $20 per MTok in/out",
       "context_window": "1.05M",
       "max_output": "128K",
       "modalities": [
@@ -193,11 +193,11 @@
         "file search",
         "computer use"
       ],
-      "knowledge_cutoff": "Feb 2026",
+      "knowledge_cutoff": "Feb 16, 2026",
       "api": true,
       "needs_update": false,
-      "news": "Current OpenAI flagship. 'Frontier model for complex professional work.' 1.05M context, 128K output. Replaces GPT-5.5. $5/$30 per MTok. Cutoff Feb 2026. Named tier: Sol (flagship) / Terra (mid) / Luna (budget).",
-      "news_date": "2026-08-09"
+      "news": "Price cut 2026-08-24: $5/$30 -> $4/$20 per MTok. Still current OpenAI flagship, 1.05M context, 128K output. Cutoff refined to Feb 16, 2026. Named tier: Sol (flagship) / Terra (mid) / Luna (budget).",
+      "news_date": "2026-08-24"
     },
     {
       "id": "gpt-5-6-terra",
@@ -267,6 +267,32 @@
       "news_date": "2026-08-09"
     },
     {
+      "id": "gemini-3-7-flash",
+      "company": "Google DeepMind",
+      "family": "Gemini 3",
+      "version": "3.7 Flash",
+      "model_id": "gemini-3.7-flash",
+      "type": "proprietary",
+      "tier": "$$",
+      "pricing": "TBD",
+      "context_window": "TBD",
+      "modalities": [
+        "text",
+        "vision",
+        "code",
+        "audio"
+      ],
+      "best_for": [
+        "coding",
+        "agentic workflows",
+        "current flagship workhorse"
+      ],
+      "api": true,
+      "needs_update": true,
+      "news": "Spotted 2026-08-24 as Google's new featured model: 'our most intelligent workhorse model yet for coding and agents.' Appears to supersede 3.5/3.6 Flash as the flagship. Available via Gemini app, AI Studio, Antigravity, Enterprise Agent Platform. Pricing and context window TBD — needs verification on next check.",
+      "news_date": "2026-08-24"
+    },
+    {
       "id": "gemini-3-5-flash",
       "company": "Google DeepMind",
       "family": "Gemini 3",
@@ -289,8 +315,8 @@
       ],
       "api": true,
       "needs_update": true,
-      "news": "Gemini 3.5 is the current stable frontier family. 'Combining frontier intelligence with action.' Gemini 3.6 Flash also appeared July 2026 as a speed/efficiency tier. Pricing and context window TBD — needs verification.",
-      "news_date": "2026-08-09"
+      "news": "Likely superseded 2026-08-24 by new Gemini 3.7 Flash (see gemini-3-7-flash), which is now Google's featured/flagship model. Still listed as available as of last check. Pricing and context window TBD — needs verification.",
+      "news_date": "2026-08-24"
     },
     {
       "id": "gemini-3-6-flash",
@@ -543,7 +569,7 @@
       "model_id": "deepseek-v4-flash",
       "type": "open-source",
       "tier": "$",
-      "pricing": "$0.14 / $0.28 per MTok in/out",
+      "pricing": "Cache hit $0.007/$0.014, cache miss $0.22/$0.44, output $0.66/$1.32 per MTok (off-peak/peak)",
       "context_window": "1M",
       "max_output": "384K",
       "modalities": [
@@ -563,8 +589,8 @@
       ],
       "api": true,
       "needs_update": false,
-      "news": "Updated to DeepSeek-V4-Flash-0731 (July 31 2026). Fast/cheap model: 1M context, 384K max output. Pricing unchanged at $0.14/$0.28 per MTok — verify on next check.",
-      "news_date": "2026-08-09"
+      "news": "Pricing restructured 2026-08-24 to peak/off-peak tiers (peak = 01:00-04:00 & 06:00-10:00 UTC Mon-Fri, off-peak = half price) plus cache-hit/cache-miss input rates — no longer a single flat $/MTok. 1M context, 384K max output unchanged. New sibling deepseek-v4-flash-vision-exp also spotted (images billed as input tokens).",
+      "news_date": "2026-08-24"
     },
     {
       "id": "deepseek-v4-pro",
@@ -574,7 +600,7 @@
       "model_id": "deepseek-v4-pro",
       "type": "open-source",
       "tier": "$",
-      "pricing": "$1.74 / $3.48 per MTok in/out",
+      "pricing": "Cache hit $0.022/$0.044, cache miss $0.66/$1.32, output $1.98/$3.96 per MTok (off-peak/peak)",
       "context_window": "1M",
       "max_output": "384K",
       "modalities": [
@@ -593,8 +619,8 @@
       ],
       "api": true,
       "needs_update": false,
-      "news": "Premium reasoning model. 1M context, 384K output. $1.74/$3.48 per MTok (75% promo ended May 31 2026). deepseek-reasoner alias deprecated.",
-      "news_date": "2026-08-09"
+      "news": "Pricing restructured 2026-08-24 to the same peak/off-peak + cache-hit/miss model as V4 Flash (see that entry for the peak-hours definition). 1M context, 384K output unchanged.",
+      "news_date": "2026-08-24"
     },
     {
       "id": "qwen-3-7-max",
