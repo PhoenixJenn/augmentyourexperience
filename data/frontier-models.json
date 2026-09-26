@@ -1,17 +1,17 @@
 {
   "meta": {
     "last_updated": "2026-09-26",
-    "note": "Refreshed 2026-09-26 after ~1 month lapse. Google: new Gemini 3.8 Flash confirmed as flagship (1M in/64K out context; pricing TBD), superseding 3.5/3.6/3.7 Flash. xAI: Grok 4.7 confirmed as new flagship (500K context, tiered pricing), superseding Grok 4.3 — API docs (docs.x.ai) accessible again after prior 403s. Mistral: Medium 3.5 pricing confirmed ($1.50/$7.50/MTok), context window still unpublished. Meta: Llama 4 (Scout/Maverick) re-confirmed as current flagship, no Llama 5. Alibaba/Qwen: catalog shows qwen3.8-max replacing qwen3.7-max, but pricing/context unconfirmed — still needs_update. Cohere (Command R+) and Microsoft (Phi-4) skipped this pass — no source URL yet, still needs_update. Follow-up 2026-09-26: confirmed Qwen3.8-Max pricing/specs via alibabacloud.com/en/campaign/qwen-ai-landing-page (Jenn-provided link) — no longer stale.",
+    "note": "Refreshed 2026-09-26 after ~1 month lapse. Google: new Gemini 3.8 Flash confirmed as flagship (1M in/64K out context; pricing TBD), superseding 3.5/3.6/3.7 Flash. xAI: Grok 4.7 confirmed as new flagship (500K context, tiered pricing), superseding Grok 4.3 — API docs (docs.x.ai) accessible again after prior 403s. Mistral: Medium 3.5 pricing confirmed ($1.50/$7.50/MTok), context window still unpublished. Meta: Llama 4 (Scout/Maverick) re-confirmed as current flagship, no Llama 5. Alibaba/Qwen: catalog shows qwen3.8-max replacing qwen3.7-max, but pricing/context unconfirmed — still needs_update. Cohere (Command R+) and Microsoft (Phi-4) skipped this pass — no source URL yet, still needs_update. Follow-up 2026-09-26: confirmed Qwen3.8-Max pricing/specs via alibabacloud.com/en/campaign/qwen-ai-landing-page (Jenn-provided link) — no longer stale. Weekly refresh 2026-09-26: Anthropic released two new flagships — Claude Fable 5.1 supersedes Fable 5 (same $10/$50 pricing, knowledge cutoff pushed to Jun 2026) and Claude Opus 5.5 supersedes Opus 5 (price cut $5/$25 -> $4/$20, cutoff pushed to Jun 2026, now Anthropic's recommended default for most workloads). Claude Sonnet 5's prior 'intro pricing through Aug 31 2026' ($2/$10) now appears to be the standing price — no reversion to $3/$15 shown. Haiku 4.5 re-verified, unchanged. A pricing-page footnote referenced 'Claude Mythos 5.1' but no dedicated Mythos page was reachable to confirm specs, so that entry stays flagged needs_update. All other vendor sources (OpenAI, Google DeepMind, xAI, Mistral, Meta, DeepSeek, Alibaba/Qwen) were unreachable this run: every one of those 7 domains returned EGRESS_BLOCKED under this session's network egress policy (an org-level restriction, not a site outage), so those entries were left untouched pending a session with the needed network access. Cohere and Microsoft/Phi still skipped (no confirmed official source).",
     "update_sources": {
       "Anthropic": "https://platform.claude.com/docs/en/about-claude/models/overview",
       "OpenAI": "https://developers.openai.com/api/docs/models",
-      "Google DeepMind (products)": "https://deepmind.google/models/",
-      "Google DeepMind (model cards)": "https://deepmind.google/models/model-cards/",
-      "xAI": "https://x.ai/api",
-      "Mistral AI": "https://docs.mistral.ai/models",
-      "Meta": "https://ai.meta.com/resources/models-and-libraries/",
+      "Google DeepMind (releases)": "https://deepmind.google/models/model-cards/",
+      "Google DeepMind (context specs)": "https://deepmind.google/models/gemini/flash/",
+      "xAI": "https://docs.x.ai/docs/models",
+      "Mistral AI": "https://mistral.ai/pricing/api",
+      "Meta": "https://dev.meta.ai/llama/",
       "DeepSeek": "https://api-docs.deepseek.com/quick_start/pricing",
-      "Alibaba (Qwen)": "https://qwen.ai/apiplatform#api_flagship_models"
+      "Alibaba (Qwen)": "https://www.alibabacloud.com/en/campaign/qwen-ai-landing-page"
     }
   },
   "models": [
@@ -42,8 +42,39 @@
       "knowledge_cutoff": "Jan 2026",
       "api": true,
       "needs_update": false,
-      "news": "Anthropic's most capable model, GA June 9 2026. 'Next-generation intelligence for long-running agents.' Adaptive thinking always on, extended thinking no. $10/$50 per MTok. Shares specs with invite-only Mythos 5 (Project Glasswing). New naming convention: Fable replaces Opus as top-tier.",
-      "news_date": "2026-08-09"
+      "news": "Superseded by Claude Fable 5.1 (see claude-fable-5-1), confirmed via platform.claude.com model comparison table 2026-09-26. Fable 5 remains listed as a legacy model, still available. Retained here for historical record.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "claude-fable-5-1",
+      "company": "Anthropic",
+      "family": "Claude",
+      "version": "Fable 5.1",
+      "model_id": "claude-fable-5-1",
+      "type": "proprietary",
+      "tier": "$$$$",
+      "pricing": "$10 / $50 per MTok in/out",
+      "context_window": "1M",
+      "max_output": "128K",
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "demanding reasoning",
+        "long-horizon agentic work",
+        "evals that still fall short on Opus 5.5"
+      ],
+      "features": [
+        "adaptive thinking (always on)",
+        "default effort: high"
+      ],
+      "knowledge_cutoff": "Jun 2026",
+      "api": true,
+      "needs_update": false,
+      "news": "New Anthropic flagship, supersedes Fable 5. 'For demanding reasoning and long-horizon agentic work.' Same $10/$50 per MTok pricing as Fable 5, but knowledge cutoff pushed to Jun 2026 (from Jan 2026). Adaptive thinking always on, default effort high, 1M context, 128K output. Retirement not sooner than Sept 1 2027.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "claude-opus-5",
@@ -72,8 +103,39 @@
       "knowledge_cutoff": "May 2026",
       "api": true,
       "needs_update": false,
-      "news": "'For complex agentic coding and enterprise work.' Most current training data of any Claude model — May 2026 cutoff. Adaptive thinking yes, extended thinking no. Replaces Opus 4.7/4.8 as the $5/$25 workhorse. Default for Claude Code complex tasks.",
-      "news_date": "2026-08-09"
+      "news": "Superseded by Claude Opus 5.5 (see claude-opus-5-5), confirmed via platform.claude.com model comparison table 2026-09-26. Opus 5 remains listed as a legacy model, still available. Retained here for historical record.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "claude-opus-5-5",
+      "company": "Anthropic",
+      "family": "Claude",
+      "version": "Opus 5.5",
+      "model_id": "claude-opus-5-5",
+      "type": "proprietary",
+      "tier": "$$$",
+      "pricing": "$4 / $20 per MTok in/out",
+      "context_window": "1M",
+      "max_output": "128K",
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "long-running agentic coding",
+        "knowledge work",
+        "recommended default for most workloads"
+      ],
+      "features": [
+        "adaptive thinking (always on)",
+        "default effort: medium"
+      ],
+      "knowledge_cutoff": "Jun 2026",
+      "api": true,
+      "needs_update": false,
+      "news": "New Anthropic flagship, supersedes Opus 5. 'For long-running agentic coding and knowledge work.' Price cut to $4/$20 per MTok (from Opus 5's $5/$25). Knowledge cutoff pushed to Jun 2026. Adaptive thinking now always on, default effort medium, 1M context, 128K output. Anthropic's docs now recommend starting with Opus 5.5 for most workloads. Retirement not sooner than Sept 22 2027.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "claude-sonnet-5",
@@ -83,7 +145,7 @@
       "model_id": "claude-sonnet-5",
       "type": "proprietary",
       "tier": "$$",
-      "pricing": "$3 / $15 per MTok in/out (intro: $2 / $10 through Aug 31 2026)",
+      "pricing": "$2 / $10 per MTok in/out",
       "context_window": "1M",
       "max_output": "128K",
       "modalities": [
@@ -102,8 +164,8 @@
       "knowledge_cutoff": "Jan 2026",
       "api": true,
       "needs_update": false,
-      "news": "'Best combination of speed and intelligence.' Intro pricing $2/$10 per MTok through Aug 31 2026, then $3/$15. Adaptive thinking yes, extended thinking no. 1M context, 128K output. Replaces Sonnet 4.6.",
-      "news_date": "2026-08-09"
+      "news": "Re-verified 2026-09-26 via platform.claude.com model comparison table: pricing now listed flatly as $2/$10 per MTok in/out, with no mention of the prior 'intro pricing through Aug 31 2026' or a scheduled reversion to $3/$15 — the intro rate appears to have become the standing price. Still 'the best combination of speed and intelligence,' 1M context, 128K output, adaptive thinking, default effort high, Jan 2026 cutoff. Retirement not sooner than June 30 2027.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "claude-haiku-4",
@@ -132,8 +194,8 @@
       "knowledge_cutoff": "Feb 2025",
       "api": true,
       "needs_update": false,
-      "news": "Still the current fast/budget tier — no Haiku 5 released yet. Extended thinking yes, adaptive thinking no. 200K context, 64K output.",
-      "news_date": "2026-08-09"
+      "news": "Re-verified 2026-09-26 via platform.claude.com — no changes. Still the current fast/budget tier, no Haiku 5 released yet. $1/$5 per MTok, 200K context, 64K output, extended thinking (not adaptive), Feb 2025 cutoff. Retirement not sooner than Oct 15 2026.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "claude-mythos",
@@ -161,8 +223,8 @@
       ],
       "knowledge_cutoff": "Jan 2026",
       "api": false,
-      "needs_update": false,
-      "news": "Upgraded to Mythos 5 on June 9 2026. Same specs as Fable 5 ($10/$50, 1M context, 128K output). Invite-only via Project Glasswing for approved customers focused on defensive cybersecurity. Contact Anthropic, AWS, or Google Cloud account team for access.",
+      "needs_update": true,
+      "news": "Upgraded to Mythos 5 on June 9 2026. Same specs as Fable 5 ($10/$50, 1M context, 128K output). Invite-only via Project Glasswing for approved customers focused on defensive cybersecurity. Contact Anthropic, AWS, or Google Cloud account team for access. FLAG 2026-09-26: platform.claude.com's pricing footnote now references 'Claude Mythos 5.1' (alongside Fable 5.1) for prompt-cache discount rates, suggesting Mythos has also been bumped from 5 to 5.1 in step with Fable — but no dedicated Mythos model page was reachable to confirm exact pricing/context/cutoff. Spec fields left as last-confirmed (Mythos 5) pending verification.",
       "news_date": "2026-08-09"
     },
     {
