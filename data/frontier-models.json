@@ -1,7 +1,7 @@
 {
   "meta": {
     "last_updated": "2026-09-26",
-    "note": "Refreshed 2026-09-26 after ~1 month lapse. Google: new Gemini 3.8 Flash confirmed as flagship (1M in/64K out context; pricing TBD), superseding 3.5/3.6/3.7 Flash. xAI: Grok 4.7 confirmed as new flagship (500K context, tiered pricing), superseding Grok 4.3 — API docs (docs.x.ai) accessible again after prior 403s. Mistral: Medium 3.5 pricing confirmed ($1.50/$7.50/MTok), context window still unpublished. Meta: Llama 4 (Scout/Maverick) re-confirmed as current flagship, no Llama 5. Alibaba/Qwen: catalog shows qwen3.8-max replacing qwen3.7-max, but pricing/context unconfirmed — still needs_update. Cohere (Command R+) and Microsoft (Phi-4) skipped this pass — no source URL yet, still needs_update.",
+    "note": "Refreshed 2026-09-26 after ~1 month lapse. Google: new Gemini 3.8 Flash confirmed as flagship (1M in/64K out context; pricing TBD), superseding 3.5/3.6/3.7 Flash. xAI: Grok 4.7 confirmed as new flagship (500K context, tiered pricing), superseding Grok 4.3 — API docs (docs.x.ai) accessible again after prior 403s. Mistral: Medium 3.5 pricing confirmed ($1.50/$7.50/MTok), context window still unpublished. Meta: Llama 4 (Scout/Maverick) re-confirmed as current flagship, no Llama 5. Alibaba/Qwen: catalog shows qwen3.8-max replacing qwen3.7-max, but pricing/context unconfirmed — still needs_update. Cohere (Command R+) and Microsoft (Phi-4) skipped this pass — no source URL yet, still needs_update. Follow-up 2026-09-26: confirmed Qwen3.8-Max pricing/specs via alibabacloud.com/en/campaign/qwen-ai-landing-page (Jenn-provided link) — no longer stale.",
     "update_sources": {
       "Anthropic": "https://platform.claude.com/docs/en/about-claude/models/overview",
       "OpenAI": "https://developers.openai.com/api/docs/models",
@@ -650,34 +650,35 @@
       "news_date": "2026-08-24"
     },
     {
-      "id": "qwen-3-7-max",
+      "id": "qwen-3-8-max",
       "company": "Alibaba",
       "family": "Qwen",
-      "version": "Qwen 3.7 Max",
-      "model_id": "qwen3.7-max",
+      "version": "Qwen 3.8 Max",
+      "model_id": "qwen3.8-max",
       "type": "proprietary",
       "tier": "$$$",
-      "pricing": "$2.50 / $7.50 per MTok in/out",
+      "pricing": "$2.00 / $6.00 per MTok in/out",
       "context_window": "1M",
-      "max_output": "65K",
+      "max_output": "128K",
       "modalities": [
         "text",
         "code"
       ],
       "best_for": [
+        "coding and professional work",
+        "autonomous project execution over extended timeframes",
         "multilingual (201 languages)",
-        "long-context QA",
-        "extended reasoning",
         "frontier-class tasks"
       ],
       "features": [
+        "2.4T-parameter MoE",
         "thinking mode default",
         "Anthropic Messages protocol support",
         "chain-of-thought"
       ],
       "api": true,
-      "needs_update": true,
-      "news": "Partially re-verified 2026-09-26: Alibaba Cloud Model Studio's current text-generation catalog lists 'qwen3.8-max' and 'qwen3.7-plus' — no entry called 'qwen3.7-max' remains, suggesting the flagship moved to Qwen3.8-Max. Could not confirm pricing or context window for the new model via public docs (Model Studio console pages 404'd on fetch) — needs manual check of the Model Plaza console or a pricing page link from Jenn.",
+      "needs_update": false,
+      "news": "Re-verified 2026-09-26 via alibabacloud.com/campaign/qwen-ai-landing-page: Qwen3.8-Max is now the flagship, superseding Qwen3.7-Max. 2.4T-parameter MoE, 'comprehensive leap in coding and professional work.' Pricing dropped to $2/$6 per MTok in/out (from 3.7-Max's $2.50/$7.50); context window still 1M but max output rose to 128K (from 65K).",
       "news_date": "2026-09-26"
     },
     {
