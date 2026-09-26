@@ -1,7 +1,7 @@
 {
   "meta": {
     "last_updated": "2026-09-26",
-    "note": "Seed dataset — companies pulled from context/watchlist_meta.json's existing 'xr' category tags plus a few hand-added (Even Realities). Products and Technologies are hand-curated starter entries, reference-card depth, not exhaustive. 'vle' technology entry is a stub — Jenn used 'UWB/VLE/GNSS' and VLE's meaning wasn't confirmed (possibly BLE / Bluetooth Low Energy?) — needs_update until confirmed."
+    "note": "Seed dataset — companies pulled from context/watchlist_meta.json's existing 'xr' category tags plus a few hand-added (Even Realities). Products and Technologies are hand-curated starter entries, reference-card depth, not exhaustive. 'vle' technology entry is a stub — Jenn used 'UWB/VLE/GNSS' and VLE's meaning wasn't confirmed (possibly BLE / Bluetooth Low Energy?) — needs_update until confirmed. Expanded 2026-09-26: added filter categories (Companies/Technologies filter on `category`; Products filter on new `filter_category`: glasses/wearables/hmd/misc). Added 5 companies (bHaptics, Matterport, Revopoint, Bambu Lab, Rokid) and 8 products — including Meta Quest Pro (to correctly host eye-tracking/foveated-rendering, which base Quest 3 lacks) and Google Glass Enterprise Edition (for LCoS) — to fill out Wearables and Misc and give every technology a real product anchor. Added `used_by_company_ids` to the technology schema for cases with no product yet (World Models -> Google/DeepMind, 5G/mmWave -> Qualcomm); companies are NOT double-mapped when a product already covers the link. A few technologies (NeRF, UWB, GNSS, Gaussian Splatting) were deliberately left unmapped rather than forced onto a weak product/company fit — flagged needs_update with an explanation instead. Enriched 2026-09-26 with real signal pulled from context/watchlist.md and context/entity_tracker.json (the same sources Intel's Companies section reads from — Intel itself is untouched, this just reuses the underlying JSON/markdown). Corrected/added: Samsung Galaxy Glasses (display + display-less, separate from the Galaxy XR headset), Xreal Aura (the actual Android XR flagship, not just Xreal One), Qualcomm's real chip names (Snapdragon XR2 Gen 3, Reality Elite, X2), Phonak/Sonova's HYPERSONIC chip, and two new companies surfaced by tracked signal: Pico/ByteDance (headset contender) and Lumus (waveguide optics, named alongside LetinAR in the consolidation story). This was a manual pull, not a live automated sync — watchlist.md's notes are a multi-topic firehose (AI, legal, business mixed with XR), so pulling a clean XR-only feed live client-side would need real filtering logic; flagged as a possible future enhancement rather than built now."
   },
   "companies": [
     {
@@ -9,7 +9,14 @@
       "name": "Meta",
       "category": "platform",
       "description": "Largest XR platform player by volume — Quest headsets plus the Ray-Ban partnership line, spanning camera-only smart glasses through to display-equipped AR glasses.",
-      "product_ids": ["ray-ban-meta", "meta-ray-ban-display", "meta-quest-3", "meta-orion"],
+      "product_ids": [
+        "ray-ban-meta",
+        "meta-ray-ban-display",
+        "meta-quest-3",
+        "meta-orion",
+        "meta-quest-pro",
+        "meta-emg-wristband"
+      ],
       "notes": "Meta smart glasses have drawn privacy backlash and litigation over bystander recording. Orion remains an internal prototype, not shipping.",
       "needs_update": false,
       "news": "Seed entry — verify current product lineup and any Orion roadmap updates.",
@@ -20,10 +27,12 @@
       "name": "Apple",
       "category": "platform",
       "description": "Vision Pro defined the high-end MR headset category; per Morning Brief tracking, Apple killed Vision Pro 2 and Vision Air under new CEO John Ternus and is pivoting the Vision Products Group toward smart glasses instead.",
-      "product_ids": ["apple-vision-pro"],
-      "notes": "Vision program restructuring under Ternus is a live, developing story — watch for smart glasses roadmap details.",
+      "product_ids": [
+        "apple-vision-pro"
+      ],
+      "notes": "Vision program restructuring under Ternus is a live, developing story — watch for smart glasses roadmap details. Real tracked signal: Ternus's first substantive Vision Pro comments pointed to a surgeon/enterprise vertical as an early proof point for the roadmap.",
       "needs_update": true,
-      "news": "Per watchlist tracking: Vision Pro 2 and Vision Air reportedly cancelled; Vision Products Group pivoting to glasses. Needs re-verification and a source link before treating as settled.",
+      "news": "Vision Pro 2 and Vision Air reportedly cancelled; Vision Products Group pivoting to glasses under Ternus, with an enterprise/surgeon vertical floated as an early proof point.",
       "news_date": "2026-09-26"
     },
     {
@@ -31,10 +40,13 @@
       "name": "Google",
       "category": "platform",
       "description": "Android XR is Google's OS play for the category — a reference platform for OEM hardware partners (Samsung headset, Warby Parker and Gentle Monster smart glasses) rather than Google-branded hardware itself.",
-      "product_ids": ["samsung-galaxy-xr"],
-      "notes": "Android XR glasses shown with Warby Parker and Gentle Monster at Google I/O — positions Google as the OS layer competing with Apple's vertical stack and Meta's Ray-Ban partnership model.",
-      "needs_update": true,
-      "news": "Seed entry — verify current Android XR partner roster and hardware timeline.",
+      "product_ids": [
+        "samsung-galaxy-xr",
+        "google-glass-ee"
+      ],
+      "notes": "Real tracked signal: Samsung + Google + Qualcomm form the core Android XR alliance (seen as the best shot at consumer AR volume outside Apple/Meta). Google partnered with Gentle Monster and Warby Parker on premium Android XR frames. Xreal (Aura) is tracked as part of the same ecosystem push.",
+      "needs_update": false,
+      "news": "Android XR ecosystem traction confirmed via Morning Brief tracking: Samsung Galaxy XR + Xreal Aura + Google content, alongside Gemini integration.",
       "news_date": "2026-09-26"
     },
     {
@@ -42,10 +54,12 @@
       "name": "Samsung",
       "category": "device-maker",
       "description": "Android XR's lead hardware partner; also a component supplier (displays, memory) across the broader XR device supply chain.",
-      "product_ids": ["samsung-galaxy-xr"],
-      "notes": "Pin-mirror optics supply chain (LetinAR) has been flagged as a pricing bellwether for Samsung's smart glasses plans.",
+      "product_ids": [
+        "samsung-galaxy-xr"
+      ],
+      "notes": "Real tracked signal: revealed both a display and a display-less Samsung Galaxy Glasses variant at Galaxy Unpacked (July 22, London), alongside the Galaxy XR headset. Samsung Display is separately developing RGB OLED-on-Silicon microdisplays for glasses. A claimed 9-hour battery life for the smart glasses needs verification at launch.",
       "needs_update": true,
-      "news": "Seed entry — verify current Galaxy XR / smart glasses product status.",
+      "news": "UK reception of Galaxy XR is being watched as a signal for Android XR's international viability. 2027 is the broader industry's planning horizon for the smart-glasses window (Apple/Samsung/Xreal/Snap).",
       "news_date": "2026-09-26"
     },
     {
@@ -53,10 +67,12 @@
       "name": "Snap",
       "category": "device-maker",
       "description": "Spectacles is Snap's AR glasses line, historically developer/creator-focused rather than mass-market consumer hardware.",
-      "product_ids": ["snap-spectacles"],
-      "notes": "Evan Spiegel has been vocal about Snap wanting first-mover positioning on standalone true AR outside China.",
-      "needs_update": true,
-      "news": "Seed entry — verify current Spectacles generation and availability (developer kit vs. consumer).",
+      "product_ids": [
+        "snap-spectacles"
+      ],
+      "notes": "Real tracked signal: Evan Spiegel has set a public 2030 timeline for AR glasses going mainstream. The September Specs reveal is viewed as the test of whether Snap can establish consumer AR credibility, or cede the category to Apple and Meta.",
+      "needs_update": false,
+      "news": "Creator-driven AR content strategy looking increasingly coherent per Morning Brief tracking.",
       "news_date": "2026-09-26"
     },
     {
@@ -64,10 +80,13 @@
       "name": "Xreal",
       "category": "device-maker",
       "description": "Consumer AR glasses maker (Chi Xu, founder/CEO) competing directly on waveguide optics and price against Even Realities, Samsung, and the Android XR ecosystem.",
-      "product_ids": ["xreal-one"],
-      "notes": "Flagged in watchlist tracking as a beneficiary of the EU battery exemption for smart glasses, alongside LetinAR.",
-      "needs_update": true,
-      "news": "Seed entry — verify current product lineup (One, One Pro, etc.) and pricing.",
+      "product_ids": [
+        "xreal-one",
+        "xreal-aura"
+      ],
+      "notes": "Real tracked signal: Xreal Aura is the Android XR-partnered flagship (reservation-to-conversion numbers tracked as a leading indicator). Chi Xu (founder/CEO) has articulated a thesis that lightweight, tethered display glasses can outperform standalone AR in a cost-pressured environment — validated so far by early Aura traction.",
+      "needs_update": false,
+      "news": "Xreal Aura reservation-to-conversion tracked as validation of the tethered, wearable-first smart glasses strategy.",
       "news_date": "2026-09-26"
     },
     {
@@ -75,7 +94,9 @@
       "name": "Even Realities",
       "category": "device-maker",
       "description": "Maker of the G1 — everyday-wearable AR glasses with a minimal monochrome HUD, positioned closer to normal eyewear than a headset.",
-      "product_ids": ["even-realities-g1"],
+      "product_ids": [
+        "even-realities-g1"
+      ],
       "notes": "Not yet in the Morning Brief watchlist — added by hand. Worth adding to watchlist.md if it starts showing up in coverage.",
       "needs_update": true,
       "news": "Seed entry — hand-added, not yet verified against a live source.",
@@ -96,11 +117,11 @@
       "id": "qualcomm",
       "name": "Qualcomm",
       "category": "chipset",
-      "description": "Snapdragon AR/XR chipsets and the Snapdragon Spaces developer platform underpin most non-Apple, non-Meta AR/VR hardware.",
+      "description": "Snapdragon XR2 Gen 3 and the newer Reality Elite chipset (plus X2 with Linux support) underpin most non-Apple, non-Meta AR/VR hardware — the Snapdragon Spaces developer platform sits on top.",
       "product_ids": [],
       "notes": "",
-      "needs_update": true,
-      "news": "Seed entry — verify current Snapdragon AR1/AR2/XR2-class chip lineup and which OEMs are shipping on which chips.",
+      "needs_update": false,
+      "news": "Real tracked signal: Reality Elite and X2 Linux support consolidate Qualcomm's silicon leadership across XR, wearables, and edge AI compute. The XR3 vs. XR2 Gen 3 performance gap will determine which OEMs can ship next-gen headsets.",
       "news_date": "2026-09-26"
     },
     {
@@ -109,9 +130,98 @@
       "category": "hearables",
       "description": "Hearing aid maker whose AI/audio wearable line intersects with the broader smart-glasses-adjacent hearables category (audio-only spatial computing).",
       "product_ids": [],
-      "notes": "Flagged in Morning Brief tracking as facing disruption from HSA-eligible smart glasses with audio features encroaching on hearing-aid territory.",
+      "notes": "Real tracked signal: the HYPERSONIC chip enables always-on wearable AI at scale in hearing aids — a new form factor for ambient intelligence and health monitoring, positioned against HSA-eligible smart glasses with hearing features.",
+      "needs_update": false,
+      "news": "HSA-eligible smart glasses with hearing features are seen as a $40B+ threat to the traditional hearing-aid market.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "bhaptics",
+      "name": "bHaptics",
+      "category": "haptics",
+      "description": "Haptic wearable maker — vests, gloves, and arm sleeves that simulate touch and impact feedback for VR.",
+      "product_ids": [
+        "bhaptics-tactsuit"
+      ],
+      "notes": "",
       "needs_update": true,
-      "news": "Seed entry — verify current product line and competitive positioning vs. audio-equipped smart glasses.",
+      "news": "Seed entry — verify current product lineup.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "matterport",
+      "name": "Matterport",
+      "category": "capture",
+      "description": "3D space-capture company best known for the Pro3 camera — combines LiDAR and photogrammetry-style capture for room-scale digital twins, primarily for real estate and facilities.",
+      "product_ids": [
+        "matterport-pro3"
+      ],
+      "notes": "",
+      "needs_update": true,
+      "news": "Seed entry — verify current product lineup and capture technology mix.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "revopoint",
+      "name": "Revopoint",
+      "category": "capture",
+      "description": "Consumer/prosumer handheld 3D scanner maker, using structured light and LiDAR depending on model — brought object-scale 3D scanning down to hobbyist price points.",
+      "product_ids": [
+        "revopoint-scanner"
+      ],
+      "notes": "",
+      "needs_update": true,
+      "news": "Seed entry — verify current model lineup (POP/MINI/RANGE series) and specs.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "bambu-lab",
+      "name": "Bambu Lab",
+      "category": "capture",
+      "description": "Consumer 3D printer maker — fast, multi-color FDM printers that made high-speed printing mainstream. Included as the printing half of a scan-to-print pipeline alongside Matterport/Revopoint-style capture.",
+      "product_ids": [
+        "bambu-lab-printer"
+      ],
+      "notes": "",
+      "needs_update": true,
+      "news": "Seed entry — verify current model lineup.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "rokid",
+      "name": "Rokid",
+      "category": "device-maker",
+      "description": "Consumer AR glasses maker using non-waveguide (birdbath/freeform-prism style) optics — positioned as media/entertainment-focused glasses rather than full see-through AR.",
+      "product_ids": [
+        "rokid-max"
+      ],
+      "notes": "",
+      "needs_update": true,
+      "news": "Seed entry — verify current model lineup and exact optical design classification (birdbath vs. freeform prism terminology varies by source).",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "pico",
+      "name": "Pico (ByteDance)",
+      "category": "device-maker",
+      "description": "ByteDance-owned VR/MR headset maker — per Morning Brief tracking, the first credible non-Apple, non-Meta contender in the premium headset tier.",
+      "product_ids": [
+        "pico-headset"
+      ],
+      "notes": "",
+      "needs_update": true,
+      "news": "Flagged in Apple/Vision Pro tracking as the first credible non-Apple, non-Meta premium headset contender. Verify current flagship model.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "lumus",
+      "name": "Lumus",
+      "category": "optics",
+      "description": "Waveguide optics supplier, named alongside LetinAR as one of the two players in the narrowing waveguide-optics consolidation story — supplies modules to device makers rather than shipping its own consumer product.",
+      "product_ids": [],
+      "notes": "Real tracked signal: LetinAR and Lumus named together as the waveguide-optics field narrows toward consolidation.",
+      "needs_update": true,
+      "news": "Seed entry — verify current customer roster and product roadmap.",
       "news_date": "2026-09-26"
     }
   ],
@@ -123,10 +233,14 @@
       "category": "smart-glasses",
       "status": "shipping",
       "description": "Camera + open-ear audio smart glasses, no display/HUD. The current mass-market volume leader in the category.",
-      "technology_ids": [],
+      "technology_ids": [
+        "ble-audio",
+        "on-device-ai"
+      ],
       "needs_update": true,
       "news": "Seed entry — verify current generation/specs.",
-      "news_date": "2026-09-26"
+      "news_date": "2026-09-26",
+      "filter_category": "glasses"
     },
     {
       "id": "meta-ray-ban-display",
@@ -135,10 +249,14 @@
       "category": "ar-glasses",
       "status": "shipping",
       "description": "Display-equipped follow-on to Ray-Ban Meta, adding a HUD. Flagged in Morning Brief tracking re: developer ecosystem health versus Apple's expected 2027 glasses gap.",
-      "technology_ids": ["waveguide"],
+      "technology_ids": [
+        "waveguide",
+        "on-device-ai"
+      ],
       "needs_update": true,
       "news": "Seed entry — verify display technology (waveguide vs. other) and current specs.",
-      "news_date": "2026-09-26"
+      "news_date": "2026-09-26",
+      "filter_category": "glasses"
     },
     {
       "id": "meta-quest-3",
@@ -147,10 +265,19 @@
       "category": "mr-headset",
       "status": "shipping",
       "description": "Mixed-reality headset with color passthrough; the consumer-volume anchor of Meta's XR hardware line.",
-      "technology_ids": ["slam-vps", "tof"],
+      "technology_ids": [
+        "pancake-lenses",
+        "slam-vps",
+        "tof",
+        "imu",
+        "hand-tracking",
+        "passthrough",
+        "wifi-6e-7"
+      ],
       "needs_update": true,
       "news": "Seed entry — verify current generation and specs.",
-      "news_date": "2026-09-26"
+      "news_date": "2026-09-26",
+      "filter_category": "hmd"
     },
     {
       "id": "meta-orion",
@@ -159,10 +286,15 @@
       "category": "ar-glasses",
       "status": "prototype",
       "description": "Internal full-AR-glasses prototype (not shipping) — Meta's proof point for eventual consumer AR glasses beyond the display-limited Ray-Ban line.",
-      "technology_ids": ["waveguide", "slam-vps"],
+      "technology_ids": [
+        "waveguide",
+        "micro-led",
+        "slam-vps"
+      ],
       "needs_update": true,
       "news": "Seed entry — verify whether any consumer timeline has been announced.",
-      "news_date": "2026-09-26"
+      "news_date": "2026-09-26",
+      "filter_category": "glasses"
     },
     {
       "id": "apple-vision-pro",
@@ -171,10 +303,20 @@
       "category": "mr-headset",
       "status": "shipping",
       "description": "High-end mixed-reality headset built around eye/hand tracking and passthrough video. Reportedly the last in its line — Vision Pro 2 and Vision Air were cancelled per Morning Brief tracking, with Apple's XR effort pivoting toward glasses.",
-      "technology_ids": ["slam-vps", "tof"],
+      "technology_ids": [
+        "micro-oled",
+        "slam-vps",
+        "lidar-scanning",
+        "eye-tracking",
+        "foveated-rendering",
+        "passthrough",
+        "imu",
+        "hand-tracking"
+      ],
       "needs_update": true,
       "news": "Seed entry — verify current status given reported Vision Pro 2/Vision Air cancellation.",
-      "news_date": "2026-09-26"
+      "news_date": "2026-09-26",
+      "filter_category": "hmd"
     },
     {
       "id": "samsung-galaxy-xr",
@@ -183,10 +325,15 @@
       "category": "mr-headset",
       "status": "announced",
       "description": "Samsung's Android XR headset, built on Google's platform — the first major non-Meta, non-Apple premium headset contender.",
-      "technology_ids": ["slam-vps"],
+      "technology_ids": [
+        "slam-vps",
+        "imu",
+        "passthrough"
+      ],
       "needs_update": true,
       "news": "Seed entry — verify current availability status and specs.",
-      "news_date": "2026-09-26"
+      "news_date": "2026-09-26",
+      "filter_category": "hmd"
     },
     {
       "id": "xreal-one",
@@ -195,10 +342,14 @@
       "category": "ar-glasses",
       "status": "shipping",
       "description": "Consumer AR glasses using waveguide optics for a tethered/wireless external-display experience (paired with a phone or computer).",
-      "technology_ids": ["waveguide"],
+      "technology_ids": [
+        "waveguide",
+        "split-rendering"
+      ],
       "needs_update": true,
       "news": "Seed entry — verify current generation and specs.",
-      "news_date": "2026-09-26"
+      "news_date": "2026-09-26",
+      "filter_category": "glasses"
     },
     {
       "id": "even-realities-g1",
@@ -207,10 +358,13 @@
       "category": "ar-glasses",
       "status": "shipping",
       "description": "Everyday-wearable AR glasses with a minimal monochrome waveguide HUD — prioritizes normal eyewear form factor over a large field of view.",
-      "technology_ids": ["waveguide"],
+      "technology_ids": [
+        "waveguide"
+      ],
       "needs_update": true,
       "news": "Seed entry — hand-added, not yet verified against a live source.",
-      "news_date": "2026-09-26"
+      "news_date": "2026-09-26",
+      "filter_category": "glasses"
     },
     {
       "id": "snap-spectacles",
@@ -219,9 +373,184 @@
       "category": "ar-glasses",
       "status": "shipping",
       "description": "Snap's AR glasses line, historically positioned for developers/creators rather than mass-market consumer sale.",
-      "technology_ids": ["waveguide"],
+      "technology_ids": [
+        "waveguide"
+      ],
       "needs_update": true,
       "news": "Seed entry — verify current generation and whether it has moved beyond developer-kit availability.",
+      "news_date": "2026-09-26",
+      "filter_category": "glasses"
+    },
+    {
+      "id": "meta-quest-pro",
+      "name": "Meta Quest Pro",
+      "company_id": "meta",
+      "category": "mr-headset",
+      "filter_category": "hmd",
+      "status": "shipping",
+      "description": "Meta's eye/face-tracking-equipped MR headset, distinct from the base Quest 3 — the tier that actually carries eye tracking and foveated rendering in Meta's lineup.",
+      "technology_ids": [
+        "eye-tracking",
+        "foveated-rendering",
+        "slam-vps",
+        "passthrough",
+        "imu"
+      ],
+      "needs_update": true,
+      "news": "Seed entry — verify current availability status.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "google-glass-ee",
+      "name": "Google Glass Enterprise Edition",
+      "company_id": "google",
+      "category": "smart-glasses",
+      "filter_category": "glasses",
+      "status": "discontinued",
+      "description": "Google's enterprise-focused smart glasses line (Enterprise Edition 2), using an LCoS light engine into a waveguide combiner. Discontinued, but the clearest tracked example of LCoS in shipping AR hardware.",
+      "technology_ids": [
+        "lcos",
+        "waveguide"
+      ],
+      "needs_update": true,
+      "news": "Seed entry — confirm exact discontinuation date.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "rokid-max",
+      "name": "Rokid Max",
+      "company_id": "rokid",
+      "category": "ar-glasses",
+      "filter_category": "glasses",
+      "status": "shipping",
+      "description": "Media-viewing-focused AR glasses using birdbath/freeform-prism optics rather than waveguide — prioritizes brightness and color for watching content over see-through daily wear.",
+      "technology_ids": [
+        "birdbath"
+      ],
+      "needs_update": true,
+      "news": "Seed entry — verify current model and confirm optical design terminology.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "meta-emg-wristband",
+      "name": "Meta EMG Wristband",
+      "company_id": "meta",
+      "category": "neural-wearable",
+      "filter_category": "wearables",
+      "status": "prototype",
+      "description": "Reality Labs research wristband that reads forearm muscle signals (EMG) to detect subtle finger gestures as an input method, independent of camera-based hand tracking.",
+      "technology_ids": [
+        "emg"
+      ],
+      "needs_update": true,
+      "news": "Seed entry — verify current status/timeline (research prototype vs. any shipping product).",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "bhaptics-tactsuit",
+      "name": "bHaptics TactSuit",
+      "company_id": "bhaptics",
+      "category": "haptic-wearable",
+      "filter_category": "wearables",
+      "status": "shipping",
+      "description": "Haptic vest/arm sleeve line delivering tactile feedback (impacts, directional cues) synced to VR content.",
+      "technology_ids": [
+        "haptic-feedback"
+      ],
+      "needs_update": true,
+      "news": "Seed entry — verify current product lineup and compatible VR platforms.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "matterport-pro3",
+      "name": "Matterport Pro3",
+      "company_id": "matterport",
+      "category": "3d-scanner",
+      "filter_category": "misc",
+      "status": "shipping",
+      "description": "Professional room-scale 3D capture camera combining LiDAR and photo-based reconstruction into a walkable digital twin.",
+      "technology_ids": [
+        "lidar-scanning",
+        "photogrammetry"
+      ],
+      "needs_update": true,
+      "news": "Seed entry — verify current specs and capture pipeline details.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "revopoint-scanner",
+      "name": "Revopoint handheld scanner",
+      "company_id": "revopoint",
+      "category": "3d-scanner",
+      "filter_category": "misc",
+      "status": "shipping",
+      "description": "Handheld object-scale 3D scanner (exact current model — POP/MINI/RANGE series — needs confirming) using structured light or LiDAR depending on version.",
+      "technology_ids": [
+        "structured-light",
+        "lidar-scanning"
+      ],
+      "needs_update": true,
+      "news": "Seed entry — name is generic pending confirmation of the current flagship model.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "bambu-lab-printer",
+      "name": "Bambu Lab X1 Carbon",
+      "company_id": "bambu-lab",
+      "category": "3d-printer",
+      "filter_category": "misc",
+      "status": "shipping",
+      "description": "High-speed, multi-color-capable FDM 3D printer — the print side of a scan-to-print pipeline alongside Matterport/Revopoint-style capture.",
+      "technology_ids": [],
+      "needs_update": true,
+      "news": "Seed entry — verify current flagship model.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "samsung-galaxy-glasses",
+      "name": "Samsung Galaxy Glasses",
+      "company_id": "samsung",
+      "category": "smart-glasses",
+      "filter_category": "glasses",
+      "status": "announced",
+      "description": "Revealed at Galaxy Unpacked (July 22, London) in both display and display-less variants — Samsung's Android XR glasses play, distinct from the Galaxy XR headset. Samsung Display is separately developing an RGB OLED-on-Silicon microdisplay for the display variant.",
+      "technology_ids": [
+        "micro-oled"
+      ],
+      "needs_update": true,
+      "news": "Claimed 9-hour battery life needs verification at launch.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "xreal-aura",
+      "name": "Xreal Aura",
+      "company_id": "xreal",
+      "category": "ar-glasses",
+      "filter_category": "glasses",
+      "status": "shipping",
+      "description": "Xreal's Android XR-partnered flagship glasses — tethered/wireless waveguide display, tracked via reservation-to-conversion numbers as a bellwether for the tethered smart-glasses strategy.",
+      "technology_ids": [
+        "waveguide",
+        "split-rendering"
+      ],
+      "needs_update": false,
+      "news": "Reservation-to-conversion tracked as ecosystem traction signal for Android XR.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "pico-headset",
+      "name": "Pico headset",
+      "company_id": "pico",
+      "category": "vr-headset",
+      "filter_category": "hmd",
+      "status": "shipping",
+      "description": "ByteDance's VR/MR headset line — exact current flagship model needs confirming.",
+      "technology_ids": [
+        "slam-vps",
+        "passthrough"
+      ],
+      "needs_update": true,
+      "news": "Seed entry — name is generic pending confirmation of the current flagship model (Pico 4 Ultra / Pico 5 era).",
       "news_date": "2026-09-26"
     }
   ],
@@ -234,8 +563,11 @@
       "tradeoffs": "Still largely research-stage; not yet a shipping component in consumer XR hardware.",
       "used_by_product_ids": [],
       "needs_update": true,
-      "news": "Reference-card seed entry — revisit as world models move closer to on-device XR applications.",
-      "news_date": "2026-09-26"
+      "news": "No tracked XR product embodies this yet — mapped to Google given DeepMind's Genie world-model research, not a specific device. Revisit if a product ships that uses it.",
+      "news_date": "2026-09-26",
+      "used_by_company_ids": [
+        "google"
+      ]
     },
     {
       "id": "waveguide",
@@ -243,10 +575,19 @@
       "category": "display",
       "description": "Optical combiner that pipes a projected image through a thin, mostly-transparent lens to the eye via total internal reflection and diffraction gratings. The dominant approach for slim, glasses-like AR form factors.",
       "tradeoffs": "Enables the thinnest, most normal-looking glasses, but historically trades off against field of view, brightness/efficiency, and color uniformity (rainbow artifacts) compared to birdbath optics.",
-      "used_by_product_ids": ["meta-ray-ban-display", "meta-orion", "xreal-one", "even-realities-g1", "snap-spectacles"],
+      "used_by_product_ids": [
+        "meta-ray-ban-display",
+        "meta-orion",
+        "xreal-one",
+        "even-realities-g1",
+        "snap-spectacles",
+        "google-glass-ee",
+        "xreal-aura"
+      ],
       "needs_update": false,
       "news": "",
-      "news_date": "2026-09-26"
+      "news_date": "2026-09-26",
+      "used_by_company_ids": []
     },
     {
       "id": "birdbath",
@@ -254,10 +595,13 @@
       "category": "display",
       "description": "Optical combiner using a beamsplitter and curved mirror (like looking into a birdbath) to reflect a projected image into the eye. Generally easier to manufacture with better color accuracy than early waveguides.",
       "tradeoffs": "Bulkier optical module than waveguides, making it harder to fit into a normal-glasses form factor — better suited to slightly thicker AR devices.",
-      "used_by_product_ids": [],
+      "used_by_product_ids": [
+        "rokid-max"
+      ],
       "needs_update": true,
-      "news": "Reference-card seed entry — add specific products once a birdbath-based device is added to the Products list.",
-      "news_date": "2026-09-26"
+      "news": "Mapped to Rokid Max — verify exact optical design terminology (birdbath vs. freeform prism) against an official source.",
+      "news_date": "2026-09-26",
+      "used_by_company_ids": []
     },
     {
       "id": "slam-vps",
@@ -265,10 +609,18 @@
       "category": "positioning",
       "description": "Simultaneous Localization and Mapping (building a map of the environment while tracking the device's position within it) and Visual Positioning System (using camera imagery to localize against a known map). The core technology that lets AR/MR devices anchor content to real-world surfaces.",
       "tradeoffs": "Accuracy and drift depend heavily on camera/sensor quality and lighting conditions; VPS additionally requires a pre-built map of the space to localize against.",
-      "used_by_product_ids": ["meta-quest-3", "meta-orion", "apple-vision-pro", "samsung-galaxy-xr"],
+      "used_by_product_ids": [
+        "meta-quest-3",
+        "meta-quest-pro",
+        "meta-orion",
+        "apple-vision-pro",
+        "samsung-galaxy-xr",
+        "pico-headset"
+      ],
       "needs_update": false,
       "news": "",
-      "news_date": "2026-09-26"
+      "news_date": "2026-09-26",
+      "used_by_company_ids": []
     },
     {
       "id": "tof",
@@ -276,10 +628,13 @@
       "category": "positioning",
       "description": "Active depth sensing: a sensor emits light pulses and measures return time to build a depth map. Used for hand tracking, room/surface mapping, and passthrough depth in VR/MR headsets.",
       "tradeoffs": "Adds power draw and a dedicated sensor/emitter versus purely camera-based (passive) depth estimation; performance can degrade outdoors in bright sunlight.",
-      "used_by_product_ids": ["meta-quest-3", "apple-vision-pro"],
-      "needs_update": false,
-      "news": "",
-      "news_date": "2026-09-26"
+      "used_by_product_ids": [
+        "meta-quest-3"
+      ],
+      "needs_update": true,
+      "news": "Corrected: Apple Vision Pro's depth sensor is specifically a LiDAR Scanner per Apple's spec sheet (see lidar-scanning), not generic ToF — moved off this entry. Quest 3's depth sensor is commonly described as ToF; needs re-verification against an official Meta source.",
+      "news_date": "2026-09-26",
+      "used_by_company_ids": []
     },
     {
       "id": "uwb",
@@ -289,8 +644,9 @@
       "tradeoffs": "Short range and requires UWB radios in both the device and whatever it's tracking against — not a standalone solution for room-scale AR tracking on its own.",
       "used_by_product_ids": [],
       "needs_update": true,
-      "news": "Reference-card seed entry — add specific XR products once a concrete UWB-in-XR use case is confirmed.",
-      "news_date": "2026-09-26"
+      "news": "No tracked product or company confidently confirmed using UWB for XR positioning specifically (vs. Find My / AirTag-style device-finding) — left unmapped rather than forcing a weak connection.",
+      "news_date": "2026-09-26",
+      "used_by_company_ids": []
     },
     {
       "id": "gnss",
@@ -300,8 +656,9 @@
       "tradeoffs": "Only accurate to a few meters and doesn't work indoors — needs SLAM/VPS or UWB for anything requiring precise local tracking.",
       "used_by_product_ids": [],
       "needs_update": true,
-      "news": "Reference-card seed entry — add specific products once GNSS-equipped AR glasses are confirmed in the Products list.",
-      "news_date": "2026-09-26"
+      "news": "No tracked product confirmed using GNSS for outdoor AR anchoring yet — left unmapped rather than forcing a weak connection.",
+      "news_date": "2026-09-26",
+      "used_by_company_ids": []
     },
     {
       "id": "gaussian-splat",
@@ -311,8 +668,9 @@
       "tradeoffs": "Much faster to render than traditional NeRFs and photorealistic from captured footage, but scenes are captured/reconstructed rather than fully editable 3D models — better suited to viewing/walkthroughs than asset pipelines needing traditional geometry.",
       "used_by_product_ids": [],
       "needs_update": true,
-      "news": "Reference-card seed entry — relevant to 3D scanning/capture products; link specific products once added.",
-      "news_date": "2026-09-26"
+      "news": "No tracked product or company confirmed using Gaussian Splatting specifically (Matterport's pipeline is LiDAR + photogrammetry-based, not confirmed as Gaussian Splat) — left unmapped rather than forcing a weak connection.",
+      "news_date": "2026-09-26",
+      "used_by_company_ids": []
     },
     {
       "id": "vle",
@@ -323,6 +681,300 @@
       "used_by_product_ids": [],
       "needs_update": true,
       "news": "Stub entry pending clarification from Jenn on what VLE stands for.",
+      "news_date": "2026-09-26",
+      "used_by_company_ids": []
+    },
+    {
+      "id": "pancake-lenses",
+      "name": "Pancake Lenses",
+      "category": "display",
+      "description": "Folded optical design using polarization to fold the light path, allowing much thinner and lighter VR headsets than traditional Fresnel lenses.",
+      "tradeoffs": "Requires polarized light (some brightness loss vs. Fresnel) but enables a dramatically slimmer headset.",
+      "used_by_product_ids": [
+        "meta-quest-3"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "micro-oled",
+      "name": "Micro-OLED",
+      "category": "display",
+      "description": "Extremely high pixel-density OLED displays fabricated on a silicon backplane, used for the sharp, high-contrast displays in premium MR headsets.",
+      "tradeoffs": "Excellent contrast and pixel density, but expensive to manufacture at scale and historically limited in peak brightness for outdoor AR use.",
+      "used_by_product_ids": [
+        "apple-vision-pro",
+        "samsung-galaxy-glasses"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "micro-led",
+      "name": "Micro-LED",
+      "category": "display",
+      "description": "Emerging self-emissive display technology using microscopic LEDs per pixel — the leading contender for bright, efficient, sunlight-readable AR glasses displays.",
+      "tradeoffs": "Much brighter and more power-efficient than OLED/LCoS at small sizes, but mass production at the pixel pitch AR glasses need remains difficult and costly.",
+      "used_by_product_ids": [
+        "meta-orion"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": true,
+      "news": "Meta Orion is reported to use micro-LED projectors — needs re-verification against an official source.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "lcos",
+      "name": "LCoS (Liquid Crystal on Silicon)",
+      "category": "display",
+      "description": "Reflective microdisplay technology commonly used as the image source (light engine) that projects into a waveguide combiner.",
+      "tradeoffs": "Mature and relatively cheap, but less efficient and dimmer than newer micro-LED light engines.",
+      "used_by_product_ids": [
+        "google-glass-ee"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": true,
+      "news": "Seed entry — verify Google Glass Enterprise Edition's light engine spec.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "imu",
+      "name": "IMU (Inertial Measurement Unit)",
+      "category": "positioning",
+      "description": "Accelerometer + gyroscope (often + magnetometer) measuring orientation and motion at very low latency. Fused with camera-based SLAM/VPS for fast, drift-corrected head and hand tracking.",
+      "tradeoffs": "Extremely low latency and cheap, but drifts over time on its own — needs fusion with visual tracking for long-term accuracy.",
+      "used_by_product_ids": [
+        "meta-quest-3",
+        "meta-quest-pro",
+        "apple-vision-pro",
+        "samsung-galaxy-xr"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "eye-tracking",
+      "name": "Eye Tracking",
+      "category": "positioning",
+      "description": "Cameras and IR illuminators inside the headset track gaze direction and pupil position, enabling foveated rendering, gaze-based UI input, and iris authentication.",
+      "tradeoffs": "Enables major rendering/interaction gains but adds sensors, power draw, and calibration requirements.",
+      "used_by_product_ids": [
+        "meta-quest-pro",
+        "apple-vision-pro"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "hand-tracking",
+      "name": "Hand Tracking",
+      "category": "positioning",
+      "description": "Camera-based skeletal tracking of hands and fingers, enabling controller-free interaction in VR/MR.",
+      "tradeoffs": "Removes the need for physical controllers but is generally less precise and more occlusion-prone than controller-based tracking.",
+      "used_by_product_ids": [
+        "meta-quest-3",
+        "apple-vision-pro"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "structured-light",
+      "name": "Structured Light",
+      "category": "positioning",
+      "description": "Depth sensing by projecting a known light pattern and measuring its distortion on surfaces — an alternative to Time-of-Flight for close-range depth capture.",
+      "tradeoffs": "Very accurate at short range but generally less effective outdoors in bright light than ToF.",
+      "used_by_product_ids": [
+        "revopoint-scanner"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "nerf",
+      "name": "NeRF (Neural Radiance Fields)",
+      "category": "capture",
+      "description": "Earlier neural technique for reconstructing a 3D scene from photos and rendering novel viewpoints — largely the predecessor to Gaussian Splatting.",
+      "tradeoffs": "Very high visual quality, but historically far slower to train and render than Gaussian Splatting, which has displaced it for most real-time use cases.",
+      "used_by_product_ids": [],
+      "used_by_company_ids": [],
+      "needs_update": true,
+      "news": "No tracked product or company confirmed using NeRF directly — mostly of historical/comparative interest now that Gaussian Splatting dominates real-time use. Left unmapped rather than forcing a weak connection.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "photogrammetry",
+      "name": "Photogrammetry",
+      "category": "capture",
+      "description": "Classical technique for reconstructing 3D geometry and texture from overlapping photographs, without neural rendering.",
+      "tradeoffs": "Produces traditional, editable 3D meshes (unlike Gaussian Splats/NeRFs), but is more labor-intensive and can struggle with reflective or textureless surfaces.",
+      "used_by_product_ids": [
+        "matterport-pro3"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "lidar-scanning",
+      "name": "LiDAR Scanning",
+      "category": "capture",
+      "description": "Direct laser time-of-flight depth capture used in phones and dedicated scanners for fast room- and object-scale 3D scanning.",
+      "tradeoffs": "Fast and works in low light or on texture-less surfaces (unlike photogrammetry), but lower resolution than photogrammetry or Gaussian Splatting for fine detail.",
+      "used_by_product_ids": [
+        "matterport-pro3",
+        "revopoint-scanner",
+        "apple-vision-pro"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "foveated-rendering",
+      "name": "Foveated Rendering",
+      "category": "rendering",
+      "description": "Renders full detail only where the eye is looking (via eye tracking) and reduces detail in peripheral vision, cutting GPU load substantially.",
+      "tradeoffs": "Major performance win, but requires accurate, low-latency eye tracking to avoid visible quality loss.",
+      "used_by_product_ids": [
+        "meta-quest-pro",
+        "apple-vision-pro"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "passthrough",
+      "name": "Passthrough / Video See-Through",
+      "category": "rendering",
+      "description": "Cameras on the outside of a headset feed a live video view of the real world, composited with virtual content — as opposed to optical see-through (waveguide/birdbath), which lets real light through directly.",
+      "tradeoffs": "Enables full mixed reality on a VR-style headset without waveguide optics, but adds latency and processing load versus true optical see-through, and image quality is capped by the outward-facing cameras.",
+      "used_by_product_ids": [
+        "meta-quest-3",
+        "meta-quest-pro",
+        "apple-vision-pro",
+        "samsung-galaxy-xr",
+        "pico-headset"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "split-rendering",
+      "name": "Split / Edge Rendering",
+      "category": "rendering",
+      "description": "Offloads the heaviest rendering work to a phone, PC, or cloud server and streams frames to lightweight glasses, keeping the wearable device thin and low-power.",
+      "tradeoffs": "Enables much lighter glasses, but depends on a fast, low-latency connection to the compute source — no phone/PC nearby degrades or breaks the experience.",
+      "used_by_product_ids": [
+        "xreal-one",
+        "xreal-aura"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "wifi-6e-7",
+      "name": "Wi-Fi 6E / 7",
+      "category": "connectivity",
+      "description": "High-bandwidth, low-latency wireless standards used for tethered-feeling wireless VR (e.g. streaming PC VR to a standalone headset).",
+      "tradeoffs": "Enables cable-free high-fidelity streaming, but performance depends on a strong, congestion-free local network.",
+      "used_by_product_ids": [
+        "meta-quest-3"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": true,
+      "news": "Quest 3 supports Wi-Fi 6E for Air Link-style wireless PC VR streaming — needs re-verification of exact spec.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "cloud-5g-mmwave",
+      "name": "5G / mmWave",
+      "category": "connectivity",
+      "description": "Cellular connectivity fast enough to support cloud-rendered AR/VR content streamed to lightweight glasses on the go, rather than tethered to a local phone or PC.",
+      "tradeoffs": "Removes the need for a nearby compute device, but mmWave has short range/poor building penetration, and cloud round-trip latency remains a challenge for real-time interaction.",
+      "used_by_product_ids": [],
+      "used_by_company_ids": [
+        "qualcomm"
+      ],
+      "needs_update": true,
+      "news": "No tracked product ships this yet — mapped to Qualcomm as the chipset company driving 5G+XR convergence (Snapdragon XR platforms), not a specific device.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "ble-audio",
+      "name": "Bluetooth LE Audio",
+      "category": "connectivity",
+      "description": "Lower-power, higher-quality Bluetooth audio standard relevant to the open-ear audio in camera/audio smart glasses like Ray-Ban Meta.",
+      "tradeoffs": "Better battery life and multi-stream support than classic Bluetooth audio, but requires both device and earbuds/glasses to support the newer standard.",
+      "used_by_product_ids": [
+        "ray-ban-meta"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": true,
+      "news": "Verify Ray-Ban Meta's actual Bluetooth audio spec version.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "emg",
+      "name": "EMG (Electromyography) Input",
+      "category": "input-haptics",
+      "description": "Wristband sensors read electrical signals from forearm muscles to detect subtle finger/hand gestures as an input method, without needing the hand to be in camera view.",
+      "tradeoffs": "Works even when hands are out of camera view or in a pocket, but is an early-stage/prototype technology with a smaller software ecosystem than camera-based hand tracking.",
+      "used_by_product_ids": [
+        "meta-emg-wristband"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "haptic-feedback",
+      "name": "Haptic Feedback",
+      "category": "input-haptics",
+      "description": "Vests, gloves, or controllers that simulate touch and force feedback for virtual objects and impacts.",
+      "tradeoffs": "Adds meaningful immersion for VR, but adds cost, bulk, and another device to wear/charge.",
+      "used_by_product_ids": [
+        "bhaptics-tactsuit"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "on-device-ai",
+      "name": "On-Device Multimodal AI",
+      "category": "ai",
+      "description": "Local AI models running directly on glasses/headsets for real-time scene understanding, translation, and voice assistants without a round-trip to the cloud.",
+      "tradeoffs": "Lower latency and works offline, but constrained by the device's compute/battery budget compared to cloud-hosted models.",
+      "used_by_product_ids": [
+        "ray-ban-meta",
+        "meta-ray-ban-display"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": true,
+      "news": "Verify which specific features actually run on-device vs. cloud on current Ray-Ban Meta hardware.",
       "news_date": "2026-09-26"
     }
   ]

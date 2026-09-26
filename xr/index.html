@@ -12,7 +12,7 @@
   <style>
     .intel-section { display: none; }
     .intel-section.section-active { display: block; }
-    .intel-card.intel-hidden { display: none; }
+    .xr-card.xr-hidden { display: none; }
 
     /* Section toggle pills (same as Intel) */
     .section-toggle {
@@ -173,6 +173,11 @@
       <button class="section-btn" data-section="technologies">Technologies</button>
     </div>
 
+    <!-- CATEGORY FILTERS (one bar per section, only the active one is shown) -->
+    <div class="tag-filter xr-filter" id="filter-companies" style="margin-bottom:1.5rem;"></div>
+    <div class="tag-filter xr-filter" id="filter-products" style="margin-bottom:1.5rem;display:none;"></div>
+    <div class="tag-filter xr-filter" id="filter-technologies" style="margin-bottom:1.5rem;display:none;"></div>
+
     <div id="xr-loading" style="color:var(--text-muted,#888);font-size:0.85rem;padding:1.5rem 0;">Loading…</div>
 
     <!-- ═══════════════════════════════════════════════════════ -->
@@ -236,7 +241,7 @@
             return p ? '<button class="xr-link-pill" data-jump="products" data-jump-id="' + esc(pid) + '">' + esc(p.name) + '</button>' : '';
           }).join('');
 
-          html += '<div class="xr-card" data-company-id="' + esc(c.id) + '">'
+          html += '<div class="xr-card" data-company-id="' + esc(c.id) + '" data-category="' + esc(c.category) + '">'
             + '<div class="xr-card-header">'
             + '<span class="xr-card-title">' + esc(c.name) + '</span>'
             + '<span class="cat-pill">' + esc(c.category) + '</span>'
@@ -263,7 +268,7 @@
             return t ? '<button class="xr-link-pill" data-jump="technologies" data-jump-id="' + esc(tid) + '">' + esc(t.name) + '</button>' : '';
           }).join('');
 
-          html += '<div class="xr-card" data-product-id="' + esc(p.id) + '">'
+          html += '<div class="xr-card" data-product-id="' + esc(p.id) + '" data-category="' + esc(p.filter_category) + '">'
             + '<div class="xr-card-header">'
             + '<span class="xr-card-title">' + esc(p.name) + '</span>'
             + '<span class="cat-pill">' + esc(p.category) + '</span>'
@@ -285,12 +290,17 @@
         let html = '<div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted,#888);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border,#222);">Technologies</div>';
 
         data.technologies.forEach(function (t) {
-          const usedBy = (t.used_by_product_ids || []).map(function (pid) {
+          const usedByProducts = (t.used_by_product_ids || []).map(function (pid) {
             const p = byId(data.products, pid);
             return p ? '<button class="xr-link-pill" data-jump="products" data-jump-id="' + esc(pid) + '">' + esc(p.name) + '</button>' : '';
           }).join('');
+          const usedByCompanies = (t.used_by_company_ids || []).map(function (cid) {
+            const c = byId(data.companies, cid);
+            return c ? '<button class="xr-link-pill" data-jump="companies" data-jump-id="' + esc(cid) + '">' + esc(c.name) + '</button>' : '';
+          }).join('');
+          const usedBy = usedByProducts + usedByCompanies;
 
-          html += '<div class="xr-card" data-tech-id="' + esc(t.id) + '">'
+          html += '<div class="xr-card" data-tech-id="' + esc(t.id) + '" data-category="' + esc(t.category) + '">'
             + '<div class="xr-card-header">'
             + '<span class="xr-card-title">' + esc(t.name) + '</span>'
             + '<span class="cat-pill">' + esc(t.category) + '</span>'
@@ -298,7 +308,7 @@
             + '</div>'
             + '<p class="xr-card-desc">' + esc(t.description) + '</p>'
             + (t.tradeoffs ? '<p class="xr-tradeoffs"><strong>Trade-offs:</strong> ' + esc(t.tradeoffs) + '</p>' : '')
-            + (usedBy ? '<div class="xr-links">' + usedBy + '</div>' : '<p class="xr-card-notes">Not yet linked to a tracked product.</p>')
+            + (usedBy ? '<div class="xr-links">' + usedBy + '</div>' : '<p class="xr-card-notes">Not yet linked to a tracked product or company.</p>')
             + '</div>';
         });
 
@@ -312,6 +322,11 @@
         products:     document.getElementById('section-products'),
         technologies: document.getElementById('section-technologies'),
       };
+      const filterBars = {
+        companies:    document.getElementById('filter-companies'),
+        products:     document.getElementById('filter-products'),
+        technologies: document.getElementById('filter-technologies'),
+      };
 
       function activateSection(key) {
         sectionToggle.querySelectorAll('.section-btn').forEach(function (b) {
@@ -320,8 +335,12 @@
         Object.values(sections).forEach(function (s) {
           s.classList.remove('section-active');
         });
+        Object.values(filterBars).forEach(function (f) {
+          f.style.display = 'none';
+        });
         sectionToggle.querySelector('[data-section="' + key + '"]').classList.add('active');
         if (sections[key]) sections[key].classList.add('section-active');
+        if (filterBars[key]) filterBars[key].style.display = '';
       }
 
       sectionToggle.addEventListener('click', function (e) {
@@ -329,6 +348,56 @@
         if (!btn) return;
         activateSection(btn.dataset.section);
       });
+
+      // ── Category filters (one bar per section, own vocabulary) ─────────────
+      const FILTER_CONFIG = {
+        companies: {
+          field: 'category',
+          order: ['platform', 'device-maker', 'optics', 'chipset', 'hearables', 'haptics', 'capture'],
+          labels: { 'platform': 'Platform', 'device-maker': 'Device Maker', 'optics': 'Optics', 'chipset': 'Chipset', 'hearables': 'Hearables', 'haptics': 'Haptics', 'capture': '3D Capture & Print' },
+        },
+        products: {
+          field: 'filter_category',
+          order: ['glasses', 'wearables', 'hmd', 'misc'],
+          labels: { 'glasses': 'Glasses', 'wearables': 'Wearables', 'hmd': 'HMDs', 'misc': 'Misc' },
+        },
+        technologies: {
+          field: 'category',
+          order: ['display', 'positioning', 'capture', 'rendering', 'connectivity', 'input-haptics', 'ai'],
+          labels: { 'display': 'Display', 'positioning': 'Positioning & Tracking', 'capture': 'Capture & Reconstruction', 'rendering': 'Rendering & Compute', 'connectivity': 'Connectivity', 'input-haptics': 'Input & Haptics', 'ai': 'AI' },
+        },
+      };
+
+      function buildFilterBar(sectionKey, items) {
+        const config = FILTER_CONFIG[sectionKey];
+        const bar = filterBars[sectionKey];
+        const present = new Set(items.map(function (i) { return i[config.field]; }));
+        const cats = config.order.filter(function (c) { return present.has(c); });
+
+        let html = '<button class="tag-btn active" data-filter="all">All</button>';
+        cats.forEach(function (c) {
+          html += '<button class="tag-btn" data-filter="' + esc(c) + '">' + esc(config.labels[c] || c) + '</button>';
+        });
+        bar.innerHTML = html;
+
+        bar.addEventListener('click', function (e) {
+          const btn = e.target.closest('.tag-btn');
+          if (!btn) return;
+          bar.querySelectorAll('.tag-btn').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          applySectionFilter(sectionKey, btn.dataset.filter);
+        });
+      }
+
+      function applySectionFilter(sectionKey, value) {
+        sections[sectionKey].querySelectorAll('.xr-card').forEach(function (card) {
+          if (value === 'all') {
+            card.classList.remove('xr-hidden');
+          } else {
+            card.classList.toggle('xr-hidden', card.dataset.category !== value);
+          }
+        });
+      }
 
       // ── Cross-section jump links (company -> products -> technologies) ─────
       document.addEventListener('click', function (e) {
@@ -338,6 +407,13 @@
         const target = btn.dataset.jump;
         const targetId = btn.dataset.jumpId;
         activateSection(target);
+
+        // Reset target section's filter to "All" so the jumped-to card is guaranteed visible
+        const targetBar = filterBars[target];
+        targetBar.querySelectorAll('.tag-btn').forEach(function (b) { b.classList.remove('active'); });
+        const allBtn = targetBar.querySelector('[data-filter="all"]');
+        if (allBtn) allBtn.classList.add('active');
+        applySectionFilter(target, 'all');
 
         const selector = target === 'companies' ? '[data-company-id="' + targetId + '"]'
           : target === 'products' ? '[data-product-id="' + targetId + '"]'
@@ -359,6 +435,9 @@
           renderCompanies(data);
           renderProducts(data);
           renderTechnologies(data);
+          buildFilterBar('companies', data.companies);
+          buildFilterBar('products', data.products);
+          buildFilterBar('technologies', data.technologies);
           document.getElementById('xr-loading').style.display = 'none';
         })
         .catch(function () {
