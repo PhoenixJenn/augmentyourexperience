@@ -71,7 +71,59 @@
     .status-pill.shipping    { color: #6ee7b7; border-color: #1a4a3a; }
     .status-pill.announced   { color: #fbbf24; border-color: #4a3a1a; }
     .status-pill.prototype   { color: #a78bfa; border-color: #3a1a4a; }
+    .status-pill.rumored     { color: #f472b6; border-color: #4a1a3a; }
     .status-pill.discontinued{ color: var(--text-muted, #666); border-color: var(--border, #333); }
+
+    .coming-pill {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid #4a3a1a;
+      color: #fbbf24;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+
+    .thumb-icon {
+      font-size: 1.4rem;
+      line-height: 1;
+      margin-right: 0.15rem;
+    }
+
+    .coming-soon-box {
+      border: 1px solid var(--border, #222);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      background: color-mix(in srgb, #fbbf24 5%, transparent);
+    }
+    .coming-soon-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fbbf24;
+      margin-bottom: 0.6rem;
+    }
+    .coming-soon-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted, #ccc);
+      padding: 0.3rem 0;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+      text-align: left;
+      width: 100%;
+    }
+    .coming-soon-item:hover { color: var(--text-primary, #fff); }
+    .coming-soon-item .name { font-weight: 600; }
 
     .xr-card {
       border: 1px solid var(--border, #222);
@@ -257,9 +309,43 @@
       }
 
       // ── Products ───────────────────────────────────────────────────────────
+      const CATEGORY_ICONS = {
+        'smart-glasses': '🕶️', 'ar-glasses': '🕶️', 'ar-headset': '🥽',
+        'mr-headset': '🥽', 'vr-headset': '🥽',
+        'neural-wearable': '⌚', 'haptic-wearable': '🧤',
+        '3d-scanner': '📷', '3d-printer': '🖨️', 'input-device': '🖐️',
+      };
+      const FILTER_ICON_FALLBACK = { glasses: '🕶️', hmd: '🥽', wearables: '⌚', misc: '📦' };
+      function iconFor(p) {
+        return CATEGORY_ICONS[p.category] || FILTER_ICON_FALLBACK[p.filter_category] || '📦';
+      }
+
       function renderProducts(data) {
         const section = document.getElementById('section-products');
         let html = '<div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted,#888);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border,#222);">Products</div>';
+
+        // ── Coming Soon box (status announced/rumored + expected_year set) ────
+        const upcoming = data.products
+          .filter(function (p) { return (p.status === 'announced' || p.status === 'rumored') && p.expected_year; })
+          .sort(function (a, b) {
+            if (a.expected_year === 'TBD') return 1;
+            if (b.expected_year === 'TBD') return -1;
+            return a.expected_year.localeCompare(b.expected_year);
+          });
+
+        if (upcoming.length) {
+          html += '<div class="coming-soon-box"><div class="coming-soon-title">🔜 Coming Soon</div>';
+          upcoming.forEach(function (p) {
+            const company = byId(data.companies, p.company_id);
+            html += '<button class="coming-soon-item" data-jump="products" data-jump-id="' + esc(p.id) + '">'
+              + '<span class="thumb-icon">' + iconFor(p) + '</span>'
+              + '<span class="name">' + esc(p.name) + '</span>'
+              + (company ? '<span>— ' + esc(company.name) + '</span>' : '')
+              + '<span class="coming-pill" style="margin-left:auto;">Coming ' + esc(p.expected_year) + '</span>'
+              + '</button>';
+          });
+          html += '</div>';
+        }
 
         data.products.forEach(function (p) {
           const company = byId(data.companies, p.company_id);
@@ -270,9 +356,11 @@
 
           html += '<div class="xr-card" data-product-id="' + esc(p.id) + '" data-category="' + esc(p.filter_category) + '">'
             + '<div class="xr-card-header">'
+            + '<span class="thumb-icon">' + iconFor(p) + '</span>'
             + '<span class="xr-card-title">' + esc(p.name) + '</span>'
             + '<span class="cat-pill">' + esc(p.category) + '</span>'
             + '<span class="status-pill ' + esc(p.status) + '">' + esc(p.status) + '</span>'
+            + (p.expected_year ? '<span class="coming-pill">Coming ' + esc(p.expected_year) + '</span>' : '')
             + staleTag(p)
             + '</div>'
             + (company ? '<div class="xr-card-sub"><button class="xr-link-pill" data-jump="companies" data-jump-id="' + esc(company.id) + '">' + esc(company.name) + '</button></div>' : '')
@@ -401,7 +489,7 @@
 
       // ── Cross-section jump links (company -> products -> technologies) ─────
       document.addEventListener('click', function (e) {
-        const btn = e.target.closest('.xr-link-pill[data-jump]');
+        const btn = e.target.closest('[data-jump]');
         if (!btn) return;
 
         const target = btn.dataset.jump;
