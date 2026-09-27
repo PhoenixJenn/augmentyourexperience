@@ -677,28 +677,56 @@
       };
       let selectedDeviceTypes = new Set();
       let allDeviceTypes = new Set();
+      let deviceTypeAllMode = true;
       let comingSoonOnly = false;
       let newOnly = false;
+
+      function refreshDeviceTypePillStates() {
+        deviceTypeBar.querySelectorAll('.device-type-item').forEach(function (item) {
+          const t = item.dataset.deviceType;
+          item.classList.toggle('active', t === 'all' ? deviceTypeAllMode : (!deviceTypeAllMode && selectedDeviceTypes.has(t)));
+        });
+      }
+
+      function selectAllDeviceTypes() {
+        deviceTypeAllMode = true;
+        selectedDeviceTypes = new Set(allDeviceTypes);
+        refreshDeviceTypePillStates();
+      }
+
+      function toggleDeviceType(type) {
+        if (deviceTypeAllMode) {
+          // Starting fresh from "All" -> isolate to just this one category.
+          deviceTypeAllMode = false;
+          selectedDeviceTypes = new Set([type]);
+        } else if (selectedDeviceTypes.has(type)) {
+          selectedDeviceTypes.delete(type);
+          if (selectedDeviceTypes.size === 0) { selectAllDeviceTypes(); return; } // nothing left -> back to All
+        } else {
+          selectedDeviceTypes.add(type);
+        }
+        refreshDeviceTypePillStates();
+      }
 
       function buildDeviceTypeBar(products) {
         const present = new Set(products.map(function (p) { return p.device_type; }));
         const types = DEVICE_TYPE_FILTER.order.filter(function (t) { return present.has(t); });
-        selectedDeviceTypes = new Set(types); // all selected by default
         allDeviceTypes = new Set(types);
+        deviceTypeAllMode = true;
+        selectedDeviceTypes = new Set(types);
 
-        deviceTypeBar.innerHTML = types.map(function (t, i) {
-          return (i > 0 ? '<span class="device-type-sep">&nbsp;|&nbsp;</span>' : '')
-            + '<button class="device-type-item active" data-device-type="' + esc(t) + '">' + esc(DEVICE_TYPE_FILTER.labels[t] || t) + '</button>';
-        }).join('');
+        deviceTypeBar.innerHTML = '<button class="device-type-item active" data-device-type="all">All</button>'
+          + '<span class="device-type-sep">&nbsp;|&nbsp;</span>'
+          + types.map(function (t, i) {
+            return (i > 0 ? '<span class="device-type-sep">&nbsp;|&nbsp;</span>' : '')
+              + '<button class="device-type-item" data-device-type="' + esc(t) + '">' + esc(DEVICE_TYPE_FILTER.labels[t] || t) + '</button>';
+          }).join('');
 
         deviceTypeBar.addEventListener('click', function (e) {
           const item = e.target.closest('.device-type-item');
           if (!item) return;
           const type = item.dataset.deviceType;
-          const isSelected = selectedDeviceTypes.has(type);
-          if (isSelected && selectedDeviceTypes.size === 1) return; // keep at least one selected
-          if (isSelected) selectedDeviceTypes.delete(type); else selectedDeviceTypes.add(type);
-          item.classList.toggle('active', !isSelected);
+          if (type === 'all') selectAllDeviceTypes(); else toggleDeviceType(type);
           refreshCompanyVisibility();
         });
       }
@@ -747,7 +775,7 @@
             if (visible) anyTileVisible = true;
           });
 
-          const noProductsFallback = !tiles.length && companyNameMatches && selectedDeviceTypes.size === allDeviceTypes.size && !comingSoonOnly && !newOnly;
+          const noProductsFallback = !tiles.length && companyNameMatches && deviceTypeAllMode && !comingSoonOnly && !newOnly;
           const companyVisible = anyTileVisible || noProductsFallback;
           block.classList.toggle('xr-hidden', !companyVisible);
 
@@ -798,8 +826,7 @@
 
       // ── Jump helpers (technology "used by" pills) ───────────────────────────
       function resetCompanyFilters() {
-        selectedDeviceTypes = new Set(allDeviceTypes);
-        deviceTypeBar.querySelectorAll('.device-type-item').forEach(function (item) { item.classList.add('active'); });
+        selectAllDeviceTypes();
         comingSoonOnly = false; comingSoonToggleBtn.classList.remove('active');
         newOnly = false; newToggleBtn.classList.remove('active');
         document.getElementById('xr-search').value = ''; currentSearch = '';
