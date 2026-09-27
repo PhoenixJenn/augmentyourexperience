@@ -1,17 +1,17 @@
 {
   "meta": {
     "last_updated": "2026-09-26",
-    "note": "Refreshed 2026-09-26 after ~1 month lapse. Google: new Gemini 3.8 Flash confirmed as flagship (1M in/64K out context; pricing TBD), superseding 3.5/3.6/3.7 Flash. xAI: Grok 4.7 confirmed as new flagship (500K context, tiered pricing), superseding Grok 4.3 — API docs (docs.x.ai) accessible again after prior 403s. Mistral: Medium 3.5 pricing confirmed ($1.50/$7.50/MTok), context window still unpublished. Meta: Llama 4 (Scout/Maverick) re-confirmed as current flagship, no Llama 5. Alibaba/Qwen: catalog shows qwen3.8-max replacing qwen3.7-max, but pricing/context unconfirmed — still needs_update. Cohere (Command R+) and Microsoft (Phi-4) skipped this pass — no source URL yet, still needs_update. Follow-up 2026-09-26: confirmed Qwen3.8-Max pricing/specs via alibabacloud.com/en/campaign/qwen-ai-landing-page (Jenn-provided link) — no longer stale.",
+    "note": "Refreshed 2026-09-26 after ~1 month lapse. Google: new Gemini 3.8 Flash confirmed as flagship (1M in/64K out context; pricing TBD), superseding 3.5/3.6/3.7 Flash. xAI: Grok 4.7 confirmed as new flagship (500K context, tiered pricing), superseding Grok 4.3 — API docs (docs.x.ai) accessible again after prior 403s. Mistral: Medium 3.5 pricing confirmed ($1.50/$7.50/MTok), context window still unpublished. Meta: Llama 4 (Scout/Maverick) re-confirmed as current flagship, no Llama 5. Alibaba/Qwen: catalog shows qwen3.8-max replacing qwen3.7-max, but pricing/context unconfirmed — still needs_update. Cohere (Command R+) and Microsoft (Phi-4) skipped this pass — no source URL yet, still needs_update. Follow-up 2026-09-26: confirmed Qwen3.8-Max pricing/specs via alibabacloud.com/en/campaign/qwen-ai-landing-page (Jenn-provided link) — no longer stale. Weekly refresh 2026-09-26: Anthropic released two new flagships — Claude Fable 5.1 supersedes Fable 5 (same $10/$50 pricing, knowledge cutoff pushed to Jun 2026) and Claude Opus 5.5 supersedes Opus 5 (price cut $5/$25 -> $4/$20, cutoff pushed to Jun 2026, now Anthropic's recommended default for most workloads). Claude Sonnet 5's prior 'intro pricing through Aug 31 2026' ($2/$10) now appears to be the standing price — no reversion to $3/$15 shown. Haiku 4.5 re-verified, unchanged. A pricing-page footnote referenced 'Claude Mythos 5.1' but no dedicated Mythos page was reachable to confirm specs, so that entry stays flagged needs_update. All other vendor sources (OpenAI, Google DeepMind, xAI, Mistral, Meta, DeepSeek, Alibaba/Qwen) were unreachable this run: every one of those 7 domains returned EGRESS_BLOCKED under this session's network egress policy (an org-level restriction, not a site outage), so those entries were left untouched pending a session with the needed network access. Cohere and Microsoft/Phi still skipped (no confirmed official source). Weekly refresh 2026-09-26 (local run, full network access): confirmed the prior run's EGRESS_BLOCKED note was specific to that cloud sandbox — all 9 vendor URLs were reachable this time. Anthropic re-verified with no changes, and the Mythos 5.1 flag from the prior pass is now resolved (claude-mythos-5-1 confirmed via its own model page: same specs as Fable 5.1, invite-only). OpenAI: major update — GPT-6 family (Astra/Sol/Luna) has fully superseded GPT-5.6 (Sol/Terra/Luna); added three new entries, marked GPT-5.6 tier superseded. DeepSeek: V4 Flash renamed/repriced as V4.1 Flash (deepseek-flash) with a large price cut and new native vision support; added new entry, marked old V4 Flash superseded; V4 Pro re-verified unchanged (model_id now dated deepseek-v4-pro-0813). Google DeepMind: spotted a new Gemini 3.8 Audio release (Live/Live Extended Thinking/Flash TTS/Flash-Lite TTS variants) on the model-cards index, but a guessed per-family URL for it 404'd, so pricing/context window are still TBD — added as a flagged stub pending the correct source URL. xAI (Grok 4.7), Mistral (Medium 3.5 / Large 3), Meta (Llama 4), and Alibaba/Qwen (Qwen3.8-Max) were all re-verified with no changes. Cohere and Microsoft/Phi still skipped (no confirmed official source).",
     "update_sources": {
       "Anthropic": "https://platform.claude.com/docs/en/about-claude/models/overview",
       "OpenAI": "https://developers.openai.com/api/docs/models",
-      "Google DeepMind (products)": "https://deepmind.google/models/",
-      "Google DeepMind (model cards)": "https://deepmind.google/models/model-cards/",
-      "xAI": "https://x.ai/api",
-      "Mistral AI": "https://docs.mistral.ai/models",
-      "Meta": "https://ai.meta.com/resources/models-and-libraries/",
+      "Google DeepMind (releases)": "https://deepmind.google/models/model-cards/",
+      "Google DeepMind (context specs)": "https://deepmind.google/models/gemini/flash/",
+      "xAI": "https://docs.x.ai/docs/models",
+      "Mistral AI": "https://mistral.ai/pricing/api",
+      "Meta": "https://dev.meta.ai/llama/",
       "DeepSeek": "https://api-docs.deepseek.com/quick_start/pricing",
-      "Alibaba (Qwen)": "https://qwen.ai/apiplatform#api_flagship_models"
+      "Alibaba (Qwen)": "https://www.alibabacloud.com/en/campaign/qwen-ai-landing-page"
     }
   },
   "models": [
@@ -42,8 +42,39 @@
       "knowledge_cutoff": "Jan 2026",
       "api": true,
       "needs_update": false,
-      "news": "Anthropic's most capable model, GA June 9 2026. 'Next-generation intelligence for long-running agents.' Adaptive thinking always on, extended thinking no. $10/$50 per MTok. Shares specs with invite-only Mythos 5 (Project Glasswing). New naming convention: Fable replaces Opus as top-tier.",
-      "news_date": "2026-08-09"
+      "news": "Superseded by Claude Fable 5.1 (see claude-fable-5-1), confirmed via platform.claude.com model comparison table 2026-09-26. Fable 5 remains listed as a legacy model, still available. Retained here for historical record.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "claude-fable-5-1",
+      "company": "Anthropic",
+      "family": "Claude",
+      "version": "Fable 5.1",
+      "model_id": "claude-fable-5-1",
+      "type": "proprietary",
+      "tier": "$$$$",
+      "pricing": "$10 / $50 per MTok in/out",
+      "context_window": "1M",
+      "max_output": "128K",
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "demanding reasoning",
+        "long-horizon agentic work",
+        "evals that still fall short on Opus 5.5"
+      ],
+      "features": [
+        "adaptive thinking (always on)",
+        "default effort: high"
+      ],
+      "knowledge_cutoff": "Jun 2026",
+      "api": true,
+      "needs_update": false,
+      "news": "New Anthropic flagship, supersedes Fable 5. 'For demanding reasoning and long-horizon agentic work.' Same $10/$50 per MTok pricing as Fable 5, but knowledge cutoff pushed to Jun 2026 (from Jan 2026). Adaptive thinking always on, default effort high, 1M context, 128K output. Retirement not sooner than Sept 1 2027.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "claude-opus-5",
@@ -72,8 +103,39 @@
       "knowledge_cutoff": "May 2026",
       "api": true,
       "needs_update": false,
-      "news": "'For complex agentic coding and enterprise work.' Most current training data of any Claude model — May 2026 cutoff. Adaptive thinking yes, extended thinking no. Replaces Opus 4.7/4.8 as the $5/$25 workhorse. Default for Claude Code complex tasks.",
-      "news_date": "2026-08-09"
+      "news": "Superseded by Claude Opus 5.5 (see claude-opus-5-5), confirmed via platform.claude.com model comparison table 2026-09-26. Opus 5 remains listed as a legacy model, still available. Retained here for historical record.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "claude-opus-5-5",
+      "company": "Anthropic",
+      "family": "Claude",
+      "version": "Opus 5.5",
+      "model_id": "claude-opus-5-5",
+      "type": "proprietary",
+      "tier": "$$$",
+      "pricing": "$4 / $20 per MTok in/out",
+      "context_window": "1M",
+      "max_output": "128K",
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "long-running agentic coding",
+        "knowledge work",
+        "recommended default for most workloads"
+      ],
+      "features": [
+        "adaptive thinking (always on)",
+        "default effort: medium"
+      ],
+      "knowledge_cutoff": "Jun 2026",
+      "api": true,
+      "needs_update": false,
+      "news": "New Anthropic flagship, supersedes Opus 5. 'For long-running agentic coding and knowledge work.' Price cut to $4/$20 per MTok (from Opus 5's $5/$25). Knowledge cutoff pushed to Jun 2026. Adaptive thinking now always on, default effort medium, 1M context, 128K output. Anthropic's docs now recommend starting with Opus 5.5 for most workloads. Retirement not sooner than Sept 22 2027.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "claude-sonnet-5",
@@ -83,7 +145,7 @@
       "model_id": "claude-sonnet-5",
       "type": "proprietary",
       "tier": "$$",
-      "pricing": "$3 / $15 per MTok in/out (intro: $2 / $10 through Aug 31 2026)",
+      "pricing": "$2 / $10 per MTok in/out",
       "context_window": "1M",
       "max_output": "128K",
       "modalities": [
@@ -102,8 +164,8 @@
       "knowledge_cutoff": "Jan 2026",
       "api": true,
       "needs_update": false,
-      "news": "'Best combination of speed and intelligence.' Intro pricing $2/$10 per MTok through Aug 31 2026, then $3/$15. Adaptive thinking yes, extended thinking no. 1M context, 128K output. Replaces Sonnet 4.6.",
-      "news_date": "2026-08-09"
+      "news": "Re-verified 2026-09-26 via platform.claude.com model comparison table: pricing now listed flatly as $2/$10 per MTok in/out, with no mention of the prior 'intro pricing through Aug 31 2026' or a scheduled reversion to $3/$15 — the intro rate appears to have become the standing price. Still 'the best combination of speed and intelligence,' 1M context, 128K output, adaptive thinking, default effort high, Jan 2026 cutoff. Retirement not sooner than June 30 2027.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "claude-haiku-4",
@@ -132,8 +194,8 @@
       "knowledge_cutoff": "Feb 2025",
       "api": true,
       "needs_update": false,
-      "news": "Still the current fast/budget tier — no Haiku 5 released yet. Extended thinking yes, adaptive thinking no. 200K context, 64K output.",
-      "news_date": "2026-08-09"
+      "news": "Re-verified 2026-09-26 via platform.claude.com — no changes. Still the current fast/budget tier, no Haiku 5 released yet. $1/$5 per MTok, 200K context, 64K output, extended thinking (not adaptive), Feb 2025 cutoff. Retirement not sooner than Oct 15 2026.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "claude-mythos",
@@ -162,8 +224,39 @@
       "knowledge_cutoff": "Jan 2026",
       "api": false,
       "needs_update": false,
-      "news": "Upgraded to Mythos 5 on June 9 2026. Same specs as Fable 5 ($10/$50, 1M context, 128K output). Invite-only via Project Glasswing for approved customers focused on defensive cybersecurity. Contact Anthropic, AWS, or Google Cloud account team for access.",
-      "news_date": "2026-08-09"
+      "news": "Superseded by Claude Mythos 5.1 (see claude-mythos-5-1), confirmed via platform.claude.com/docs/en/models/mythos-5-1/overview 2026-09-26 — resolves the prior run's flag about a pricing-footnote reference to 'Claude Mythos 5.1'. Mythos 5 retained here for historical record.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "claude-mythos-5-1",
+      "company": "Anthropic",
+      "family": "Claude",
+      "version": "Mythos 5.1",
+      "model_id": "claude-mythos-5-1",
+      "type": "proprietary",
+      "tier": "$$$$",
+      "pricing": "$10 / $50 per MTok in/out (invite-only)",
+      "context_window": "1M",
+      "max_output": "128K",
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "defensive cybersecurity",
+        "red team / vulnerability research"
+      ],
+      "features": [
+        "adaptive thinking (always on)",
+        "default effort: high",
+        "Project Glasswing"
+      ],
+      "knowledge_cutoff": "Jun 2026",
+      "api": false,
+      "needs_update": false,
+      "news": "New Anthropic flagship for Project Glasswing, supersedes Mythos 5. Confirmed via platform.claude.com/docs/en/models/mythos-5-1/overview: released Sept 1 2026, shares Claude Fable 5.1's specs exactly ($10/$50 per MTok, 1M context, 128K output, Jun 2026 cutoff, adaptive thinking always on, default effort high). Invite-only via Project Glasswing — contact Anthropic, AWS, or Google Cloud account team for access. Retirement not sooner than Sept 1 2027.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "gpt-5-6-sol",
@@ -196,8 +289,8 @@
       "knowledge_cutoff": "Feb 16, 2026",
       "api": true,
       "needs_update": false,
-      "news": "Price cut 2026-08-24: $5/$30 -> $4/$20 per MTok. Still current OpenAI flagship, 1.05M context, 128K output. Cutoff refined to Feb 16, 2026. Named tier: Sol (flagship) / Terra (mid) / Luna (budget).",
-      "news_date": "2026-08-24"
+      "news": "Superseded by GPT-6 Astra (see gpt-6-astra), confirmed via developers.openai.com/api/docs/models 2026-09-26 — the GPT-5.6 family (Sol/Terra/Luna) no longer appears on the current models page. Retained here for historical record.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "gpt-5-6-terra",
@@ -229,8 +322,8 @@
       "knowledge_cutoff": "Feb 2026",
       "api": true,
       "needs_update": false,
-      "news": "Mid-tier GPT-5.6. 'Balances intelligence with cost efficiency.' 1.05M context, 128K output. $2/$12 per MTok. Replaces GPT-5.4.",
-      "news_date": "2026-08-09"
+      "news": "Superseded by GPT-6 Sol (see gpt-6-sol), confirmed via developers.openai.com/api/docs/models 2026-09-26 — the GPT-5.6 family no longer appears on the current models page. Retained here for historical record.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "gpt-5-6-luna",
@@ -263,8 +356,110 @@
       "knowledge_cutoff": "Feb 2026",
       "api": true,
       "needs_update": false,
-      "news": "Budget GPT-5.6. 'Optimized for cost-sensitive workloads.' 1.05M context, 128K output. $0.20/$1.20 per MTok — frontier-class at micro-budget pricing. Replaces GPT-5.4 mini.",
-      "news_date": "2026-08-09"
+      "news": "Superseded by GPT-6 Luna (see gpt-6-luna), confirmed via developers.openai.com/api/docs/models 2026-09-26 — the GPT-5.6 family no longer appears on the current models page. Retained here for historical record.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "gpt-6-astra",
+      "company": "OpenAI",
+      "family": "GPT-6",
+      "version": "GPT-6 Astra",
+      "model_id": "gpt-6-astra",
+      "type": "proprietary",
+      "tier": "$$$$",
+      "pricing": "$10 / $50 per MTok in/out",
+      "context_window": "1.05M",
+      "max_output": "128K",
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "flagship reasoning",
+        "complex professional work",
+        "most capable OpenAI model"
+      ],
+      "features": [
+        "adjustable reasoning effort",
+        "functions",
+        "web search",
+        "file search",
+        "computer use"
+      ],
+      "knowledge_cutoff": "Apr 30, 2026",
+      "api": true,
+      "needs_update": false,
+      "news": "New OpenAI flagship generation: GPT-6 family (Astra/Sol/Luna) supersedes GPT-5.6 (Sol/Terra/Luna) entirely — GPT-5.6 no longer listed on developers.openai.com/api/docs/models. GPT-6 Astra is the new top-tier flagship, priced $10/$50 per MTok (up from GPT-5.6 Sol's $4/$20), 1.05M context, 128K output, adjustable reasoning effort. Note: OpenAI reused the 'Sol' name for the new mid-tier model — GPT-6 Sol is NOT the successor to GPT-5.6 Sol; GPT-6 Astra is. Audio modality (present on GPT-5.6) not confirmed for GPT-6 on this pass — worth re-checking.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "gpt-6-sol",
+      "company": "OpenAI",
+      "family": "GPT-6",
+      "version": "GPT-6 Sol",
+      "model_id": "gpt-6-sol",
+      "type": "proprietary",
+      "tier": "$$",
+      "pricing": "$2 / $10 per MTok in/out",
+      "context_window": "1.05M",
+      "max_output": "128K",
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "balanced cost/capability",
+        "professional applications"
+      ],
+      "features": [
+        "adjustable reasoning effort",
+        "functions",
+        "web search",
+        "file search",
+        "computer use"
+      ],
+      "knowledge_cutoff": "Apr 20, 2026",
+      "api": true,
+      "needs_update": false,
+      "news": "Mid-tier GPT-6 model, supersedes GPT-5.6 Terra (was $2/$12, now $2/$10 as GPT-6 Sol). Confusingly shares the 'Sol' name with the former GPT-5.6 flagship tier — this is the mid tier, not the flagship (see gpt-6-astra).",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "gpt-6-luna",
+      "company": "OpenAI",
+      "family": "GPT-6",
+      "version": "GPT-6 Luna",
+      "model_id": "gpt-6-luna",
+      "type": "proprietary",
+      "tier": "$",
+      "pricing": "$0.10 / $0.50 per MTok in/out",
+      "context_window": "1.05M",
+      "max_output": "128K",
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "high-volume tasks",
+        "cost-sensitive workloads",
+        "coding agents",
+        "subagents"
+      ],
+      "features": [
+        "adjustable reasoning effort",
+        "functions",
+        "web search",
+        "file search",
+        "computer use"
+      ],
+      "knowledge_cutoff": "May 18, 2026",
+      "api": true,
+      "needs_update": false,
+      "news": "Budget-tier GPT-6, supersedes GPT-5.6 Luna. Further price cut: $0.20/$1.20 -> $0.10/$0.50 per MTok.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "gemini-3-8-flash",
@@ -398,6 +593,37 @@
       "needs_update": false,
       "news": "'Create anything from anything — leap in world understanding, multimodality, and editing.' Available via Gemini app and Google Flow. Not in the API.",
       "news_date": "2026-08-09"
+    },
+    {
+      "id": "gemini-3-8-audio",
+      "company": "Google DeepMind",
+      "family": "Gemini 3",
+      "version": "3.8 Audio",
+      "model_id": "TBD",
+      "type": "proprietary",
+      "tier": "$$",
+      "pricing": "TBD",
+      "context_window": "TBD",
+      "modalities": [
+        "audio",
+        "text"
+      ],
+      "best_for": [
+        "real-time voice agents",
+        "speech-to-speech conversation",
+        "live conversational AI",
+        "text-to-speech"
+      ],
+      "features": [
+        "Live variant",
+        "Live Extended Thinking variant",
+        "Flash TTS variant",
+        "Flash-Lite TTS variant"
+      ],
+      "api": true,
+      "needs_update": true,
+      "news": "New Gemini release spotted via deepmind.google/models/model-cards/ (model card updated 2026-09-24): Gemini 3.8 Audio, with Live, Live Extended Thinking, Flash TTS, and Flash-Lite TTS variants. Pricing and context window not yet confirmed — a guessed per-family URL (deepmind.google/models/gemini/audio/) returned 404. Needs a follow-up pass once the correct per-family page is identified.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "gemma-4",
@@ -616,15 +842,48 @@
       ],
       "api": true,
       "needs_update": false,
-      "news": "Pricing restructured 2026-08-24 to peak/off-peak tiers (peak = 01:00-04:00 & 06:00-10:00 UTC Mon-Fri, off-peak = half price) plus cache-hit/cache-miss input rates — no longer a single flat $/MTok. 1M context, 384K max output unchanged. New sibling deepseek-v4-flash-vision-exp also spotted (images billed as input tokens).",
-      "news_date": "2026-08-24"
+      "news": "Superseded by DeepSeek V4.1 Flash (see deepseek-v4-1-flash), confirmed via api-docs.deepseek.com/quick_start/pricing 2026-09-26 — model_id deepseek-v4-flash (and the sibling deepseek-v4-flash-vision-exp) has been retired and is now served by V4.1-Flash at Flash pricing. Retained here for historical record.",
+      "news_date": "2026-09-26"
+    },
+    {
+      "id": "deepseek-v4-1-flash",
+      "company": "DeepSeek",
+      "family": "DeepSeek",
+      "version": "V4.1 Flash",
+      "model_id": "deepseek-flash",
+      "type": "open-source",
+      "tier": "$",
+      "pricing": "Cache hit $0.003/$0.006, cache miss $0.15/$0.30, output $0.60/$1.20 per MTok (off-peak/peak)",
+      "context_window": "1M",
+      "max_output": "384K",
+      "modalities": [
+        "text",
+        "vision",
+        "code"
+      ],
+      "best_for": [
+        "cost-sensitive enterprise tasks",
+        "high-volume pipelines",
+        "document summarization"
+      ],
+      "features": [
+        "thinking mode",
+        "native vision support",
+        "tool calls",
+        "JSON output",
+        "prompt caching"
+      ],
+      "api": true,
+      "needs_update": false,
+      "news": "Supersedes DeepSeek V4 Flash — renamed DeepSeek-V4.1-Flash (model_id now deepseek-flash; old deepseek-v4-flash and deepseek-v4-flash-vision-exp names retired and merged into this model at Flash pricing). Major price cut: cache-hit input $0.007/$0.014 -> $0.003/$0.006, cache-miss input $0.22/$0.44 -> $0.15/$0.30, output $0.66/$1.32 -> $0.60/$1.20 (off-peak/peak). Now includes native vision support (previously a separate -vision-exp sibling). Context 1M, max output 384K unchanged.",
+      "news_date": "2026-09-26"
     },
     {
       "id": "deepseek-v4-pro",
       "company": "DeepSeek",
       "family": "DeepSeek",
       "version": "V4 Pro",
-      "model_id": "deepseek-v4-pro",
+      "model_id": "deepseek-v4-pro-0813",
       "type": "open-source",
       "tier": "$",
       "pricing": "Cache hit $0.022/$0.044, cache miss $0.66/$1.32, output $1.98/$3.96 per MTok (off-peak/peak)",
@@ -646,8 +905,8 @@
       ],
       "api": true,
       "needs_update": false,
-      "news": "Pricing restructured 2026-08-24 to the same peak/off-peak + cache-hit/miss model as V4 Flash (see that entry for the peak-hours definition). 1M context, 384K output unchanged.",
-      "news_date": "2026-08-24"
+      "news": "Re-verified 2026-09-26 via api-docs.deepseek.com: pricing and specs unchanged (cache hit $0.022/$0.044, cache miss $0.66/$1.32, output $1.98/$3.96 per MTok off-peak/peak; 1M context, 384K output). Internal version label now shown as DeepSeek-V4-Pro-0813 (dated snapshot); model_id updated to match. Still no vision support (text/code only).",
+      "news_date": "2026-09-26"
     },
     {
       "id": "qwen-3-8-max",
