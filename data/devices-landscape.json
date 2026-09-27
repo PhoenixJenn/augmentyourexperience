@@ -68,14 +68,12 @@
       "product_ids": [
         "samsung-galaxy-xr",
         "google-glass-ee",
-        "google-warby-parker-glasses",
-        "google-gentle-monster-glasses",
         "google-gucci-glasses"
       ],
       "notes": "Real tracked signal: Samsung + Google + Qualcomm form the core Android XR alliance (seen as the best shot at consumer AR volume outside Apple/Meta). Google partnered with Gentle Monster and Warby Parker on premium Android XR frames. Xreal (Aura) is tracked as part of the same ecosystem push.",
       "needs_update": false,
-      "news": "Android XR ecosystem traction confirmed via Morning Brief tracking: Samsung Galaxy XR + Xreal Aura + Google content, alongside Gemini integration.",
-      "news_date": "2026-09-26",
+      "news": "Corrected 2026-09-27: the Warby Parker and Gentle Monster Android XR glasses are Samsung-manufactured (Galaxy Glasses) -- moved to Samsung as the device maker, Google remains the platform (Android XR) supplier. Gucci glasses stay here, unconfirmed manufacturer.",
+      "news_date": "2026-09-27",
       "news_log": [
         {
           "date": "2026-09-26",
@@ -91,11 +89,13 @@
       "category": "device-maker",
       "description": "Android XR's lead hardware partner; also a component supplier (displays, memory) across the broader XR device supply chain.",
       "product_ids": [
-        "samsung-galaxy-xr"
+        "samsung-galaxy-xr",
+        "samsung-galaxy-glasses-gentle-monster",
+        "samsung-galaxy-glasses-warby-parker"
       ],
       "notes": "Real tracked signal: revealed both a display and a display-less Samsung Galaxy Glasses variant at Galaxy Unpacked (July 22, London), alongside the Galaxy XR headset. Samsung Display is separately developing RGB OLED-on-Silicon microdisplays for glasses. A claimed 9-hour battery life for the smart glasses needs verification at launch.",
-      "needs_update": true,
-      "news": "Galaxy XR and Galaxy Glasses product pages 404'd on samsung.com as of 2026-09-27 -- could not independently verify the 9-hour battery claim or Galaxy Glasses launch date via official channels. What's confirmed is still just Morning Brief tracked signal (Galaxy Unpacked July 22 London reveal, Samsung Display's OLEDoS microdisplay). Needs a working product-page URL from Jenn or a re-check once Samsung's site restructures.",
+      "needs_update": false,
+      "news": "Two Galaxy Glasses designs (Gentle Monster + Warby Parker) confirmed via news.samsung.com -- audio-only, no display, camera + Gemini. Corrects/replaces the earlier single generic placeholder.",
       "news_date": "2026-09-27",
       "news_log": [
         {
@@ -649,25 +649,39 @@
       "product_ids": [
         "mudra-band"
       ],
-      "notes": "wearable-devices.com currently resolves to a parked/for-sale domain page -- could not verify current company status via official site.",
-      "needs_update": true,
+      "notes": "Corporate site (wearable-devices.com) is parked/for-sale, but the consumer storefront (mudra-band.com) is active and selling.",
+      "needs_update": false,
       "news": "Company website (wearable-devices.com) appears parked/for sale as of 2026-09-27 -- worth checking whether this reflects a real business status change before treating the product as current.",
       "news_date": "2026-09-27",
-      "date_added": "2026-09-27"
+      "date_added": "2026-09-27",
+      "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Confirmed active via mudra-band.com -- $299, Apple Watch Series 4+, 30-day money-back guarantee, 1-year warranty.",
+          "source_url": "https://mudra-band.com/products/mudra-band-for-apple-watch"
+        }
+      ]
     },
     {
       "id": "prolo",
       "name": "Prolo",
-      "category": "health",
-      "description": "Smart ring maker -- added per Jenn, not yet independently verified (no working URL found).",
+      "category": "haptics",
+      "description": "Wearable input controller maker -- Prolo Ring is a Bluetooth gesture/trackpad ring for cursor, click, scroll, and AI/XR triggering, not a health-tracking ring.",
       "product_ids": [
         "prolo-ring"
       ],
-      "notes": "Could not find a working company website (prolodevices.com and prolorings.com both failed to resolve). Need a correct URL from Jenn to verify anything about this product.",
-      "needs_update": true,
+      "notes": "",
+      "needs_update": false,
       "news": "Stub entry -- no verified source yet.",
       "news_date": "2026-09-27",
-      "date_added": "2026-09-27"
+      "date_added": "2026-09-27",
+      "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Confirmed real company/product via proloring.com -- previously couldn't find a working URL. Won AWE USA 2026 \"Startup to Watch\" Auggie Award.",
+          "source_url": "https://proloring.com/"
+        }
+      ]
     },
     {
       "id": "viture",
@@ -1091,8 +1105,8 @@
       "news": "Confirmed current two-tier lineup (Air/Pro) via bhaptics.com.",
       "news_date": "2026-09-27",
       "product_url": "https://www.bhaptics.com/",
-      "product_url_is_root": true,
-      "image_url": null,
+      "product_url_is_root": false,
+      "image_url": "https://cdn.bhaptics.com/images/products/pro-0.png",
       "device_type": "wearable",
       "date_added": "2026-09-26"
     },
@@ -1118,19 +1132,19 @@
     },
     {
       "id": "revopoint-scanner",
-      "name": "Revopoint handheld scanner",
+      "name": "Revopoint POP 4",
       "company_id": "revopoint",
       "category": "3d-scanner",
       "filter_category": "scanners",
       "status": "shipping",
-      "description": "Handheld object-scale 3D scanner (exact current model — POP/MINI/RANGE series — needs confirming) using structured light or LiDAR depending on version.",
+      "description": "Compact handheld 3D scanner combining blue-laser and infrared scanning modes for small-to-medium, dark, or shiny objects -- 0.03mm accuracy, up to 105fps, AI segmentation, 3DGS modeling support.",
       "technology_ids": [
         "structured-light",
         "lidar-scanning"
       ],
       "needs_update": true,
-      "news": "Seed entry — name is generic pending confirmation of the current flagship model.",
-      "news_date": "2026-09-26",
+      "news": "Corrected: current consumer model is POP 4 (was a generic placeholder name). Also makes the metrology-grade MetroX line for professional use. No confident product photo found yet.",
+      "news_date": "2026-09-27",
       "product_url": "https://www.revopoint3d.com/",
       "product_url_is_root": true,
       "image_url": null,
@@ -1156,43 +1170,23 @@
       "date_added": "2026-09-26"
     },
     {
-      "id": "samsung-galaxy-glasses",
-      "name": "Samsung Galaxy Glasses",
-      "company_id": "samsung",
-      "category": "smart-glasses",
-      "filter_category": "glasses",
-      "status": "announced",
-      "description": "Revealed at Galaxy Unpacked (July 22, London) in both display and display-less variants — Samsung's Android XR glasses play, distinct from the Galaxy XR headset. Samsung Display is separately developing an RGB OLED-on-Silicon microdisplay for the display variant.",
-      "technology_ids": [
-        "oledos"
-      ],
-      "needs_update": true,
-      "news": "Claimed 9-hour battery life needs verification at launch.",
-      "news_date": "2026-09-26",
-      "product_url": null,
-      "product_url_is_root": false,
-      "image_url": null,
-      "device_type": "ar-glasses",
-      "date_added": "2026-09-26"
-    },
-    {
       "id": "xreal-aura",
       "name": "Xreal Aura",
       "company_id": "xreal",
       "category": "ar-glasses",
       "filter_category": "glasses",
       "status": "announced",
-      "description": "Xreal's next-generation Android XR spatial computer -- lightweight glasses plus a dedicated compute puck, launching Fall 2026. Tracked via reservation-to-conversion numbers as a bellwether for the tethered smart-glasses strategy.",
+      "description": "Xreal's Android XR spatial computer, announced June 16 2026 (first shown at AWE), built with Qualcomm Snapdragon Reality Elite and deep Gemini integration. Lightweight optical see-through (OST) glasses under 95g, 70-degree FOV, 6DoF tracking, hand tracking, tethered compute puck. Base model targeted at $1,500 or less; pre-orders open at $99 (with a $199 launch credit). Fall 2026 launch in US/UK/Canada/Japan/South Korea.",
       "technology_ids": [
         "waveguide",
         "split-rendering"
       ],
-      "needs_update": true,
-      "news": "Confirmed via xreal.com/aura: launching Fall 2026, glasses + dedicated compute puck, M/L IPD fit options -- no other model variations. Corrected status from shipping to announced.",
+      "needs_update": false,
+      "news": "Full specs confirmed via xreal.com/aura and press coverage (Android Authority, Engadget, PR Newswire).",
       "news_date": "2026-09-27",
       "product_url": "https://www.xreal.com/",
-      "product_url_is_root": true,
-      "image_url": null,
+      "product_url_is_root": false,
+      "image_url": "https://resource.xreal.com/www-xreal-com/images/aura/xreal-aura-eyewear-compute-puck.webp",
       "hardware_features": {
         "camera": false,
         "audio": true,
@@ -1212,7 +1206,7 @@
     },
     {
       "id": "pico-headset",
-      "name": "Pico headset",
+      "name": "Pico 4 Ultra",
       "company_id": "pico",
       "category": "vr-headset",
       "filter_category": "hmd",
@@ -1222,12 +1216,12 @@
         "slam-vps",
         "passthrough"
       ],
-      "needs_update": true,
-      "news": "Seed entry — name is generic pending confirmation of the current flagship model (Pico 4 Ultra / Pico 5 era).",
-      "news_date": "2026-09-26",
+      "needs_update": false,
+      "news": "Confirmed current flagship (Pico 4 Ultra) via picoxr.com. Dual 32MP cameras + iToF depth for color passthrough.",
+      "news_date": "2026-09-27",
       "product_url": "https://www.picoxr.com/",
-      "product_url_is_root": true,
-      "image_url": null,
+      "product_url_is_root": false,
+      "image_url": "https://www.knoxlabs.com/cdn/shop/files/pico4-ultra-enterprise-featured-white-square_91aa9b23-62c7-439e-86fb-4506be9c006f_700x700.webp?v=1786689906",
       "device_type": "vr-mr-headset",
       "date_added": "2026-09-26"
     },
@@ -1243,12 +1237,12 @@
         "waveguide",
         "lcos"
       ],
-      "needs_update": true,
-      "news": "Corrected: Vuzix's current lineup is enterprise-focused (LX1, M400), not the older consumer \"Blade\" line. Light engine tech unconfirmed for the current generation. Lens/display attributes added 2026-09-27 from general knowledge, not freshly re-verified against an official spec sheet this pass -- treat as a starting point, not confirmed.",
+      "needs_update": false,
+      "news": "Confirmed current via vuzix.com/products/m400-smart-glasses.",
       "news_date": "2026-09-27",
       "product_url": "https://www.vuzix.com/",
-      "product_url_is_root": true,
-      "image_url": null,
+      "product_url_is_root": false,
+      "image_url": "https://www.vuzix.com/cdn/shop/products/Product_Image_M400_1.jpg?v=1750868426&width=1946",
       "hardware_features": {
         "camera": true,
         "audio": true,
@@ -1278,7 +1272,7 @@
         "slam-vps"
       ],
       "needs_update": true,
-      "news": "Seed entry — verify current company status and product roadmap. Lens/display attributes added 2026-09-27 from general knowledge, not freshly re-verified against an official spec sheet this pass -- treat as a starting point, not confirmed.",
+      "news": "Seed entry — verify current company status and product roadmap. Lens/display attributes added 2026-09-27 from general knowledge, not freshly re-verified against an official spec sheet this pass -- treat as a starting point, not confirmed. Photo search only turned up a lens-detail shot or people-wearing-it images -- not confident enough to use, left unset.",
       "news_date": "2026-09-27",
       "product_url": "https://www.magicleap.com/magic-leap-2",
       "product_url_is_root": false,
@@ -1332,8 +1326,8 @@
       "news": "Confirmed current flagship name via ultraleap.com.",
       "news_date": "2026-09-27",
       "product_url": "https://www.ultraleap.com/",
-      "product_url_is_root": true,
-      "image_url": null,
+      "product_url_is_root": false,
+      "image_url": "https://mma.prnewswire.com/media/2089376/Leap_Motion_Controller_2.jpg",
       "device_type": "input",
       "date_added": "2026-09-26"
     },
@@ -1355,44 +1349,6 @@
       "product_url_is_root": false,
       "image_url": "https://haptx.com/wp-content/uploads/new_glove_img2-2.png",
       "device_type": "wearable",
-      "date_added": "2026-09-26"
-    },
-    {
-      "id": "google-warby-parker-glasses",
-      "name": "Warby Parker Android XR glasses",
-      "company_id": "google",
-      "category": "smart-glasses",
-      "filter_category": "glasses",
-      "status": "announced",
-      "expected_year": "2026",
-      "description": "Fashion-eyewear partner glasses shown as part of Google's Android XR ecosystem push (alongside Gentle Monster) — everyday-wearable smart glasses rather than full AR.",
-      "technology_ids": [],
-      "needs_update": true,
-      "news": "Shown at Google I/O per Morning Brief tracking. No confirmed shipping date beyond a general 2026 window — verify.",
-      "news_date": "2026-09-26",
-      "product_url": null,
-      "product_url_is_root": false,
-      "image_url": null,
-      "device_type": "ar-glasses",
-      "date_added": "2026-09-26"
-    },
-    {
-      "id": "google-gentle-monster-glasses",
-      "name": "Gentle Monster Android XR glasses",
-      "company_id": "google",
-      "category": "smart-glasses",
-      "filter_category": "glasses",
-      "status": "announced",
-      "expected_year": "2026",
-      "description": "Premium fashion-eyewear partner glasses for Android XR, positioned as Google's answer to Ray-Ban Meta's frame partnership model.",
-      "technology_ids": [],
-      "needs_update": true,
-      "news": "Real tracked signal: 'Google Gentle Monster partnership (Android XR premium frame play).' No confirmed shipping date — verify.",
-      "news_date": "2026-09-26",
-      "product_url": null,
-      "product_url_is_root": false,
-      "image_url": null,
-      "device_type": "ar-glasses",
       "date_added": "2026-09-26"
     },
     {
@@ -1454,14 +1410,14 @@
       "category": "ring-controller",
       "filter_category": "wearables",
       "status": "shipping",
-      "description": "Ring controller for the Even G2 glasses -- discreet physical input (the G2 has no camera and relies on this ring plus mic/AI for interaction, not touch or gesture).",
+      "description": "Ring controller for the Even G2 glasses -- discreet physical input via gesture (swipes, taps). Crafted from zirconia ceramic and stainless steel. The G2 has no camera and relies on this ring plus mic/AI for interaction, not touch or gesture on the frame itself.",
       "technology_ids": [],
       "needs_update": false,
-      "news": "Corrected 2026-09-27 per Jenn: R1 is specifically the G2's ring controller (input device), not a general wellbeing/health ring as previously described.",
+      "news": "Confirmed via evenrealities.com/products/r1.",
       "news_date": "2026-09-27",
       "product_url": "https://www.evenrealities.com/",
-      "product_url_is_root": true,
-      "image_url": null,
+      "product_url_is_root": false,
+      "image_url": "https://cdn.shopify.com/s/files/1/0600/4513/1891/files/even-r1-smart-ring-top-45-degree-view.png?v=1762241216",
       "device_type": "ring",
       "date_added": "2026-09-27"
     },
@@ -1620,16 +1576,16 @@
       "category": "neural-wearable",
       "filter_category": "wearables",
       "status": "shipping",
-      "description": "Apple Watch-compatible band that adds neural gesture input via Surface Nerve Conductance sensing -- reads subtle finger movements without a camera.",
+      "description": "Apple Watch-compatible band (Series 4+) that adds neural gesture input via Surface Nerve Conductance sensing -- reads subtle finger movements without a camera. $299.",
       "technology_ids": [
         "emg"
       ],
-      "needs_update": true,
-      "news": "Could not verify current status -- official site (wearable-devices.com) resolves to a parked domain page as of 2026-09-27.",
+      "needs_update": false,
+      "news": "Confirmed active and selling via mudra-band.com (the corporate wearable-devices.com domain is parked, but the consumer storefront is live).",
       "news_date": "2026-09-27",
-      "product_url": null,
+      "product_url": "https://mudra-band.com/products/mudra-band-for-apple-watch",
       "product_url_is_root": false,
-      "image_url": null,
+      "image_url": "//mudra-band.com/cdn/shop/files/band_01_20x_crop_center.png?v=1735746105",
       "device_type": "wrist",
       "date_added": "2026-09-27"
     },
@@ -1637,17 +1593,19 @@
       "id": "prolo-ring",
       "name": "Prolo Ring",
       "company_id": "prolo",
-      "category": "smart-ring",
+      "category": "input-ring",
       "filter_category": "wearables",
       "status": "shipping",
-      "description": "Added per Jenn -- specs and function not yet verified, no working company URL found.",
-      "technology_ids": [],
-      "needs_update": true,
-      "news": "Stub entry -- please provide a source URL so this can be filled in properly.",
+      "description": "Bluetooth wearable controller ring -- built-in trackpad for cursor movement, click, scroll, presenting, and triggering AI/XR actions via gesture. Not a health tracker. Standard/Pro/Pro Bundle/Special editions. Kickstarter-funded (3,000+ backers), won AWE USA 2026's \"Startup to Watch\" Auggie Award.",
+      "technology_ids": [
+        "hand-tracking"
+      ],
+      "needs_update": false,
+      "news": "Confirmed via proloring.com. $149 (Standard Edition, on sale from $199).",
       "news_date": "2026-09-27",
       "product_url": null,
       "product_url_is_root": false,
-      "image_url": null,
+      "image_url": "https://proloring.com/cdn/shop/files/prolo-ring-standard-edition_fcbe39a2-7222-4449-97e2-f43f5433e38f.webp?v=1780033614&width=1946",
       "device_type": "ring",
       "date_added": "2026-09-27"
     },
@@ -1936,6 +1894,60 @@
       },
       "device_type": "ar-glasses",
       "date_added": "2026-09-27"
+    },
+    {
+      "id": "samsung-galaxy-glasses-gentle-monster",
+      "name": "Galaxy Glasses (Gentle Monster)",
+      "company_id": "samsung",
+      "category": "ai-glasses",
+      "filter_category": "glasses",
+      "status": "announced",
+      "expected_year": "2026",
+      "description": "Revealed at Galaxy Unpacked London (July 23, 2026) -- Android XR smart glasses with no built-in display; all information delivered via audio (voice responses, notification readouts, navigation). Built-in camera, open-ear audio, Gemini AI integration. ~9 hours battery plus 7 more from the case. Fall 2026 launch, select markets, price/exact date TBD.",
+      "technology_ids": [
+        "on-device-ai"
+      ],
+      "needs_update": false,
+      "news": "Confirmed via news.samsung.com and Galaxy Unpacked London coverage.",
+      "news_date": "2026-09-27",
+      "product_url": "https://news.samsung.com/global/samsung-brings-galaxy-ecosystem-into-everyday-eyewear",
+      "product_url_is_root": false,
+      "image_url": null,
+      "hardware_features": {
+        "camera": true,
+        "audio": true,
+        "mic": true,
+        "controller": false
+      },
+      "device_type": "ai-glasses",
+      "date_added": "2026-09-27"
+    },
+    {
+      "id": "samsung-galaxy-glasses-warby-parker",
+      "name": "Galaxy Glasses (Warby Parker)",
+      "company_id": "samsung",
+      "category": "ai-glasses",
+      "filter_category": "glasses",
+      "status": "announced",
+      "expected_year": "2026",
+      "description": "Revealed at Galaxy Unpacked London (July 23, 2026) -- Android XR smart glasses with no built-in display; all information delivered via audio (voice responses, notification readouts, navigation). Built-in camera, open-ear audio, Gemini AI integration. ~9 hours battery plus 7 more from the case. Fall 2026 launch, select markets, price/exact date TBD.",
+      "technology_ids": [
+        "on-device-ai"
+      ],
+      "needs_update": false,
+      "news": "Confirmed via news.samsung.com and Galaxy Unpacked London coverage.",
+      "news_date": "2026-09-27",
+      "product_url": "https://news.samsung.com/global/samsung-brings-galaxy-ecosystem-into-everyday-eyewear",
+      "product_url_is_root": false,
+      "image_url": null,
+      "hardware_features": {
+        "camera": true,
+        "audio": true,
+        "mic": true,
+        "controller": false
+      },
+      "device_type": "ai-glasses",
+      "date_added": "2026-09-27"
     }
   ],
   "technologies": [
@@ -2188,7 +2200,8 @@
       "used_by_product_ids": [
         "meta-quest-3",
         "apple-vision-pro",
-        "ultraleap-controller"
+        "ultraleap-controller",
+        "prolo-ring"
       ],
       "used_by_company_ids": [],
       "needs_update": false,
@@ -2391,7 +2404,9 @@
         "meta-ray-ban-display",
         "meta-muse-charm",
         "oakley-meta-vanguard",
-        "snapdragon-ar1-plus"
+        "snapdragon-ar1-plus",
+        "samsung-galaxy-glasses-gentle-monster",
+        "samsung-galaxy-glasses-warby-parker"
       ],
       "used_by_company_ids": [],
       "needs_update": true,
@@ -2404,13 +2419,11 @@
       "category": "display",
       "description": "OLED microdisplay fabricated on a silicon backplane rather than glass — the specific manufacturing approach a handful of vendors (Samsung Display, Sony, eMagin) specialize in for near-eye displays.",
       "tradeoffs": "Often used interchangeably with \"Micro-OLED\" in casual coverage, but OLEDoS specifically denotes the silicon-backplane fabrication process; kept as a distinct entry since Samsung Display's own materials use the OLEDoS term specifically.",
-      "used_by_product_ids": [
-        "samsung-galaxy-glasses"
-      ],
+      "used_by_product_ids": [],
       "used_by_company_ids": [],
       "needs_update": true,
-      "news": "Samsung Display is developing an RGB OLEDoS microdisplay for Galaxy Glasses per Morning Brief tracking — split out from Micro-OLED for terminology precision; re-verify Samsung's exact spec once glasses ship.",
-      "news_date": "2026-09-26"
+      "news": "Corrected 2026-09-27: Samsung Galaxy Glasses actually have NO built-in display (audio-only) per news.samsung.com -- the earlier OLEDoS microdisplay assumption was wrong. Left unmapped pending a real product that confirms OLEDoS use.",
+      "news_date": "2026-09-27"
     },
     {
       "id": "mini-led",
