@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-09-26",
-    "note": "Seed dataset — companies pulled from context/watchlist_meta.json's existing 'xr' category tags plus a few hand-added (Even Realities). Products and Technologies are hand-curated starter entries, reference-card depth, not exhaustive. 'vle' technology entry is a stub — Jenn used 'UWB/VLE/GNSS' and VLE's meaning wasn't confirmed (possibly BLE / Bluetooth Low Energy?) — needs_update until confirmed. Expanded 2026-09-26: added filter categories (Companies/Technologies filter on `category`; Products filter on new `filter_category`: glasses/wearables/hmd/misc). Added 5 companies (bHaptics, Matterport, Revopoint, Bambu Lab, Rokid) and 8 products — including Meta Quest Pro (to correctly host eye-tracking/foveated-rendering, which base Quest 3 lacks) and Google Glass Enterprise Edition (for LCoS) — to fill out Wearables and Misc and give every technology a real product anchor. Added `used_by_company_ids` to the technology schema for cases with no product yet (World Models -> Google/DeepMind, 5G/mmWave -> Qualcomm); companies are NOT double-mapped when a product already covers the link. A few technologies (NeRF, UWB, GNSS, Gaussian Splatting) were deliberately left unmapped rather than forced onto a weak product/company fit — flagged needs_update with an explanation instead. Enriched 2026-09-26 with real signal pulled from context/watchlist.md and context/entity_tracker.json (the same sources Intel's Companies section reads from — Intel itself is untouched, this just reuses the underlying JSON/markdown). Corrected/added: Samsung Galaxy Glasses (display + display-less, separate from the Galaxy XR headset), Xreal Aura (the actual Android XR flagship, not just Xreal One), Qualcomm's real chip names (Snapdragon XR2 Gen 3, Reality Elite, X2), Phonak/Sonova's HYPERSONIC chip, and two new companies surfaced by tracked signal: Pico/ByteDance (headset contender) and Lumus (waveguide optics, named alongside LetinAR in the consolidation story). This was a manual pull, not a live automated sync — watchlist.md's notes are a multi-topic firehose (AI, legal, business mixed with XR), so pulling a clean XR-only feed live client-side would need real filtering logic; flagged as a possible future enhancement rather than built now. Round 3 (2026-09-26): added 6 companies (Vuzix, Magic Leap, DigiLens, Varjo, Ultraleap, HaptX) and their products, filling previously-flagged gaps. Added OLEDoS as its own technology distinct from Micro-OLED (silicon-backplane fabrication specifically). Added a 'coming soon' mechanism: products can now carry status 'rumored' and an `expected_year` field, rendered as a 'Coming YYYY' badge and surfaced in a dedicated Coming Soon list at the top of the Products tab. Seeded Google's three Android XR partner-brand glasses (Warby Parker, Gentle Monster, Gucci) this way — Warby Parker/Gentle Monster have real tracked signal; Gucci is hand-added per Jenn with zero hits in watchlist.md/entity_tracker.json as of this date, flagged unverified. Thumbnails: no real product photos wired in yet (would require per-vendor-domain fetch confirmation or Jenn supplying local images) — using category-based icon placeholders (🕶️/🥽/⌚/📦) computed client-side instead. UX pass 2026-09-26: added `news_log` (dated array) to every company -- LetinAR, Qualcomm, Phonak/Sonova, and Snap got real multi-entry histories pulled from entity_tracker.json; everyone else has a single-entry log from their existing news field (watchlist.md doesn't carry per-date granularity for those). No news items have a real source_url yet -- watchlist.md's notes don't capture links, so all source_url fields are null rather than fabricated; add real ones going forward as they become available. Added `product_url` (confident official links only, null where uncertain) and `product_url_is_root` (true when the link is a homepage guess rather than a confirmed deep link, so the UI can be honest about confidence). Split Products' 'misc' filter bucket into 'scanners' and 'printers' per Jenn's request; Ultraleap's tracking module stays in a quiet 'misc' fallback since it isn't glasses/wearable/HMD/scanner/printer."
+    "last_updated": "2026-09-27",
+    "note": "Seed dataset — companies pulled from context/watchlist_meta.json's existing 'xr' category tags plus a few hand-added (Even Realities). Products and Technologies are hand-curated starter entries, reference-card depth, not exhaustive. 'vle' technology entry is a stub — Jenn used 'UWB/VLE/GNSS' and VLE's meaning wasn't confirmed (possibly BLE / Bluetooth Low Energy?) — needs_update until confirmed. Expanded 2026-09-26: added filter categories (Companies/Technologies filter on `category`; Products filter on new `filter_category`: glasses/wearables/hmd/misc). Added 5 companies (bHaptics, Matterport, Revopoint, Bambu Lab, Rokid) and 8 products — including Meta Quest Pro (to correctly host eye-tracking/foveated-rendering, which base Quest 3 lacks) and Google Glass Enterprise Edition (for LCoS) — to fill out Wearables and Misc and give every technology a real product anchor. Added `used_by_company_ids` to the technology schema for cases with no product yet (World Models -> Google/DeepMind, 5G/mmWave -> Qualcomm); companies are NOT double-mapped when a product already covers the link. A few technologies (NeRF, UWB, GNSS, Gaussian Splatting) were deliberately left unmapped rather than forced onto a weak product/company fit — flagged needs_update with an explanation instead. Enriched 2026-09-26 with real signal pulled from context/watchlist.md and context/entity_tracker.json (the same sources Intel's Companies section reads from — Intel itself is untouched, this just reuses the underlying JSON/markdown). Corrected/added: Samsung Galaxy Glasses (display + display-less, separate from the Galaxy XR headset), Xreal Aura (the actual Android XR flagship, not just Xreal One), Qualcomm's real chip names (Snapdragon XR2 Gen 3, Reality Elite, X2), Phonak/Sonova's HYPERSONIC chip, and two new companies surfaced by tracked signal: Pico/ByteDance (headset contender) and Lumus (waveguide optics, named alongside LetinAR in the consolidation story). This was a manual pull, not a live automated sync — watchlist.md's notes are a multi-topic firehose (AI, legal, business mixed with XR), so pulling a clean XR-only feed live client-side would need real filtering logic; flagged as a possible future enhancement rather than built now. Round 3 (2026-09-26): added 6 companies (Vuzix, Magic Leap, DigiLens, Varjo, Ultraleap, HaptX) and their products, filling previously-flagged gaps. Added OLEDoS as its own technology distinct from Micro-OLED (silicon-backplane fabrication specifically). Added a 'coming soon' mechanism: products can now carry status 'rumored' and an `expected_year` field, rendered as a 'Coming YYYY' badge and surfaced in a dedicated Coming Soon list at the top of the Products tab. Seeded Google's three Android XR partner-brand glasses (Warby Parker, Gentle Monster, Gucci) this way — Warby Parker/Gentle Monster have real tracked signal; Gucci is hand-added per Jenn with zero hits in watchlist.md/entity_tracker.json as of this date, flagged unverified. Thumbnails: no real product photos wired in yet (would require per-vendor-domain fetch confirmation or Jenn supplying local images) — using category-based icon placeholders (🕶️/🥽/⌚/📦) computed client-side instead. UX pass 2026-09-26: added `news_log` (dated array) to every company -- LetinAR, Qualcomm, Phonak/Sonova, and Snap got real multi-entry histories pulled from entity_tracker.json; everyone else has a single-entry log from their existing news field (watchlist.md doesn't carry per-date granularity for those). No news items have a real source_url yet -- watchlist.md's notes don't capture links, so all source_url fields are null rather than fabricated; add real ones going forward as they become available. Added `product_url` (confident official links only, null where uncertain) and `product_url_is_root` (true when the link is a homepage guess rather than a confirmed deep link, so the UI can be honest about confidence). Split Products' 'misc' filter bucket into 'scanners' and 'printers' per Jenn's request; Ultraleap's tracking module stays in a quiet 'misc' fallback since it isn't glasses/wearable/HMD/scanner/printer. Research pass 2026-09-27 (in response to Jenn flagging most companies as 'needs update'): resolved 12 of 16 flagged companies via direct vendor-site fetches -- Apple (M5 chip confirmed), Even Realities (corrected: current flagship is G2 not G1, added the G1->discontinued + new R1 ring), bHaptics (corrected: TactSuit Air/Pro tiers + new TactGlove DK3 haptic glove), Matterport (corrected: Pro3 is LiDAR + spherical photo, not classic photogrammetry -- unmapped that tech entry again), Rokid (corrected: current flagship is Max 2, not Max), Vuzix (corrected: current lineup is enterprise LX1/M400, not the old consumer Blade), Varjo (confirmed mini-LED display, added Mini-LED as a new technology entry + eye-tracking/foveated-rendering links), Ultraleap (confirmed Leap Motion Controller 2), HaptX (confirmed Gloves G1 + Nexus NX1 system), DigiLens (confirmed real customer roster: Samsung, Corning, Goertek, Niantic, Continental, Sony, Mitsubishi Chemical, UDC, Panasonic), Lumus (confirmed product line + notable finding: supplies optics for Meta Ray-Ban glasses and Lenovo ThinkReality A6). Still genuinely unresolved: Samsung (Galaxy XR/Glasses product pages 404'd), Magic Leap (magicleap.com/magic-leap-2 redirects to a support-only portal -- possible sunset signal, not confirmed), Pico (fetch returned empty content), Revopoint (fetch results truncated/inconclusive), Bambu Lab (403 on fetch), Cohere, Microsoft/Phi -- all left flagged rather than guessed."
   },
   "companies": [
     {
@@ -38,10 +38,15 @@
         "apple-vision-pro"
       ],
       "notes": "Vision program restructuring under Ternus is a live, developing story — watch for smart glasses roadmap details. Real tracked signal: Ternus's first substantive Vision Pro comments pointed to a surgeon/enterprise vertical as an early proof point for the roadmap.",
-      "needs_update": true,
+      "needs_update": false,
       "news": "Vision Pro 2 and Vision Air reportedly cancelled; Vision Products Group pivoting to glasses under Ternus, with an enterprise/surgeon vertical floated as an early proof point.",
       "news_date": "2026-09-26",
       "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Vision Pro (current shipping model) now runs the M5 chip (up from M2) with a dedicated R1 sensor chip, up to 120Hz refresh, ~10% more rendered pixels, up to 2x faster AI workloads. No mention of Vision Air or smart glasses on the official product page (expected -- companies don't pre-announce cancellations there); the Ternus/Vision Products Group pivot story remains tracked signal, not confirmed via official channels.",
+          "source_url": "https://www.apple.com/apple-vision-pro/"
+        },
         {
           "date": "2026-09-26",
           "text": "Vision Pro 2 and Vision Air reportedly cancelled; Vision Products Group pivoting to glasses under Ternus, with an enterprise/surgeon vertical floated as an early proof point.",
@@ -83,8 +88,8 @@
       ],
       "notes": "Real tracked signal: revealed both a display and a display-less Samsung Galaxy Glasses variant at Galaxy Unpacked (July 22, London), alongside the Galaxy XR headset. Samsung Display is separately developing RGB OLED-on-Silicon microdisplays for glasses. A claimed 9-hour battery life for the smart glasses needs verification at launch.",
       "needs_update": true,
-      "news": "UK reception of Galaxy XR is being watched as a signal for Android XR's international viability. 2027 is the broader industry's planning horizon for the smart-glasses window (Apple/Samsung/Xreal/Snap).",
-      "news_date": "2026-09-26",
+      "news": "Galaxy XR and Galaxy Glasses product pages 404'd on samsung.com as of 2026-09-27 -- could not independently verify the 9-hour battery claim or Galaxy Glasses launch date via official channels. What's confirmed is still just Morning Brief tracked signal (Galaxy Unpacked July 22 London reveal, Samsung Display's OLEDoS microdisplay). Needs a working product-page URL from Jenn or a re-check once Samsung's site restructures.",
+      "news_date": "2026-09-27",
       "news_log": [
         {
           "date": "2026-09-26",
@@ -153,15 +158,22 @@
       "id": "even-realities",
       "name": "Even Realities",
       "category": "device-maker",
-      "description": "Maker of the G1 — everyday-wearable AR glasses with a minimal monochrome HUD, positioned closer to normal eyewear than a headset.",
+      "description": "Maker of everyday-wearable AR glasses with a minimal monochrome HUD, positioned closer to normal eyewear than a headset. Current flagship is the G2 (G1 is the prior generation).",
       "product_ids": [
-        "even-realities-g1"
+        "even-realities-g1",
+        "even-realities-g2",
+        "even-realities-r1"
       ],
       "notes": "Not yet in the Morning Brief watchlist — added by hand. Worth adding to watchlist.md if it starts showing up in coverage.",
-      "needs_update": true,
+      "needs_update": false,
       "news": "Seed entry — hand-added, not yet verified against a live source.",
       "news_date": "2026-09-26",
       "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Current flagship is the Even G2 (two frame styles, G2 A / G2 B, prescription-lens support), not the G1. New companion product: the Even R1 smart ring for discreet control + wellbeing monitoring. G2 features: Conversate (live conversation assist), Teleprompt, Translate, Dashboard, Transcribe, Terminal (developer access).",
+          "source_url": "https://www.evenrealities.com/"
+        },
         {
           "date": "2026-09-26",
           "text": "Seed entry — hand-added, not yet verified against a live source.",
@@ -277,15 +289,21 @@
       "id": "bhaptics",
       "name": "bHaptics",
       "category": "haptics",
-      "description": "Haptic wearable maker — vests, gloves, and arm sleeves that simulate touch and impact feedback for VR.",
+      "description": "Haptic wearable maker -- TactSuit vests (Air/Pro tiers) and the TactGlove DK3 -- delivering vibration-based touch and impact feedback for VR.",
       "product_ids": [
-        "bhaptics-tactsuit"
+        "bhaptics-tactsuit",
+        "bhaptics-tactglove"
       ],
       "notes": "",
-      "needs_update": true,
+      "needs_update": false,
       "news": "Seed entry — verify current product lineup.",
       "news_date": "2026-09-26",
       "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Current lineup: TactSuit Air (entry-level, light to wear) and TactSuit Pro (stronger, more precise feedback) vests, plus the TactGlove DK3 hand-focused haptic device. All compatible with PC/VR games; console support via audio capture.",
+          "source_url": "https://www.bhaptics.com/"
+        },
         {
           "date": "2026-09-26",
           "text": "Seed entry — verify current product lineup.",
@@ -302,10 +320,15 @@
         "matterport-pro3"
       ],
       "notes": "",
-      "needs_update": true,
+      "needs_update": false,
       "news": "Seed entry — verify current product lineup and capture technology mix.",
       "news_date": "2026-09-26",
       "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Pro3 confirmed as LiDAR-based (904nm, Class 1 per IEC 60825-1:2014) plus 134.2MP spherical HDR photography -- not classic multi-photo photogrammetry as previously listed. Pro2 remains available as the lower tier.",
+          "source_url": "https://matterport.com/cameras"
+        },
         {
           "date": "2026-09-26",
           "text": "Seed entry — verify current product lineup and capture technology mix.",
@@ -362,10 +385,15 @@
         "rokid-max"
       ],
       "notes": "",
-      "needs_update": true,
+      "needs_update": false,
       "news": "Seed entry — verify current model lineup and exact optical design classification (birdbath vs. freeform prism terminology varies by source).",
       "news_date": "2026-09-26",
       "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Current flagship is the Rokid Max 2 (Max is the prior generation). Exact optical design terminology (birdbath vs. freeform prism) still not confirmed via official spec sheet.",
+          "source_url": "https://global.rokid.com/"
+        },
         {
           "date": "2026-09-26",
           "text": "Seed entry — verify current model lineup and exact optical design classification (birdbath vs. freeform prism terminology varies by source).",
@@ -397,13 +425,18 @@
       "id": "lumus",
       "name": "Lumus",
       "category": "optics",
-      "description": "Waveguide optics supplier, named alongside LetinAR as one of the two players in the narrowing waveguide-optics consolidation story — supplies modules to device makers rather than shipping its own consumer product.",
+      "description": "Waveguide optics supplier using geometric reflective waveguide technology (>92% transparency, claimed 5-10x more efficient than competing approaches) -- named alongside LetinAR in the consolidation story.",
       "product_ids": [],
       "notes": "Real tracked signal: LetinAR and Lumus named together as the waveguide-optics field narrows toward consolidation.",
-      "needs_update": true,
+      "needs_update": false,
       "news": "Seed entry — verify current customer roster and product roadmap.",
       "news_date": "2026-09-26",
       "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Notable finding: Lumus lists Meta Ray-Ban glasses and Lenovo ThinkReality A6 among consumer deployments, plus defense (USAF fighter jets) and medical/surgical uses. Product line: Z-Lens, Maximus, Vision, TD-2020. Manufacturing via Quanta Computer (Taiwan); supply chain partners SCHOTT, Crystal-Optech. Cites 200K units shipped across consumer/military/medical.",
+          "source_url": "https://lumus.com/"
+        },
         {
           "date": "2026-09-26",
           "text": "Seed entry — verify current customer roster and product roadmap.",
@@ -415,15 +448,20 @@
       "id": "vuzix",
       "name": "Vuzix",
       "category": "device-maker",
-      "description": "Enterprise/prosumer AR glasses maker, long-running player in waveguide + LCoS/micro-LED smart glasses.",
+      "description": "Enterprise AR glasses maker -- current lineup (LX1, M400) targets industrial/field-service use, not consumer wear. Long-running waveguide optics developer.",
       "product_ids": [
         "vuzix-blade"
       ],
       "notes": "",
-      "needs_update": true,
+      "needs_update": false,
       "news": "Seed entry — verify current flagship model.",
       "news_date": "2026-09-26",
       "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Current lineup is enterprise-focused: Vuzix LX1 (10hr battery, freezer-rated, warehousing/manufacturing) and Vuzix M400 (hot-swappable battery, field service/healthcare/inspections) -- the consumer-era \"Blade\" name is no longer the flagship.",
+          "source_url": "https://www.vuzix.com/"
+        },
         {
           "date": "2026-09-26",
           "text": "Seed entry — verify current flagship model.",
@@ -441,8 +479,8 @@
       ],
       "notes": "",
       "needs_update": true,
-      "news": "Seed entry — verify current company/product status.",
-      "news_date": "2026-09-26",
+      "news": "magicleap.com/magic-leap-2 redirects to magicleap.care (a support-only portal) as of 2026-09-27 -- possibly a signal the product is being sunset or the site was restructured, but not confirmed either way. Needs a direct check or a source from Jenn before asserting discontinuation.",
+      "news_date": "2026-09-27",
       "news_log": [
         {
           "date": "2026-09-26",
@@ -455,13 +493,18 @@
       "id": "digilens",
       "name": "DigiLens",
       "category": "optics",
-      "description": "Waveguide optics supplier (photopolymer-based waveguides) — a third named player alongside LetinAR and Lumus in the AR-glasses optics supply chain, ships modules rather than a consumer product.",
+      "description": "Waveguide optics supplier (\"Crystal Waveguides\" -- proprietary material + inkjet-printed holographic contact-copy process) -- ships modules to device makers rather than a consumer product.",
       "product_ids": [],
       "notes": "",
-      "needs_update": true,
+      "needs_update": false,
       "news": "Seed entry — verify current customer roster and waveguide manufacturing approach.",
       "news_date": "2026-09-26",
       "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Confirmed customer/partner roster: Samsung, Corning, Goertek, Niantic, Continental, Sony, Mitsubishi Chemical, Universal Display Corporation, Panasonic.",
+          "source_url": "https://www.digilens.com/"
+        },
         {
           "date": "2026-09-26",
           "text": "Seed entry — verify current customer roster and waveguide manufacturing approach.",
@@ -478,10 +521,15 @@
         "varjo-xr4"
       ],
       "notes": "",
-      "needs_update": true,
+      "needs_update": false,
       "news": "Seed entry — verify current flagship model and display technology.",
       "news_date": "2026-09-26",
       "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "XR-4 confirmed: dual 4K-per-eye mini-LED displays (3840x3744/eye), 120x105 FOV, 51 PPD, 98% sRGB / 96% DCI-P3, 1:10,000 contrast, 200Hz eye tracking with foveated rendering.",
+          "source_url": "https://varjo.com/products/xr-4/"
+        },
         {
           "date": "2026-09-26",
           "text": "Seed entry — verify current flagship model and display technology.",
@@ -498,10 +546,15 @@
         "ultraleap-controller"
       ],
       "notes": "",
-      "needs_update": true,
+      "needs_update": false,
       "news": "Seed entry — verify current product lineup.",
       "news_date": "2026-09-26",
       "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Confirmed current flagship: Leap Motion Controller 2. Also offers camera modules for OEM integration into third-party headsets.",
+          "source_url": "https://www.ultraleap.com/"
+        },
         {
           "date": "2026-09-26",
           "text": "Seed entry — verify current product lineup.",
@@ -518,10 +571,15 @@
         "haptx-gloves"
       ],
       "notes": "",
-      "needs_update": true,
+      "needs_update": false,
       "news": "Seed entry — verify current product lineup.",
       "news_date": "2026-09-26",
       "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Gloves G1 confirmed as current flagship, integrated into the Nexus NX1 whole-body system. Target market: workforce training (surgery, manufacturing, materials handling, equipment maintenance) and robotics training-data generation.",
+          "source_url": "https://haptx.com/"
+        },
         {
           "date": "2026-09-26",
           "text": "Seed entry — verify current product lineup.",
@@ -615,7 +673,7 @@
       "company_id": "apple",
       "category": "mr-headset",
       "status": "shipping",
-      "description": "High-end mixed-reality headset built around eye/hand tracking and passthrough video. Reportedly the last in its line — Vision Pro 2 and Vision Air were cancelled per Morning Brief tracking, with Apple's XR effort pivoting toward glasses.",
+      "description": "High-end mixed-reality headset built around eye/hand tracking and passthrough video. Now on the M5 chip (up from M2) with a dedicated R1 sensor-processing chip, up to 120Hz refresh. Reportedly the last in its current line -- Vision Pro 2 and Vision Air were cancelled per Morning Brief tracking, with Apple's XR effort pivoting toward glasses.",
       "technology_ids": [
         "micro-oled",
         "slam-vps",
@@ -626,9 +684,9 @@
         "imu",
         "hand-tracking"
       ],
-      "needs_update": true,
-      "news": "Seed entry — verify current status given reported Vision Pro 2/Vision Air cancellation.",
-      "news_date": "2026-09-26",
+      "needs_update": false,
+      "news": "M5 chip confirmed current via apple.com: up to 120Hz refresh, ~10% more rendered pixels, up to 2x faster AI workloads, ~2.5hr general / 3hr video battery life.",
+      "news_date": "2026-09-27",
       "filter_category": "hmd",
       "product_url": "https://www.apple.com/apple-vision-pro/",
       "product_url_is_root": false
@@ -675,14 +733,14 @@
       "name": "Even Realities G1",
       "company_id": "even-realities",
       "category": "ar-glasses",
-      "status": "shipping",
-      "description": "Everyday-wearable AR glasses with a minimal monochrome waveguide HUD — prioritizes normal eyewear form factor over a large field of view.",
+      "status": "discontinued",
+      "description": "First-generation everyday-wearable AR glasses with a minimal monochrome waveguide HUD. Superseded by the G2.",
       "technology_ids": [
         "waveguide"
       ],
-      "needs_update": true,
-      "news": "Seed entry — hand-added, not yet verified against a live source.",
-      "news_date": "2026-09-26",
+      "needs_update": false,
+      "news": "Superseded by the Even G2 -- confirmed via evenrealities.com, retained here for historical record.",
+      "news_date": "2026-09-27",
       "filter_category": "glasses",
       "product_url": "https://www.evenrealities.com/",
       "product_url_is_root": true
@@ -745,18 +803,18 @@
     },
     {
       "id": "rokid-max",
-      "name": "Rokid Max",
+      "name": "Rokid Max 2",
       "company_id": "rokid",
       "category": "ar-glasses",
       "filter_category": "glasses",
       "status": "shipping",
-      "description": "Media-viewing-focused AR glasses using birdbath/freeform-prism optics rather than waveguide — prioritizes brightness and color for watching content over see-through daily wear.",
+      "description": "Media-viewing-focused AR glasses (current Max 2 generation) using non-waveguide (birdbath/freeform-prism style) optics -- prioritizes brightness and color for watching content over see-through daily wear.",
       "technology_ids": [
         "birdbath"
       ],
       "needs_update": true,
-      "news": "Seed entry — verify current model and confirm optical design terminology.",
-      "news_date": "2026-09-26",
+      "news": "Confirmed Max 2 is the current flagship via global.rokid.com; exact optical design terminology still unconfirmed.",
+      "news_date": "2026-09-27",
       "product_url": "https://global.rokid.com/",
       "product_url_is_root": true
     },
@@ -779,18 +837,18 @@
     },
     {
       "id": "bhaptics-tactsuit",
-      "name": "bHaptics TactSuit",
+      "name": "bHaptics TactSuit (Air / Pro)",
       "company_id": "bhaptics",
       "category": "haptic-wearable",
       "filter_category": "wearables",
       "status": "shipping",
-      "description": "Haptic vest/arm sleeve line delivering tactile feedback (impacts, directional cues) synced to VR content.",
+      "description": "Haptic vest line in two tiers -- TactSuit Air (entry-level) and TactSuit Pro (stronger, more precise feedback) -- delivering tactile impact/directional cues synced to VR content.",
       "technology_ids": [
         "haptic-feedback"
       ],
-      "needs_update": true,
-      "news": "Seed entry — verify current product lineup and compatible VR platforms.",
-      "news_date": "2026-09-26",
+      "needs_update": false,
+      "news": "Confirmed current two-tier lineup (Air/Pro) via bhaptics.com.",
+      "news_date": "2026-09-27",
       "product_url": "https://www.bhaptics.com/",
       "product_url_is_root": true
     },
@@ -801,14 +859,13 @@
       "category": "3d-scanner",
       "filter_category": "scanners",
       "status": "shipping",
-      "description": "Professional room-scale 3D capture camera combining LiDAR and photo-based reconstruction into a walkable digital twin.",
+      "description": "Professional room-scale 3D capture camera: LiDAR depth scanning (904nm, Class 1) combined with 134.2MP spherical HDR photography for a walkable digital twin.",
       "technology_ids": [
-        "lidar-scanning",
-        "photogrammetry"
+        "lidar-scanning"
       ],
-      "needs_update": true,
-      "news": "Seed entry — verify current specs and capture pipeline details.",
-      "news_date": "2026-09-26",
+      "needs_update": false,
+      "news": "Confirmed LiDAR + spherical HDR photo capture (not classic photogrammetry) via matterport.com/cameras.",
+      "news_date": "2026-09-27",
       "product_url": "https://matterport.com/cameras/pro3-camera",
       "product_url_is_root": false
     },
@@ -900,19 +957,19 @@
     },
     {
       "id": "vuzix-blade",
-      "name": "Vuzix Blade",
+      "name": "Vuzix M400",
       "company_id": "vuzix",
       "category": "smart-glasses",
       "filter_category": "glasses",
       "status": "shipping",
-      "description": "Enterprise/prosumer smart glasses with a waveguide display — one of the longest-running names in the category.",
+      "description": "Current-generation enterprise smart glasses -- hot-swappable battery, targeted at field service, healthcare, and inspections. (Vuzix also sells the ruggedized LX1 for warehousing/manufacturing.) Exact light engine (LCoS vs. micro-LED) not confirmed on the current model.",
       "technology_ids": [
         "waveguide",
         "lcos"
       ],
       "needs_update": true,
-      "news": "Seed entry — verify current generation and light engine (LCoS vs. micro-LED).",
-      "news_date": "2026-09-26",
+      "news": "Corrected: Vuzix's current lineup is enterprise-focused (LX1, M400), not the older consumer \"Blade\" line. Light engine tech unconfirmed for the current generation.",
+      "news_date": "2026-09-27",
       "product_url": "https://www.vuzix.com/",
       "product_url_is_root": true
     },
@@ -941,20 +998,23 @@
       "category": "mr-headset",
       "filter_category": "hmd",
       "status": "shipping",
-      "description": "High-resolution enterprise MR headset for simulation and design review — display technology needs confirming before mapping to a specific display entry.",
+      "description": "High-resolution enterprise MR headset for simulation and design review -- dual 4K-per-eye mini-LED displays, 120x105 FOV, 200Hz eye tracking with foveated rendering.",
       "technology_ids": [
         "passthrough",
-        "slam-vps"
+        "slam-vps",
+        "mini-led",
+        "eye-tracking",
+        "foveated-rendering"
       ],
-      "needs_update": true,
-      "news": "Seed entry — verify display technology (mini-LED/OLED) before adding a display tech link.",
-      "news_date": "2026-09-26",
+      "needs_update": false,
+      "news": "Full specs confirmed via varjo.com/products/xr-4.",
+      "news_date": "2026-09-27",
       "product_url": "https://varjo.com/products/xr-4/",
       "product_url_is_root": false
     },
     {
       "id": "ultraleap-controller",
-      "name": "Ultraleap hand-tracking module",
+      "name": "Ultraleap Leap Motion Controller 2",
       "company_id": "ultraleap",
       "category": "input-device",
       "filter_category": "misc",
@@ -963,9 +1023,9 @@
       "technology_ids": [
         "hand-tracking"
       ],
-      "needs_update": true,
-      "news": "Seed entry — name is generic pending confirmation of current flagship model.",
-      "news_date": "2026-09-26",
+      "needs_update": false,
+      "news": "Confirmed current flagship name via ultraleap.com.",
+      "news_date": "2026-09-27",
       "product_url": "https://www.ultraleap.com/",
       "product_url_is_root": true
     },
@@ -976,13 +1036,13 @@
       "category": "haptic-wearable",
       "filter_category": "wearables",
       "status": "shipping",
-      "description": "Microfluidic haptic gloves delivering true force feedback (not just vibration) for industrial training and simulation use cases.",
+      "description": "Microfluidic haptic gloves (submillimeter motion capture, true force feedback -- not just vibration) integrated into the Nexus NX1 whole-body system, for industrial training and robotics training-data generation.",
       "technology_ids": [
         "haptic-feedback"
       ],
-      "needs_update": true,
-      "news": "Seed entry — verify current product lineup.",
-      "news_date": "2026-09-26",
+      "needs_update": false,
+      "news": "Confirmed current via haptx.com.",
+      "news_date": "2026-09-27",
       "product_url": "https://haptx.com/",
       "product_url_is_root": true
     },
@@ -1033,6 +1093,55 @@
       "news_date": "2026-09-26",
       "product_url": null,
       "product_url_is_root": false
+    },
+    {
+      "id": "even-realities-g2",
+      "name": "Even Realities G2",
+      "company_id": "even-realities",
+      "category": "ar-glasses",
+      "filter_category": "glasses",
+      "status": "shipping",
+      "description": "Current-generation everyday-wearable AR glasses with a monochrome waveguide HUD (\"3D heads-up display\"). Two frame styles (G2 A / G2 B), prescription-lens support. Software features: Conversate (live conversation assist), Teleprompt, Translate, Dashboard, Transcribe, Terminal.",
+      "technology_ids": [
+        "waveguide"
+      ],
+      "needs_update": false,
+      "news": "Confirmed current flagship via evenrealities.com.",
+      "news_date": "2026-09-27",
+      "product_url": "https://www.evenrealities.com/",
+      "product_url_is_root": true
+    },
+    {
+      "id": "even-realities-r1",
+      "name": "Even Realities R1",
+      "company_id": "even-realities",
+      "category": "neural-wearable",
+      "filter_category": "wearables",
+      "status": "shipping",
+      "description": "Smart ring companion to the G2 glasses -- discreet control input plus wellbeing monitoring.",
+      "technology_ids": [],
+      "needs_update": true,
+      "news": "Seed entry -- confirmed to exist via evenrealities.com but exact sensor/tracking tech not detailed on the page.",
+      "news_date": "2026-09-27",
+      "product_url": "https://www.evenrealities.com/",
+      "product_url_is_root": true
+    },
+    {
+      "id": "bhaptics-tactglove",
+      "name": "bHaptics TactGlove DK3",
+      "company_id": "bhaptics",
+      "category": "haptic-wearable",
+      "filter_category": "wearables",
+      "status": "shipping",
+      "description": "Hand-focused haptic feedback glove, vibration-based -- bHaptics' answer to force-feedback gloves like HaptX at a lower price point.",
+      "technology_ids": [
+        "haptic-feedback"
+      ],
+      "needs_update": false,
+      "news": "Confirmed current via bhaptics.com.",
+      "news_date": "2026-09-27",
+      "product_url": "https://www.bhaptics.com/",
+      "product_url_is_root": true
     }
   ],
   "technologies": [
@@ -1065,7 +1174,8 @@
         "google-glass-ee",
         "xreal-aura",
         "vuzix-blade",
-        "magic-leap-2"
+        "magic-leap-2",
+        "even-realities-g2"
       ],
       "needs_update": false,
       "news": "",
@@ -1251,7 +1361,8 @@
       "tradeoffs": "Enables major rendering/interaction gains but adds sensors, power draw, and calibration requirements.",
       "used_by_product_ids": [
         "meta-quest-pro",
-        "apple-vision-pro"
+        "apple-vision-pro",
+        "varjo-xr4"
       ],
       "used_by_company_ids": [],
       "needs_update": false,
@@ -1306,13 +1417,11 @@
       "category": "capture",
       "description": "Classical technique for reconstructing 3D geometry and texture from overlapping photographs, without neural rendering.",
       "tradeoffs": "Produces traditional, editable 3D meshes (unlike Gaussian Splats/NeRFs), but is more labor-intensive and can struggle with reflective or textureless surfaces.",
-      "used_by_product_ids": [
-        "matterport-pro3"
-      ],
+      "used_by_product_ids": [],
       "used_by_company_ids": [],
-      "needs_update": false,
-      "news": "",
-      "news_date": "2026-09-26"
+      "needs_update": true,
+      "news": "Matterport Pro3 (previously linked here) actually uses LiDAR + spherical photo capture, not classic photogrammetry -- corrected 2026-09-27. No tracked product confirmed using true photogrammetry -- left unmapped rather than forcing a weak connection.",
+      "news_date": "2026-09-27"
     },
     {
       "id": "lidar-scanning",
@@ -1338,7 +1447,8 @@
       "tradeoffs": "Major performance win, but requires accurate, low-latency eye tracking to avoid visible quality loss.",
       "used_by_product_ids": [
         "meta-quest-pro",
-        "apple-vision-pro"
+        "apple-vision-pro",
+        "varjo-xr4"
       ],
       "used_by_company_ids": [],
       "needs_update": false,
@@ -1443,7 +1553,8 @@
       "tradeoffs": "Adds meaningful immersion for VR, but adds cost, bulk, and another device to wear/charge.",
       "used_by_product_ids": [
         "bhaptics-tactsuit",
-        "haptx-gloves"
+        "haptx-gloves",
+        "bhaptics-tactglove"
       ],
       "used_by_company_ids": [],
       "needs_update": false,
@@ -1478,6 +1589,20 @@
       "needs_update": true,
       "news": "Samsung Display is developing an RGB OLEDoS microdisplay for Galaxy Glasses per Morning Brief tracking — split out from Micro-OLED for terminology precision; re-verify Samsung's exact spec once glasses ship.",
       "news_date": "2026-09-26"
+    },
+    {
+      "id": "mini-led",
+      "name": "Mini-LED",
+      "category": "display",
+      "description": "LED backlight technology using thousands of small LEDs with local dimming zones for high contrast and brightness -- distinct from Micro-LED (which is self-emissive per-pixel). Used in high-end enterprise headsets for HDR-grade contrast.",
+      "tradeoffs": "Much better contrast/brightness than standard LCD backlighting and cheaper to manufacture at scale than Micro-LED, but still not per-pixel emissive like OLED/Micro-LED -- can show blooming around bright objects on a dark background.",
+      "used_by_product_ids": [
+        "varjo-xr4"
+      ],
+      "used_by_company_ids": [],
+      "needs_update": false,
+      "news": "",
+      "news_date": "2026-09-27"
     }
   ]
 }

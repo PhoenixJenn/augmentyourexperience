@@ -13,8 +13,12 @@
     .intel-section { display: none; }
     .intel-section.section-active { display: block; }
 
-    /* Section toggle pills (same as Intel) */
-    .section-toggle { display: flex; gap: 0.375rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    /* ── Top controls row: section pills (left) + context control (right) ── */
+    .controls-row {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;
+    }
+    .section-toggle { display: flex; gap: 0.375rem; flex-wrap: wrap; }
     .section-btn {
       background: transparent; border: 1px solid var(--border, #333); border-radius: 999px;
       color: var(--text-muted, #888); cursor: pointer; font-family: inherit; font-size: 0.8rem;
@@ -24,7 +28,14 @@
     .section-btn:hover { border-color: var(--accent, #7c6bff); color: var(--text-primary, #fff); }
     .section-btn.active { background: var(--accent, #7c6bff); border-color: var(--accent, #7c6bff); color: #fff; }
 
-    /* Category tag pills */
+    .filter-select {
+      background: var(--bg-secondary, #161616); border: 1px solid var(--border, #333); border-radius: 8px;
+      color: var(--text-primary, #eee); font-family: inherit; font-size: 0.78rem; font-weight: 600;
+      padding: 0.4rem 0.7rem; cursor: pointer;
+    }
+    .filter-select:hover { border-color: var(--accent, #7c6bff); }
+
+    /* Category / status pills */
     .cat-pill {
       display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.07em;
       text-transform: uppercase; padding: 0.1rem 0.4rem; border-radius: 999px;
@@ -48,24 +59,40 @@
       display: inline-block; font-size: 0.6rem; font-weight: 700; color: #7a4a1a;
       border: 1px solid #4a2a0a; border-radius: 3px; padding: 0.08rem 0.32rem; white-space: nowrap;
     }
-    .thumb-icon { font-size: 1.4rem; line-height: 1; margin-right: 0.15rem; }
-    .chevron { display: inline-block; width: 0.9em; color: var(--text-muted, #666); transition: transform 0.15s; }
+    .chevron { display: inline-block; width: 0.9em; color: var(--text-muted, #666); transition: transform 0.15s; flex-shrink: 0; }
     .chevron.open { transform: rotate(90deg); }
 
-    .ext-link {
-      font-size: 0.72rem; color: var(--accent, #7c6bff); text-decoration: none; white-space: nowrap;
-    }
+    .ext-link { font-size: 0.72rem; color: var(--accent, #7c6bff); text-decoration: none; white-space: nowrap; }
     .ext-link:hover { text-decoration: underline; }
     .ext-link-note { font-size: 0.62rem; color: var(--text-muted, #555); margin-left: 0.3rem; }
 
-    /* ── Companies: collapsed row + pill-nav + detail panel ─────────────── */
+    /* ── Thumbnail boxes (placeholder icons until real photos are wired in) ── */
+    .thumb-box {
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      border-radius: 10px; border: 1px solid;
+    }
+    .thumb-box.size-sm { width: 34px; height: 34px; font-size: 1.15rem; }
+    .thumb-box.size-lg { width: 56px; height: 56px; font-size: 1.9rem; }
+    .thumb-box.cat-glasses   { background: rgba(124,107,255,0.14); border-color: rgba(124,107,255,0.4); }
+    .thumb-box.cat-wearables { background: rgba(34,211,238,0.14);  border-color: rgba(34,211,238,0.4); }
+    .thumb-box.cat-hmd       { background: rgba(74,158,255,0.14);  border-color: rgba(74,158,255,0.4); }
+    .thumb-box.cat-scanners  { background: rgba(251,191,36,0.14);  border-color: rgba(251,191,36,0.4); }
+    .thumb-box.cat-printers  { background: rgba(110,231,183,0.14); border-color: rgba(110,231,183,0.4); }
+    .thumb-box.cat-misc      { background: rgba(150,150,150,0.14); border-color: rgba(150,150,150,0.4); }
+
+    /* ── Companies: collapsed row, pill-nav + detail only shown once expanded ── */
     .company-block { border: 1px solid var(--border, #222); border-radius: 8px; margin-bottom: 0.85rem; overflow: hidden; }
     .company-block.xr-hidden { display: none; }
     .company-row-header {
-      display: flex; align-items: center; gap: 0.55rem; padding: 0.9rem 1.1rem; cursor: pointer;
+      display: flex; align-items: center; gap: 0.65rem; padding: 0.9rem 1.1rem; cursor: pointer;
     }
     .company-row-header:hover { background: color-mix(in srgb, var(--accent, #7c6bff) 5%, transparent); }
-    .company-pillbar { display: flex; flex-wrap: wrap; gap: 0.35rem; padding: 0 1.1rem 0.9rem; }
+    .company-row-meta { flex: 1; min-width: 0; }
+    .company-row-title-line { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .company-row-sub { font-size: 0.72rem; color: var(--text-muted, #666); margin-top: 0.15rem; }
+
+    .company-detail { border-top: 1px solid var(--border, #1e1e1e); padding: 0.9rem 1.1rem 1.15rem; }
+    .company-pillbar { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.9rem; }
     .pill-nav {
       background: none; border: 1px solid var(--border, #333); border-radius: 999px;
       color: var(--text-muted, #999); font-size: 0.72rem; font-weight: 600; padding: 0.18rem 0.65rem;
@@ -73,35 +100,49 @@
     }
     .pill-nav:hover { border-color: var(--accent, #7c6bff); color: var(--text-primary, #fff); }
     .pill-nav.active { background: var(--accent, #7c6bff); border-color: var(--accent, #7c6bff); color: #fff; }
-    .company-detail {
-      border-top: 1px solid var(--border, #1e1e1e); padding: 1rem 1.1rem 1.15rem;
-      background: color-mix(in srgb, var(--bg-secondary, #111) 60%, transparent);
-    }
+
     .news-log-item { padding: 0.55rem 0; border-bottom: 1px solid var(--border, #1e1e1e); }
     .news-log-item:last-child { border-bottom: none; }
     .news-log-date { font-size: 0.65rem; color: var(--text-muted, #666); font-weight: 700; letter-spacing: 0.04em; }
     .news-log-text { font-size: 0.85rem; color: var(--text-muted, #ccc); line-height: 1.55; margin-top: 0.15rem; }
     .company-desc { font-size: 0.85rem; color: var(--text-muted, #aaa); line-height: 1.6; margin: 0 0 0.9rem; }
 
-    .product-detail-header { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.6rem; }
+    .product-detail-header { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.7rem; }
     .product-detail-title { font-size: 1rem; font-weight: 700; color: var(--text-primary, #fff); }
     .product-detail-desc { font-size: 0.85rem; color: var(--text-muted, #aaa); line-height: 1.6; margin: 0 0 0.7rem; }
-    .product-detail-techs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tech-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted, #666); margin-bottom: 0.35rem; }
 
-    /* ── Products (unchanged card style) ─────────────────────────────────── */
+    /* ── Products (cards) ─────────────────────────────────────────────────── */
     .xr-card { border: 1px solid var(--border, #222); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
     .xr-card.xr-hidden { display: none; }
     .xr-card-header { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.6rem; }
     .xr-card-title { font-size: 1rem; font-weight: 700; color: var(--text-primary, #fff); }
     .xr-card-sub { font-size: 0.78rem; color: var(--text-muted, #888); margin-bottom: 0.6rem; }
     .xr-card-desc { font-size: 0.875rem; color: var(--text-muted, #aaa); line-height: 1.65; margin: 0 0 0.6rem; }
-    .xr-links { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.7rem; align-items: center; }
+    .xr-links { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.6rem; align-items: center; }
     .xr-link-pill {
       display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 0.15rem 0.55rem; border-radius: 999px;
       border: 1px solid var(--border, #333); color: var(--accent, #7c6bff); text-decoration: none;
       background: none; cursor: pointer; font-family: inherit;
     }
     .xr-link-pill:hover { background: color-mix(in srgb, var(--accent, #7c6bff) 12%, transparent); }
+    .xr-link-pill.tech-pill { color: #a78bfa; }
+
+    /* Inline technology expansion — stays in place, never navigates away */
+    .inline-tech-detail {
+      display: none; margin-top: 0.6rem; padding: 0.75rem 0.9rem; border-radius: 8px;
+      border: 1px solid var(--border, #2a2a2a); background: color-mix(in srgb, var(--accent, #7c6bff) 4%, transparent);
+    }
+    .inline-tech-detail.open { display: block; }
+    .inline-tech-title { font-size: 0.82rem; font-weight: 700; color: var(--text-primary, #eee); margin-bottom: 0.3rem; }
+    .inline-tech-desc { font-size: 0.8rem; color: var(--text-muted, #bbb); line-height: 1.55; }
+    .inline-tech-tradeoffs { font-size: 0.76rem; color: var(--text-muted, #888); line-height: 1.5; margin-top: 0.4rem; }
+    .inline-tech-tradeoffs strong { color: var(--text-muted, #aaa); }
+    .inline-tech-close {
+      float: right; background: none; border: none; color: var(--text-muted, #666); cursor: pointer;
+      font-size: 0.9rem; line-height: 1; padding: 0;
+    }
+    .inline-tech-close:hover { color: var(--text-primary, #fff); }
 
     .coming-soon-box {
       border: 1px solid var(--border, #222); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;
@@ -116,7 +157,7 @@
     .coming-soon-item .name { font-weight: 600; }
 
     /* ── Technologies: accordion by category ─────────────────────────────── */
-    .tech-controls { display: flex; justify-content: flex-end; margin-bottom: 0.75rem; }
+    .tech-controls { display: none; }
     .tech-group { border: 1px solid var(--border, #222); border-radius: 8px; margin-bottom: 0.75rem; overflow: hidden; }
     .tech-group-header {
       display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.1rem; cursor: pointer;
@@ -127,9 +168,7 @@
     .tech-group-body { border-top: 1px solid var(--border, #1e1e1e); }
     .tech-item { border-bottom: 1px solid var(--border, #1a1a1a); }
     .tech-item:last-child { border-bottom: none; }
-    .tech-item-header {
-      display: flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.1rem; cursor: pointer; font-size: 0.85rem;
-    }
+    .tech-item-header { display: flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.1rem; cursor: pointer; font-size: 0.85rem; }
     .tech-item-header:hover { background: color-mix(in srgb, var(--accent, #7c6bff) 4%, transparent); }
     .tech-item-name { font-weight: 600; color: var(--text-primary, #eee); }
     .tech-item-detail { padding: 0 1.1rem 1rem 2.35rem; }
@@ -156,18 +195,15 @@
 
   <div style="max-width:860px;margin:0 auto;padding:0 1.5rem 5rem;">
 
-    <!-- SECTION TOGGLES -->
-    <div class="section-toggle" id="section-toggle">
-      <button class="section-btn active" data-section="companies">Companies</button>
-      <button class="section-btn" data-section="products">Products</button>
-      <button class="section-btn" data-section="technologies">Technologies</button>
-    </div>
-
-    <!-- CATEGORY FILTERS (Companies + Products only; Technologies uses accordion instead) -->
-    <div class="tag-filter xr-filter" id="filter-companies" style="margin-bottom:1.5rem;"></div>
-    <div class="tag-filter xr-filter" id="filter-products" style="margin-bottom:1.5rem;display:none;"></div>
-    <div class="tech-controls" id="tech-controls" style="display:none;">
-      <button class="section-btn" id="tech-expand-all" data-section="_none">Expand All</button>
+    <div class="controls-row">
+      <div class="section-toggle" id="section-toggle">
+        <button class="section-btn active" data-section="companies">Companies</button>
+        <button class="section-btn" data-section="products">Products</button>
+        <button class="section-btn" data-section="technologies">Technologies</button>
+      </div>
+      <select class="filter-select" id="filter-companies"></select>
+      <select class="filter-select" id="filter-products" style="display:none;"></select>
+      <button class="section-btn" id="tech-expand-all" style="display:none;">Expand All</button>
     </div>
 
     <div id="xr-loading" style="color:var(--text-muted,#888);font-size:0.85rem;padding:1.5rem 0;">Loading…</div>
@@ -210,10 +246,75 @@
           + (product.product_url_is_root ? '<span class="ext-link-note">(homepage — exact page unconfirmed)</span>' : '');
       }
 
+      const CATEGORY_ICONS = {
+        'smart-glasses': '🕶️', 'ar-glasses': '🕶️', 'ar-headset': '🥽',
+        'mr-headset': '🥽', 'vr-headset': '🥽',
+        'neural-wearable': '⌚', 'haptic-wearable': '🧤',
+        '3d-scanner': '📷', '3d-printer': '🖨️', 'input-device': '🖐️',
+      };
+      const FILTER_ICON_FALLBACK = { glasses: '🕶️', hmd: '🥽', wearables: '⌚', scanners: '📷', printers: '🖨️', misc: '📦' };
+      function iconFor(p) { return CATEGORY_ICONS[p.category] || FILTER_ICON_FALLBACK[p.filter_category] || '📦'; }
+      function thumbBox(p, size) {
+        return '<div class="thumb-box size-' + size + ' cat-' + esc(p.filter_category) + '">' + iconFor(p) + '</div>';
+      }
+
       // ══════════════════════════════════════════════════════════════════════
-      // COMPANIES — collapsed rows, pill-nav (News + each product), inline detail
+      // Inline technology expansion — used by BOTH the Products tab cards and
+      // the company -> product detail panel. Never navigates away.
       // ══════════════════════════════════════════════════════════════════════
-      const activeCompanyView = {}; // companyId -> 'news' | productId
+      function techPillsHTML(techIds, ownerId) {
+        if (!techIds || !techIds.length) return '';
+        const pills = techIds.map(function (tid) {
+          const t = byId(DATA.technologies, tid);
+          return t ? '<button class="xr-link-pill tech-pill" data-inline-tech="' + esc(tid) + '" data-owner="' + esc(ownerId) + '">' + esc(t.name) + '</button>' : '';
+        }).join('');
+        return '<div>'
+          + '<div class="tech-label">Technologies</div>'
+          + '<div class="xr-links">' + pills + '</div>'
+          + '<div class="inline-tech-detail" id="inline-tech-' + esc(ownerId) + '"></div>'
+          + '</div>';
+      }
+
+      function inlineTechHTML(t) {
+        return '<button class="inline-tech-close" data-close-inline="' + esc(t.id) + '">✕</button>'
+          + '<div class="inline-tech-title">' + esc(t.name) + '</div>'
+          + '<div class="inline-tech-desc">' + esc(t.description) + '</div>'
+          + (t.tradeoffs ? '<div class="inline-tech-tradeoffs"><strong>Trade-offs:</strong> ' + esc(t.tradeoffs) + '</div>' : '');
+      }
+
+      document.addEventListener('click', function (e) {
+        const closeBtn = e.target.closest('[data-close-inline]');
+        if (closeBtn) {
+          const box = closeBtn.closest('.inline-tech-detail');
+          box.classList.remove('open');
+          box.innerHTML = '';
+          return;
+        }
+        const pill = e.target.closest('[data-inline-tech]');
+        if (pill) {
+          const techId = pill.dataset.inlineTech;
+          const ownerId = pill.dataset.owner;
+          const box = document.getElementById('inline-tech-' + ownerId);
+          if (!box) return;
+          const alreadyShowingThis = box.classList.contains('open') && box.dataset.showing === techId;
+          if (alreadyShowingThis) {
+            box.classList.remove('open');
+            box.innerHTML = '';
+            return;
+          }
+          const t = byId(DATA.technologies, techId);
+          if (!t) return;
+          box.innerHTML = inlineTechHTML(t);
+          box.dataset.showing = techId;
+          box.classList.add('open');
+          return;
+        }
+      });
+
+      // ══════════════════════════════════════════════════════════════════════
+      // COMPANIES — collapsed rows; pill-nav + detail only appear once expanded
+      // ══════════════════════════════════════════════════════════════════════
+      const activeCompanyView = {};
       let openCompanyId = null;
 
       function renderCompanies(data) {
@@ -221,20 +322,22 @@
         let html = '<div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted,#888);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border,#222);">Companies</div>';
 
         data.companies.forEach(function (c) {
-          const pillNavs = ['<button class="pill-nav active" data-company="' + esc(c.id) + '" data-view="news">News</button>']
-            .concat((c.product_ids || []).map(function (pid) {
-              const p = byId(data.products, pid);
-              return p ? '<button class="pill-nav" data-company="' + esc(c.id) + '" data-view="' + esc(pid) + '">' + esc(p.name) + '</button>' : '';
-            })).join('');
+          const productCount = (c.product_ids || []).length;
+          const firstProduct = productCount ? byId(data.products, c.product_ids[0]) : null;
 
           html += '<div class="company-block" data-company-id="' + esc(c.id) + '" data-category="' + esc(c.category) + '">'
             + '<div class="company-row-header" data-company="' + esc(c.id) + '">'
             + '<span class="chevron" id="chevron-' + esc(c.id) + '">▸</span>'
+            + (firstProduct ? thumbBox(firstProduct, 'sm') : '<div class="thumb-box size-sm cat-misc">🏢</div>')
+            + '<div class="company-row-meta">'
+            + '<div class="company-row-title-line">'
             + '<span class="xr-card-title">' + esc(c.name) + '</span>'
             + '<span class="cat-pill">' + esc(c.category) + '</span>'
             + staleTag(c)
             + '</div>'
-            + '<div class="company-pillbar">' + pillNavs + '</div>'
+            + '<div class="company-row-sub">' + (productCount ? productCount + ' product' + (productCount === 1 ? '' : 's') : 'No tracked products yet') + '</div>'
+            + '</div>'
+            + '</div>'
             + '<div class="company-detail" id="detail-' + esc(c.id) + '" style="display:none"></div>'
             + '</div>';
         });
@@ -256,14 +359,10 @@
         return html;
       }
 
-      function companyProductHTML(p, data) {
-        const techs = (p.technology_ids || []).map(function (tid) {
-          const t = byId(data.technologies, tid);
-          return t ? '<button class="xr-link-pill" data-jump="technologies" data-jump-id="' + esc(tid) + '">' + esc(t.name) + '</button>' : '';
-        }).join('');
-
+      function companyProductHTML(p) {
+        const ownerId = 'co-' + p.id;
         return '<div class="product-detail-header">'
-          + '<span class="thumb-icon">' + iconFor(p) + '</span>'
+          + thumbBox(p, 'lg')
           + '<span class="product-detail-title">' + esc(p.name) + '</span>'
           + '<span class="cat-pill">' + esc(p.category) + '</span>'
           + '<span class="status-pill ' + esc(p.status) + '">' + esc(p.status) + '</span>'
@@ -271,7 +370,7 @@
           + staleTag(p)
           + '</div>'
           + '<p class="product-detail-desc">' + esc(p.description) + '</p>'
-          + (techs ? '<div class="product-detail-techs">' + techs + '</div>' : '')
+          + techPillsHTML(p.technology_ids, ownerId)
           + (p.product_url ? '<div style="margin-top:0.7rem;">' + extLink(p) + '</div>' : '');
       }
 
@@ -281,13 +380,15 @@
         const detail = document.getElementById('detail-' + companyId);
         activeCompanyView[companyId] = view;
 
-        detail.innerHTML = view === 'news' ? companyNewsHTML(c) : companyProductHTML(byId(data.products, view), data);
-        detail.style.display = '';
+        const pillNavs = ['<button class="pill-nav ' + (view === 'news' ? 'active' : '') + '" data-company="' + companyId + '" data-view="news">News</button>']
+          .concat((c.product_ids || []).map(function (pid) {
+            const p = byId(data.products, pid);
+            return p ? '<button class="pill-nav ' + (view === pid ? 'active' : '') + '" data-company="' + companyId + '" data-view="' + esc(pid) + '">' + esc(p.name) + '</button>' : '';
+          })).join('');
 
-        // update pill active states within this company only
-        document.querySelectorAll('.pill-nav[data-company="' + companyId + '"]').forEach(function (b) {
-          b.classList.toggle('active', b.dataset.view === view);
-        });
+        const content = view === 'news' ? companyNewsHTML(c) : companyProductHTML(byId(data.products, view));
+        detail.innerHTML = '<div class="company-pillbar">' + pillNavs + '</div><div>' + content + '</div>';
+        detail.style.display = '';
       }
 
       function toggleCompany(companyId) {
@@ -295,7 +396,6 @@
         const chevron = document.getElementById('chevron-' + companyId);
         const isOpen = detail.style.display !== 'none';
 
-        // accordion: close whichever company was previously open
         if (openCompanyId && openCompanyId !== companyId) {
           document.getElementById('detail-' + openCompanyId).style.display = 'none';
           const prevChevron = document.getElementById('chevron-' + openCompanyId);
@@ -331,15 +431,6 @@
       // ══════════════════════════════════════════════════════════════════════
       // PRODUCTS
       // ══════════════════════════════════════════════════════════════════════
-      const CATEGORY_ICONS = {
-        'smart-glasses': '🕶️', 'ar-glasses': '🕶️', 'ar-headset': '🥽',
-        'mr-headset': '🥽', 'vr-headset': '🥽',
-        'neural-wearable': '⌚', 'haptic-wearable': '🧤',
-        '3d-scanner': '📷', '3d-printer': '🖨️', 'input-device': '🖐️',
-      };
-      const FILTER_ICON_FALLBACK = { glasses: '🕶️', hmd: '🥽', wearables: '⌚', scanners: '📷', printers: '🖨️', misc: '📦' };
-      function iconFor(p) { return CATEGORY_ICONS[p.category] || FILTER_ICON_FALLBACK[p.filter_category] || '📦'; }
-
       function renderProducts(data) {
         const section = document.getElementById('section-products');
         let html = '<div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted,#888);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border,#222);">Products</div>';
@@ -357,7 +448,7 @@
           upcoming.forEach(function (p) {
             const company = byId(data.companies, p.company_id);
             html += '<button class="coming-soon-item" data-jump="products" data-jump-id="' + esc(p.id) + '">'
-              + '<span class="thumb-icon">' + iconFor(p) + '</span>'
+              + thumbBox(p, 'sm')
               + '<span class="name">' + esc(p.name) + '</span>'
               + (company ? '<span>— ' + esc(company.name) + '</span>' : '')
               + '<span class="coming-pill" style="margin-left:auto;">Coming ' + esc(p.expected_year) + '</span>'
@@ -368,14 +459,11 @@
 
         data.products.forEach(function (p) {
           const company = byId(data.companies, p.company_id);
-          const techs = (p.technology_ids || []).map(function (tid) {
-            const t = byId(data.technologies, tid);
-            return t ? '<button class="xr-link-pill" data-jump="technologies" data-jump-id="' + esc(tid) + '">' + esc(t.name) + '</button>' : '';
-          }).join('');
+          const ownerId = 'pr-' + p.id;
 
           html += '<div class="xr-card" data-product-id="' + esc(p.id) + '" data-category="' + esc(p.filter_category) + '">'
             + '<div class="xr-card-header">'
-            + '<span class="thumb-icon">' + iconFor(p) + '</span>'
+            + thumbBox(p, 'lg')
             + '<span class="xr-card-title">' + esc(p.name) + '</span>'
             + '<span class="cat-pill">' + esc(p.category) + '</span>'
             + '<span class="status-pill ' + esc(p.status) + '">' + esc(p.status) + '</span>'
@@ -384,7 +472,8 @@
             + '</div>'
             + (company ? '<div class="xr-card-sub"><button class="xr-link-pill" data-jump="companies" data-jump-id="' + esc(company.id) + '">' + esc(company.name) + '</button></div>' : '')
             + '<p class="xr-card-desc">' + esc(p.description) + '</p>'
-            + (techs ? '<div class="xr-links">' + techs + (p.product_url ? extLink(p) : '') + '</div>' : (p.product_url ? '<div class="xr-links">' + extLink(p) + '</div>' : ''))
+            + techPillsHTML(p.technology_ids, ownerId)
+            + (p.product_url ? '<div style="margin-top:0.6rem;">' + extLink(p) + '</div>' : '')
             + '</div>';
         });
 
@@ -412,7 +501,7 @@
 
         return '<p class="xr-card-desc" style="margin-bottom:0.4rem;">' + esc(t.description) + '</p>'
           + (t.tradeoffs ? '<p class="xr-tradeoffs"><strong>Trade-offs:</strong> ' + esc(t.tradeoffs) + '</p>' : '')
-          + (usedBy ? '<div class="xr-links">' + usedBy + '</div>' : '<p class="xr-card-notes" style="font-size:0.78rem;color:var(--text-muted,#666);margin-top:0.5rem;">Not yet linked to a tracked product or company.</p>');
+          + (usedBy ? '<div class="xr-links">' + usedBy + '</div>' : '<p style="font-size:0.78rem;color:var(--text-muted,#666);margin-top:0.5rem;">Not yet linked to a tracked product or company.</p>');
       }
 
       function renderTechnologies(data) {
@@ -420,9 +509,7 @@
         let html = '<div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted,#888);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border,#222);">Technologies</div>';
 
         const grouped = {};
-        data.technologies.forEach(function (t) {
-          (grouped[t.category] = grouped[t.category] || []).push(t);
-        });
+        data.technologies.forEach(function (t) { (grouped[t.category] = grouped[t.category] || []).push(t); });
 
         TECH_GROUPS.order.filter(function (cat) { return grouped[cat]; }).forEach(function (cat) {
           const items = grouped[cat];
@@ -458,7 +545,6 @@
         body.style.display = show ? '' : 'none';
         chevron.classList.toggle('open', show);
       }
-
       function toggleTechItem(techId, forceState) {
         const detail = document.getElementById('techdetail-' + techId);
         const chevron = document.getElementById('chevron-tech-' + techId);
@@ -485,7 +571,7 @@
       });
 
       // ══════════════════════════════════════════════════════════════════════
-      // SECTION TOGGLES + FILTER BARS
+      // SECTION TOGGLES + CONTEXT FILTERS
       // ══════════════════════════════════════════════════════════════════════
       const sectionToggle = document.getElementById('section-toggle');
       const sections = {
@@ -493,29 +579,25 @@
         products:     document.getElementById('section-products'),
         technologies: document.getElementById('section-technologies'),
       };
-      const filterBars = {
-        companies: document.getElementById('filter-companies'),
-        products:  document.getElementById('filter-products'),
+      const filterControls = {
+        companies:    document.getElementById('filter-companies'),
+        products:     document.getElementById('filter-products'),
+        technologies: document.getElementById('tech-expand-all'),
       };
-      const techControls = document.getElementById('tech-controls');
 
       function activateSection(key) {
-        sectionToggle.querySelectorAll('.section-btn').forEach(function (b) {
-          b.classList.remove('active');
-        });
+        sectionToggle.querySelectorAll('.section-btn').forEach(function (b) { b.classList.remove('active'); });
         Object.values(sections).forEach(function (s) { s.classList.remove('section-active'); });
-        Object.values(filterBars).forEach(function (f) { f.style.display = 'none'; });
-        techControls.style.display = 'none';
+        Object.values(filterControls).forEach(function (f) { f.style.display = 'none'; });
 
         sectionToggle.querySelector('[data-section="' + key + '"]').classList.add('active');
         if (sections[key]) sections[key].classList.add('section-active');
-        if (filterBars[key]) filterBars[key].style.display = '';
-        if (key === 'technologies') techControls.style.display = '';
+        filterControls[key].style.display = key === 'technologies' ? 'inline-block' : '';
       }
 
       sectionToggle.addEventListener('click', function (e) {
         const btn = e.target.closest('.section-btn');
-        if (!btn || btn.id === 'tech-expand-all') return;
+        if (!btn) return;
         activateSection(btn.dataset.section);
       });
 
@@ -532,24 +614,20 @@
         },
       };
 
-      function buildFilterBar(sectionKey, items) {
+      function buildFilterSelect(sectionKey, items) {
         const config = FILTER_CONFIG[sectionKey];
-        const bar = filterBars[sectionKey];
+        const select = filterControls[sectionKey];
         const present = new Set(items.map(function (i) { return i[config.field]; }));
         const cats = config.order.filter(function (c) { return present.has(c); });
 
-        let html = '<button class="tag-btn active" data-filter="all">All</button>';
+        let html = '<option value="all">All ' + (sectionKey === 'companies' ? 'Companies' : 'Products') + '</option>';
         cats.forEach(function (c) {
-          html += '<button class="tag-btn" data-filter="' + esc(c) + '">' + esc(config.labels[c] || c) + '</button>';
+          html += '<option value="' + esc(c) + '">' + esc(config.labels[c] || c) + '</option>';
         });
-        bar.innerHTML = html;
+        select.innerHTML = html;
 
-        bar.addEventListener('click', function (e) {
-          const btn = e.target.closest('.tag-btn');
-          if (!btn) return;
-          bar.querySelectorAll('.tag-btn').forEach(function (b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          applySectionFilter(sectionKey, btn.dataset.filter);
+        select.addEventListener('change', function () {
+          applySectionFilter(sectionKey, select.value);
         });
       }
 
@@ -564,7 +642,7 @@
         });
       }
 
-      // ── Cross-section jump links ─────────────────────────────────────────
+      // ── Cross-section jump links (company <-> product only; tech is inline now) ──
       document.addEventListener('click', function (e) {
         const btn = e.target.closest('[data-jump]');
         if (!btn) return;
@@ -574,10 +652,7 @@
         activateSection(target);
 
         if (target === 'companies') {
-          const bar = filterBars.companies;
-          bar.querySelectorAll('.tag-btn').forEach(function (b) { b.classList.remove('active'); });
-          const allBtn = bar.querySelector('[data-filter="all"]');
-          if (allBtn) allBtn.classList.add('active');
+          filterControls.companies.value = 'all';
           applySectionFilter('companies', 'all');
           if (openCompanyId !== targetId) toggleCompany(targetId);
           const block = document.querySelector('.company-block[data-company-id="' + targetId + '"]');
@@ -586,10 +661,7 @@
         }
 
         if (target === 'products') {
-          const bar = filterBars.products;
-          bar.querySelectorAll('.tag-btn').forEach(function (b) { b.classList.remove('active'); });
-          const allBtn = bar.querySelector('[data-filter="all"]');
-          if (allBtn) allBtn.classList.add('active');
+          filterControls.products.value = 'all';
           applySectionFilter('products', 'all');
           const card = document.querySelector('.xr-card[data-product-id="' + targetId + '"]');
           if (card) {
@@ -598,16 +670,6 @@
             card.style.background = 'color-mix(in srgb, var(--accent, #7c6bff) 10%, transparent)';
             setTimeout(function () { card.style.background = ''; }, 1500);
           }
-          return;
-        }
-
-        if (target === 'technologies') {
-          const t = byId(DATA.technologies, targetId);
-          if (!t) return;
-          toggleTechGroup(t.category, true);
-          toggleTechItem(targetId, true);
-          const header = document.querySelector('.tech-item-header[data-tech="' + targetId + '"]');
-          if (header) header.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       });
 
@@ -619,8 +681,8 @@
           renderCompanies(data);
           renderProducts(data);
           renderTechnologies(data);
-          buildFilterBar('companies', data.companies);
-          buildFilterBar('products', data.products);
+          buildFilterSelect('companies', data.companies);
+          buildFilterSelect('products', data.products);
           document.getElementById('xr-loading').style.display = 'none';
         })
         .catch(function (err) {
