@@ -90,12 +90,12 @@
       color: var(--text-muted, #999); font-weight: 700; letter-spacing: 0.02em;
     }
     .thumb-fallback-text { color: var(--text-muted, #999); font-weight: 700; letter-spacing: 0.02em; }
-    .thumb-box.size-sm { width: 34px; height: 34px; }
-    .thumb-box.size-sm .thumb-fallback-text, .thumb-box.size-sm .thumb-fallback-always { font-size: 0.6rem; }
-    .thumb-box.size-md { width: 52px; height: 52px; }
-    .thumb-box.size-md .thumb-fallback-text, .thumb-box.size-md .thumb-fallback-always { font-size: 0.72rem; }
-    .thumb-box.size-lg { width: 56px; height: 56px; }
-    .thumb-box.size-lg .thumb-fallback-text, .thumb-box.size-lg .thumb-fallback-always { font-size: 0.85rem; }
+    .thumb-box.size-sm { width: 40px; height: 40px; }
+    .thumb-box.size-sm .thumb-fallback-text, .thumb-box.size-sm .thumb-fallback-always { font-size: 0.65rem; }
+    .thumb-box.size-md { width: 72px; height: 72px; }
+    .thumb-box.size-md .thumb-fallback-text, .thumb-box.size-md .thumb-fallback-always { font-size: 0.85rem; }
+    .thumb-box.size-lg { width: 84px; height: 84px; }
+    .thumb-box.size-lg .thumb-fallback-text, .thumb-box.size-lg .thumb-fallback-always { font-size: 1.05rem; }
     .thumb-box.cat-glasses   { background: rgba(124,107,255,0.14); border-color: rgba(124,107,255,0.4); }
     .thumb-box.cat-wearables { background: rgba(34,211,238,0.14);  border-color: rgba(34,211,238,0.4); }
     .thumb-box.cat-hmd       { background: rgba(74,158,255,0.14);  border-color: rgba(74,158,255,0.4); }
@@ -109,12 +109,12 @@
     .company-row-header { display: flex; align-items: center; gap: 0.55rem; padding: 0.9rem 1.1rem 0.6rem; cursor: pointer; }
     .company-row-header:hover .xr-card-title { color: var(--accent, #7c6bff); }
 
-    .product-tile-grid { display: flex; flex-wrap: wrap; gap: 0.65rem; padding: 0 1.1rem 1rem; }
+    .product-tile-grid { display: flex; flex-wrap: wrap; gap: 0.9rem; padding: 0 1.1rem 1.1rem; }
     .product-tile {
-      display: flex; flex-direction: column; align-items: center; gap: 0.3rem; width: 66px;
+      display: flex; flex-direction: column; align-items: center; gap: 0.35rem; width: 88px;
       background: none; border: none; cursor: pointer; font-family: inherit; padding: 0;
     }
-    .product-tile-label { font-size: 0.64rem; color: var(--text-muted, #999); text-align: center; line-height: 1.2; }
+    .product-tile-label { font-size: 0.7rem; color: var(--text-muted, #999); text-align: center; line-height: 1.25; }
     .product-tile:hover .product-tile-label { color: var(--text-primary, #fff); }
     .product-tile.active .thumb-box { outline: 2px solid var(--accent, #7c6bff); outline-offset: 2px; }
     .product-tile.xr-hidden { display: none; }
@@ -170,17 +170,6 @@
     }
     .inline-tech-close:hover { color: var(--text-primary, #fff); }
 
-    .coming-soon-box {
-      border: 1px solid var(--border, #222); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;
-      background: color-mix(in srgb, #fbbf24 5%, transparent);
-    }
-    .coming-soon-title { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #fbbf24; margin-bottom: 0.6rem; }
-    .coming-soon-item {
-      display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--text-muted, #ccc);
-      padding: 0.3rem 0; cursor: pointer; background: none; border: none; font-family: inherit; text-align: left; width: 100%;
-    }
-    .coming-soon-item:hover { color: var(--text-primary, #fff); }
-    .coming-soon-item .name { font-weight: 600; }
 
     /* ── Technologies: accordion by category ─────────────────────────────── */
     .tech-controls { display: none; }
@@ -222,7 +211,7 @@
     </p>
   </div>
 
-  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem 5rem;">
+  <div style="max-width:1180px;margin:0 auto;padding:0 1.5rem 5rem;">
 
     <div class="search-row">
       <input type="search" class="search-input" id="xr-search" placeholder="Search companies, products, technologies…">
@@ -233,7 +222,10 @@
         <button class="section-btn active" data-section="companies">Companies</button>
         <button class="section-btn" data-section="technologies">Technologies</button>
       </div>
-      <select class="filter-select" id="filter-companies"></select>
+      <div id="companies-controls" style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+        <select class="filter-select" id="filter-device-type"></select>
+        <button class="section-btn" id="coming-soon-toggle">🔜 Coming Soon</button>
+      </div>
       <button class="section-btn" id="tech-expand-all" style="display:none;">Expand All</button>
     </div>
 
@@ -353,10 +345,10 @@
       function renderCompanies(data) {
         const section = document.getElementById('section-companies');
         let html = '<div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted,#888);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border,#222);">Companies</div>';
-        html += comingSoonBoxHTML(data);
 
         data.companies.forEach(function (c) {
           const products = (c.product_ids || []).map(function (pid) { return byId(data.products, pid); }).filter(Boolean);
+          const isUpcoming = function (p) { return (p.status === 'announced' || p.status === 'rumored') && p.expected_year; };
 
           html += '<div class="company-block" data-company-id="' + esc(c.id) + '" data-category="' + esc(c.category) + '">'
             + '<div class="company-row-header" data-company="' + esc(c.id) + '">'
@@ -368,9 +360,10 @@
 
           if (products.length) {
             html += '<div class="product-tile-grid">' + products.map(function (p) {
-              return '<button class="product-tile" data-company="' + esc(c.id) + '" data-view="' + esc(p.id) + '" data-product-tile="' + esc(p.id) + '">'
+              return '<button class="product-tile" data-company="' + esc(c.id) + '" data-view="' + esc(p.id) + '" data-product-tile="' + esc(p.id) + '"'
+                + ' data-device-type="' + esc(p.device_type || '') + '" data-upcoming="' + (isUpcoming(p) ? '1' : '0') + '">'
                 + thumbBox(p, 'md')
-                + '<span class="product-tile-label">' + esc(p.name) + '</span>'
+                + '<span class="product-tile-label">' + (isUpcoming(p) ? '🔜 ' : '') + esc(p.name) + '</span>'
                 + '</button>';
             }).join('') + '</div>';
           } else {
@@ -384,29 +377,6 @@
         section.innerHTML = html;
       }
 
-      function comingSoonBoxHTML(data) {
-        const upcoming = data.products
-          .filter(function (p) { return (p.status === 'announced' || p.status === 'rumored') && p.expected_year; })
-          .sort(function (a, b) {
-            if (a.expected_year === 'TBD') return 1;
-            if (b.expected_year === 'TBD') return -1;
-            return a.expected_year.localeCompare(b.expected_year);
-          });
-        if (!upcoming.length) return '';
-
-        let html = '<div class="coming-soon-box"><div class="coming-soon-title">🔜 Coming Soon</div>';
-        upcoming.forEach(function (p) {
-          const company = byId(data.companies, p.company_id);
-          html += '<button class="coming-soon-item" data-jump-product="' + esc(p.id) + '">'
-            + thumbBox(p, 'sm')
-            + '<span class="name">' + esc(p.name) + '</span>'
-            + (company ? '<span>— ' + esc(company.name) + '</span>' : '')
-            + '<span class="coming-pill" style="margin-left:auto;">Coming ' + esc(p.expected_year) + '</span>'
-            + '</button>';
-        });
-        html += '</div>';
-        return html;
-      }
 
       function companyNewsHTML(c) {
         let html = (c.description ? '<p class="company-desc">' + esc(c.description) + '</p>' : '');
@@ -433,6 +403,18 @@
         return '<div class="xr-links" style="margin-top:0;margin-bottom:0.6rem;">' + pills + '</div>';
       }
 
+      function lensFeaturesHTML(p) {
+        if (!p.lens_features) return '';
+        const f = p.lens_features;
+        const pills = [];
+        pills.push('<span class="feature-pill ' + (f.prescription ? 'on' : 'off') + '">👓 Prescription' + (f.prescription ? '' : ' — no') + '</span>');
+        pills.push('<span class="feature-pill ' + (f.sunglasses ? 'on' : 'off') + '">🕶️ Sunglasses' + (f.sunglasses ? '' : ' — no') + '</span>');
+        pills.push('<span class="feature-pill ' + (f.transitions ? 'on' : 'off') + '">🌗 Transitions' + (f.transitions ? '' : ' — no') + '</span>');
+        if (f.display_color) pills.push('<span class="feature-pill on">' + (f.display_color === 'color' ? '🌈 Color display' : '◽ Monochrome display') + '</span>');
+        if (f.display_eyes) pills.push('<span class="feature-pill on">' + (f.display_eyes === 'both' ? '👀 Both-eye display' : '👁️ Single-eye display') + '</span>');
+        return '<div class="xr-links" style="margin-top:0;margin-bottom:0.6rem;">' + pills.join('') + '</div>';
+      }
+
       function companyProductHTML(p, companyId) {
         const ownerId = 'co-' + p.id;
         return '<button class="back-to-news" data-company="' + esc(companyId) + '" data-view="news">← Back to News</button>'
@@ -445,6 +427,7 @@
           + staleTag(p)
           + '</div>'
           + hardwareFeaturesHTML(p)
+          + lensFeaturesHTML(p)
           + '<p class="product-detail-desc">' + esc(p.description) + '</p>'
           + techPillsHTML(p.technology_ids, ownerId)
           + '<div style="margin-top:0.7rem;display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;">'
@@ -594,25 +577,27 @@
       });
 
       // ══════════════════════════════════════════════════════════════════════
-      // SECTION TOGGLES + COMPANY CATEGORY FILTER
+      // SECTION TOGGLES + DEVICE TYPE / COMING SOON FILTERS
       // ══════════════════════════════════════════════════════════════════════
       const sectionToggle = document.getElementById('section-toggle');
       const sections = {
         companies:    document.getElementById('section-companies'),
         technologies: document.getElementById('section-technologies'),
       };
-      const companyFilterSelect = document.getElementById('filter-companies');
+      const companiesControls = document.getElementById('companies-controls');
+      const deviceTypeSelect = document.getElementById('filter-device-type');
+      const comingSoonToggleBtn = document.getElementById('coming-soon-toggle');
       const techExpandBtn = document.getElementById('tech-expand-all');
 
       function activateSection(key) {
         sectionToggle.querySelectorAll('.section-btn').forEach(function (b) { b.classList.remove('active'); });
         Object.values(sections).forEach(function (s) { s.classList.remove('section-active'); });
-        companyFilterSelect.style.display = 'none';
+        companiesControls.style.display = 'none';
         techExpandBtn.style.display = 'none';
 
         sectionToggle.querySelector('[data-section="' + key + '"]').classList.add('active');
         if (sections[key]) sections[key].classList.add('section-active');
-        if (key === 'companies') companyFilterSelect.style.display = '';
+        if (key === 'companies') companiesControls.style.display = 'flex';
         if (key === 'technologies') techExpandBtn.style.display = 'inline-block';
       }
 
@@ -622,64 +607,76 @@
         activateSection(btn.dataset.section);
       });
 
-      const COMPANY_FILTER = {
-        order: ['platform', 'device-maker', 'optics', 'chipset', 'hearables', 'health', 'haptics', 'capture'],
-        labels: { platform: 'Platform', 'device-maker': 'Device Maker', optics: 'Optics', chipset: 'Chipset', hearables: 'Hearables', health: 'Health', haptics: 'Haptics', capture: '3D Capture & Print' },
+      const DEVICE_TYPE_FILTER = {
+        order: ['ar-glasses', 'ai-glasses', 'vr-mr-headset', 'wearable', 'capture', 'print', 'input'],
+        labels: {
+          'ar-glasses': 'AR Glasses', 'ai-glasses': 'AI Glasses (no display)', 'vr-mr-headset': 'VR/MR Headsets',
+          wearable: 'Non-glass Wearables', capture: '3D Capture', print: '3D Printing', input: 'Input Devices',
+        },
       };
-      let currentCompanyFilter = 'all';
+      let currentDeviceType = 'all';
+      let comingSoonOnly = false;
 
-      function buildCompanyFilterSelect(companies) {
-        const present = new Set(companies.map(function (c) { return c.category; }));
-        const cats = COMPANY_FILTER.order.filter(function (c) { return present.has(c); });
-        let html = '<option value="all">All Companies</option>';
-        cats.forEach(function (c) {
-          html += '<option value="' + esc(c) + '">' + esc(COMPANY_FILTER.labels[c] || c) + '</option>';
+      function buildDeviceTypeSelect(products) {
+        const present = new Set(products.map(function (p) { return p.device_type; }));
+        const types = DEVICE_TYPE_FILTER.order.filter(function (t) { return present.has(t); });
+        let html = '<option value="all">All Device Types</option>';
+        types.forEach(function (t) {
+          html += '<option value="' + esc(t) + '">' + esc(DEVICE_TYPE_FILTER.labels[t] || t) + '</option>';
         });
-        companyFilterSelect.innerHTML = html;
-        companyFilterSelect.addEventListener('change', function () {
-          currentCompanyFilter = companyFilterSelect.value;
+        deviceTypeSelect.innerHTML = html;
+        deviceTypeSelect.addEventListener('change', function () {
+          currentDeviceType = deviceTypeSelect.value;
           refreshCompanyVisibility();
         });
       }
 
+      comingSoonToggleBtn.addEventListener('click', function () {
+        comingSoonOnly = !comingSoonOnly;
+        comingSoonToggleBtn.classList.toggle('active', comingSoonOnly);
+        refreshCompanyVisibility();
+      });
+
       // ══════════════════════════════════════════════════════════════════════
-      // SEARCH — filters Companies (by name or any product name) and
-      // Technologies (by name/description), auto-expanding matches in place.
+      // SEARCH + DEVICE TYPE + COMING SOON — combined filtering. A product tile
+      // is visible when it passes device-type and coming-soon, AND (its own
+      // name matches the search OR its parent company's name does). A company
+      // is visible when it has at least one visible tile, or (for the couple
+      // of companies with no tracked products) its name alone matches search
+      // while no other filter is active.
       // ══════════════════════════════════════════════════════════════════════
       let currentSearch = '';
+
+      function isUpcoming(p) { return (p.status === 'announced' || p.status === 'rumored') && !!p.expected_year; }
 
       function refreshCompanyVisibility() {
         const q = currentSearch;
         document.querySelectorAll('.company-block').forEach(function (block) {
           const companyId = block.dataset.companyId;
           const c = byId(DATA.companies, companyId);
-          const categoryOk = currentCompanyFilter === 'all' || c.category === currentCompanyFilter;
+          const companyNameMatches = !q || c.name.toLowerCase().includes(q);
 
-          if (!categoryOk) { block.classList.add('xr-hidden'); return; }
+          let anyTileVisible = false;
+          const tiles = block.querySelectorAll('.product-tile');
+          tiles.forEach(function (tile) {
+            const p = byId(DATA.products, tile.dataset.view);
+            const deviceTypeOk = currentDeviceType === 'all' || p.device_type === currentDeviceType;
+            const comingSoonOk = !comingSoonOnly || isUpcoming(p);
+            const searchOk = companyNameMatches || p.name.toLowerCase().includes(q);
+            const visible = deviceTypeOk && comingSoonOk && searchOk;
+            tile.classList.toggle('xr-hidden', !visible);
+            if (visible) anyTileVisible = true;
+          });
 
-          if (!q) {
-            block.classList.remove('xr-hidden');
-            block.querySelectorAll('.product-tile').forEach(function (t) { t.classList.remove('xr-hidden'); });
-            return;
-          }
+          const noProductsFallback = !tiles.length && companyNameMatches && currentDeviceType === 'all' && !comingSoonOnly;
+          const companyVisible = anyTileVisible || noProductsFallback;
+          block.classList.toggle('xr-hidden', !companyVisible);
 
-          const nameMatch = c.name.toLowerCase().includes(q);
-          const matchingProducts = (c.product_ids || [])
-            .map(function (pid) { return byId(DATA.products, pid); })
-            .filter(function (p) { return p && p.name.toLowerCase().includes(q); });
-
-          if (nameMatch || matchingProducts.length) {
-            block.classList.remove('xr-hidden');
-            block.querySelectorAll('.product-tile').forEach(function (t) {
-              t.classList.toggle('xr-hidden', !nameMatch && matchingProducts.indexOf(byId(DATA.products, t.dataset.view)) === -1);
-            });
-            if (matchingProducts.length && !nameMatch) {
-              openCompany(companyId, matchingProducts[0].id);
-              const el = document.querySelector('.company-block[data-company-id="' + companyId + '"]');
-              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-          } else {
-            block.classList.add('xr-hidden');
+          if (q && companyVisible && !companyNameMatches) {
+            const firstMatch = byId(DATA.products, Array.prototype.find.call(tiles, function (t) { return !t.classList.contains('xr-hidden'); }).dataset.view);
+            openCompany(companyId, firstMatch.id);
+            const el = document.querySelector('.company-block[data-company-id="' + companyId + '"]');
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           }
         });
       }
@@ -720,16 +717,21 @@
         refreshTechVisibility();
       });
 
-      // ── Jump helpers (technology "used by" pills, Coming Soon items) ───────
+      // ── Jump helpers (technology "used by" pills) ───────────────────────────
+      function resetCompanyFilters() {
+        deviceTypeSelect.value = 'all'; currentDeviceType = 'all';
+        comingSoonOnly = false; comingSoonToggleBtn.classList.remove('active');
+        document.getElementById('xr-search').value = ''; currentSearch = '';
+        refreshCompanyVisibility();
+      }
+
       document.addEventListener('click', function (e) {
         const prodBtn = e.target.closest('[data-jump-product]');
         if (prodBtn) {
           const p = byId(DATA.products, prodBtn.dataset.jumpProduct);
           if (!p) return;
           activateSection('companies');
-          companyFilterSelect.value = 'all'; currentCompanyFilter = 'all';
-          document.getElementById('xr-search').value = ''; currentSearch = '';
-          refreshCompanyVisibility();
+          resetCompanyFilters();
           openCompany(p.company_id, p.id);
           const el = document.querySelector('.company-block[data-company-id="' + p.company_id + '"]');
           if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -738,9 +740,7 @@
         const coBtn = e.target.closest('[data-jump-company]');
         if (coBtn) {
           activateSection('companies');
-          companyFilterSelect.value = 'all'; currentCompanyFilter = 'all';
-          document.getElementById('xr-search').value = ''; currentSearch = '';
-          refreshCompanyVisibility();
+          resetCompanyFilters();
           openCompany(coBtn.dataset.jumpCompany, 'news');
           const el = document.querySelector('.company-block[data-company-id="' + coBtn.dataset.jumpCompany + '"]');
           if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -754,7 +754,7 @@
           DATA = data;
           renderCompanies(data);
           renderTechnologies(data);
-          buildCompanyFilterSelect(data.companies);
+          buildDeviceTypeSelect(data.products);
           document.getElementById('xr-loading').style.display = 'none';
         })
         .catch(function (err) {
