@@ -38,12 +38,14 @@
     .section-btn:hover { border-color: var(--accent, #7c6bff); color: var(--text-primary, #fff); }
     .section-btn.active { background: var(--accent, #7c6bff); border-color: var(--accent, #7c6bff); color: #fff; }
 
-    .filter-select {
-      background: var(--bg-secondary, #161616); border: 1px solid var(--border, #333); border-radius: 8px;
-      color: var(--text-primary, #eee); font-family: inherit; font-size: 0.78rem; font-weight: 600;
-      padding: 0.4rem 0.7rem; cursor: pointer;
+    .device-type-bar { display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 1.25rem; line-height: 1.9; }
+    .device-type-item {
+      background: none; border: none; cursor: pointer; font-family: inherit; font-size: 0.78rem;
+      padding: 0.1rem 0.35rem; color: var(--text-muted, #666); font-weight: 600; white-space: nowrap;
     }
-    .filter-select:hover { border-color: var(--accent, #7c6bff); }
+    .device-type-item.active { color: var(--accent, #7c6bff); }
+    .device-type-item:hover { color: var(--text-primary, #fff); }
+    .device-type-sep { color: var(--border, #3a3a3a); user-select: none; }
 
     /* Category / status pills */
     .cat-pill {
@@ -225,12 +227,11 @@
         <button class="section-btn active" data-section="companies">Companies</button>
         <button class="section-btn" data-section="technologies">Technologies</button>
       </div>
-      <div id="companies-controls" style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
-        <select class="filter-select" id="filter-device-type"></select>
-        <button class="section-btn" id="coming-soon-toggle">🔜 Coming Soon</button>
-      </div>
+      <button class="section-btn" id="coming-soon-toggle" style="display:none;">🔜 Coming Soon</button>
       <button class="section-btn" id="tech-expand-all" style="display:none;">Expand All</button>
     </div>
+
+    <div class="device-type-bar" id="device-type-bar" style="display:none;"></div>
 
     <div id="xr-loading" style="color:var(--text-muted,#888);font-size:0.85rem;padding:1.5rem 0;">Loading…</div>
 
@@ -607,20 +608,20 @@
         companies:    document.getElementById('section-companies'),
         technologies: document.getElementById('section-technologies'),
       };
-      const companiesControls = document.getElementById('companies-controls');
-      const deviceTypeSelect = document.getElementById('filter-device-type');
+      const deviceTypeBar = document.getElementById('device-type-bar');
       const comingSoonToggleBtn = document.getElementById('coming-soon-toggle');
       const techExpandBtn = document.getElementById('tech-expand-all');
 
       function activateSection(key) {
         sectionToggle.querySelectorAll('.section-btn').forEach(function (b) { b.classList.remove('active'); });
         Object.values(sections).forEach(function (s) { s.classList.remove('section-active'); });
-        companiesControls.style.display = 'none';
+        deviceTypeBar.style.display = 'none';
+        comingSoonToggleBtn.style.display = 'none';
         techExpandBtn.style.display = 'none';
 
         sectionToggle.querySelector('[data-section="' + key + '"]').classList.add('active');
         if (sections[key]) sections[key].classList.add('section-active');
-        if (key === 'companies') companiesControls.style.display = 'flex';
+        if (key === 'companies') { deviceTypeBar.style.display = 'flex'; comingSoonToggleBtn.style.display = 'inline-block'; }
         if (key === 'technologies') techExpandBtn.style.display = 'inline-block';
       }
 
@@ -631,25 +632,36 @@
       });
 
       const DEVICE_TYPE_FILTER = {
-        order: ['ar-glasses', 'ai-glasses', 'vr-mr-headset', 'wearable', 'capture', 'print', 'input'],
+        order: ['ar-glasses', 'ai-glasses', 'vr-mr-headset', 'ring', 'wrist', 'pendant', 'wearable', 'capture', 'print', 'input'],
         labels: {
           'ar-glasses': 'AR Glasses', 'ai-glasses': 'AI Glasses (no display)', 'vr-mr-headset': 'VR/MR Headsets',
-          wearable: 'Non-glass Wearables', capture: '3D Capture', print: '3D Printing', input: 'Input Devices',
+          ring: 'Rings', wrist: 'Wrist-worn', pendant: 'Pendants', wearable: 'Other Wearables (gloves/suits)',
+          capture: '3D Capture', print: '3D Printing', input: 'Input Devices',
         },
       };
-      let currentDeviceType = 'all';
+      let selectedDeviceTypes = new Set();
+      let allDeviceTypes = new Set();
       let comingSoonOnly = false;
 
-      function buildDeviceTypeSelect(products) {
+      function buildDeviceTypeBar(products) {
         const present = new Set(products.map(function (p) { return p.device_type; }));
         const types = DEVICE_TYPE_FILTER.order.filter(function (t) { return present.has(t); });
-        let html = '<option value="all">All Device Types</option>';
-        types.forEach(function (t) {
-          html += '<option value="' + esc(t) + '">' + esc(DEVICE_TYPE_FILTER.labels[t] || t) + '</option>';
-        });
-        deviceTypeSelect.innerHTML = html;
-        deviceTypeSelect.addEventListener('change', function () {
-          currentDeviceType = deviceTypeSelect.value;
+        selectedDeviceTypes = new Set(types); // all selected by default
+        allDeviceTypes = new Set(types);
+
+        deviceTypeBar.innerHTML = types.map(function (t, i) {
+          return (i > 0 ? '<span class="device-type-sep">&nbsp;|&nbsp;</span>' : '')
+            + '<button class="device-type-item active" data-device-type="' + esc(t) + '">' + esc(DEVICE_TYPE_FILTER.labels[t] || t) + '</button>';
+        }).join('');
+
+        deviceTypeBar.addEventListener('click', function (e) {
+          const item = e.target.closest('.device-type-item');
+          if (!item) return;
+          const type = item.dataset.deviceType;
+          const isSelected = selectedDeviceTypes.has(type);
+          if (isSelected && selectedDeviceTypes.size === 1) return; // keep at least one selected
+          if (isSelected) selectedDeviceTypes.delete(type); else selectedDeviceTypes.add(type);
+          item.classList.toggle('active', !isSelected);
           refreshCompanyVisibility();
         });
       }
@@ -683,7 +695,7 @@
           const tiles = block.querySelectorAll('.product-tile');
           tiles.forEach(function (tile) {
             const p = byId(DATA.products, tile.dataset.view);
-            const deviceTypeOk = currentDeviceType === 'all' || p.device_type === currentDeviceType;
+            const deviceTypeOk = selectedDeviceTypes.size === 0 || selectedDeviceTypes.has(p.device_type);
             const comingSoonOk = !comingSoonOnly || isUpcoming(p);
             const searchOk = companyNameMatches || p.name.toLowerCase().includes(q);
             const visible = deviceTypeOk && comingSoonOk && searchOk;
@@ -691,7 +703,7 @@
             if (visible) anyTileVisible = true;
           });
 
-          const noProductsFallback = !tiles.length && companyNameMatches && currentDeviceType === 'all' && !comingSoonOnly;
+          const noProductsFallback = !tiles.length && companyNameMatches && selectedDeviceTypes.size === allDeviceTypes.size && !comingSoonOnly;
           const companyVisible = anyTileVisible || noProductsFallback;
           block.classList.toggle('xr-hidden', !companyVisible);
 
@@ -742,7 +754,8 @@
 
       // ── Jump helpers (technology "used by" pills) ───────────────────────────
       function resetCompanyFilters() {
-        deviceTypeSelect.value = 'all'; currentDeviceType = 'all';
+        selectedDeviceTypes = new Set(allDeviceTypes);
+        deviceTypeBar.querySelectorAll('.device-type-item').forEach(function (item) { item.classList.add('active'); });
         comingSoonOnly = false; comingSoonToggleBtn.classList.remove('active');
         document.getElementById('xr-search').value = ''; currentSearch = '';
         refreshCompanyVisibility();
@@ -777,7 +790,8 @@
           DATA = data;
           renderCompanies(data);
           renderTechnologies(data);
-          buildDeviceTypeSelect(data.products);
+          buildDeviceTypeBar(data.products);
+          activateSection('companies');
           document.getElementById('xr-loading').style.display = 'none';
         })
         .catch(function (err) {
