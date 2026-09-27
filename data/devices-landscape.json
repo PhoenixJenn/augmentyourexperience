@@ -40,7 +40,8 @@
       "category": "platform",
       "description": "Vision Pro defined the high-end MR headset category; per Morning Brief tracking, Apple killed Vision Pro 2 and Vision Air under new CEO John Ternus and is pivoting the Vision Products Group toward smart glasses instead.",
       "product_ids": [
-        "apple-vision-pro"
+        "apple-vision-pro",
+        "apple-glasses"
       ],
       "notes": "Vision program restructuring under Ternus is a live, developing story — watch for smart glasses roadmap details. Real tracked signal: Ternus's first substantive Vision Pro comments pointed to a surgeon/enterprise vertical as an early proof point for the roadmap.",
       "needs_update": false,
@@ -644,7 +645,7 @@
     },
     {
       "id": "wearable-devices-mudra",
-      "name": "Wearable Devices (Mudra Band)",
+      "name": "Mudra",
       "category": "health",
       "description": "Maker of the Mudra Band -- a neural-input wristband (Apple Watch band form factor) using Surface Nerve Conductance to read subtle finger movements as gesture input, similar in spirit to Meta's EMG wristband research.",
       "product_ids": [
@@ -876,6 +877,26 @@
       "image_url": "../images/devices/apple-vision-pro.png",
       "device_type": "vr-mr-headset",
       "date_added": "2026-09-26"
+    },
+    {
+      "id": "apple-glasses",
+      "name": "Apple Glasses",
+      "company_id": "apple",
+      "category": "smart-glasses",
+      "status": "rumored",
+      "expected_year": "2027",
+      "description": "Apple's first smart glasses, codenamed N50 -- reportedly display-less, focused on Siri, computer vision, and contextual awareness via built-in camera, speakers, and microphones rather than an AR overlay. Positioned closer to Ray-Ban Meta than to Vision Pro.",
+      "technology_ids": [],
+      "needs_update": true,
+      "news": "Reportedly targeting a late-2027 launch (delayed from an earlier-2027 target), with an unveiling expected around WWDC 2027. Said to have reached pre-production testing. Oval-shaped cameras, multiple frame styles. Not yet officially announced by Apple.",
+      "news_date": "2026-09-27",
+      "filter_category": "glasses",
+      "product_url": null,
+      "product_url_is_root": false,
+      "image_url": null,
+      "device_type": "ai-glasses",
+      "date_added": "2026-09-27",
+      "last_major_update": "2026-09-27"
     },
     {
       "id": "samsung-galaxy-xr",
