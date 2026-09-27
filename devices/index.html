@@ -71,6 +71,17 @@
       display: inline-block; font-size: 0.6rem; font-weight: 700; color: #7a4a1a;
       border: 1px solid #4a2a0a; border-radius: 3px; padding: 0.08rem 0.32rem; white-space: nowrap;
     }
+    .new-pill {
+      display: inline-block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em;
+      padding: 0.1rem 0.45rem; border-radius: 999px; border: 1px solid #1a4a3a; color: #6ee7b7;
+      line-height: 1.4; white-space: nowrap;
+    }
+    .product-tile .new-dot {
+      position: absolute; top: -2px; right: -2px; width: 10px; height: 10px; border-radius: 50%;
+      background: #6ee7b7; border: 2px solid var(--bg-primary, #0a0a0a);
+    }
+    .product-tile { position: relative; }
+    .product-tile .thumb-box { position: relative; }
     .chevron { display: inline-block; width: 0.9em; color: var(--text-muted, #666); transition: transform 0.15s; flex-shrink: 0; }
     .chevron.open { transform: rotate(90deg); }
 
@@ -228,6 +239,7 @@
         <button class="section-btn" data-section="technologies">Technologies</button>
       </div>
       <button class="section-btn" id="coming-soon-toggle" style="display:none;">🔜 Coming Soon</button>
+      <button class="section-btn" id="new-toggle" style="display:none;">🆕 New/Updated</button>
       <button class="section-btn" id="tech-expand-all" style="display:none;">Expand All</button>
     </div>
 
@@ -265,6 +277,22 @@
           .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
       }
       function byId(list, id) { return (list || []).find(function (x) { return x.id === id; }); }
+      const NEW_WINDOW_DAYS = 7;
+      function isRecentDate(dateStr) {
+        if (!dateStr) return false;
+        const d = new Date(dateStr + 'T00:00:00');
+        if (isNaN(d)) return false;
+        return (Date.now() - d.getTime()) / 86400000 <= NEW_WINDOW_DAYS;
+      }
+      function productIsNew(p) { return isRecentDate(p.news_date); }
+      function companyIsNew(c, data) {
+        if (isRecentDate(c.news_date)) return true;
+        if ((c.news_log || []).some(function (n) { return isRecentDate(n.date); })) return true;
+        return (c.product_ids || []).some(function (pid) {
+          const p = byId(data.products, pid);
+          return p && productIsNew(p);
+        });
+      }
       function staleTag(item) { return item.needs_update ? '<span class="xr-stale">⚠ needs update</span> ' : ''; }
       function extLink(product) {
         if (!product.product_url) return '';
@@ -354,19 +382,21 @@
           const products = (c.product_ids || []).map(function (pid) { return byId(data.products, pid); }).filter(Boolean);
           const isUpcoming = function (p) { return (p.status === 'announced' || p.status === 'rumored') && p.expected_year; };
 
-          html += '<div class="company-block" data-company-id="' + esc(c.id) + '" data-category="' + esc(c.category) + '">'
+          html += '<div class="company-block" data-company-id="' + esc(c.id) + '" data-category="' + esc(c.category) + '" data-new="' + (companyIsNew(c, data) ? '1' : '0') + '">'
             + '<div class="company-row-header" data-company="' + esc(c.id) + '">'
             + '<span class="chevron" id="chevron-' + esc(c.id) + '">▸</span>'
             + '<span class="xr-card-title">' + esc(c.name) + '</span>'
             + '<span class="cat-pill">' + esc(c.category) + '</span>'
+            + (companyIsNew(c, data) ? '<span class="new-pill">🆕 New</span>' : '')
             + staleTag(c)
             + '</div>';
 
           if (products.length) {
             html += '<div class="product-tile-grid">' + products.map(function (p) {
               return '<button class="product-tile" data-company="' + esc(c.id) + '" data-view="' + esc(p.id) + '" data-product-tile="' + esc(p.id) + '"'
-                + ' data-device-type="' + esc(p.device_type || '') + '" data-upcoming="' + (isUpcoming(p) ? '1' : '0') + '">'
+                + ' data-device-type="' + esc(p.device_type || '') + '" data-upcoming="' + (isUpcoming(p) ? '1' : '0') + '" data-new="' + (productIsNew(p) ? '1' : '0') + '">'
                 + thumbBox(p, 'md')
+                + (productIsNew(p) ? '<span class="new-dot" title="Added/updated in the last ' + NEW_WINDOW_DAYS + ' days"></span>' : '')
                 + '<span class="product-tile-label">' + (isUpcoming(p) ? '🔜 ' : '') + esc(p.name) + '</span>'
                 + '</button>';
             }).join('') + '</div>';
@@ -610,6 +640,7 @@
       };
       const deviceTypeBar = document.getElementById('device-type-bar');
       const comingSoonToggleBtn = document.getElementById('coming-soon-toggle');
+      const newToggleBtn = document.getElementById('new-toggle');
       const techExpandBtn = document.getElementById('tech-expand-all');
 
       function activateSection(key) {
@@ -617,11 +648,16 @@
         Object.values(sections).forEach(function (s) { s.classList.remove('section-active'); });
         deviceTypeBar.style.display = 'none';
         comingSoonToggleBtn.style.display = 'none';
+        newToggleBtn.style.display = 'none';
         techExpandBtn.style.display = 'none';
 
         sectionToggle.querySelector('[data-section="' + key + '"]').classList.add('active');
         if (sections[key]) sections[key].classList.add('section-active');
-        if (key === 'companies') { deviceTypeBar.style.display = 'flex'; comingSoonToggleBtn.style.display = 'inline-block'; }
+        if (key === 'companies') {
+          deviceTypeBar.style.display = 'flex';
+          comingSoonToggleBtn.style.display = 'inline-block';
+          newToggleBtn.style.display = 'inline-block';
+        }
         if (key === 'technologies') techExpandBtn.style.display = 'inline-block';
       }
 
@@ -642,6 +678,7 @@
       let selectedDeviceTypes = new Set();
       let allDeviceTypes = new Set();
       let comingSoonOnly = false;
+      let newOnly = false;
 
       function buildDeviceTypeBar(products) {
         const present = new Set(products.map(function (p) { return p.device_type; }));
@@ -672,6 +709,12 @@
         refreshCompanyVisibility();
       });
 
+      newToggleBtn.addEventListener('click', function () {
+        newOnly = !newOnly;
+        newToggleBtn.classList.toggle('active', newOnly);
+        refreshCompanyVisibility();
+      });
+
       // ══════════════════════════════════════════════════════════════════════
       // SEARCH + DEVICE TYPE + COMING SOON — combined filtering. A product tile
       // is visible when it passes device-type and coming-soon, AND (its own
@@ -697,13 +740,14 @@
             const p = byId(DATA.products, tile.dataset.view);
             const deviceTypeOk = selectedDeviceTypes.size === 0 || selectedDeviceTypes.has(p.device_type);
             const comingSoonOk = !comingSoonOnly || isUpcoming(p);
+            const newOk = !newOnly || productIsNew(p);
             const searchOk = companyNameMatches || p.name.toLowerCase().includes(q);
-            const visible = deviceTypeOk && comingSoonOk && searchOk;
+            const visible = deviceTypeOk && comingSoonOk && newOk && searchOk;
             tile.classList.toggle('xr-hidden', !visible);
             if (visible) anyTileVisible = true;
           });
 
-          const noProductsFallback = !tiles.length && companyNameMatches && selectedDeviceTypes.size === allDeviceTypes.size && !comingSoonOnly;
+          const noProductsFallback = !tiles.length && companyNameMatches && selectedDeviceTypes.size === allDeviceTypes.size && !comingSoonOnly && !newOnly;
           const companyVisible = anyTileVisible || noProductsFallback;
           block.classList.toggle('xr-hidden', !companyVisible);
 
@@ -757,6 +801,7 @@
         selectedDeviceTypes = new Set(allDeviceTypes);
         deviceTypeBar.querySelectorAll('.device-type-item').forEach(function (item) { item.classList.add('active'); });
         comingSoonOnly = false; comingSoonToggleBtn.classList.remove('active');
+        newOnly = false; newToggleBtn.classList.remove('active');
         document.getElementById('xr-search').value = ''; currentSearch = '';
         refreshCompanyVisibility();
       }
