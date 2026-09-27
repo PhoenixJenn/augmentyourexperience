@@ -23,7 +23,7 @@
             <a href="${base}weekly-briefs/index.html">Weekly Briefs</a>
             <a href="${base}intel/index.html">Intel</a>
             <a href="${base}models/index.html">Models</a>
-            <a href="${base}xr/index.html">XR</a>
+            <a href="${base}devices/index.html">Devices</a>
             <a href="${base}events/index.html">Events</a>
             <a href="${base}about.html">About</a>
             <a href="${base}speaking.html">Speaking</a>
