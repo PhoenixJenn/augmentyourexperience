@@ -43,14 +43,14 @@
       table-layout: fixed;
     }
 
-    .ai-models-table col.col-model    { width: 125px; }
-    .ai-models-table col.col-type     { width: 48px; }
-    .ai-models-table col.col-tier     { width: 44px; }
-    .ai-models-table col.col-price    { width: 108px; }
-    .ai-models-table col.col-ctx      { width: 88px; }
-    .ai-models-table col.col-uses     { }
-    .ai-models-table col.col-modality { width: 82px; }
-    .ai-models-table col.col-news     { width: 200px; }
+    .ai-models-table col.col-model    { width: 150px; }
+    .ai-models-table col.col-type     { width: 56px; }
+    .ai-models-table col.col-tier     { width: 50px; }
+    .ai-models-table col.col-price    { width: 120px; }
+    .ai-models-table col.col-ctx      { width: 100px; }
+    .ai-models-table col.col-uses     { width: 220px; }
+    .ai-models-table col.col-modality { width: 110px; }
+    .ai-models-table col.col-news     { width: 380px; }
 
     .ai-models-table th {
       text-align: left;
@@ -69,10 +69,12 @@
       padding: 0.5rem 0.75rem;
       border-bottom: 1px solid var(--border, #191919);
       border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
       color: var(--text-muted, #bbb);
       vertical-align: top;
       word-break: break-word;
     }
+    .ai-models-table td.col-news-cell { padding-left: 1.25rem; }
 
     .ai-models-company-row td {
       background: var(--bg-secondary, #111);
@@ -83,6 +85,17 @@
       padding: 0.55rem 0.75rem 0.3rem;
       border-bottom: 1px solid var(--border, #1e1e1e);
       border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+    }
+    .ai-model-company-logo {
+      display: inline-block; width: 16px; height: 16px; vertical-align: -3px; margin-right: 0.45rem;
+      -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+      -webkit-mask-position: center; mask-position: center;
+    }
+    .ai-model-company-logo-fallback {
+      display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px;
+      vertical-align: -3px; margin-right: 0.45rem; border-radius: 3px; font-size: 0.55rem; font-weight: 700;
+      color: var(--bg-primary, #0d0d0d);
     }
 
     .ai-model-name { font-weight: 600; color: var(--text-primary, #e0e0e0); }
@@ -143,7 +156,7 @@
     </p>
   </div>
 
-  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem 5rem;">
+  <div style="max-width:1400px;margin:0 auto;padding:0 1.5rem 5rem;">
 
     <div id="models-loading" style="color:var(--text-muted,#888);font-size:0.85rem;padding:1.5rem 0;">Loading…</div>
     <div class="company-filter-bar" id="company-filter-bar" style="display:none;"></div>
@@ -181,6 +194,29 @@
         'Alibaba':         '#fbbf24',
         'Microsoft':       '#818cf8',
       };
+      // Simple Icons (cdn.jsdelivr.net/npm/simple-icons) slugs -- masked to a solid
+      // color block via CSS so every logo reads as a consistent brand-color chip
+      // rather than mismatched multi-color logos. No slug = no icon in that set
+      // (xAI, Cohere) -- falls back to a colored initials chip instead.
+      const COMPANY_LOGO_SLUGS = {
+        'Anthropic':       'anthropic',
+        'OpenAI':          'openai',
+        'Google DeepMind': 'google',
+        'Mistral AI':      'mistralai',
+        'Meta':            'meta',
+        'DeepSeek':        'deepseek',
+        'Alibaba':         'alibabadotcom',
+        'Microsoft':       'microsoft',
+      };
+      function companyLogoHTML(company, color) {
+        const slug = COMPANY_LOGO_SLUGS[company];
+        if (slug) {
+          const url = 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/' + slug + '.svg';
+          return '<span class="ai-model-company-logo" style="background-color:' + color + ';-webkit-mask-image:url(' + url + ');mask-image:url(' + url + ');"></span>';
+        }
+        const initial = esc((company || '?').charAt(0));
+        return '<span class="ai-model-company-logo-fallback" style="background-color:' + color + ';">' + initial + '</span>';
+      }
 
       function esc(str) {
         return String(str || '')
@@ -197,54 +233,32 @@
         }
       }
 
+      // Tab-switcher, not a multi-select filter: exactly one of "All" or a single
+      // company is active at a time, matching how a row of tabs is expected to behave.
       const companyFilterBar = document.getElementById('company-filter-bar');
-      let selectedCompanies = new Set();
-      let allCompanies = new Set();
-      let companyAllMode = true;
+      let activeCompany = 'all';
 
       function refreshCompanyFilterPillStates() {
         companyFilterBar.querySelectorAll('.company-filter-item').forEach(function (item) {
-          const c = item.dataset.company;
-          item.classList.toggle('active', c === 'all' ? companyAllMode : (!companyAllMode && selectedCompanies.has(c)));
+          item.classList.toggle('active', item.dataset.company === activeCompany);
         });
-      }
-
-      function selectAllCompanies() {
-        companyAllMode = true;
-        selectedCompanies = new Set(allCompanies);
-        refreshCompanyFilterPillStates();
-      }
-
-      function toggleCompanyFilter(company) {
-        if (companyAllMode) {
-          // Starting fresh from "All" -> isolate to just this one company.
-          companyAllMode = false;
-          selectedCompanies = new Set([company]);
-        } else if (selectedCompanies.has(company)) {
-          selectedCompanies.delete(company);
-          if (selectedCompanies.size === 0) { selectAllCompanies(); return; } // nothing left -> back to All
-        } else {
-          selectedCompanies.add(company);
-        }
-        refreshCompanyFilterPillStates();
       }
 
       function refreshCompanyRowVisibility() {
         document.querySelectorAll('#models-content tr[data-company]').forEach(function (tr) {
-          tr.style.display = (companyAllMode || selectedCompanies.has(tr.dataset.company)) ? '' : 'none';
+          tr.style.display = (activeCompany === 'all' || tr.dataset.company === activeCompany) ? '' : 'none';
         });
       }
 
       function buildCompanyFilterBar(order) {
-        allCompanies = new Set(order);
-        companyAllMode = true;
-        selectedCompanies = new Set(order);
+        activeCompany = 'all';
 
         companyFilterBar.innerHTML = '<button class="company-filter-item active" data-company="all">All</button>'
           + '<span class="company-filter-sep">&nbsp;|&nbsp;</span>'
           + order.map(function (c, i) {
+            const color = COMPANY_COLORS[c] || '#555';
             return (i > 0 ? '<span class="company-filter-sep">&nbsp;|&nbsp;</span>' : '')
-              + '<button class="company-filter-item" data-company="' + esc(c) + '">' + esc(c) + '</button>';
+              + '<button class="company-filter-item" data-company="' + esc(c) + '">' + companyLogoHTML(c, color) + esc(c) + '</button>';
           }).join('');
         companyFilterBar.style.display = 'flex';
       }
@@ -252,8 +266,8 @@
       companyFilterBar.addEventListener('click', function (e) {
         const item = e.target.closest('.company-filter-item');
         if (!item) return;
-        const company = item.dataset.company;
-        if (company === 'all') selectAllCompanies(); else toggleCompanyFilter(company);
+        activeCompany = item.dataset.company;
+        refreshCompanyFilterPillStates();
         refreshCompanyRowVisibility();
       });
 
@@ -286,8 +300,8 @@
         order.forEach(function (company) {
           const color = COMPANY_COLORS[company] || '#555';
           html += '<tr class="ai-models-company-row" data-company="' + esc(company) + '">'
-            + '<td colspan="8" style="border-left-color:' + color + ';border-top:2px solid ' + color + ';color:' + color + ';opacity:0.85;">'
-            + esc(company) + '</td></tr>';
+            + '<td colspan="8" style="border-left-color:' + color + ';border-right-color:' + color + ';border-top:2px solid ' + color + ';color:' + color + ';opacity:0.85;">'
+            + companyLogoHTML(company, color) + esc(company) + '</td></tr>';
 
           grouped[company].forEach(function (m) {
             const tierClass = m.tier === 'free' ? 't-free'
@@ -307,7 +321,7 @@
               + '</td>'
               + '<td class="ai-model-uses">' + esc(uses) + '</td>'
               + '<td class="ai-model-modality">' + esc((m.modalities || []).join(', ')) + '</td>'
-              + '<td>'
+              + '<td class="col-news-cell" style="border-right-color:' + color + ';">'
               + (m.needs_update ? '<span class="ai-model-stale">⚠ stale</span><br>' : '')
               + '<span class="ai-model-news">' + esc(m.news || '—') + '</span>'
               + (m.knowledge_cutoff ? '<div class="ai-model-cutoff">Cutoff: ' + esc(m.knowledge_cutoff) + '</div>' : '')
