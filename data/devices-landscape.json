@@ -1,7 +1,7 @@
 {
   "meta": {
     "last_updated": "2026-09-27",
-    "note": "Seed dataset — companies pulled from context/watchlist_meta.json's existing 'xr' category tags plus a few hand-added (Even Realities). Products and Technologies are hand-curated starter entries, reference-card depth, not exhaustive. 'vle' technology entry is a stub — Jenn used 'UWB/VLE/GNSS' and VLE's meaning wasn't confirmed (possibly BLE / Bluetooth Low Energy?) — needs_update until confirmed. Expanded 2026-09-26: added filter categories (Companies/Technologies filter on `category`; Products filter on new `filter_category`: glasses/wearables/hmd/misc). Added 5 companies (bHaptics, Matterport, Revopoint, Bambu Lab, Rokid) and 8 products — including Meta Quest Pro (to correctly host eye-tracking/foveated-rendering, which base Quest 3 lacks) and Google Glass Enterprise Edition (for LCoS) — to fill out Wearables and Misc and give every technology a real product anchor. Added `used_by_company_ids` to the technology schema for cases with no product yet (World Models -> Google/DeepMind, 5G/mmWave -> Qualcomm); companies are NOT double-mapped when a product already covers the link. A few technologies (NeRF, UWB, GNSS, Gaussian Splatting) were deliberately left unmapped rather than forced onto a weak product/company fit — flagged needs_update with an explanation instead. Enriched 2026-09-26 with real signal pulled from context/watchlist.md and context/entity_tracker.json (the same sources Intel's Companies section reads from — Intel itself is untouched, this just reuses the underlying JSON/markdown). Corrected/added: Samsung Galaxy Glasses (display + display-less, separate from the Galaxy XR headset), Xreal Aura (the actual Android XR flagship, not just Xreal One), Qualcomm's real chip names (Snapdragon XR2 Gen 3, Reality Elite, X2), Phonak/Sonova's HYPERSONIC chip, and two new companies surfaced by tracked signal: Pico/ByteDance (headset contender) and Lumus (waveguide optics, named alongside LetinAR in the consolidation story). This was a manual pull, not a live automated sync — watchlist.md's notes are a multi-topic firehose (AI, legal, business mixed with XR), so pulling a clean XR-only feed live client-side would need real filtering logic; flagged as a possible future enhancement rather than built now. Round 3 (2026-09-26): added 6 companies (Vuzix, Magic Leap, DigiLens, Varjo, Ultraleap, HaptX) and their products, filling previously-flagged gaps. Added OLEDoS as its own technology distinct from Micro-OLED (silicon-backplane fabrication specifically). Added a 'coming soon' mechanism: products can now carry status 'rumored' and an `expected_year` field, rendered as a 'Coming YYYY' badge and surfaced in a dedicated Coming Soon list at the top of the Products tab. Seeded Google's three Android XR partner-brand glasses (Warby Parker, Gentle Monster, Gucci) this way — Warby Parker/Gentle Monster have real tracked signal; Gucci is hand-added per Jenn with zero hits in watchlist.md/entity_tracker.json as of this date, flagged unverified. Thumbnails: no real product photos wired in yet (would require per-vendor-domain fetch confirmation or Jenn supplying local images) — using category-based icon placeholders (🕶️/🥽/⌚/📦) computed client-side instead. UX pass 2026-09-26: added `news_log` (dated array) to every company -- LetinAR, Qualcomm, Phonak/Sonova, and Snap got real multi-entry histories pulled from entity_tracker.json; everyone else has a single-entry log from their existing news field (watchlist.md doesn't carry per-date granularity for those). No news items have a real source_url yet -- watchlist.md's notes don't capture links, so all source_url fields are null rather than fabricated; add real ones going forward as they become available. Added `product_url` (confident official links only, null where uncertain) and `product_url_is_root` (true when the link is a homepage guess rather than a confirmed deep link, so the UI can be honest about confidence). Split Products' 'misc' filter bucket into 'scanners' and 'printers' per Jenn's request; Ultraleap's tracking module stays in a quiet 'misc' fallback since it isn't glasses/wearable/HMD/scanner/printer. Research pass 2026-09-27 (in response to Jenn flagging most companies as 'needs update'): resolved 12 of 16 flagged companies via direct vendor-site fetches -- Apple (M5 chip confirmed), Even Realities (corrected: current flagship is G2 not G1, added the G1->discontinued + new R1 ring), bHaptics (corrected: TactSuit Air/Pro tiers + new TactGlove DK3 haptic glove), Matterport (corrected: Pro3 is LiDAR + spherical photo, not classic photogrammetry -- unmapped that tech entry again), Rokid (corrected: current flagship is Max 2, not Max), Vuzix (corrected: current lineup is enterprise LX1/M400, not the old consumer Blade), Varjo (confirmed mini-LED display, added Mini-LED as a new technology entry + eye-tracking/foveated-rendering links), Ultraleap (confirmed Leap Motion Controller 2), HaptX (confirmed Gloves G1 + Nexus NX1 system), DigiLens (confirmed real customer roster: Samsung, Corning, Goertek, Niantic, Continental, Sony, Mitsubishi Chemical, UDC, Panasonic), Lumus (confirmed product line + notable finding: supplies optics for Meta Ray-Ban glasses and Lenovo ThinkReality A6). Still genuinely unresolved: Samsung (Galaxy XR/Glasses product pages 404'd), Magic Leap (magicleap.com/magic-leap-2 redirects to a support-only portal -- possible sunset signal, not confirmed), Pico (fetch returned empty content), Revopoint (fetch results truncated/inconclusive), Bambu Lab (403 on fetch), Cohere, Microsoft/Phi -- all left flagged rather than guessed. Real product photos 2026-09-27 (per Jenn request, top 5 companies: Meta, Apple, Google, Samsung, Snap): got working hotlinked images for Meta Quest 3, Ray-Ban Meta, and Apple Vision Pro (all from official CDNs). Samsung Galaxy XR/Galaxy Glasses: every samsung.com URL tried 404d or timed out -- no image. Snap Spectacles: only found a decorative Lens Studio background graphic, not an actual hardware photo -- skipped rather than use a misleading image. Google: no own-branded device exists (Android XR is licensed to partners), only found a lifestyle brand collage image, not product-specific -- skipped. All other products still use the category icon placeholder. image_url is null by default; the page falls back to the icon box on load error or missing url. Added Meta Muse Charm 2026-09-27 per Jenn (meta.com/muse-charm) -- confirmed as a real upcoming wearable AI device, distinct from the Muse software agent found in Morning Brief tracking. Jenn separately suggested formalizing an \"AI devices\" category on the page; currently filed under Wearables pending a decision on whether it needs its own filter bucket. Real local photos 2026-09-27 (Jenn-supplied, from /Projects/AYX-images, copied into images/xr/ in this repo): Ray-Ban Meta, Meta Ray-Ban Display, Meta Quest 3, Meta Orion, Meta Muse Charm, plus 3 new products discovered from the images: Meta Quest 3S, Ray-Ban Meta Audio (Clubmaster-style, audio-only), and Oakley Meta Vanguard (sport glasses partner-brand line, same model as Ray-Ban Meta). This checkpoint is meant for Jenn to review before more images are supplied for other companies. Added health/AI wearables 2026-09-27 per Jenn (page scope broadening beyond pure XR): Oura (Ring 5, confirmed), Mudra Band (Wearable Devices Ltd -- flagged, official site now resolves to a parked/for-sale domain page, worth a status check), Prolo Ring (stub -- no working URL found via prolodevices.com or prolorings.com, needs a source from Jenn). New company category \"health\" added. Added hardware_features (camera/audio/mic/controller booleans) to glasses products per Jenn 2026-09-27, starting with the ones already in the dataset. Corrected Even Realities R1 -- it's the G2's ring controller (confirmed by Jenn: G2 has no camera, uses the R1 ring + mic/AI for input), not a general wellbeing ring as previously described. Flagged low-confidence feature guesses (Meta Ray-Ban Display's Neural Band controller, Xreal Aura's mic/AI) for re-verification rather than asserting them outright. UX pass 2026-09-27 per Jenn: added `device_type` to every product (ar-glasses/ai-glasses/vr-mr-headset/wearable/capture/print/input) to power a new Device Type filter dropdown, replacing the old company-category dropdown which stopped making sense once the page broadened beyond XR. Added `lens_features` (prescription/sunglasses/transitions/display_color/display_eyes) to glasses products -- populated from general knowledge, flagged needs_update since none of this was freshly re-verified against official spec sheets. Coming Soon is moving from an always-visible box to a filter toggle instead. More real photos 2026-09-27 (Jenn-supplied, no-people preference noted): Apple Vision Pro (replacing the earlier apple.com hotlink, which showed a person wearing it), Even Realities G2 (also corrected sunglasses lens feature to true based on what the photo shows), Meta EMG Wristband. Removed a stale leftover seed placeholder from Meta's news_log. Samsung Galaxy XR photo added 2026-09-27 (Jenn-supplied, no people)."
+    "note": "Seed dataset — companies pulled from context/watchlist_meta.json's existing 'xr' category tags plus a few hand-added (Even Realities). Products and Technologies are hand-curated starter entries, reference-card depth, not exhaustive. 'vle' technology entry is a stub — Jenn used 'UWB/VLE/GNSS' and VLE's meaning wasn't confirmed (possibly BLE / Bluetooth Low Energy?) — needs_update until confirmed. Expanded 2026-09-26: added filter categories (Companies/Technologies filter on `category`; Products filter on new `filter_category`: glasses/wearables/hmd/misc). Added 5 companies (bHaptics, Matterport, Revopoint, Bambu Lab, Rokid) and 8 products — including Meta Quest Pro (to correctly host eye-tracking/foveated-rendering, which base Quest 3 lacks) and Google Glass Enterprise Edition (for LCoS) — to fill out Wearables and Misc and give every technology a real product anchor. Added `used_by_company_ids` to the technology schema for cases with no product yet (World Models -> Google/DeepMind, 5G/mmWave -> Qualcomm); companies are NOT double-mapped when a product already covers the link. A few technologies (NeRF, UWB, GNSS, Gaussian Splatting) were deliberately left unmapped rather than forced onto a weak product/company fit — flagged needs_update with an explanation instead. Enriched 2026-09-26 with real signal pulled from context/watchlist.md and context/entity_tracker.json (the same sources Intel's Companies section reads from — Intel itself is untouched, this just reuses the underlying JSON/markdown). Corrected/added: Samsung Galaxy Glasses (display + display-less, separate from the Galaxy XR headset), Xreal Aura (the actual Android XR flagship, not just Xreal One), Qualcomm's real chip names (Snapdragon XR2 Gen 3, Reality Elite, X2), Phonak/Sonova's HYPERSONIC chip, and two new companies surfaced by tracked signal: Pico/ByteDance (headset contender) and Lumus (waveguide optics, named alongside LetinAR in the consolidation story). This was a manual pull, not a live automated sync — watchlist.md's notes are a multi-topic firehose (AI, legal, business mixed with XR), so pulling a clean XR-only feed live client-side would need real filtering logic; flagged as a possible future enhancement rather than built now. Round 3 (2026-09-26): added 6 companies (Vuzix, Magic Leap, DigiLens, Varjo, Ultraleap, HaptX) and their products, filling previously-flagged gaps. Added OLEDoS as its own technology distinct from Micro-OLED (silicon-backplane fabrication specifically). Added a 'coming soon' mechanism: products can now carry status 'rumored' and an `expected_year` field, rendered as a 'Coming YYYY' badge and surfaced in a dedicated Coming Soon list at the top of the Products tab. Seeded Google's three Android XR partner-brand glasses (Warby Parker, Gentle Monster, Gucci) this way — Warby Parker/Gentle Monster have real tracked signal; Gucci is hand-added per Jenn with zero hits in watchlist.md/entity_tracker.json as of this date, flagged unverified. Thumbnails: no real product photos wired in yet (would require per-vendor-domain fetch confirmation or Jenn supplying local images) — using category-based icon placeholders (🕶️/🥽/⌚/📦) computed client-side instead. UX pass 2026-09-26: added `news_log` (dated array) to every company -- LetinAR, Qualcomm, Phonak/Sonova, and Snap got real multi-entry histories pulled from entity_tracker.json; everyone else has a single-entry log from their existing news field (watchlist.md doesn't carry per-date granularity for those). No news items have a real source_url yet -- watchlist.md's notes don't capture links, so all source_url fields are null rather than fabricated; add real ones going forward as they become available. Added `product_url` (confident official links only, null where uncertain) and `product_url_is_root` (true when the link is a homepage guess rather than a confirmed deep link, so the UI can be honest about confidence). Split Products' 'misc' filter bucket into 'scanners' and 'printers' per Jenn's request; Ultraleap's tracking module stays in a quiet 'misc' fallback since it isn't glasses/wearable/HMD/scanner/printer. Research pass 2026-09-27 (in response to Jenn flagging most companies as 'needs update'): resolved 12 of 16 flagged companies via direct vendor-site fetches -- Apple (M5 chip confirmed), Even Realities (corrected: current flagship is G2 not G1, added the G1->discontinued + new R1 ring), bHaptics (corrected: TactSuit Air/Pro tiers + new TactGlove DK3 haptic glove), Matterport (corrected: Pro3 is LiDAR + spherical photo, not classic photogrammetry -- unmapped that tech entry again), Rokid (corrected: current flagship is Max 2, not Max), Vuzix (corrected: current lineup is enterprise LX1/M400, not the old consumer Blade), Varjo (confirmed mini-LED display, added Mini-LED as a new technology entry + eye-tracking/foveated-rendering links), Ultraleap (confirmed Leap Motion Controller 2), HaptX (confirmed Gloves G1 + Nexus NX1 system), DigiLens (confirmed real customer roster: Samsung, Corning, Goertek, Niantic, Continental, Sony, Mitsubishi Chemical, UDC, Panasonic), Lumus (confirmed product line + notable finding: supplies optics for Meta Ray-Ban glasses and Lenovo ThinkReality A6). Still genuinely unresolved: Samsung (Galaxy XR/Glasses product pages 404'd), Magic Leap (magicleap.com/magic-leap-2 redirects to a support-only portal -- possible sunset signal, not confirmed), Pico (fetch returned empty content), Revopoint (fetch results truncated/inconclusive), Bambu Lab (403 on fetch), Cohere, Microsoft/Phi -- all left flagged rather than guessed. Real product photos 2026-09-27 (per Jenn request, top 5 companies: Meta, Apple, Google, Samsung, Snap): got working hotlinked images for Meta Quest 3, Ray-Ban Meta, and Apple Vision Pro (all from official CDNs). Samsung Galaxy XR/Galaxy Glasses: every samsung.com URL tried 404d or timed out -- no image. Snap Spectacles: only found a decorative Lens Studio background graphic, not an actual hardware photo -- skipped rather than use a misleading image. Google: no own-branded device exists (Android XR is licensed to partners), only found a lifestyle brand collage image, not product-specific -- skipped. All other products still use the category icon placeholder. image_url is null by default; the page falls back to the icon box on load error or missing url. Added Meta Muse Charm 2026-09-27 per Jenn (meta.com/muse-charm) -- confirmed as a real upcoming wearable AI device, distinct from the Muse software agent found in Morning Brief tracking. Jenn separately suggested formalizing an \"AI devices\" category on the page; currently filed under Wearables pending a decision on whether it needs its own filter bucket. Real local photos 2026-09-27 (Jenn-supplied, from /Projects/AYX-images, copied into images/xr/ in this repo): Ray-Ban Meta, Meta Ray-Ban Display, Meta Quest 3, Meta Orion, Meta Muse Charm, plus 3 new products discovered from the images: Meta Quest 3S, Ray-Ban Meta Audio (Clubmaster-style, audio-only), and Oakley Meta Vanguard (sport glasses partner-brand line, same model as Ray-Ban Meta). This checkpoint is meant for Jenn to review before more images are supplied for other companies. Added health/AI wearables 2026-09-27 per Jenn (page scope broadening beyond pure XR): Oura (Ring 5, confirmed), Mudra Band (Wearable Devices Ltd -- flagged, official site now resolves to a parked/for-sale domain page, worth a status check), Prolo Ring (stub -- no working URL found via prolodevices.com or prolorings.com, needs a source from Jenn). New company category \"health\" added. Added hardware_features (camera/audio/mic/controller booleans) to glasses products per Jenn 2026-09-27, starting with the ones already in the dataset. Corrected Even Realities R1 -- it's the G2's ring controller (confirmed by Jenn: G2 has no camera, uses the R1 ring + mic/AI for input), not a general wellbeing ring as previously described. Flagged low-confidence feature guesses (Meta Ray-Ban Display's Neural Band controller, Xreal Aura's mic/AI) for re-verification rather than asserting them outright. UX pass 2026-09-27 per Jenn: added `device_type` to every product (ar-glasses/ai-glasses/vr-mr-headset/wearable/capture/print/input) to power a new Device Type filter dropdown, replacing the old company-category dropdown which stopped making sense once the page broadened beyond XR. Added `lens_features` (prescription/sunglasses/transitions/display_color/display_eyes) to glasses products -- populated from general knowledge, flagged needs_update since none of this was freshly re-verified against official spec sheets. Coming Soon is moving from an always-visible box to a filter toggle instead. More real photos 2026-09-27 (Jenn-supplied, no-people preference noted): Apple Vision Pro (replacing the earlier apple.com hotlink, which showed a person wearing it), Even Realities G2 (also corrected sunglasses lens feature to true based on what the photo shows), Meta EMG Wristband. Removed a stale leftover seed placeholder from Meta's news_log. Samsung Galaxy XR photo added 2026-09-27 (Jenn-supplied, no people). Resolved two ambiguous photos 2026-09-27 with Jenn: (1) Snap rebranded Spectacles to \"Specs\" (confirmed by Jenn, spectacles.com -> specs.com) -- product renamed to Snap Specs. (2) ROG Xreal R1 confirmed via xreal.com as a genuinely separate gaming-focused product from Xreal Aura, not a variant -- added as its own product. Also corrected Xreal Aura's status from shipping to announced/2026 per xreal.com (\"launching Fall 2026\"). Found via a Jenn-supplied lineup chart (AllXRealGlasses.png, not yet processed) several more real Xreal models not yet tracked: One Pro, 1S, Air 2, Air 2 Pro, xbx a01+ -- pending Jenn's decision on whether to add them. Big photo-collection push 2026-09-27 per Jenn (WebSearch + WebFetch across official vendor sites and, for the Qualcomm chip, a tech-press photo since Qualcomm's own marketing pages had no chip imagery). Confirmed real photos: Matterport Pro3, Varjo XR-4, HaptX Gloves G1, Xreal One, Google Glass EE2, Oura Ring 5, Rokid Max 2. Confirmed Meta Quest Pro is discontinued (meta.com itself says so). Added 3 new companies/products per Jenn: Qualcomm's Snapdragon AR1+ Gen 1 chip (the actual silicon inside Ray-Ban Meta), Viture (Beast flagship, Sony Micro-OLED), Creality (K2 Plus printer + Pika scanner, for the 3D Capture & Create beat). Still no photo found despite trying: Vuzix M400, Pico headset, Bambu Lab X1 Carbon (site blocked fetches), Xreal Aura (unreleased), Magic Leap 2, Ultraleap controller, bHaptics TactSuit/TactGlove, Even Realities G1/R1, Revopoint scanner, Samsung Galaxy Glasses, Mudra Band, the 3 unshipped Google partner glasses."
   },
   "companies": [
     {
@@ -111,10 +111,15 @@
         "snap-spectacles"
       ],
       "notes": "Real tracked signal: Evan Spiegel has set a public 2030 timeline for AR glasses going mainstream. The September Specs reveal is viewed as the test of whether Snap can establish consumer AR credibility, or cede the category to Apple and Meta.",
-      "needs_update": false,
+      "needs_update": true,
       "news": "Creator-driven AR content strategy looking increasingly coherent per Morning Brief tracking.",
       "news_date": "2026-09-26",
       "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Spectacles rebranded to \"Specs\" -- confirmed by Jenn, spectacles.com now redirects to specs.com.",
+          "source_url": null
+        },
         {
           "date": "2026-08-21",
           "text": "Evan Spiegel set a public 2030 timeline for AR glasses going mainstream.",
@@ -144,7 +149,8 @@
       "description": "Consumer AR glasses maker (Chi Xu, founder/CEO) competing directly on waveguide optics and price against Even Realities, Samsung, and the Android XR ecosystem.",
       "product_ids": [
         "xreal-one",
-        "xreal-aura"
+        "xreal-aura",
+        "rog-xreal-r1"
       ],
       "notes": "Real tracked signal: Xreal Aura is the Android XR-partnered flagship (reservation-to-conversion numbers tracked as a leading indicator). Chi Xu (founder/CEO) has articulated a thesis that lightweight, tethered display glasses can outperform standalone AR in a cost-pressured environment — validated so far by early Aura traction.",
       "needs_update": false,
@@ -243,7 +249,9 @@
       "name": "Qualcomm",
       "category": "chipset",
       "description": "Snapdragon XR2 Gen 3 and the newer Reality Elite chipset (plus X2 with Linux support) underpin most non-Apple, non-Meta AR/VR hardware — the Snapdragon Spaces developer platform sits on top.",
-      "product_ids": [],
+      "product_ids": [
+        "snapdragon-ar1-plus"
+      ],
       "notes": "",
       "needs_update": false,
       "news": "Real tracked signal: Reality Elite and X2 Linux support consolidate Qualcomm's silicon leadership across XR, wearables, and edge AI compute. The XR3 vs. XR2 Gen 3 performance gap will determine which OEMs can ship next-gen headsets.",
@@ -629,6 +637,33 @@
       "needs_update": true,
       "news": "Stub entry -- no verified source yet.",
       "news_date": "2026-09-27"
+    },
+    {
+      "id": "viture",
+      "name": "Viture",
+      "category": "device-maker",
+      "description": "AR glasses maker -- flagship Beast uses Sony Micro-OLED panels, positioned as a top competitor to Xreal in tethered display glasses.",
+      "product_ids": [
+        "viture-beast"
+      ],
+      "notes": "",
+      "needs_update": true,
+      "news": "Added per Jenn. Beast ($549) is flagship; also sells Luma Ultra ($599), Luma ($399), Pro 2 ($299) tiers not yet individually tracked.",
+      "news_date": "2026-09-27"
+    },
+    {
+      "id": "creality",
+      "name": "Creality",
+      "category": "capture",
+      "description": "Consumer 3D printer and scanner maker -- flagship printer K2 Plus, scanner line includes Pika.",
+      "product_ids": [
+        "creality-k2-plus",
+        "creality-pika"
+      ],
+      "notes": "",
+      "needs_update": true,
+      "news": "Added per Jenn for the 3D Capture & Create beat.",
+      "news_date": "2026-09-27"
     }
   ],
   "products": [
@@ -807,8 +842,8 @@
       "news_date": "2026-09-27",
       "filter_category": "glasses",
       "product_url": "https://www.xreal.com/",
-      "product_url_is_root": true,
-      "image_url": null,
+      "product_url_is_root": false,
+      "image_url": "https://us.shop.xreal.com/cdn/shop/files/XREAL_One_AR_Glasses_White-Background.jpg?v=1784702696",
       "hardware_features": {
         "camera": false,
         "audio": true,
@@ -858,7 +893,7 @@
     },
     {
       "id": "snap-spectacles",
-      "name": "Snap Spectacles",
+      "name": "Snap Specs",
       "company_id": "snap",
       "category": "ar-glasses",
       "status": "shipping",
@@ -867,12 +902,12 @@
         "waveguide"
       ],
       "needs_update": true,
-      "news": "Seed entry — verify current generation and whether it has moved beyond developer-kit availability. Lens/display attributes added 2026-09-27 from general knowledge, not freshly re-verified against an official spec sheet this pass -- treat as a starting point, not confirmed.",
+      "news": "Rebranded from \"Spectacles\" to \"Specs\" -- confirmed by Jenn 2026-09-27 (spectacles.com now redirects to specs.com). Specs/pricing not re-verified under the new branding yet.",
       "news_date": "2026-09-27",
       "filter_category": "glasses",
-      "product_url": "https://www.spectacles.com/",
+      "product_url": "https://www.specs.com/",
       "product_url_is_root": true,
-      "image_url": null,
+      "image_url": "../images/devices/snap-specs.png",
       "hardware_features": {
         "camera": true,
         "audio": true,
@@ -894,7 +929,7 @@
       "company_id": "meta",
       "category": "mr-headset",
       "filter_category": "hmd",
-      "status": "shipping",
+      "status": "discontinued",
       "description": "Meta's eye/face-tracking-equipped MR headset, distinct from the base Quest 3 — the tier that actually carries eye tracking and foveated rendering in Meta's lineup.",
       "technology_ids": [
         "eye-tracking",
@@ -903,9 +938,9 @@
         "passthrough",
         "imu"
       ],
-      "needs_update": true,
-      "news": "Seed entry — verify current availability status.",
-      "news_date": "2026-09-26",
+      "needs_update": false,
+      "news": "Confirmed discontinued via meta.com/quest/quest-pro/ -- \"Meta Quest Pro is no longer available,\" superseded by Quest 3 line. No product photo found (page only shows Quest 3 imagery now).",
+      "news_date": "2026-09-27",
       "product_url": "https://www.meta.com/quest/quest-pro/",
       "product_url_is_root": false,
       "image_url": null,
@@ -928,7 +963,7 @@
       "news_date": "2026-09-27",
       "product_url": null,
       "product_url_is_root": false,
-      "image_url": null,
+      "image_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Glass_Enterprise_Edition_2.width-1200.format-webp.webp",
       "hardware_features": {
         "camera": true,
         "audio": true,
@@ -959,8 +994,8 @@
       "news": "Confirmed Max 2 is the current flagship via global.rokid.com; exact optical design terminology still unconfirmed. Lens/display attributes added 2026-09-27 from general knowledge, not freshly re-verified against an official spec sheet this pass -- treat as a starting point, not confirmed.",
       "news_date": "2026-09-27",
       "product_url": "https://global.rokid.com/",
-      "product_url_is_root": true,
-      "image_url": null,
+      "product_url_is_root": false,
+      "image_url": "https://global.rokid.com/cdn/shop/files/Max2.png?v=1789225138",
       "hardware_features": {
         "camera": false,
         "audio": true,
@@ -993,7 +1028,7 @@
       "product_url": null,
       "product_url_is_root": false,
       "image_url": "../images/devices/meta-emg-wristband.png",
-      "device_type": "wearable"
+      "device_type": "wrist"
     },
     {
       "id": "bhaptics-tactsuit",
@@ -1030,7 +1065,7 @@
       "news_date": "2026-09-27",
       "product_url": "https://matterport.com/cameras/pro3-camera",
       "product_url_is_root": false,
-      "image_url": null,
+      "image_url": "https://images.ctfassets.net/icnj41gkyohw/1TzVx5LrFZkfYsCxX0NVPC/baa708e6cfafc09a3f4164906ea393af/Pro3_Updated.png",
       "device_type": "capture"
     },
     {
@@ -1095,14 +1130,14 @@
       "company_id": "xreal",
       "category": "ar-glasses",
       "filter_category": "glasses",
-      "status": "shipping",
-      "description": "Xreal's Android XR-partnered flagship glasses — tethered/wireless waveguide display, tracked via reservation-to-conversion numbers as a bellwether for the tethered smart-glasses strategy.",
+      "status": "announced",
+      "description": "Xreal's next-generation Android XR spatial computer -- lightweight glasses plus a dedicated compute puck, launching Fall 2026. Tracked via reservation-to-conversion numbers as a bellwether for the tethered smart-glasses strategy.",
       "technology_ids": [
         "waveguide",
         "split-rendering"
       ],
       "needs_update": true,
-      "news": "Reservation-to-conversion tracked as ecosystem traction signal for Android XR. Feature set assumed similar to Xreal One (tethered display glasses); Android XR integration may add mic/AI features not yet confirmed. Lens/display attributes added 2026-09-27 from general knowledge, not freshly re-verified against an official spec sheet this pass -- treat as a starting point, not confirmed.",
+      "news": "Confirmed via xreal.com/aura: launching Fall 2026, glasses + dedicated compute puck, M/L IPD fit options -- no other model variations. Corrected status from shipping to announced.",
       "news_date": "2026-09-27",
       "product_url": "https://www.xreal.com/",
       "product_url_is_root": true,
@@ -1120,7 +1155,8 @@
         "transitions": false,
         "display_color": "color",
         "display_eyes": "both"
-      }
+      },
+      "expected_year": "2026"
     },
     {
       "id": "pico-headset",
@@ -1222,7 +1258,7 @@
       "news_date": "2026-09-27",
       "product_url": "https://varjo.com/products/xr-4/",
       "product_url_is_root": false,
-      "image_url": null,
+      "image_url": "https://varjo.com/hs-fs/hubfs/_R2A9003_hires.jpg?width=800&height=1199&name=_R2A9003_hires.jpg",
       "device_type": "vr-mr-headset"
     },
     {
@@ -1259,8 +1295,8 @@
       "news": "Confirmed current via haptx.com.",
       "news_date": "2026-09-27",
       "product_url": "https://haptx.com/",
-      "product_url_is_root": true,
-      "image_url": null,
+      "product_url_is_root": false,
+      "image_url": "https://haptx.com/wp-content/uploads/new_glove_img2-2.png",
       "device_type": "wearable"
     },
     {
@@ -1364,7 +1400,7 @@
       "product_url": "https://www.evenrealities.com/",
       "product_url_is_root": true,
       "image_url": null,
-      "device_type": "wearable"
+      "device_type": "ring"
     },
     {
       "id": "bhaptics-tactglove",
@@ -1403,7 +1439,7 @@
       "product_url": "https://www.meta.com/muse-charm",
       "product_url_is_root": false,
       "image_url": "../images/devices/meta-muse-charm.png",
-      "device_type": "wearable"
+      "device_type": "pendant"
     },
     {
       "id": "meta-quest-3s",
@@ -1504,9 +1540,9 @@
       "news": "Confirmed current flagship via ouraring.com.",
       "news_date": "2026-09-27",
       "product_url": "https://ouraring.com/",
-      "product_url_is_root": true,
-      "image_url": null,
-      "device_type": "wearable"
+      "product_url_is_root": false,
+      "image_url": "https://ourahealth.imgix.net/lineItem/or5-silver.png?ixlib=js-3.8.0&auto=format&fit=max&fm=png&q=70&w=640&s=17d60f1723c61d8e59edec34e63aeaea",
+      "device_type": "ring"
     },
     {
       "id": "mudra-band",
@@ -1525,7 +1561,7 @@
       "product_url": null,
       "product_url_is_root": false,
       "image_url": null,
-      "device_type": "wearable"
+      "device_type": "wrist"
     },
     {
       "id": "prolo-ring",
@@ -1542,7 +1578,113 @@
       "product_url": null,
       "product_url_is_root": false,
       "image_url": null,
-      "device_type": "wearable"
+      "device_type": "ring"
+    },
+    {
+      "id": "rog-xreal-r1",
+      "name": "ROG Xreal R1",
+      "company_id": "xreal",
+      "category": "ar-glasses",
+      "filter_category": "glasses",
+      "status": "shipping",
+      "description": "Gaming-focused AR glasses, an ASUS ROG x Xreal collaboration -- \"wearable gaming AR glasses engineered for PC, console, and ROG Ally players.\" 171-inch virtual Micro-OLED screen at 4m distance, 240Hz refresh, 0.01ms response time, Bose audio, electrochromic dimming, instant 2D-to-3D conversion.",
+      "technology_ids": [
+        "waveguide",
+        "micro-oled"
+      ],
+      "needs_update": false,
+      "news": "Confirmed via xreal.com/rog-xreal-r1: 91g, 57 degree FOV, 106% sRGB / 700 nits, two IPD sizes (57-66mm, 66-75mm), native 3DoF. A genuinely separate product line from Xreal Aura, not a variant of it.",
+      "news_date": "2026-09-27",
+      "product_url": "https://www.xreal.com/rog-xreal-r1/",
+      "product_url_is_root": false,
+      "image_url": "../images/devices/rog-xreal-r1.png",
+      "hardware_features": {
+        "camera": false,
+        "audio": true,
+        "mic": false,
+        "controller": false
+      },
+      "device_type": "ar-glasses"
+    },
+    {
+      "id": "snapdragon-ar1-plus",
+      "name": "Snapdragon AR1+ Gen 1",
+      "company_id": "qualcomm",
+      "category": "chipset",
+      "filter_category": "misc",
+      "status": "shipping",
+      "description": "Qualcomm's chip purpose-built for camera-and-audio smart glasses -- the base AR1 Gen 1 powers Ray-Ban Meta; this AR1+ variant (announced AWE 2025) is 26% smaller (slimmer glasses arms) and uses 7% less power. Dual ISPs for photo/video capture, supports binocular displays.",
+      "technology_ids": [
+        "on-device-ai"
+      ],
+      "needs_update": true,
+      "news": "AR1 Gen 1 confirmed as the chip inside Ray-Ban Meta (launched 2023). AR1+ Gen 1 is the newer, smaller/more efficient variant. Which specific tracked glasses use AR1+ vs. base AR1 not yet confirmed per-product.",
+      "news_date": "2026-09-27",
+      "product_url": "https://www.qualcomm.com/xr-vr-ar/products/ar-series/snapdragon-ar1-gen-1-platform",
+      "product_url_is_root": false,
+      "image_url": "https://storage.ghost.io/c/2a/2f/2a2f38f0-4b71-407a-9c7e-18a9e2541980/content/images/size/w1024/format/webp/2025/06/Snapdragon-AR1--Gen-1.png",
+      "hardware_features": null,
+      "device_type": "input"
+    },
+    {
+      "id": "viture-beast",
+      "name": "VITURE Beast",
+      "company_id": "viture",
+      "category": "ar-glasses",
+      "filter_category": "glasses",
+      "status": "shipping",
+      "description": "Flagship AR glasses -- Sony Micro-OLED panels (1200p/eye, 16:10), 1250 nits, 58 degree FOV, 108% sRGB factory-calibrated, electrochromic dimming (9 opacity levels), head tracking via VisionPair.",
+      "technology_ids": [
+        "waveguide",
+        "micro-oled"
+      ],
+      "needs_update": true,
+      "news": "Specs via viture.com/blog (a Viture-published ranking, so treat as self-reported rather than independently verified). $549.",
+      "news_date": "2026-09-27",
+      "product_url": "https://www.viture.com/",
+      "product_url_is_root": true,
+      "image_url": "https://www.viture.com/_next/image?url=%2Fimages%2Fhome%2Fsection8%2Fbeast.webp&w=3840&q=90",
+      "hardware_features": {
+        "camera": false,
+        "audio": true,
+        "mic": false,
+        "controller": false
+      },
+      "device_type": "ar-glasses"
+    },
+    {
+      "id": "creality-k2-plus",
+      "name": "Creality K2 Plus",
+      "company_id": "creality",
+      "category": "3d-printer",
+      "filter_category": "printers",
+      "status": "shipping",
+      "description": "Current flagship 3D printer -- 16-color system, actively heated chamber.",
+      "technology_ids": [],
+      "needs_update": true,
+      "news": "Seed entry -- verify full specs (build volume, speed) against official source.",
+      "news_date": "2026-09-27",
+      "product_url": "https://www.creality.com/all-products",
+      "product_url_is_root": true,
+      "image_url": "https://cdn.creality.com/ow/product-info/468eca76-0947-4537-9795-1e9c0a6f4469.png",
+      "device_type": "print"
+    },
+    {
+      "id": "creality-pika",
+      "name": "Creality Pika",
+      "company_id": "creality",
+      "category": "3d-scanner",
+      "filter_category": "scanners",
+      "status": "shipping",
+      "description": "Handheld 3D scanner -- exact specs/capture technology not yet verified.",
+      "technology_ids": [],
+      "needs_update": true,
+      "news": "Seed entry -- verify capture technology (structured light/LiDAR) and specs.",
+      "news_date": "2026-09-27",
+      "product_url": "https://www.creality.com/all-products",
+      "product_url_is_root": true,
+      "image_url": "https://cdn.creality.com/ow/product-info/a1e61bb7-a013-4e8c-aa01-f9d0bbddb59e.png",
+      "device_type": "capture"
     }
   ],
   "technologies": [
@@ -1576,7 +1718,9 @@
         "xreal-aura",
         "vuzix-blade",
         "magic-leap-2",
-        "even-realities-g2"
+        "even-realities-g2",
+        "rog-xreal-r1",
+        "viture-beast"
       ],
       "needs_update": false,
       "news": "",
@@ -1702,7 +1846,9 @@
       "description": "Extremely high pixel-density OLED displays fabricated on a silicon backplane, used for the sharp, high-contrast displays in premium MR headsets.",
       "tradeoffs": "Excellent contrast and pixel density, but expensive to manufacture at scale and historically limited in peak brightness for outdoor AR use.",
       "used_by_product_ids": [
-        "apple-vision-pro"
+        "apple-vision-pro",
+        "rog-xreal-r1",
+        "viture-beast"
       ],
       "used_by_company_ids": [],
       "needs_update": false,
@@ -1978,7 +2124,8 @@
         "ray-ban-meta",
         "meta-ray-ban-display",
         "meta-muse-charm",
-        "oakley-meta-vanguard"
+        "oakley-meta-vanguard",
+        "snapdragon-ar1-plus"
       ],
       "used_by_company_ids": [],
       "needs_update": true,
