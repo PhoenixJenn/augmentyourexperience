@@ -284,13 +284,15 @@
         if (isNaN(d)) return false;
         return (Date.now() - d.getTime()) / 86400000 <= NEW_WINDOW_DAYS;
       }
-      // "New" means the device/company itself was newly added to tracking --
-      // NOT that its news/commentary text was refreshed. Keyed off date_added,
-      // which is set once when an entry is first created and never touched
-      // again by routine news updates.
-      function productIsNew(p) { return isRecentDate(p.date_added); }
+      // "New" means either (a) the device/company was newly added to tracking
+      // (date_added, set once, untouched by routine updates), or (b) a
+      // genuinely newsworthy event happened to an existing entry -- a rebrand,
+      // reveal, or major correction (last_major_update, bumped by hand only
+      // for events like that). Routine "re-verified, no change" news refreshes
+      // must NOT touch either field, or every entry would show NEW constantly.
+      function productIsNew(p) { return isRecentDate(p.date_added) || isRecentDate(p.last_major_update); }
       function companyIsNew(c, data) {
-        if (isRecentDate(c.date_added)) return true;
+        if (isRecentDate(c.date_added) || isRecentDate(c.last_major_update)) return true;
         return (c.product_ids || []).some(function (pid) {
           const p = byId(data.products, pid);
           return p && productIsNew(p);
