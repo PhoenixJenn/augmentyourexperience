@@ -121,11 +121,14 @@
     .no-products-note { padding: 0 1.1rem 1rem; font-size: 0.76rem; color: var(--text-muted, #666); }
 
     .company-detail { border-top: 1px solid var(--border, #1e1e1e); padding: 0.9rem 1.1rem 1.15rem; }
-    .back-to-news {
-      background: none; border: none; color: var(--accent, #7c6bff); font-family: inherit; font-size: 0.75rem;
-      font-weight: 600; cursor: pointer; padding: 0; margin-bottom: 0.7rem; display: inline-block;
+    .company-pillbar { display: flex; gap: 0.4rem; margin-bottom: 0.9rem; }
+    .pill-nav {
+      background: none; border: 1px solid var(--border, #333); border-radius: 999px;
+      color: var(--text-muted, #999); font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.85rem;
+      cursor: pointer; font-family: inherit;
     }
-    .back-to-news:hover { text-decoration: underline; }
+    .pill-nav:hover { border-color: var(--accent, #7c6bff); color: var(--text-primary, #fff); }
+    .pill-nav.active { background: var(--accent, #7c6bff); border-color: var(--accent, #7c6bff); color: #fff; }
 
     .news-log-item { padding: 0.55rem 0; border-bottom: 1px solid var(--border, #1e1e1e); }
     .news-log-item:last-child { border-bottom: none; }
@@ -417,8 +420,7 @@
 
       function companyProductHTML(p, companyId) {
         const ownerId = 'co-' + p.id;
-        return '<button class="back-to-news" data-company="' + esc(companyId) + '" data-view="news">← Back to News</button>'
-          + '<div class="product-detail-header">'
+        return '<div class="product-detail-header">'
           + thumbBox(p, 'lg')
           + '<span class="product-detail-title">' + esc(p.name) + '</span>'
           + '<span class="cat-pill">' + esc(p.category) + '</span>'
@@ -437,13 +439,21 @@
           + (p.news ? '<p class="news-log-text" style="margin-top:0.5rem;">' + esc(p.news) + '</p>' : '');
       }
 
+      function newsProductsToggleHTML(companyId, view) {
+        return '<div class="company-pillbar">'
+          + '<button class="pill-nav ' + (view === 'news' ? 'active' : '') + '" data-toggle-news="' + esc(companyId) + '">News</button>'
+          + '<button class="pill-nav ' + (view !== 'news' ? 'active' : '') + '" data-toggle-products="' + esc(companyId) + '">Products</button>'
+          + '</div>';
+      }
+
       function setCompanyView(companyId, view) {
         const data = DATA;
         const c = byId(data.companies, companyId);
         const detail = document.getElementById('detail-' + companyId);
         activeCompanyView[companyId] = view;
 
-        detail.innerHTML = view === 'news' ? companyNewsHTML(c) : companyProductHTML(byId(data.products, view), companyId);
+        detail.innerHTML = newsProductsToggleHTML(companyId, view)
+          + (view === 'news' ? companyNewsHTML(c) : companyProductHTML(byId(data.products, view), companyId));
         detail.style.display = '';
 
         document.querySelectorAll('.product-tile[data-company="' + companyId + '"]').forEach(function (tile) {
@@ -464,14 +474,20 @@
         openCompanyId = companyId;
       }
 
+      function closeCompany(companyId) {
+        const detail = document.getElementById('detail-' + companyId);
+        detail.style.display = 'none';
+        const chevron = document.getElementById('chevron-' + companyId);
+        if (chevron) chevron.classList.remove('open');
+        document.querySelectorAll('.product-tile[data-company="' + companyId + '"]').forEach(function (t) { t.classList.remove('active'); });
+        openCompanyId = null;
+      }
+
       function toggleCompanyHeader(companyId) {
         const detail = document.getElementById('detail-' + companyId);
         const isOpen = detail.style.display !== 'none';
         if (isOpen && (activeCompanyView[companyId] || 'news') === 'news') {
-          detail.style.display = 'none';
-          document.getElementById('chevron-' + companyId).classList.remove('open');
-          document.querySelectorAll('.product-tile[data-company="' + companyId + '"]').forEach(function (t) { t.classList.remove('active'); });
-          openCompanyId = null;
+          closeCompany(companyId);
         } else {
           openCompany(companyId, 'news');
         }
@@ -480,8 +496,15 @@
       document.addEventListener('click', function (e) {
         const tile = e.target.closest('.product-tile');
         if (tile) { openCompany(tile.dataset.company, tile.dataset.view); return; }
-        const backBtn = e.target.closest('.back-to-news');
-        if (backBtn) { setCompanyView(backBtn.dataset.company, 'news'); return; }
+        const newsToggle = e.target.closest('[data-toggle-news]');
+        if (newsToggle) { setCompanyView(newsToggle.dataset.toggleNews, 'news'); return; }
+        const productsToggle = e.target.closest('[data-toggle-products]');
+        if (productsToggle) {
+          closeCompany(productsToggle.dataset.toggleProducts);
+          const el = document.querySelector('.company-block[data-company-id="' + productsToggle.dataset.toggleProducts + '"]');
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return;
+        }
         const header = e.target.closest('.company-row-header');
         if (header) { toggleCompanyHeader(header.dataset.company); return; }
       });
