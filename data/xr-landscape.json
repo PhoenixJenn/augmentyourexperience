@@ -1,7 +1,7 @@
 {
   "meta": {
     "last_updated": "2026-09-27",
-    "note": "Seed dataset — companies pulled from context/watchlist_meta.json's existing 'xr' category tags plus a few hand-added (Even Realities). Products and Technologies are hand-curated starter entries, reference-card depth, not exhaustive. 'vle' technology entry is a stub — Jenn used 'UWB/VLE/GNSS' and VLE's meaning wasn't confirmed (possibly BLE / Bluetooth Low Energy?) — needs_update until confirmed. Expanded 2026-09-26: added filter categories (Companies/Technologies filter on `category`; Products filter on new `filter_category`: glasses/wearables/hmd/misc). Added 5 companies (bHaptics, Matterport, Revopoint, Bambu Lab, Rokid) and 8 products — including Meta Quest Pro (to correctly host eye-tracking/foveated-rendering, which base Quest 3 lacks) and Google Glass Enterprise Edition (for LCoS) — to fill out Wearables and Misc and give every technology a real product anchor. Added `used_by_company_ids` to the technology schema for cases with no product yet (World Models -> Google/DeepMind, 5G/mmWave -> Qualcomm); companies are NOT double-mapped when a product already covers the link. A few technologies (NeRF, UWB, GNSS, Gaussian Splatting) were deliberately left unmapped rather than forced onto a weak product/company fit — flagged needs_update with an explanation instead. Enriched 2026-09-26 with real signal pulled from context/watchlist.md and context/entity_tracker.json (the same sources Intel's Companies section reads from — Intel itself is untouched, this just reuses the underlying JSON/markdown). Corrected/added: Samsung Galaxy Glasses (display + display-less, separate from the Galaxy XR headset), Xreal Aura (the actual Android XR flagship, not just Xreal One), Qualcomm's real chip names (Snapdragon XR2 Gen 3, Reality Elite, X2), Phonak/Sonova's HYPERSONIC chip, and two new companies surfaced by tracked signal: Pico/ByteDance (headset contender) and Lumus (waveguide optics, named alongside LetinAR in the consolidation story). This was a manual pull, not a live automated sync — watchlist.md's notes are a multi-topic firehose (AI, legal, business mixed with XR), so pulling a clean XR-only feed live client-side would need real filtering logic; flagged as a possible future enhancement rather than built now. Round 3 (2026-09-26): added 6 companies (Vuzix, Magic Leap, DigiLens, Varjo, Ultraleap, HaptX) and their products, filling previously-flagged gaps. Added OLEDoS as its own technology distinct from Micro-OLED (silicon-backplane fabrication specifically). Added a 'coming soon' mechanism: products can now carry status 'rumored' and an `expected_year` field, rendered as a 'Coming YYYY' badge and surfaced in a dedicated Coming Soon list at the top of the Products tab. Seeded Google's three Android XR partner-brand glasses (Warby Parker, Gentle Monster, Gucci) this way — Warby Parker/Gentle Monster have real tracked signal; Gucci is hand-added per Jenn with zero hits in watchlist.md/entity_tracker.json as of this date, flagged unverified. Thumbnails: no real product photos wired in yet (would require per-vendor-domain fetch confirmation or Jenn supplying local images) — using category-based icon placeholders (🕶️/🥽/⌚/📦) computed client-side instead. UX pass 2026-09-26: added `news_log` (dated array) to every company -- LetinAR, Qualcomm, Phonak/Sonova, and Snap got real multi-entry histories pulled from entity_tracker.json; everyone else has a single-entry log from their existing news field (watchlist.md doesn't carry per-date granularity for those). No news items have a real source_url yet -- watchlist.md's notes don't capture links, so all source_url fields are null rather than fabricated; add real ones going forward as they become available. Added `product_url` (confident official links only, null where uncertain) and `product_url_is_root` (true when the link is a homepage guess rather than a confirmed deep link, so the UI can be honest about confidence). Split Products' 'misc' filter bucket into 'scanners' and 'printers' per Jenn's request; Ultraleap's tracking module stays in a quiet 'misc' fallback since it isn't glasses/wearable/HMD/scanner/printer. Research pass 2026-09-27 (in response to Jenn flagging most companies as 'needs update'): resolved 12 of 16 flagged companies via direct vendor-site fetches -- Apple (M5 chip confirmed), Even Realities (corrected: current flagship is G2 not G1, added the G1->discontinued + new R1 ring), bHaptics (corrected: TactSuit Air/Pro tiers + new TactGlove DK3 haptic glove), Matterport (corrected: Pro3 is LiDAR + spherical photo, not classic photogrammetry -- unmapped that tech entry again), Rokid (corrected: current flagship is Max 2, not Max), Vuzix (corrected: current lineup is enterprise LX1/M400, not the old consumer Blade), Varjo (confirmed mini-LED display, added Mini-LED as a new technology entry + eye-tracking/foveated-rendering links), Ultraleap (confirmed Leap Motion Controller 2), HaptX (confirmed Gloves G1 + Nexus NX1 system), DigiLens (confirmed real customer roster: Samsung, Corning, Goertek, Niantic, Continental, Sony, Mitsubishi Chemical, UDC, Panasonic), Lumus (confirmed product line + notable finding: supplies optics for Meta Ray-Ban glasses and Lenovo ThinkReality A6). Still genuinely unresolved: Samsung (Galaxy XR/Glasses product pages 404'd), Magic Leap (magicleap.com/magic-leap-2 redirects to a support-only portal -- possible sunset signal, not confirmed), Pico (fetch returned empty content), Revopoint (fetch results truncated/inconclusive), Bambu Lab (403 on fetch), Cohere, Microsoft/Phi -- all left flagged rather than guessed."
+    "note": "Seed dataset — companies pulled from context/watchlist_meta.json's existing 'xr' category tags plus a few hand-added (Even Realities). Products and Technologies are hand-curated starter entries, reference-card depth, not exhaustive. 'vle' technology entry is a stub — Jenn used 'UWB/VLE/GNSS' and VLE's meaning wasn't confirmed (possibly BLE / Bluetooth Low Energy?) — needs_update until confirmed. Expanded 2026-09-26: added filter categories (Companies/Technologies filter on `category`; Products filter on new `filter_category`: glasses/wearables/hmd/misc). Added 5 companies (bHaptics, Matterport, Revopoint, Bambu Lab, Rokid) and 8 products — including Meta Quest Pro (to correctly host eye-tracking/foveated-rendering, which base Quest 3 lacks) and Google Glass Enterprise Edition (for LCoS) — to fill out Wearables and Misc and give every technology a real product anchor. Added `used_by_company_ids` to the technology schema for cases with no product yet (World Models -> Google/DeepMind, 5G/mmWave -> Qualcomm); companies are NOT double-mapped when a product already covers the link. A few technologies (NeRF, UWB, GNSS, Gaussian Splatting) were deliberately left unmapped rather than forced onto a weak product/company fit — flagged needs_update with an explanation instead. Enriched 2026-09-26 with real signal pulled from context/watchlist.md and context/entity_tracker.json (the same sources Intel's Companies section reads from — Intel itself is untouched, this just reuses the underlying JSON/markdown). Corrected/added: Samsung Galaxy Glasses (display + display-less, separate from the Galaxy XR headset), Xreal Aura (the actual Android XR flagship, not just Xreal One), Qualcomm's real chip names (Snapdragon XR2 Gen 3, Reality Elite, X2), Phonak/Sonova's HYPERSONIC chip, and two new companies surfaced by tracked signal: Pico/ByteDance (headset contender) and Lumus (waveguide optics, named alongside LetinAR in the consolidation story). This was a manual pull, not a live automated sync — watchlist.md's notes are a multi-topic firehose (AI, legal, business mixed with XR), so pulling a clean XR-only feed live client-side would need real filtering logic; flagged as a possible future enhancement rather than built now. Round 3 (2026-09-26): added 6 companies (Vuzix, Magic Leap, DigiLens, Varjo, Ultraleap, HaptX) and their products, filling previously-flagged gaps. Added OLEDoS as its own technology distinct from Micro-OLED (silicon-backplane fabrication specifically). Added a 'coming soon' mechanism: products can now carry status 'rumored' and an `expected_year` field, rendered as a 'Coming YYYY' badge and surfaced in a dedicated Coming Soon list at the top of the Products tab. Seeded Google's three Android XR partner-brand glasses (Warby Parker, Gentle Monster, Gucci) this way — Warby Parker/Gentle Monster have real tracked signal; Gucci is hand-added per Jenn with zero hits in watchlist.md/entity_tracker.json as of this date, flagged unverified. Thumbnails: no real product photos wired in yet (would require per-vendor-domain fetch confirmation or Jenn supplying local images) — using category-based icon placeholders (🕶️/🥽/⌚/📦) computed client-side instead. UX pass 2026-09-26: added `news_log` (dated array) to every company -- LetinAR, Qualcomm, Phonak/Sonova, and Snap got real multi-entry histories pulled from entity_tracker.json; everyone else has a single-entry log from their existing news field (watchlist.md doesn't carry per-date granularity for those). No news items have a real source_url yet -- watchlist.md's notes don't capture links, so all source_url fields are null rather than fabricated; add real ones going forward as they become available. Added `product_url` (confident official links only, null where uncertain) and `product_url_is_root` (true when the link is a homepage guess rather than a confirmed deep link, so the UI can be honest about confidence). Split Products' 'misc' filter bucket into 'scanners' and 'printers' per Jenn's request; Ultraleap's tracking module stays in a quiet 'misc' fallback since it isn't glasses/wearable/HMD/scanner/printer. Research pass 2026-09-27 (in response to Jenn flagging most companies as 'needs update'): resolved 12 of 16 flagged companies via direct vendor-site fetches -- Apple (M5 chip confirmed), Even Realities (corrected: current flagship is G2 not G1, added the G1->discontinued + new R1 ring), bHaptics (corrected: TactSuit Air/Pro tiers + new TactGlove DK3 haptic glove), Matterport (corrected: Pro3 is LiDAR + spherical photo, not classic photogrammetry -- unmapped that tech entry again), Rokid (corrected: current flagship is Max 2, not Max), Vuzix (corrected: current lineup is enterprise LX1/M400, not the old consumer Blade), Varjo (confirmed mini-LED display, added Mini-LED as a new technology entry + eye-tracking/foveated-rendering links), Ultraleap (confirmed Leap Motion Controller 2), HaptX (confirmed Gloves G1 + Nexus NX1 system), DigiLens (confirmed real customer roster: Samsung, Corning, Goertek, Niantic, Continental, Sony, Mitsubishi Chemical, UDC, Panasonic), Lumus (confirmed product line + notable finding: supplies optics for Meta Ray-Ban glasses and Lenovo ThinkReality A6). Still genuinely unresolved: Samsung (Galaxy XR/Glasses product pages 404'd), Magic Leap (magicleap.com/magic-leap-2 redirects to a support-only portal -- possible sunset signal, not confirmed), Pico (fetch returned empty content), Revopoint (fetch results truncated/inconclusive), Bambu Lab (403 on fetch), Cohere, Microsoft/Phi -- all left flagged rather than guessed. Real product photos 2026-09-27 (per Jenn request, top 5 companies: Meta, Apple, Google, Samsung, Snap): got working hotlinked images for Meta Quest 3, Ray-Ban Meta, and Apple Vision Pro (all from official CDNs). Samsung Galaxy XR/Galaxy Glasses: every samsung.com URL tried 404d or timed out -- no image. Snap Spectacles: only found a decorative Lens Studio background graphic, not an actual hardware photo -- skipped rather than use a misleading image. Google: no own-branded device exists (Android XR is licensed to partners), only found a lifestyle brand collage image, not product-specific -- skipped. All other products still use the category icon placeholder. image_url is null by default; the page falls back to the icon box on load error or missing url. Added Meta Muse Charm 2026-09-27 per Jenn (meta.com/muse-charm) -- confirmed as a real upcoming wearable AI device, distinct from the Muse software agent found in Morning Brief tracking. Jenn separately suggested formalizing an \"AI devices\" category on the page; currently filed under Wearables pending a decision on whether it needs its own filter bucket."
   },
   "companies": [
     {
@@ -15,13 +15,19 @@
         "meta-quest-3",
         "meta-orion",
         "meta-quest-pro",
-        "meta-emg-wristband"
+        "meta-emg-wristband",
+        "meta-muse-charm"
       ],
       "notes": "Meta smart glasses have drawn privacy backlash and litigation over bystander recording. Orion remains an internal prototype, not shipping.",
       "needs_update": false,
       "news": "Seed entry — verify current product lineup and any Orion roadmap updates.",
       "news_date": "2026-09-26",
       "news_log": [
+        {
+          "date": "2026-09-27",
+          "text": "Muse Charm confirmed via meta.com/muse-charm: \"the first device made for Muse, your personal AI agent\" -- handles everyday tasks like finding deals, booking reservations, managing inbox. Coming soon, no release date or price yet (sign-up-only landing page). Distinct from Muse the software agent itself (which already ships across Meta surfaces) -- this is the first dedicated hardware embodiment.",
+          "source_url": "https://www.meta.com/muse-charm"
+        },
         {
           "date": "2026-09-26",
           "text": "Seed entry — verify current product lineup and any Orion roadmap updates.",
@@ -605,7 +611,8 @@
       "news_date": "2026-09-26",
       "filter_category": "glasses",
       "product_url": "https://www.ray-ban.com/usa/ray-ban-meta-smart-glasses",
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": "https://lookaside.fbsbx.com/elementpath/media/?media_id=3286552831552104&version=1789596758&transcode_extension=webp"
     },
     {
       "id": "meta-ray-ban-display",
@@ -623,7 +630,8 @@
       "news_date": "2026-09-26",
       "filter_category": "glasses",
       "product_url": "https://www.meta.com/ai-glasses/",
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": null
     },
     {
       "id": "meta-quest-3",
@@ -646,7 +654,8 @@
       "news_date": "2026-09-26",
       "filter_category": "hmd",
       "product_url": "https://www.meta.com/quest/quest-3/",
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": "https://lookaside.fbsbx.com/elementpath/media/?media_id=1345087413416749&version=1770723917&transcode_extension=webp"
     },
     {
       "id": "meta-orion",
@@ -665,7 +674,8 @@
       "news_date": "2026-09-26",
       "filter_category": "glasses",
       "product_url": null,
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": null
     },
     {
       "id": "apple-vision-pro",
@@ -689,7 +699,8 @@
       "news_date": "2026-09-27",
       "filter_category": "hmd",
       "product_url": "https://www.apple.com/apple-vision-pro/",
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": "https://www.apple.com/v/apple-vision-pro/l/images/overview/hero/hero__cvgr5aj1ttsi_large.jpg"
     },
     {
       "id": "samsung-galaxy-xr",
@@ -708,7 +719,8 @@
       "news_date": "2026-09-26",
       "filter_category": "hmd",
       "product_url": "https://www.samsung.com/global/galaxy/galaxy-xr/",
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": null
     },
     {
       "id": "xreal-one",
@@ -726,7 +738,8 @@
       "news_date": "2026-09-26",
       "filter_category": "glasses",
       "product_url": "https://www.xreal.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "even-realities-g1",
@@ -743,7 +756,8 @@
       "news_date": "2026-09-27",
       "filter_category": "glasses",
       "product_url": "https://www.evenrealities.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "snap-spectacles",
@@ -760,7 +774,8 @@
       "news_date": "2026-09-26",
       "filter_category": "glasses",
       "product_url": "https://www.spectacles.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "meta-quest-pro",
@@ -781,7 +796,8 @@
       "news": "Seed entry — verify current availability status.",
       "news_date": "2026-09-26",
       "product_url": "https://www.meta.com/quest/quest-pro/",
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": null
     },
     {
       "id": "google-glass-ee",
@@ -799,7 +815,8 @@
       "news": "Seed entry — confirm exact discontinuation date.",
       "news_date": "2026-09-26",
       "product_url": null,
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": null
     },
     {
       "id": "rokid-max",
@@ -816,7 +833,8 @@
       "news": "Confirmed Max 2 is the current flagship via global.rokid.com; exact optical design terminology still unconfirmed.",
       "news_date": "2026-09-27",
       "product_url": "https://global.rokid.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "meta-emg-wristband",
@@ -833,7 +851,8 @@
       "news": "Seed entry — verify current status/timeline (research prototype vs. any shipping product).",
       "news_date": "2026-09-26",
       "product_url": null,
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": null
     },
     {
       "id": "bhaptics-tactsuit",
@@ -850,7 +869,8 @@
       "news": "Confirmed current two-tier lineup (Air/Pro) via bhaptics.com.",
       "news_date": "2026-09-27",
       "product_url": "https://www.bhaptics.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "matterport-pro3",
@@ -867,7 +887,8 @@
       "news": "Confirmed LiDAR + spherical HDR photo capture (not classic photogrammetry) via matterport.com/cameras.",
       "news_date": "2026-09-27",
       "product_url": "https://matterport.com/cameras/pro3-camera",
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": null
     },
     {
       "id": "revopoint-scanner",
@@ -885,7 +906,8 @@
       "news": "Seed entry — name is generic pending confirmation of the current flagship model.",
       "news_date": "2026-09-26",
       "product_url": "https://www.revopoint3d.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "bambu-lab-printer",
@@ -900,7 +922,8 @@
       "news": "Seed entry — verify current flagship model.",
       "news_date": "2026-09-26",
       "product_url": "https://bambulab.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "samsung-galaxy-glasses",
@@ -917,7 +940,8 @@
       "news": "Claimed 9-hour battery life needs verification at launch.",
       "news_date": "2026-09-26",
       "product_url": null,
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": null
     },
     {
       "id": "xreal-aura",
@@ -935,7 +959,8 @@
       "news": "Reservation-to-conversion tracked as ecosystem traction signal for Android XR.",
       "news_date": "2026-09-26",
       "product_url": "https://www.xreal.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "pico-headset",
@@ -953,7 +978,8 @@
       "news": "Seed entry — name is generic pending confirmation of the current flagship model (Pico 4 Ultra / Pico 5 era).",
       "news_date": "2026-09-26",
       "product_url": "https://www.picoxr.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "vuzix-blade",
@@ -971,7 +997,8 @@
       "news": "Corrected: Vuzix's current lineup is enterprise-focused (LX1, M400), not the older consumer \"Blade\" line. Light engine tech unconfirmed for the current generation.",
       "news_date": "2026-09-27",
       "product_url": "https://www.vuzix.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "magic-leap-2",
@@ -989,7 +1016,8 @@
       "news": "Seed entry — verify current company status and product roadmap.",
       "news_date": "2026-09-26",
       "product_url": "https://www.magicleap.com/magic-leap-2",
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": null
     },
     {
       "id": "varjo-xr4",
@@ -1010,7 +1038,8 @@
       "news": "Full specs confirmed via varjo.com/products/xr-4.",
       "news_date": "2026-09-27",
       "product_url": "https://varjo.com/products/xr-4/",
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": null
     },
     {
       "id": "ultraleap-controller",
@@ -1027,7 +1056,8 @@
       "news": "Confirmed current flagship name via ultraleap.com.",
       "news_date": "2026-09-27",
       "product_url": "https://www.ultraleap.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "haptx-gloves",
@@ -1044,7 +1074,8 @@
       "news": "Confirmed current via haptx.com.",
       "news_date": "2026-09-27",
       "product_url": "https://haptx.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "google-warby-parker-glasses",
@@ -1060,7 +1091,8 @@
       "news": "Shown at Google I/O per Morning Brief tracking. No confirmed shipping date beyond a general 2026 window — verify.",
       "news_date": "2026-09-26",
       "product_url": null,
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": null
     },
     {
       "id": "google-gentle-monster-glasses",
@@ -1076,7 +1108,8 @@
       "news": "Real tracked signal: 'Google Gentle Monster partnership (Android XR premium frame play).' No confirmed shipping date — verify.",
       "news_date": "2026-09-26",
       "product_url": null,
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": null
     },
     {
       "id": "google-gucci-glasses",
@@ -1092,7 +1125,8 @@
       "news": "Hand-added per Jenn — not yet confirmed in Morning Brief tracking (no hits in watchlist.md/entity_tracker.json as of 2026-09-26). Treat as unverified until it shows up in coverage or Jenn supplies a source.",
       "news_date": "2026-09-26",
       "product_url": null,
-      "product_url_is_root": false
+      "product_url_is_root": false,
+      "image_url": null
     },
     {
       "id": "even-realities-g2",
@@ -1109,7 +1143,8 @@
       "news": "Confirmed current flagship via evenrealities.com.",
       "news_date": "2026-09-27",
       "product_url": "https://www.evenrealities.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "even-realities-r1",
@@ -1124,7 +1159,8 @@
       "news": "Seed entry -- confirmed to exist via evenrealities.com but exact sensor/tracking tech not detailed on the page.",
       "news_date": "2026-09-27",
       "product_url": "https://www.evenrealities.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
     },
     {
       "id": "bhaptics-tactglove",
@@ -1141,7 +1177,27 @@
       "news": "Confirmed current via bhaptics.com.",
       "news_date": "2026-09-27",
       "product_url": "https://www.bhaptics.com/",
-      "product_url_is_root": true
+      "product_url_is_root": true,
+      "image_url": null
+    },
+    {
+      "id": "meta-muse-charm",
+      "name": "Meta Muse Charm",
+      "company_id": "meta",
+      "category": "ai-wearable",
+      "filter_category": "wearables",
+      "status": "announced",
+      "expected_year": "TBD",
+      "description": "The first dedicated hardware device for Muse, Meta's personal AI agent -- handles everyday tasks like finding deals, booking reservations, and managing your inbox. Physical form factor not yet detailed on the announcement page.",
+      "technology_ids": [
+        "on-device-ai"
+      ],
+      "needs_update": true,
+      "news": "Coming soon per meta.com/muse-charm -- no release date, price, or form factor detail yet.",
+      "news_date": "2026-09-27",
+      "product_url": "https://www.meta.com/muse-charm",
+      "product_url_is_root": false,
+      "image_url": null
     }
   ],
   "technologies": [
@@ -1569,7 +1625,8 @@
       "tradeoffs": "Lower latency and works offline, but constrained by the device's compute/battery budget compared to cloud-hosted models.",
       "used_by_product_ids": [
         "ray-ban-meta",
-        "meta-ray-ban-display"
+        "meta-ray-ban-display",
+        "meta-muse-charm"
       ],
       "used_by_company_ids": [],
       "needs_update": true,
