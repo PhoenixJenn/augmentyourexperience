@@ -31,7 +31,8 @@
           "text": "Muse Charm confirmed via meta.com/muse-charm: \"the first device made for Muse, your personal AI agent\" -- handles everyday tasks like finding deals, booking reservations, managing inbox. Coming soon, no release date or price yet (sign-up-only landing page). Distinct from Muse the software agent itself (which already ships across Meta surfaces) -- this is the first dedicated hardware embodiment.",
           "source_url": "https://www.meta.com/muse-charm"
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "apple",
@@ -56,7 +57,8 @@
           "text": "Vision Pro 2 and Vision Air reportedly cancelled; Vision Products Group pivoting to glasses under Ternus, with an enterprise/surgeon vertical floated as an early proof point.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "google",
@@ -80,7 +82,8 @@
           "text": "Android XR ecosystem traction confirmed via Morning Brief tracking: Samsung Galaxy XR + Xreal Aura + Google content, alongside Gemini integration.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "samsung",
@@ -100,7 +103,8 @@
           "text": "UK reception of Galaxy XR is being watched as a signal for Android XR's international viability. 2027 is the broader industry's planning horizon for the smart-glasses window (Apple/Samsung/Xreal/Snap).",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "snap",
@@ -140,7 +144,8 @@
           "text": "Creator-driven AR content strategy looking increasingly coherent.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "xreal",
@@ -167,7 +172,8 @@
           "text": "Xreal Aura reservation-to-conversion tracked as validation of the tethered, wearable-first smart glasses strategy.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "even-realities",
@@ -194,7 +200,8 @@
           "text": "Seed entry — hand-added, not yet verified against a live source.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "letinar",
@@ -247,7 +254,8 @@
           "text": "Pin-mirror AR optics, pre-IPO.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "qualcomm",
@@ -277,7 +285,8 @@
           "text": "XR3 vs. XR2 Gen 3 performance gap will determine which headset OEMs can deliver next-gen experiences.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "phonak-sonova",
@@ -300,7 +309,8 @@
           "text": "The HYPERSONIC chip enables always-on wearable AI at scale in hearing aids, opening a new form factor for ambient intelligence and health monitoring.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "bhaptics",
@@ -326,7 +336,8 @@
           "text": "Seed entry — verify current product lineup.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "matterport",
@@ -351,7 +362,8 @@
           "text": "Seed entry — verify current product lineup and capture technology mix.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "revopoint",
@@ -371,7 +383,8 @@
           "text": "Seed entry — verify current model lineup (POP/MINI/RANGE series) and specs.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "bambu-lab",
@@ -391,7 +404,8 @@
           "text": "Seed entry — verify current model lineup.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "rokid",
@@ -416,7 +430,8 @@
           "text": "Seed entry — verify current model lineup and exact optical design classification (birdbath vs. freeform prism terminology varies by source).",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "pico",
@@ -436,7 +451,8 @@
           "text": "Flagged in Apple/Vision Pro tracking as the first credible non-Apple, non-Meta premium headset contender. Verify current flagship model.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "lumus",
@@ -459,7 +475,8 @@
           "text": "Seed entry — verify current customer roster and product roadmap.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "vuzix",
@@ -484,7 +501,8 @@
           "text": "Seed entry — verify current flagship model.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "magic-leap",
@@ -504,7 +522,8 @@
           "text": "Seed entry — verify current company/product status.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "digilens",
@@ -527,7 +546,8 @@
           "text": "Seed entry — verify current customer roster and waveguide manufacturing approach.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "varjo",
@@ -552,7 +572,8 @@
           "text": "Seed entry — verify current flagship model and display technology.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "ultraleap",
@@ -577,7 +598,8 @@
           "text": "Seed entry — verify current product lineup.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "haptx",
@@ -602,7 +624,8 @@
           "text": "Seed entry — verify current product lineup.",
           "source_url": null
         }
-      ]
+      ],
+      "date_added": "2026-09-26"
     },
     {
       "id": "oura",
@@ -615,7 +638,8 @@
       "notes": "",
       "needs_update": false,
       "news": "Confirmed current flagship (Ring 5) via ouraring.com.",
-      "news_date": "2026-09-27"
+      "news_date": "2026-09-27",
+      "date_added": "2026-09-27"
     },
     {
       "id": "wearable-devices-mudra",
@@ -628,7 +652,8 @@
       "notes": "wearable-devices.com currently resolves to a parked/for-sale domain page -- could not verify current company status via official site.",
       "needs_update": true,
       "news": "Company website (wearable-devices.com) appears parked/for sale as of 2026-09-27 -- worth checking whether this reflects a real business status change before treating the product as current.",
-      "news_date": "2026-09-27"
+      "news_date": "2026-09-27",
+      "date_added": "2026-09-27"
     },
     {
       "id": "prolo",
@@ -641,7 +666,8 @@
       "notes": "Could not find a working company website (prolodevices.com and prolorings.com both failed to resolve). Need a correct URL from Jenn to verify anything about this product.",
       "needs_update": true,
       "news": "Stub entry -- no verified source yet.",
-      "news_date": "2026-09-27"
+      "news_date": "2026-09-27",
+      "date_added": "2026-09-27"
     },
     {
       "id": "viture",
@@ -654,7 +680,8 @@
       "notes": "",
       "needs_update": true,
       "news": "Added per Jenn. Beast ($549) is flagship; also sells Luma Ultra ($599), Luma ($399), Pro 2 ($299) tiers not yet individually tracked.",
-      "news_date": "2026-09-27"
+      "news_date": "2026-09-27",
+      "date_added": "2026-09-27"
     },
     {
       "id": "creality",
@@ -668,7 +695,8 @@
       "notes": "",
       "needs_update": true,
       "news": "Added per Jenn for the 3D Capture & Create beat.",
-      "news_date": "2026-09-27"
+      "news_date": "2026-09-27",
+      "date_added": "2026-09-27"
     }
   ],
   "products": [
@@ -703,7 +731,8 @@
         "transitions": true,
         "display_color": null,
         "display_eyes": null
-      }
+      },
+      "date_added": "2026-09-26"
     },
     {
       "id": "meta-ray-ban-display",
@@ -736,7 +765,8 @@
         "transitions": false,
         "display_color": "color",
         "display_eyes": "single"
-      }
+      },
+      "date_added": "2026-09-26"
     },
     {
       "id": "meta-quest-3",
@@ -761,7 +791,8 @@
       "product_url": "https://www.meta.com/quest/quest-3/",
       "product_url_is_root": false,
       "image_url": "../images/devices/meta-quest-3.png",
-      "device_type": "vr-mr-headset"
+      "device_type": "vr-mr-headset",
+      "date_added": "2026-09-26"
     },
     {
       "id": "meta-orion",
@@ -782,7 +813,8 @@
       "product_url": null,
       "product_url_is_root": false,
       "image_url": "../images/devices/meta-orion.png",
-      "device_type": "ar-glasses"
+      "device_type": "ar-glasses",
+      "date_added": "2026-09-26"
     },
     {
       "id": "apple-vision-pro",
@@ -808,7 +840,8 @@
       "product_url": "https://www.apple.com/apple-vision-pro/",
       "product_url_is_root": false,
       "image_url": "../images/devices/apple-vision-pro.png",
-      "device_type": "vr-mr-headset"
+      "device_type": "vr-mr-headset",
+      "date_added": "2026-09-26"
     },
     {
       "id": "samsung-galaxy-xr",
@@ -829,7 +862,8 @@
       "product_url": "https://www.samsung.com/global/galaxy/galaxy-xr/",
       "product_url_is_root": false,
       "image_url": "../images/devices/samsung-galaxy-xr.png",
-      "device_type": "vr-mr-headset"
+      "device_type": "vr-mr-headset",
+      "date_added": "2026-09-26"
     },
     {
       "id": "xreal-one",
@@ -862,7 +896,8 @@
         "transitions": false,
         "display_color": "color",
         "display_eyes": "both"
-      }
+      },
+      "date_added": "2026-09-26"
     },
     {
       "id": "even-realities-g1",
@@ -894,7 +929,8 @@
         "transitions": false,
         "display_color": "monochrome",
         "display_eyes": "both"
-      }
+      },
+      "date_added": "2026-09-26"
     },
     {
       "id": "snap-spectacles",
@@ -926,7 +962,8 @@
         "transitions": false,
         "display_color": "color",
         "display_eyes": "both"
-      }
+      },
+      "date_added": "2026-09-26"
     },
     {
       "id": "meta-quest-pro",
@@ -949,7 +986,8 @@
       "product_url": "https://www.meta.com/quest/quest-pro/",
       "product_url_is_root": false,
       "image_url": null,
-      "device_type": "vr-mr-headset"
+      "device_type": "vr-mr-headset",
+      "date_added": "2026-09-26"
     },
     {
       "id": "google-glass-ee",
@@ -982,7 +1020,8 @@
         "transitions": false,
         "display_color": "color",
         "display_eyes": "single"
-      }
+      },
+      "date_added": "2026-09-26"
     },
     {
       "id": "rokid-max",
@@ -1014,7 +1053,8 @@
         "transitions": false,
         "display_color": "color",
         "display_eyes": "both"
-      }
+      },
+      "date_added": "2026-09-26"
     },
     {
       "id": "meta-emg-wristband",
@@ -1033,7 +1073,8 @@
       "product_url": null,
       "product_url_is_root": false,
       "image_url": "../images/devices/meta-emg-wristband.png",
-      "device_type": "wrist"
+      "device_type": "wrist",
+      "date_added": "2026-09-26"
     },
     {
       "id": "bhaptics-tactsuit",
@@ -1052,7 +1093,8 @@
       "product_url": "https://www.bhaptics.com/",
       "product_url_is_root": true,
       "image_url": null,
-      "device_type": "wearable"
+      "device_type": "wearable",
+      "date_added": "2026-09-26"
     },
     {
       "id": "matterport-pro3",
@@ -1071,7 +1113,8 @@
       "product_url": "https://matterport.com/cameras/pro3-camera",
       "product_url_is_root": false,
       "image_url": "https://images.ctfassets.net/icnj41gkyohw/1TzVx5LrFZkfYsCxX0NVPC/baa708e6cfafc09a3f4164906ea393af/Pro3_Updated.png",
-      "device_type": "capture"
+      "device_type": "capture",
+      "date_added": "2026-09-26"
     },
     {
       "id": "revopoint-scanner",
@@ -1091,7 +1134,8 @@
       "product_url": "https://www.revopoint3d.com/",
       "product_url_is_root": true,
       "image_url": null,
-      "device_type": "capture"
+      "device_type": "capture",
+      "date_added": "2026-09-26"
     },
     {
       "id": "bambu-lab-printer",
@@ -1108,7 +1152,8 @@
       "product_url": "https://bambulab.com/",
       "product_url_is_root": true,
       "image_url": null,
-      "device_type": "print"
+      "device_type": "print",
+      "date_added": "2026-09-26"
     },
     {
       "id": "samsung-galaxy-glasses",
@@ -1127,7 +1172,8 @@
       "product_url": null,
       "product_url_is_root": false,
       "image_url": null,
-      "device_type": "ar-glasses"
+      "device_type": "ar-glasses",
+      "date_added": "2026-09-26"
     },
     {
       "id": "xreal-aura",
@@ -1161,7 +1207,8 @@
         "display_color": "color",
         "display_eyes": "both"
       },
-      "expected_year": "2026"
+      "expected_year": "2026",
+      "date_added": "2026-09-26"
     },
     {
       "id": "pico-headset",
@@ -1181,7 +1228,8 @@
       "product_url": "https://www.picoxr.com/",
       "product_url_is_root": true,
       "image_url": null,
-      "device_type": "vr-mr-headset"
+      "device_type": "vr-mr-headset",
+      "date_added": "2026-09-26"
     },
     {
       "id": "vuzix-blade",
@@ -1214,7 +1262,8 @@
         "transitions": false,
         "display_color": "color",
         "display_eyes": "single"
-      }
+      },
+      "date_added": "2026-09-26"
     },
     {
       "id": "magic-leap-2",
@@ -1241,7 +1290,8 @@
         "transitions": false,
         "display_color": "color",
         "display_eyes": "both"
-      }
+      },
+      "date_added": "2026-09-26"
     },
     {
       "id": "varjo-xr4",
@@ -1264,7 +1314,8 @@
       "product_url": "https://varjo.com/products/xr-4/",
       "product_url_is_root": false,
       "image_url": "https://varjo.com/hs-fs/hubfs/_R2A9003_hires.jpg?width=800&height=1199&name=_R2A9003_hires.jpg",
-      "device_type": "vr-mr-headset"
+      "device_type": "vr-mr-headset",
+      "date_added": "2026-09-26"
     },
     {
       "id": "ultraleap-controller",
@@ -1283,7 +1334,8 @@
       "product_url": "https://www.ultraleap.com/",
       "product_url_is_root": true,
       "image_url": null,
-      "device_type": "input"
+      "device_type": "input",
+      "date_added": "2026-09-26"
     },
     {
       "id": "haptx-gloves",
@@ -1302,7 +1354,8 @@
       "product_url": "https://haptx.com/",
       "product_url_is_root": false,
       "image_url": "https://haptx.com/wp-content/uploads/new_glove_img2-2.png",
-      "device_type": "wearable"
+      "device_type": "wearable",
+      "date_added": "2026-09-26"
     },
     {
       "id": "google-warby-parker-glasses",
@@ -1320,7 +1373,8 @@
       "product_url": null,
       "product_url_is_root": false,
       "image_url": null,
-      "device_type": "ar-glasses"
+      "device_type": "ar-glasses",
+      "date_added": "2026-09-26"
     },
     {
       "id": "google-gentle-monster-glasses",
@@ -1338,7 +1392,8 @@
       "product_url": null,
       "product_url_is_root": false,
       "image_url": null,
-      "device_type": "ar-glasses"
+      "device_type": "ar-glasses",
+      "date_added": "2026-09-26"
     },
     {
       "id": "google-gucci-glasses",
@@ -1356,7 +1411,8 @@
       "product_url": null,
       "product_url_is_root": false,
       "image_url": null,
-      "device_type": "ar-glasses"
+      "device_type": "ar-glasses",
+      "date_added": "2026-09-26"
     },
     {
       "id": "even-realities-g2",
@@ -1388,7 +1444,8 @@
         "transitions": false,
         "display_color": "monochrome",
         "display_eyes": "both"
-      }
+      },
+      "date_added": "2026-09-27"
     },
     {
       "id": "even-realities-r1",
@@ -1405,7 +1462,8 @@
       "product_url": "https://www.evenrealities.com/",
       "product_url_is_root": true,
       "image_url": null,
-      "device_type": "ring"
+      "device_type": "ring",
+      "date_added": "2026-09-27"
     },
     {
       "id": "bhaptics-tactglove",
@@ -1424,7 +1482,8 @@
       "product_url": "https://www.bhaptics.com/",
       "product_url_is_root": true,
       "image_url": null,
-      "device_type": "wearable"
+      "device_type": "wearable",
+      "date_added": "2026-09-27"
     },
     {
       "id": "meta-muse-charm",
@@ -1444,7 +1503,8 @@
       "product_url": "https://www.meta.com/muse-charm",
       "product_url_is_root": false,
       "image_url": "../images/devices/meta-muse-charm.png",
-      "device_type": "pendant"
+      "device_type": "pendant",
+      "date_added": "2026-09-27"
     },
     {
       "id": "meta-quest-3s",
@@ -1465,7 +1525,8 @@
       "product_url": "https://www.meta.com/quest/quest-3s/",
       "product_url_is_root": false,
       "image_url": "../images/devices/meta-quest-3s.png",
-      "device_type": "vr-mr-headset"
+      "device_type": "vr-mr-headset",
+      "date_added": "2026-09-27"
     },
     {
       "id": "meta-ray-ban-audio",
@@ -1497,7 +1558,8 @@
         "transitions": true,
         "display_color": null,
         "display_eyes": null
-      }
+      },
+      "date_added": "2026-09-27"
     },
     {
       "id": "oakley-meta-vanguard",
@@ -1530,7 +1592,8 @@
         "transitions": false,
         "display_color": null,
         "display_eyes": null
-      }
+      },
+      "date_added": "2026-09-27"
     },
     {
       "id": "oura-ring-5",
@@ -1547,7 +1610,8 @@
       "product_url": "https://ouraring.com/",
       "product_url_is_root": false,
       "image_url": "https://ourahealth.imgix.net/lineItem/or5-silver.png?ixlib=js-3.8.0&auto=format&fit=max&fm=png&q=70&w=640&s=17d60f1723c61d8e59edec34e63aeaea",
-      "device_type": "ring"
+      "device_type": "ring",
+      "date_added": "2026-09-27"
     },
     {
       "id": "mudra-band",
@@ -1566,7 +1630,8 @@
       "product_url": null,
       "product_url_is_root": false,
       "image_url": null,
-      "device_type": "wrist"
+      "device_type": "wrist",
+      "date_added": "2026-09-27"
     },
     {
       "id": "prolo-ring",
@@ -1583,7 +1648,8 @@
       "product_url": null,
       "product_url_is_root": false,
       "image_url": null,
-      "device_type": "ring"
+      "device_type": "ring",
+      "date_added": "2026-09-27"
     },
     {
       "id": "rog-xreal-r1",
@@ -1609,7 +1675,8 @@
         "mic": false,
         "controller": false
       },
-      "device_type": "ar-glasses"
+      "device_type": "ar-glasses",
+      "date_added": "2026-09-27"
     },
     {
       "id": "snapdragon-ar1-plus",
@@ -1629,7 +1696,8 @@
       "product_url_is_root": false,
       "image_url": "https://storage.ghost.io/c/2a/2f/2a2f38f0-4b71-407a-9c7e-18a9e2541980/content/images/size/w1024/format/webp/2025/06/Snapdragon-AR1--Gen-1.png",
       "hardware_features": null,
-      "device_type": "input"
+      "device_type": "input",
+      "date_added": "2026-09-27"
     },
     {
       "id": "viture-beast",
@@ -1655,7 +1723,8 @@
         "mic": false,
         "controller": false
       },
-      "device_type": "ar-glasses"
+      "device_type": "ar-glasses",
+      "date_added": "2026-09-27"
     },
     {
       "id": "creality-k2-plus",
@@ -1672,7 +1741,8 @@
       "product_url": "https://www.creality.com/all-products",
       "product_url_is_root": true,
       "image_url": "https://cdn.creality.com/ow/product-info/468eca76-0947-4537-9795-1e9c0a6f4469.png",
-      "device_type": "print"
+      "device_type": "print",
+      "date_added": "2026-09-27"
     },
     {
       "id": "creality-pika",
@@ -1689,7 +1759,8 @@
       "product_url": "https://www.creality.com/all-products",
       "product_url_is_root": true,
       "image_url": "https://cdn.creality.com/ow/product-info/a1e61bb7-a013-4e8c-aa01-f9d0bbddb59e.png",
-      "device_type": "capture"
+      "device_type": "capture",
+      "date_added": "2026-09-27"
     },
     {
       "id": "xreal-one-pro",
@@ -1723,7 +1794,8 @@
         "display_color": "color",
         "display_eyes": "both"
       },
-      "device_type": "ar-glasses"
+      "device_type": "ar-glasses",
+      "date_added": "2026-09-27"
     },
     {
       "id": "xreal-1s",
@@ -1757,7 +1829,8 @@
         "display_color": "color",
         "display_eyes": "both"
       },
-      "device_type": "ar-glasses"
+      "device_type": "ar-glasses",
+      "date_added": "2026-09-27"
     },
     {
       "id": "xreal-air-2-pro",
@@ -1791,7 +1864,8 @@
         "display_color": "color",
         "display_eyes": "both"
       },
-      "device_type": "ar-glasses"
+      "device_type": "ar-glasses",
+      "date_added": "2026-09-27"
     },
     {
       "id": "xreal-air-2",
@@ -1825,7 +1899,8 @@
         "display_color": "color",
         "display_eyes": "both"
       },
-      "device_type": "ar-glasses"
+      "device_type": "ar-glasses",
+      "date_added": "2026-09-27"
     },
     {
       "id": "xreal-xbx-a01-plus",
@@ -1859,7 +1934,8 @@
         "display_color": "color",
         "display_eyes": "both"
       },
-      "device_type": "ar-glasses"
+      "device_type": "ar-glasses",
+      "date_added": "2026-09-27"
     }
   ],
   "technologies": [
