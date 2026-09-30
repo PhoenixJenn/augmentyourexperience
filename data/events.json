@@ -198,16 +198,16 @@
   {
     "id": "openai-ipo",
     "name": "OpenAI IPO",
-    "date": "2026-09-15",
+    "date": "2027-06-01",
     "date_end": null,
     "date_approximate": true,
     "event_type": "finance",
     "location": "NYSE / Nasdaq TBD",
     "categories": ["ai"],
-    "description": "OpenAI targeting September 2026 IPO. Currently losing $1.25 per $1 of revenue. Microsoft partnership terms and compute costs are the story.",
-    "why_watching": "The unit economics have to change between now and the S-1. Watch for revenue guidance and how they frame the path to profitability.",
-    "keywords": ["OpenAI IPO", "OpenAI public offering", "OpenAI listing", "OpenAI S-1"],
-    "new": false
+    "description": "Delayed from the original 2026 target. Sam Altman told Fortune (Sept 12, 2026) it won't happen in 2026, citing AI safety and alignment concerns, and that OpenAI feels no pressure to go public after a $122B funding round. Reports say he's holding out for a $1T valuation.",
+    "why_watching": "A safety-driven delay from the company itself is a different signal than a market-driven one — watch whether 'not ready' becomes the industry's new normal excuse for avoiding public-market scrutiny.",
+    "keywords": ["OpenAI IPO", "OpenAI public offering", "OpenAI listing", "OpenAI S-1", "OpenAI IPO delay"],
+    "new": true
   },
   {
     "id": "meta-connect-2026",
@@ -404,5 +404,75 @@
     "why_watching": "Microsoft Build is where enterprise AI tooling gets defined. Copilot and Azure AI roadmaps determine what the developer ecosystem builds on for the following year.",
     "keywords": ["Microsoft Build", "Build 2027", "Azure", "Microsoft developer", "Copilot platform"],
     "new": false
+  },
+  {
+    "id": "anthropic-ipo",
+    "name": "Anthropic IPO",
+    "date": "2026-11-01",
+    "date_end": null,
+    "date_approximate": true,
+    "event_type": "finance",
+    "location": "Nasdaq / NYSE TBD",
+    "categories": ["ai"],
+    "description": "Confidentially filed June 1, 2026, following a $65B Series H that valued the company at $965B (May 28, 2026). Reportedly targeting a raise of up to $100B at a ~$2T valuation, with Reuters sources saying Anthropic wants to complete the listing before the November 2026 US midterm elections.",
+    "why_watching": "If this lands near $2T, it's the largest AI IPO by a wide margin and a direct contrast to OpenAI's safety-driven delay — watch whether Anthropic frames speed-to-market as the safer strategic move.",
+    "keywords": ["Anthropic IPO", "Anthropic public offering", "Anthropic listing", "Anthropic S-1", "Anthropic valuation"],
+    "new": true
+  },
+  {
+    "id": "ieee-humanoids-2026",
+    "name": "IEEE Humanoids 2026",
+    "date": "2026-12-06",
+    "date_end": "2026-12-09",
+    "date_approximate": false,
+    "event_type": "conference",
+    "location": "Santa Clara, CA",
+    "categories": ["robotics", "ai"],
+    "description": "The 25th IEEE-RAS International Conference on Humanoid Robots — the flagship academic venue for humanoid and human-centered robotics research.",
+    "why_watching": "This is the NeurIPS-equivalent for humanoid robotics — bipedal locomotion, actuator design, and human-robot collaboration research shown here typically ships in commercial humanoids 12-18 months later.",
+    "keywords": ["IEEE Humanoids", "Humanoids 2026", "IEEE-RAS", "humanoid robotics conference"],
+    "new": true
+  },
+  {
+    "id": "spie-photonics-west-2027",
+    "name": "SPIE Photonics West 2027",
+    "date": "2027-02-02",
+    "date_end": "2027-02-04",
+    "date_approximate": false,
+    "event_type": "conference",
+    "location": "San Francisco, CA",
+    "categories": ["xr"],
+    "description": "The AR | VR | MR Expo runs as part of the broader Photonics West exhibition at Moscone Center — the key gathering for waveguides, micro-displays, and optical components that feed next-gen smart glasses and headsets.",
+    "why_watching": "This is upstream of every smart glasses launch tracked on this page — the optics supply chain shown here determines what's physically possible in the glasses announced at CES and Unpacked events a year later.",
+    "keywords": ["SPIE Photonics West", "Photonics West 2027", "AR VR MR Expo", "waveguides", "optics supply chain"],
+    "new": true
+  },
+  {
+    "id": "aaai-2027",
+    "name": "AAAI-27",
+    "date": "2027-02-16",
+    "date_end": "2027-02-23",
+    "date_approximate": false,
+    "event_type": "conference",
+    "location": "Montréal, Canada",
+    "categories": ["ai"],
+    "description": "The 41st AAAI Conference on Artificial Intelligence — one of the two or three most influential AI research venues, alongside NeurIPS.",
+    "why_watching": "AAAI carries more policy and AI-safety weight than NeurIPS historically — worth watching for how the research community is framing alignment and governance heading into 2027.",
+    "keywords": ["AAAI", "AAAI-27", "AAAI 2027", "AI research conference", "Association for the Advancement of AI"],
+    "new": true
+  },
+  {
+    "id": "meta-vr-glasses-launch-2027",
+    "name": "Meta VR Glasses Launch",
+    "date": "2027-03-15",
+    "date_end": null,
+    "date_approximate": true,
+    "event_type": "launch",
+    "location": "TBD",
+    "categories": ["xr"],
+    "description": "Announced at Meta Connect 2026 as a distinct product line from Quest — not a 'Quest 4.' Launching spring 2027 at $1,299.99. The actual gaming-focused Quest 4 remains unannounced, with rumors pointing to H2 2027 or later at an unsubsidized $700-800 price.",
+    "why_watching": "Meta stepping away from the Quest brand name for its next headset is a positioning signal, not just a product refresh — watch whether this is aimed at prosumers/enterprise rather than the mass-market Quest audience.",
+    "keywords": ["Meta VR Glasses", "Meta headset 2027", "Meta Connect 2026", "Quest 4"],
+    "new": true
   }
 ]

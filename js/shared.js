@@ -25,6 +25,7 @@
             <a href="${base}models/index.html">Models</a>
             <a href="${base}devices/index.html">Devices</a>
             <a href="${base}events/index.html">Events</a>
+            <span class="nav-sep" aria-hidden="true">|</span>
             <a href="${base}about.html">About</a>
             <a href="${base}speaking.html">Speaking</a>
           </div>
