@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<!-- 🎨 EASTER EGG: Triple-click the logo to reveal the theme switcher -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intel — People — Augment Your Experience</title>
+  <meta name="description" content="People I'm tracking in AI, XR, spatial computing, robotics, and media, with full mention history from the Morning Brief.">
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    .intel-row.intel-hidden { display: none; }
+
+    .section-toggle { display: flex; gap: 0.375rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .section-btn {
+      background: transparent;
+      border: 1px solid var(--border, #333);
+      border-radius: 999px;
+      color: var(--text-muted, #888);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.35rem 1rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .section-btn:hover { border-color: var(--accent, #7c6bff); color: var(--text-primary, #fff); }
+    .section-btn.active { background: var(--accent, #7c6bff); border-color: var(--accent, #7c6bff); color: #fff; }
+
+    .affiliation-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border, #333);
+      color: var(--accent, #7c6bff);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .affiliation-badge:hover { background: color-mix(in srgb, var(--accent, #7c6bff) 12%, transparent); }
+
+    .itd { padding: 0.65rem 1rem 0.65rem 0; border-bottom: 1px solid var(--border, #1e1e1e); }
+    .itd-last { padding: 0.65rem 0; border-bottom: 1px solid var(--border, #1e1e1e); }
+    .ith { text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: var(--text-muted, #888); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid var(--border, #222); white-space: nowrap; }
+    .ith-center { text-align: center; }
+
+    .cat-pill {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--border, #333);
+      color: var(--text-muted, #666);
+      line-height: 1.4;
+    }
+    .cat-pills { display: flex; gap: 0.25rem; flex-wrap: wrap; margin-top: 0.25rem; }
+
+    /* Clickable entity rows */
+    .intel-row[data-entity-type] { cursor: pointer; }
+    .intel-row[data-entity-type]:hover td { color: var(--text-primary, #fff); }
+    .intel-row.row-active { background: color-mix(in srgb, var(--accent, #7c6bff) 10%, transparent); }
+
+    /* Detail pane */
+    .entity-detail { margin-top: 1rem; }
+    .entity-detail-empty { font-size: 0.9rem; color: var(--text-muted, #888); padding: 2rem 0; text-align: center; border: 1px dashed var(--border, #333); border-radius: 8px; }
+    .entity-detail-header { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+    .entity-detail-header h2 { font-size: 1.25rem; font-weight: 700; color: var(--text-primary, #fff); margin: 0; }
+    .entity-detail-count { font-size: 0.75rem; color: var(--text-muted, #888); }
+    .mention-card { border: 1px solid var(--border, #222); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+    .mention-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+    .mention-date { font-weight: 700; color: var(--accent, #7c6bff); font-size: 0.78rem; letter-spacing: 0.02em; }
+    .mention-signal { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.1rem 0.45rem; border-radius: 999px; border: 1px solid var(--border, #333); color: var(--text-muted, #888); }
+    .mention-card p { font-size: 0.95rem; line-height: 1.75; color: var(--text-muted, #ccc); margin: 0; max-width: 68ch; }
+  </style>
+</head>
+
+<body>
+
+  <!-- Nav injected by shared.js -->
+  <div id="nav-mount"></div>
+
+  <!-- PAGE HEADER -->
+  <div class="post-header">
+    <span class="hero-tag">AI · XR · Spatial Computing · Robotics · Media</span>
+    <h1>Intel</h1>
+    <p style="color:var(--muted);font-size:1rem;margin-top:0.5rem;max-width:560px;">
+      Companies, people, and themes I'm tracking — surfaced by the
+      <a href="https://PhoenixJenn.github.io/morning-brief/feed.xml">Morning Brief</a>
+      daily podcast and updated weekly.
+    </p>
+  </div>
+
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem 5rem;">
+
+    <!-- SECTION NAV -->
+    <div class="section-toggle" id="section-toggle">
+      <a class="section-btn" href="index.html">Recurring Themes</a>
+      <a class="section-btn" href="deep-dive.html">Deep Dive</a>
+      <a class="section-btn" href="companies.html">Companies</a>
+      <a class="section-btn active" href="people.html">People</a>
+    </div>
+
+    <!-- CATEGORY FILTERS -->
+    <div class="tag-filter" id="intel-filter" style="margin-bottom:2rem;">
+      <button class="tag-btn active" data-filter="all">All</button>
+      <button class="tag-btn" data-filter="ai">AI</button>
+      <button class="tag-btn" data-filter="xr">XR & Spatial</button>
+      <button class="tag-btn" data-filter="robotics">Robotics & AV</button>
+      <button class="tag-btn" data-filter="iot">IoT & Connected Devices</button>
+      <button class="tag-btn" data-filter="3d">3D Capture & Create</button>
+      <button class="tag-btn" data-filter="media">Media & Entertainment</button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- PEOPLE SECTION                                         -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section id="section-people" style="margin-bottom:3rem;">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted,#888);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border,#222);">People</div>
+      <p style="font-size:0.8rem;color:var(--text-muted,#666);margin:-0.75rem 0 1.25rem;">Click a person to see their full mention history from the Morning Brief.</p>
+
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+          <thead>
+            <tr>
+              <th class="ith">Name</th>
+              <th class="ith">Role</th>
+              <th class="ith">Affiliation</th>
+              <th class="ith ith-center">Signals</th>
+              <th class="ith" style="padding-right:0;">Last Seen</th>
+            </tr>
+          </thead>
+          <tbody id="people-tbody">
+<!-- PEOPLE-ROWS-START -->
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="koray-kavukcuoglu" data-person-id="koray-kavukcuoglu">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Koray Kavukcuoglu</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">3</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-10-01</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="mira-murati" data-person-id="mira-murati">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Mira Murati</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">3</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-06-29</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="andrej-karpathy" data-person-id="andrej-karpathy">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Andrej Karpathy</td>
+              <td class="itd" style="color:var(--text-muted,#888);">Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><a class="affiliation-badge" href="companies.html#anthropic">Anthropic</a></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">2</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="fei-fei-li" data-person-id="fei-fei-li">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Fei-Fei Li</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">2</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-09-30</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="kevin-buzzard" data-person-id="kevin-buzzard">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Kevin Buzzard</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">2</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-08-04</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="adam-gleave-far-ai" data-person-id="adam-gleave-far-ai">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Adam Gleave / FAR.AI</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-07-29</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="arvind-raman" data-person-id="arvind-raman">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Arvind Raman</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-07-21</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="ben-mildenhall" data-person-id="ben-mildenhall">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Ben Mildenhall</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-09-30</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="benn-jordan" data-person-id="benn-jordan">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Benn Jordan</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-06-07</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="brendan-foody" data-person-id="brendan-foody">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Brendan Foody</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="brian-hie" data-person-id="brian-hie">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Brian Hie</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="charlie-fink" data-person-id="charlie-fink">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Charlie Fink</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="xr" data-entity-type="person" data-company-id="chi-xu" data-person-id="chi-xu">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Chi Xu</td>
+              <td class="itd" style="color:var(--text-muted,#888);">Founder &amp; CEO<div class="cat-pills"><span class="cat-pill">xr</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><a class="affiliation-badge" href="companies.html#xreal">Xreal</a></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-05-25</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="chris-fall" data-person-id="chris-fall">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Chris Fall</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-07-21</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="chris-lattner-modular" data-person-id="chris-lattner-modular">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Chris Lattner / Modular</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-06-23</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="clem-delangue" data-person-id="clem-delangue">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Clem Delangue</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-09-03</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="cristiano-amon" data-person-id="cristiano-amon">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Cristiano Amon</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="emil-michael" data-person-id="emil-michael">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Emil Michael</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-07-21</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="emily-bender" data-person-id="emily-bender">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Emily Bender</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="emma-wiles" data-person-id="emma-wiles">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Emma Wiles</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="erik-brynjolfsson" data-person-id="erik-brynjolfsson">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Erik Brynjolfsson</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-08-24</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="evan-spiegel" data-person-id="evan-spiegel">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Evan Spiegel</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="hassabis" data-person-id="hassabis">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Hassabis</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="jacob-bank" data-person-id="jacob-bank">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Jacob Bank</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-08-18</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="james-maynard" data-person-id="james-maynard">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">James Maynard</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-08-11</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="jay-clayton" data-person-id="jay-clayton">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Jay Clayton</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-10-01</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="jay-gambetta-ibm-research" data-person-id="jay-gambetta-ibm-research">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Jay Gambetta / IBM Research</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="jeff-pu-gf-securities" data-person-id="jeff-pu-gf-securities">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Jeff Pu / GF Securities</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="kanishka-narayan" data-person-id="kanishka-narayan">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Kanishka Narayan</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-07-21</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="kareem-ayoub" data-person-id="kareem-ayoub">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Kareem Ayoub</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="kyle-vogt" data-person-id="kyle-vogt">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Kyle Vogt</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="leopold-aschenbrenner" data-person-id="leopold-aschenbrenner">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Leopold Aschenbrenner</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-08-07</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="mike-minton" data-person-id="mike-minton">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Mike Minton</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="omar-shahine" data-person-id="omar-shahine">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Omar Shahine</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-06-03</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="palmer-luckey" data-person-id="palmer-luckey">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Palmer Luckey</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="rohin-shah" data-person-id="rohin-shah">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Rohin Shah</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="ryan-inis-hughes" data-person-id="ryan-inis-hughes">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Ryan Inis Hughes</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="scott-belsky-a24" data-person-id="scott-belsky-a24">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Scott Belsky / A24</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-08-19</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="sriram-krishnan" data-person-id="sriram-krishnan">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Sriram Krishnan</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-06-07</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="stacey-higginbotham" data-person-id="stacey-higginbotham">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Stacey Higginbotham</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-06-29</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="stacey-higginbotham" data-person-id="stacey-higginbotham">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Stacey Higginbotham</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-06-29</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="sterling-anderson" data-person-id="sterling-anderson">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Sterling Anderson</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="tang-jie" data-person-id="tang-jie">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Tang Jie</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="tilly-norwood" data-person-id="tilly-norwood">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Tilly Norwood</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="timnit-gebru" data-person-id="timnit-gebru">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Timnit Gebru</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">—</td>
+            </tr>
+            <tr class="intel-row" data-category="ai" data-entity-type="person" data-company-id="tyler-cowen" data-person-id="tyler-cowen">
+              <td class="itd" style="font-weight:600;color:var(--text-primary,#fff);white-space:nowrap;">Tyler Cowen</td>
+              <td class="itd" style="color:var(--text-muted,#888);">AI Researcher<div class="cat-pills"><span class="cat-pill">ai</span></div></td>
+              <td class="itd" style="white-space:nowrap;"><span style="color:var(--text-muted,#555);">—</span></td>
+              <td class="itd" style="color:var(--text-muted,#888);text-align:center;">1</td>
+              <td class="itd-last" style="color:var(--text-muted,#aaa);">2026-06-07</td>
+            </tr>
+<!-- PEOPLE-ROWS-END -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- DETAIL PANE -->
+      <div class="entity-detail" id="person-detail">
+        <div class="entity-detail-empty" id="person-detail-empty">Click a person above to see their news.</div>
+        <div id="person-detail-content" style="display:none;">
+          <div class="entity-detail-header">
+            <h2 id="person-detail-name"></h2>
+            <span class="entity-detail-count" id="person-detail-count"></span>
+          </div>
+          <div id="person-detail-mentions"></div>
+        </div>
+      </div>
+
+<!-- PEOPLE-DATA-START -->
+      <script type="application/json" id="person-data">{"koray-kavukcuoglu": {"name": "Koray Kavukcuoglu", "mentions": [{"date": "2026-10-01", "context": "Google's top AI architect pitching Argon signals internal divergence or external capital seeking at the frontier-model layer.", "signal": "high", "source_url": null}, {"date": "2026-09-24", "context": "Leadership change at Google DeepMind signals organizational commitment to accelerating Gemini 4 deployment, intensifying the frontier model race.", "signal": "high"}, {"date": "2026-08-06", "context": "new SVP reporting to Pichai — de facto DeepMind lead", "signal": "medium"}]}, "mira-murati": {"name": "Mira Murati", "mentions": [{"date": "2026-06-29", "context": "Post-OpenAI founder fragmentation indicates emerging competition from insider-led ventures in generative AI.", "signal": "medium"}, {"date": "2026-06-07", "context": "Bellwether status on AI-generated immersive content indicates mainstream adoption inflection point for synthetic media.", "signal": "medium"}, {"date": "2026-06-05", "context": "Re-emergence suggests new AI venture formation that could reshape model development or deployment paradigms.", "signal": "medium"}]}, "andrej-karpathy": {"name": "Andrej Karpathy", "mentions": []}, "fei-fei-li": {"name": "Fei-Fei Li", "mentions": [{"date": "2026-09-30", "context": "Spatial intelligence expertise embedded in chipmaker architecture signals AMD's AI infrastructure ambitions competing with Nvidia's software-hardware integration.", "signal": "high", "source_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/amd-acquires-ai-legend-fei-fei-lis-world-labs-for-usd8-2-billion-imagenet-pioneer-will-become-amd-chief-scientist-as-the-chipmaker-brings-her-lab-in-house"}, {"date": "2026-09-29", "context": "World-models roadmap control at a major chipmaker signals AMD's fundamental pivot toward competing with NVIDIA on generative AI architecture, not just compute.", "signal": "high", "source_url": "https://techcrunch.com/2026/09/28/amd-will-acquire-fei-fei-lis-world-labs-for-8-2-billion/"}]}, "kevin-buzzard": {"name": "Kevin Buzzard", "mentions": [{"date": "2026-08-04", "context": "Formal mathematics advocate vindicated by Astra suggests AI agents require cryptographic proof infrastructure for mission-critical applications.", "signal": "medium"}, {"date": "2026-06-03", "context": "vocal mathematician on AI's impact on the field", "signal": "low"}]}, "adam-gleave-far-ai": {"name": "Adam Gleave / FAR.AI", "mentions": [{"date": "2026-07-29", "context": "Post-incident alignment framing shapes policy and institutional discourse around agentic AI safety.", "signal": "medium"}]}, "arvind-raman": {"name": "Arvind Raman", "mentions": [{"date": "2026-07-21", "context": "Interim leadership of US standards body suggests governance vacuum during critical alignment window.", "signal": "medium"}]}, "ben-mildenhall": {"name": "Ben Mildenhall", "mentions": [{"date": "2026-09-30", "context": "NeRF talent concentration at AMD indicates chipmaker bet on neural rendering as differentiator for 3D content infrastructure.", "signal": "high", "source_url": null}]}, "benn-jordan": {"name": "Benn Jordan", "mentions": [{"date": "2026-06-07", "context": "independent voice on consumer tech surveillance worth tracking", "signal": "low"}]}, "brendan-foody": {"name": "Brendan Foody", "mentions": []}, "brian-hie": {"name": "Brian Hie", "mentions": []}, "charlie-fink": {"name": "Charlie Fink", "mentions": []}, "chi-xu": {"name": "Chi Xu", "mentions": [{"date": "2026-05-25", "context": "Chi Xu (", "signal": "low"}]}, "chris-fall": {"name": "Chris Fall", "mentions": [{"date": "2026-07-21", "context": "Departure of sitting AI czar creates uncertainty about continuity of White House AI strategy.", "signal": "medium"}]}, "chris-lattner-modular": {"name": "Chris Lattner / Modular", "mentions": [{"date": "2026-06-23", "context": "Qualcomm acquisition target; Qualcomm's anti-Nvidia software play", "signal": "medium"}]}, "clem-delangue": {"name": "Clem Delangue", "mentions": [{"date": "2026-09-03", "context": "Hugging Face CEO navigating Nvidia acquisition", "signal": "medium"}]}, "cristiano-amon": {"name": "Cristiano Amon", "mentions": []}, "emil-michael": {"name": "Emil Michael", "mentions": [{"date": "2026-07-21", "context": "Pentagon official's public criticism of US AI labs signals potential rift in defense-tech alignment and policy coherence.", "signal": "high"}]}, "emily-bender": {"name": "Emily Bender", "mentions": []}, "emma-wiles": {"name": "Emma Wiles", "mentions": []}, "erik-brynjolfsson": {"name": "Erik Brynjolfsson", "mentions": [{"date": "2026-08-24", "context": "Updated AI labor thesis from key economist shapes policy and investment narratives around automation's macroeconomic impact.", "signal": "medium"}]}, "evan-spiegel": {"name": "Evan Spiegel", "mentions": []}, "hassabis": {"name": "Hassabis", "mentions": []}, "jacob-bank": {"name": "Jacob Bank", "mentions": [{"date": "2026-08-18", "context": "Chrome's shift toward agentic browsing represents a fundamental reimagining of browser UX and positions Google to capture value in autonomous agent workflows.", "signal": "high"}]}, "james-maynard": {"name": "James Maynard", "mentions": [{"date": "2026-08-11", "context": "Oxford mathematician publicly grappling with AI's impact on the field", "signal": "low"}]}, "jay-clayton": {"name": "Jay Clayton", "mentions": [{"date": "2026-10-01", "context": "Potential Trump AI czar appointment signals imminent regulatory clarification and geopolitical AI-governance prioritization at highest policy level.", "signal": "high", "source_url": "https://thenextweb.com/news/jay-clayton-ai-czar-trump-axios-cnbc"}]}, "jay-gambetta-ibm-research": {"name": "Jay Gambetta / IBM Research", "mentions": []}, "jeff-pu-gf-securities": {"name": "Jeff Pu / GF Securities", "mentions": []}, "kanishka-narayan": {"name": "Kanishka Narayan", "mentions": [{"date": "2026-07-21", "context": "Cabinet-level AI minister under new UK PM signals regulatory acceleration and elevated AI policy priority in Westminster.", "signal": "high"}]}, "kareem-ayoub": {"name": "Kareem Ayoub", "mentions": []}, "kyle-vogt": {"name": "Kyle Vogt", "mentions": []}, "leopold-aschenbrenner": {"name": "Leopold Aschenbrenner", "mentions": [{"date": "2026-08-07", "context": "AI hedge fund drawdown of 67% in one month highlights execution risk and timing hazard in AI-driven quant strategies; cautionary signal for fund performance claims.", "signal": "medium"}]}, "mike-minton": {"name": "Mike Minton", "mentions": []}, "omar-shahine": {"name": "Omar Shahine", "mentions": [{"date": "2026-06-03", "context": "Microsoft's agent leadership signals the company's pivot toward autonomous AI systems as the post-app computing model.", "signal": "high"}]}, "palmer-luckey": {"name": "Palmer Luckey", "mentions": []}, "rohin-shah": {"name": "Rohin Shah", "mentions": []}, "ryan-inis-hughes": {"name": "Ryan Inis Hughes", "mentions": []}, "scott-belsky-a24": {"name": "Scott Belsky / A24", "mentions": [{"date": "2026-08-19", "context": "A24's tasteful generative AI integration under design-forward leadership validates AI as creative amplifier rather than replacement for prestige content.", "signal": "high"}]}, "sriram-krishnan": {"name": "Sriram Krishnan", "mentions": [{"date": "2026-06-07", "context": "Direct influence on Trump administration AI policy infrastructure creates regulatory tail risk and opportunity for aligned startups.", "signal": "high"}]}, "stacey-higginbotham": {"name": "Stacey Higginbotham", "mentions": [{"date": "2026-06-29", "context": "serious analytical IoT coverage", "signal": "low"}]}, "sterling-anderson": {"name": "Sterling Anderson", "mentions": []}, "tang-jie": {"name": "Tang Jie", "mentions": []}, "tilly-norwood": {"name": "Tilly Norwood", "mentions": []}, "timnit-gebru": {"name": "Timnit Gebru", "mentions": []}, "tyler-cowen": {"name": "Tyler Cowen", "mentions": [{"date": "2026-06-07", "context": "Labor-market narrative framing at Sana summit signals intellectual leadership shaping policy and venture thesis on AI displacement.", "signal": "medium"}]}}</script>
+<!-- PEOPLE-DATA-END -->
+
+      <p style="font-size:0.75rem;color:var(--text-muted,#666);margin-top:0.75rem;">Affiliation badges link to the corresponding company's Intel page. Signals = Morning Brief mentions. Tracking started May 18, 2026.</p>
+    </section>
+
+    <!-- SOURCE -->
+    <div style="border-top:1px solid var(--border,#222);padding-top:1.5rem;">
+      <p style="font-size:0.82rem;color:var(--text-muted,#666);line-height:1.6;">
+        Sourced from the <a href="https://PhoenixJenn.github.io/morning-brief/feed.xml" style="color:var(--accent);">Morning Brief</a> daily AI news podcast. Updated weekly alongside the <a href="../weekly-briefs/index.html" style="color:var(--accent);">Weekly Briefs</a>. See also <a href="../models/index.html" style="color:var(--accent);">AI Models</a> for frontier model pricing and specs.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Footer injected by shared.js -->
+  <div id="footer-mount"></div>
+
+  <!-- Easter egg switcher injected by shared.js -->
+  <div id="switcher-mount"></div>
+
+  <script src="../js/shared.js" data-base="../"></script>
+  <script>
+    (function () {
+
+      const data = JSON.parse(document.getElementById('person-data').textContent || '{}');
+      const tbody = document.getElementById('people-tbody');
+      const emptyEl = document.getElementById('person-detail-empty');
+      const contentEl = document.getElementById('person-detail-content');
+      const nameEl = document.getElementById('person-detail-name');
+      const countEl = document.getElementById('person-detail-count');
+      const mentionsEl = document.getElementById('person-detail-mentions');
+
+      function esc(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+
+      function renderMentions(entry) {
+        const mentions = entry.mentions || [];
+        nameEl.textContent = entry.name || '';
+        countEl.textContent = mentions.length + (mentions.length === 1 ? ' mention' : ' mentions');
+        mentionsEl.innerHTML = mentions.map(function (m) {
+          const signal = m.signal ? '<span class="mention-signal">' + esc(m.signal) + '</span>' : '';
+          return (
+            '<div class="mention-card">' +
+              '<div class="mention-meta"><span class="mention-date">' + esc(m.date || '') + '</span>' + signal + '</div>' +
+              '<p>' + esc(m.context || '') + '</p>' +
+            '</div>'
+          );
+        }).join('');
+        emptyEl.style.display = 'none';
+        contentEl.style.display = 'block';
+      }
+
+      function selectPerson(id, opts) {
+        const entry = data[id];
+        if (!entry) return;
+        tbody.querySelectorAll('.intel-row').forEach(function (r) { r.classList.remove('row-active'); });
+        const row = tbody.querySelector('.intel-row[data-person-id="' + id + '"]');
+        if (row) row.classList.add('row-active');
+        renderMentions(entry);
+        if (opts && opts.scroll) {
+          document.getElementById('person-detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      tbody.addEventListener('click', function (e) {
+        const row = e.target.closest('.intel-row[data-person-id]');
+        if (!row || e.target.closest('[data-link-company]')) return;
+        selectPerson(row.dataset.personId, { scroll: false });
+      });
+
+      // ── Category filter ────────────────────────────────────────────────────
+      let currentFilter = 'all';
+      const filterBar = document.getElementById('intel-filter');
+
+      function applyFilter(active) {
+        tbody.querySelectorAll('.intel-row').forEach(function (el) {
+          if (active === 'all') {
+            el.classList.remove('intel-hidden');
+          } else {
+            const cats = (el.dataset.category || '').split(' ');
+            el.classList.toggle('intel-hidden', !cats.includes(active));
+          }
+        });
+      }
+
+      filterBar.addEventListener('click', function (e) {
+        const btn = e.target.closest('.tag-btn');
+        if (!btn) return;
+        filterBar.querySelectorAll('.tag-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        applyFilter(currentFilter);
+      });
+
+      // ── Initial selection: hash deep-link, else first row ──────────────────
+      const hashId = (location.hash || '').replace('#', '');
+      if (hashId && data[hashId]) {
+        selectPerson(hashId, { scroll: true });
+      } else {
+        const firstRow = tbody.querySelector('.intel-row[data-person-id]');
+        if (firstRow) selectPerson(firstRow.dataset.personId, { scroll: false });
+      }
+
+    })();
+  </script>
+
+</body>
+</html>
