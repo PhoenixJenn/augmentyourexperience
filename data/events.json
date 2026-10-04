@@ -7,10 +7,23 @@
     "date_approximate": false,
     "event_type": "conference",
     "location": "Mountain View, CA / Online",
-    "categories": ["ai", "xr"],
+    "categories": [
+      "ai",
+      "xr"
+    ],
     "description": "Google's annual developer conference. Key announcements: Android XR seriousness, Gemini 2.5 updates, Project Astra live demo, Gemini Spark (multimodal for kids), free-tier Gemini limits.",
     "why_watching": "Android XR as a credible Apple Vision Pro alternative, and whether Google's AI integration across devices finally feels cohesive.",
-    "keywords": ["Google I/O", "Google IO", "Android XR", "Gemini", "Google developer", "Project Astra", "Google glasses", "Google smart glasses", "Google Beam"],
+    "keywords": [
+      "Google I/O",
+      "Google IO",
+      "Android XR",
+      "Gemini",
+      "Google developer",
+      "Project Astra",
+      "Google glasses",
+      "Google smart glasses",
+      "Google Beam"
+    ],
     "new": false
   },
   {
@@ -21,10 +34,21 @@
     "date_approximate": false,
     "event_type": "conference",
     "location": "Cupertino, CA / Online",
-    "categories": ["ai", "xr"],
+    "categories": [
+      "ai",
+      "xr"
+    ],
     "description": "Apple's annual developer conference. Tagline: \"Coming Bright Up.\" genai.apple.com subdomain registered ahead of the event.",
     "why_watching": "Siri overhaul / Apple Intelligence 2.0, on-device vs. cloud framing, Matter camera support, developer AI tooling. Avatar acquisition signals spatial/embodied AI direction.",
-    "keywords": ["WWDC", "Apple developer", "visionOS", "iOS 27", "macOS 27", "Apple Intelligence", "Siri overhaul"],
+    "keywords": [
+      "WWDC",
+      "Apple developer",
+      "visionOS",
+      "iOS 27",
+      "macOS 27",
+      "Apple Intelligence",
+      "Siri overhaul"
+    ],
     "new": false
   },
   {
@@ -35,10 +59,18 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "Las Vegas, NV",
-    "categories": ["ai"],
+    "categories": [
+      "ai"
+    ],
     "description": "Gartner's annual Las Vegas summit — typically focused on data, analytics, and enterprise AI adoption. Confirm exact event name closer to the date; Gartner runs multiple branded events at this venue.",
     "why_watching": "Gartner's market research shapes enterprise AI buying decisions. The hype cycles, quadrants, and vendor positioning announced here ripple through IT budget cycles for the following year.",
-    "keywords": ["Gartner", "Gartner Summit", "Gartner Las Vegas", "Gartner conference", "Gartner 2026"],
+    "keywords": [
+      "Gartner",
+      "Gartner Summit",
+      "Gartner Las Vegas",
+      "Gartner conference",
+      "Gartner 2026"
+    ],
     "new": false
   },
   {
@@ -49,10 +81,18 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "Washington, DC",
-    "categories": ["ai"],
+    "categories": [
+      "ai"
+    ],
     "description": "One of the largest AWS Summit stops in North America. Enterprise cloud, AI/ML services, and government/public sector cloud adoption are the dominant tracks.",
     "why_watching": "DC Summit draws heavy government and regulated-industry attendance — a signal for where federal AI adoption and cloud mandates are heading.",
-    "keywords": ["AWS Summit", "AWS Summit DC", "AWS Summit Washington", "Amazon Web Services", "AWS 2026"],
+    "keywords": [
+      "AWS Summit",
+      "AWS Summit DC",
+      "AWS Summit Washington",
+      "Amazon Web Services",
+      "AWS 2026"
+    ],
     "new": false
   },
   {
@@ -63,10 +103,19 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "New York, NY",
-    "categories": ["ai"],
+    "categories": [
+      "ai"
+    ],
     "description": "The East Coast flagship AWS Summit at the Javits Center. Bedrock, SageMaker, and agentic AI deployment patterns are typically the centerpiece announcements.",
     "why_watching": "NYC Summit tends to be where AWS makes enterprise AI announcements for the second half of the year — a preview of what re:Invent will expand on in December.",
-    "keywords": ["AWS Summit", "AWS Summit New York", "AWS Summit NYC", "Amazon Web Services", "Javits", "AWS 2026"],
+    "keywords": [
+      "AWS Summit",
+      "AWS Summit New York",
+      "AWS Summit NYC",
+      "Amazon Web Services",
+      "Javits",
+      "AWS 2026"
+    ],
     "new": false
   },
   {
@@ -77,10 +126,17 @@
     "date_approximate": true,
     "event_type": "finance",
     "location": "Nasdaq",
-    "categories": ["space"],
+    "categories": [
+      "space"
+    ],
     "description": "S-1 filed. $18.67B in 2025 revenue. Listing under SPCX on Nasdaq, potentially as early as June 12.",
     "why_watching": "Starlink is the actual revenue engine. The IPO separates SpaceX from xAI/Tesla financial entanglement — watch the prospectus framing.",
-    "keywords": ["SpaceX IPO", "SPCX", "SpaceX listing", "SpaceX public offering"],
+    "keywords": [
+      "SpaceX IPO",
+      "SPCX",
+      "SpaceX listing",
+      "SpaceX public offering"
+    ],
     "new": false
   },
   {
@@ -91,10 +147,18 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "TBD",
-    "categories": ["media"],
+    "categories": [
+      "media"
+    ],
     "description": "Lucasfilm's official fan convention. With The Mandalorian and Grogu in theaters in 2026, expect major announcements on the next chapter of the franchise — streaming, gaming, theme park, and live experiences.",
     "why_watching": "Star Wars Celebration is where Disney signals the next 2-3 years of the franchise. Galaxy's Edge XR expansions, gaming tie-ins, and spatial entertainment plays get their first airing here.",
-    "keywords": ["Star Wars Celebration", "Lucasfilm", "Star Wars 2027", "Mandalorian", "Galaxy's Edge"],
+    "keywords": [
+      "Star Wars Celebration",
+      "Lucasfilm",
+      "Star Wars 2027",
+      "Mandalorian",
+      "Galaxy's Edge"
+    ],
     "new": false
   },
   {
@@ -105,10 +169,19 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "New York, NY",
-    "categories": ["xr", "media"],
+    "categories": [
+      "xr",
+      "media"
+    ],
     "description": "Tribeca's immersive and XR track is one of the highest-profile venues for spatial storytelling. VR/AR narrative experiences compete alongside traditional film.",
     "why_watching": "Bellwether for whether XR storytelling is maturing as a medium — strong years here correlate with increased studio investment in spatial content.",
-    "keywords": ["Tribeca", "Tribeca Film Festival", "Tribeca immersive", "Tribeca XR", "Tribeca 2026"],
+    "keywords": [
+      "Tribeca",
+      "Tribeca Film Festival",
+      "Tribeca immersive",
+      "Tribeca XR",
+      "Tribeca 2026"
+    ],
     "new": false
   },
   {
@@ -119,10 +192,16 @@
     "date_approximate": false,
     "event_type": "conference",
     "location": "Long Beach, CA",
-    "categories": ["xr"],
+    "categories": [
+      "xr"
+    ],
     "description": "Augmented World Expo. Evan Spiegel keynoting for the second year running — likely a Snap Spectacles preview ahead of fall launch.",
     "why_watching": "Spiegel keynote is a Snap Spectacles signal. Also the right venue for the Anduril/Meta military XR conversation the industry keeps avoiding.",
-    "keywords": ["AWE", "AWE USA", "Augmented World Expo"],
+    "keywords": [
+      "AWE",
+      "AWE USA",
+      "Augmented World Expo"
+    ],
     "new": false
   },
   {
@@ -133,10 +212,17 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "San Diego, CA",
-    "categories": ["media"],
+    "categories": [
+      "media"
+    ],
     "description": "The largest pop culture convention in North America. Major studio panels, IP announcements, and increasingly a venue for XR/gaming experiences and spatial entertainment previews.",
     "why_watching": "SDCC is where Disney, Warner, and streaming platforms make their biggest entertainment bets public. With Mandalorian in theaters and XR storytelling expanding, expect spatial/immersive tie-ins.",
-    "keywords": ["SDCC", "San Diego Comic-Con", "Comic-Con", "Comic Con 2026"],
+    "keywords": [
+      "SDCC",
+      "San Diego Comic-Con",
+      "Comic-Con",
+      "Comic Con 2026"
+    ],
     "new": false
   },
   {
@@ -147,10 +233,18 @@
     "date_approximate": false,
     "event_type": "launch",
     "location": "London",
-    "categories": ["xr"],
+    "categories": [
+      "xr"
+    ],
     "description": "Z Fold 8, Flip 8, and Samsung's first smart glasses — both display and display-less variants expected.",
     "why_watching": "First real Android XR glasses hardware. Display quality vs. Meta Ray-Bans is the make-or-break comparison — LetinAR optics supply chain is the leading indicator.",
-    "keywords": ["Galaxy Unpacked", "Z Fold 8", "Flip 8", "Samsung smart glasses", "Samsung Unpacked"],
+    "keywords": [
+      "Galaxy Unpacked",
+      "Z Fold 8",
+      "Flip 8",
+      "Samsung smart glasses",
+      "Samsung Unpacked"
+    ],
     "new": false
   },
   {
@@ -161,10 +255,20 @@
     "date_approximate": false,
     "event_type": "conference",
     "location": "Denver, CO",
-    "categories": ["3d", "ai", "xr"],
+    "categories": [
+      "3d",
+      "ai",
+      "xr"
+    ],
     "description": "The premier computer graphics and interactive techniques conference. AI-generated imagery, real-time rendering, 3D Gaussian splatting, and spatial computing research converge here.",
     "why_watching": "Where the techniques that ship in consumer products 18 months later get their first public airing. Watch for generative 3D and world model papers.",
-    "keywords": ["SIGGRAPH", "SIGGRAPH 2026", "ACM SIGGRAPH", "computer graphics", "real-time rendering"],
+    "keywords": [
+      "SIGGRAPH",
+      "SIGGRAPH 2026",
+      "ACM SIGGRAPH",
+      "computer graphics",
+      "real-time rendering"
+    ],
     "new": false
   },
   {
@@ -175,10 +279,18 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "Venice, Italy",
-    "categories": ["xr", "media"],
+    "categories": [
+      "xr",
+      "media"
+    ],
     "description": "The XR track of the Venice Film Festival — the highest-prestige venue for narrative XR and spatial cinema. Works premiering here signal where serious storytellers are pushing the medium.",
     "why_watching": "Venice Immersive is where the art-end of XR gets validated. If spatial cinema is going to break through culturally, it shows up here first.",
-    "keywords": ["Venice Immersive", "Venice Film Festival", "Venice VR", "Venice XR"],
+    "keywords": [
+      "Venice Immersive",
+      "Venice Film Festival",
+      "Venice VR",
+      "Venice XR"
+    ],
     "new": false
   },
   {
@@ -189,10 +301,17 @@
     "date_approximate": true,
     "event_type": "launch",
     "location": "TBD",
-    "categories": ["xr"],
+    "categories": [
+      "xr"
+    ],
     "description": "Consumer AR glasses at ~$2,500. Evan Spiegel has been building toward this for years — the Spectacles developer edition has been the proving ground.",
     "why_watching": "The display quality question is the make-or-break. If Spectacles can deliver a compelling FOV at that price point, it resets the market.",
-    "keywords": ["Snap Spectacles", "Spectacles launch", "Snap AR glasses", "Snap glasses consumer"],
+    "keywords": [
+      "Snap Spectacles",
+      "Spectacles launch",
+      "Snap AR glasses",
+      "Snap glasses consumer"
+    ],
     "new": false
   },
   {
@@ -203,11 +322,19 @@
     "date_approximate": true,
     "event_type": "finance",
     "location": "NYSE / Nasdaq TBD",
-    "categories": ["ai"],
+    "categories": [
+      "ai"
+    ],
     "description": "Delayed from the original 2026 target. Sam Altman told Fortune (Sept 12, 2026) it won't happen in 2026, citing AI safety and alignment concerns, and that OpenAI feels no pressure to go public after a $122B funding round. Reports say he's holding out for a $1T valuation.",
     "why_watching": "A safety-driven delay from the company itself is a different signal than a market-driven one — watch whether 'not ready' becomes the industry's new normal excuse for avoiding public-market scrutiny.",
-    "keywords": ["OpenAI IPO", "OpenAI public offering", "OpenAI listing", "OpenAI S-1", "OpenAI IPO delay"],
-    "new": true
+    "keywords": [
+      "OpenAI IPO",
+      "OpenAI public offering",
+      "OpenAI listing",
+      "OpenAI S-1",
+      "OpenAI IPO delay"
+    ],
+    "new": false
   },
   {
     "id": "meta-connect-2026",
@@ -217,10 +344,20 @@
     "date_approximate": false,
     "event_type": "conference",
     "location": "Menlo Park, CA / Online",
-    "categories": ["xr", "ai"],
+    "categories": [
+      "xr",
+      "ai"
+    ],
     "description": "Meta's annual XR event. New smart glasses teased. Likely Quest 4 and/or mixed reality hardware alongside Orion AR glasses updates.",
     "why_watching": "The four-month smart glasses gauntlet (Google → Snap → Samsung → Meta) ends here. By September the competitive landscape will be clear.",
-    "keywords": ["Meta Connect", "Quest 4", "Ray-Ban Meta", "Horizon OS", "Meta smart glasses", "Orion glasses"],
+    "keywords": [
+      "Meta Connect",
+      "Quest 4",
+      "Ray-Ban Meta",
+      "Horizon OS",
+      "Meta smart glasses",
+      "Orion glasses"
+    ],
     "new": false
   },
   {
@@ -231,10 +368,17 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "New York, NY",
-    "categories": ["media"],
+    "categories": [
+      "media"
+    ],
     "description": "The East Coast counterpart to SDCC. Major publisher, studio, and streaming announcements with strong gaming and animation presence at Javits Center.",
     "why_watching": "NYCC tends to surface the holiday season entertainment slate and Q1 streaming content. Watch for XR experience announcements tied to major IP.",
-    "keywords": ["NYCC", "New York Comic Con", "Comic Con New York", "Comic Con 2026"],
+    "keywords": [
+      "NYCC",
+      "New York Comic Con",
+      "Comic Con New York",
+      "Comic Con 2026"
+    ],
     "new": false
   },
   {
@@ -245,10 +389,19 @@
     "date_approximate": false,
     "event_type": "conference",
     "location": "Maui, HI",
-    "categories": ["xr", "ai"],
+    "categories": [
+      "xr",
+      "ai"
+    ],
     "description": "Qualcomm's annual chip reveal event. Snapdragon 8 Elite successor and new XR chipsets expected — the silicon that goes into next year's smart glasses and headsets.",
     "why_watching": "Snapdragon XR silicon is the supply chain foundation for most glasses announced earlier in the year. Power efficiency and on-device AI performance are the metrics.",
-    "keywords": ["Snapdragon Summit", "Qualcomm", "Snapdragon 8", "Snapdragon XR", "Snapdragon 2026"],
+    "keywords": [
+      "Snapdragon Summit",
+      "Qualcomm",
+      "Snapdragon 8",
+      "Snapdragon XR",
+      "Snapdragon 2026"
+    ],
     "new": false
   },
   {
@@ -259,10 +412,21 @@
     "date_approximate": false,
     "event_type": "conference",
     "location": "Los Angeles, CA",
-    "categories": ["ai", "3d", "media"],
+    "categories": [
+      "ai",
+      "3d",
+      "media"
+    ],
     "description": "Adobe's annual creative conference. Firefly generative AI updates, 3D and spatial design tools, and the evolving role of AI in the professional creative workflow.",
     "why_watching": "Adobe is the leading indicator for how generative AI integrates into professional creative tools — Firefly's trajectory here shapes what designers and media producers adopt.",
-    "keywords": ["Adobe MAX", "Adobe", "Firefly", "Creative Cloud", "Adobe AI", "Adobe 2026"],
+    "keywords": [
+      "Adobe MAX",
+      "Adobe",
+      "Firefly",
+      "Creative Cloud",
+      "Adobe AI",
+      "Adobe 2026"
+    ],
     "new": false
   },
   {
@@ -273,10 +437,20 @@
     "date_approximate": false,
     "event_type": "conference",
     "location": "Frankfurt, Germany",
-    "categories": ["3d"],
+    "categories": [
+      "3d"
+    ],
     "description": "The world's leading trade show for additive manufacturing and 3D printing. Bambu Lab, Prusa, Creality, and enterprise players all exhibit.",
     "why_watching": "Formnext is where prosumer 3D printing market shifts happen. After Bambu Lab's A1 safety issues, watch for Prusa and Creality share moves and any recall fallout.",
-    "keywords": ["Formnext", "Formnext 2026", "3D printing", "additive manufacturing", "Bambu Lab", "Prusa", "Creality"],
+    "keywords": [
+      "Formnext",
+      "Formnext 2026",
+      "3D printing",
+      "additive manufacturing",
+      "Bambu Lab",
+      "Prusa",
+      "Creality"
+    ],
     "new": false
   },
   {
@@ -287,10 +461,19 @@
     "date_approximate": false,
     "event_type": "conference",
     "location": "Las Vegas, NV",
-    "categories": ["ai"],
+    "categories": [
+      "ai"
+    ],
     "description": "Amazon's annual cloud and AI infrastructure conference. Where enterprise AI deployment patterns, pricing, and tooling get defined for the following year.",
     "why_watching": "re:Invent is where enterprise AI moves from lab to production at scale. Bedrock and SageMaker roadmaps set the tone for the AWS AI ecosystem.",
-    "keywords": ["AWS re:Invent", "Amazon Web Services", "re:Invent", "AWS 2026", "Bedrock", "Amazon AI"],
+    "keywords": [
+      "AWS re:Invent",
+      "Amazon Web Services",
+      "re:Invent",
+      "AWS 2026",
+      "Bedrock",
+      "Amazon AI"
+    ],
     "new": false
   },
   {
@@ -301,10 +484,18 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "Vancouver, BC",
-    "categories": ["ai"],
+    "categories": [
+      "ai"
+    ],
     "description": "The most influential AI research conference. Frontier lab paper drops, embodied AI research, and the first public look at what the next generation of models can do.",
     "why_watching": "NeurIPS papers become products 12-18 months later. The techniques that make it into GPT and Claude next year get their first airing here.",
-    "keywords": ["NeurIPS", "NeurIPS 2026", "Neural Information Processing", "AI research conference", "NeurIPS papers"],
+    "keywords": [
+      "NeurIPS",
+      "NeurIPS 2026",
+      "Neural Information Processing",
+      "AI research conference",
+      "NeurIPS papers"
+    ],
     "new": false
   },
   {
@@ -315,10 +506,20 @@
     "date_approximate": false,
     "event_type": "conference",
     "location": "Las Vegas, NV",
-    "categories": ["ai", "xr", "iot", "robotics"],
+    "categories": [
+      "ai",
+      "xr",
+      "iot",
+      "robotics"
+    ],
     "description": "The Consumer Electronics Show — the year's first look at where major hardware platforms are heading. Smart glasses, AI companions, and home robotics will all have significant floor presence.",
     "why_watching": "CES sets the consumer device narrative for the year. The XR glasses shown here in 2027 will tell you whether the 2026 smart glasses wave delivered.",
-    "keywords": ["CES", "CES 2027", "Consumer Electronics Show", "Las Vegas tech"],
+    "keywords": [
+      "CES",
+      "CES 2027",
+      "Consumer Electronics Show",
+      "Las Vegas tech"
+    ],
     "new": false
   },
   {
@@ -329,10 +530,19 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "Barcelona, Spain",
-    "categories": ["ai", "xr", "iot"],
+    "categories": [
+      "ai",
+      "xr",
+      "iot"
+    ],
     "description": "Mobile World Congress — where telecom meets AI and XR. 5G/6G infrastructure, connected device ecosystems, and carrier partnerships for always-connected smart glasses.",
     "why_watching": "MWC is where the connectivity layer for XR and IoT gets negotiated. Carrier deals for smart glasses data plans signal whether the market is real.",
-    "keywords": ["MWC", "MWC 2027", "Mobile World Congress", "Barcelona tech"],
+    "keywords": [
+      "MWC",
+      "MWC 2027",
+      "Mobile World Congress",
+      "Barcelona tech"
+    ],
     "new": false
   },
   {
@@ -343,10 +553,19 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "Austin, TX",
-    "categories": ["ai", "xr", "media"],
+    "categories": [
+      "ai",
+      "xr",
+      "media"
+    ],
     "description": "South by Southwest. Tech, media, and culture intersection. XR and AI content creation tracks have grown significantly in recent years.",
     "why_watching": "SXSW is where tech narratives cross into mainstream culture. The AI-and-creativity conversation lands here before it reaches policy and mass media.",
-    "keywords": ["SXSW", "SXSW 2027", "South by Southwest", "Austin tech"],
+    "keywords": [
+      "SXSW",
+      "SXSW 2027",
+      "South by Southwest",
+      "Austin tech"
+    ],
     "new": false
   },
   {
@@ -357,10 +576,20 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "San Francisco, CA",
-    "categories": ["xr", "ai", "3d"],
+    "categories": [
+      "xr",
+      "ai",
+      "3d"
+    ],
     "description": "Game Developers Conference. XR gaming, real-time 3D tooling, and AI-generated game content. Unity and Unreal Engine roadmaps drop here.",
     "why_watching": "Game engines are the de facto spatial computing development platform. GDC reveals what XR developers will build with for the next two years.",
-    "keywords": ["GDC", "GDC 2027", "Game Developers Conference", "Unity", "Unreal Engine"],
+    "keywords": [
+      "GDC",
+      "GDC 2027",
+      "Game Developers Conference",
+      "Unity",
+      "Unreal Engine"
+    ],
     "new": false
   },
   {
@@ -371,10 +600,20 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "San Jose, CA",
-    "categories": ["ai", "robotics", "3d"],
+    "categories": [
+      "ai",
+      "robotics",
+      "3d"
+    ],
     "description": "Nvidia's GPU Technology Conference. New GPU architectures, AI model training infrastructure, world model research, and robotics simulation platforms.",
     "why_watching": "Jensen Huang's keynote sets the AI hardware roadmap. Nvidia's silicon choices determine what's possible in AI training and XR rendering for the next two years.",
-    "keywords": ["GTC", "Nvidia GTC", "Nvidia developer conference", "GTC 2027", "Nvidia 2027"],
+    "keywords": [
+      "GTC",
+      "Nvidia GTC",
+      "Nvidia developer conference",
+      "GTC 2027",
+      "Nvidia 2027"
+    ],
     "new": false
   },
   {
@@ -385,10 +624,20 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "Las Vegas, NV",
-    "categories": ["media", "3d", "ai"],
+    "categories": [
+      "media",
+      "3d",
+      "ai"
+    ],
     "description": "National Association of Broadcasters show. AI in media production, spatial audio, volumetric video, and the evolving broadcast tech stack.",
     "why_watching": "NAB is where media production technology shifts become commercial products. Volumetric capture, AI editing tools, and spatial audio pipelines all debut here.",
-    "keywords": ["NAB Show", "NAB", "NAB 2027", "National Association of Broadcasters", "broadcast tech"],
+    "keywords": [
+      "NAB Show",
+      "NAB",
+      "NAB 2027",
+      "National Association of Broadcasters",
+      "broadcast tech"
+    ],
     "new": false
   },
   {
@@ -399,10 +648,18 @@
     "date_approximate": true,
     "event_type": "conference",
     "location": "Seattle, WA / Online",
-    "categories": ["ai"],
+    "categories": [
+      "ai"
+    ],
     "description": "Microsoft's annual developer conference. Azure AI, Copilot platform updates, and developer tooling across the Microsoft stack.",
     "why_watching": "Microsoft Build is where enterprise AI tooling gets defined. Copilot and Azure AI roadmaps determine what the developer ecosystem builds on for the following year.",
-    "keywords": ["Microsoft Build", "Build 2027", "Azure", "Microsoft developer", "Copilot platform"],
+    "keywords": [
+      "Microsoft Build",
+      "Build 2027",
+      "Azure",
+      "Microsoft developer",
+      "Copilot platform"
+    ],
     "new": false
   },
   {
@@ -413,11 +670,19 @@
     "date_approximate": true,
     "event_type": "finance",
     "location": "Nasdaq / NYSE TBD",
-    "categories": ["ai"],
+    "categories": [
+      "ai"
+    ],
     "description": "Confidentially filed June 1, 2026, following a $65B Series H that valued the company at $965B (May 28, 2026). Reportedly targeting a raise of up to $100B at a ~$2T valuation, with Reuters sources saying Anthropic wants to complete the listing before the November 2026 US midterm elections.",
     "why_watching": "If this lands near $2T, it's the largest AI IPO by a wide margin and a direct contrast to OpenAI's safety-driven delay — watch whether Anthropic frames speed-to-market as the safer strategic move.",
-    "keywords": ["Anthropic IPO", "Anthropic public offering", "Anthropic listing", "Anthropic S-1", "Anthropic valuation"],
-    "new": true
+    "keywords": [
+      "Anthropic IPO",
+      "Anthropic public offering",
+      "Anthropic listing",
+      "Anthropic S-1",
+      "Anthropic valuation"
+    ],
+    "new": false
   },
   {
     "id": "ieee-humanoids-2026",
@@ -427,11 +692,19 @@
     "date_approximate": false,
     "event_type": "conference",
     "location": "Santa Clara, CA",
-    "categories": ["robotics", "ai"],
+    "categories": [
+      "robotics",
+      "ai"
+    ],
     "description": "The 25th IEEE-RAS International Conference on Humanoid Robots — the flagship academic venue for humanoid and human-centered robotics research.",
     "why_watching": "This is the NeurIPS-equivalent for humanoid robotics — bipedal locomotion, actuator design, and human-robot collaboration research shown here typically ships in commercial humanoids 12-18 months later.",
-    "keywords": ["IEEE Humanoids", "Humanoids 2026", "IEEE-RAS", "humanoid robotics conference"],
-    "new": true
+    "keywords": [
+      "IEEE Humanoids",
+      "Humanoids 2026",
+      "IEEE-RAS",
+      "humanoid robotics conference"
+    ],
+    "new": false
   },
   {
     "id": "spie-photonics-west-2027",
@@ -441,11 +714,19 @@
     "date_approximate": false,
     "event_type": "conference",
     "location": "San Francisco, CA",
-    "categories": ["xr"],
+    "categories": [
+      "xr"
+    ],
     "description": "The AR | VR | MR Expo runs as part of the broader Photonics West exhibition at Moscone Center — the key gathering for waveguides, micro-displays, and optical components that feed next-gen smart glasses and headsets.",
     "why_watching": "This is upstream of every smart glasses launch tracked on this page — the optics supply chain shown here determines what's physically possible in the glasses announced at CES and Unpacked events a year later.",
-    "keywords": ["SPIE Photonics West", "Photonics West 2027", "AR VR MR Expo", "waveguides", "optics supply chain"],
-    "new": true
+    "keywords": [
+      "SPIE Photonics West",
+      "Photonics West 2027",
+      "AR VR MR Expo",
+      "waveguides",
+      "optics supply chain"
+    ],
+    "new": false
   },
   {
     "id": "aaai-2027",
@@ -455,11 +736,19 @@
     "date_approximate": false,
     "event_type": "conference",
     "location": "Montréal, Canada",
-    "categories": ["ai"],
+    "categories": [
+      "ai"
+    ],
     "description": "The 41st AAAI Conference on Artificial Intelligence — one of the two or three most influential AI research venues, alongside NeurIPS.",
     "why_watching": "AAAI carries more policy and AI-safety weight than NeurIPS historically — worth watching for how the research community is framing alignment and governance heading into 2027.",
-    "keywords": ["AAAI", "AAAI-27", "AAAI 2027", "AI research conference", "Association for the Advancement of AI"],
-    "new": true
+    "keywords": [
+      "AAAI",
+      "AAAI-27",
+      "AAAI 2027",
+      "AI research conference",
+      "Association for the Advancement of AI"
+    ],
+    "new": false
   },
   {
     "id": "meta-vr-glasses-launch-2027",
@@ -469,10 +758,17 @@
     "date_approximate": true,
     "event_type": "launch",
     "location": "TBD",
-    "categories": ["xr"],
+    "categories": [
+      "xr"
+    ],
     "description": "Announced at Meta Connect 2026 as a distinct product line from Quest — not a 'Quest 4.' Launching spring 2027 at $1,299.99. The actual gaming-focused Quest 4 remains unannounced, with rumors pointing to H2 2027 or later at an unsubsidized $700-800 price.",
     "why_watching": "Meta stepping away from the Quest brand name for its next headset is a positioning signal, not just a product refresh — watch whether this is aimed at prosumers/enterprise rather than the mass-market Quest audience.",
-    "keywords": ["Meta VR Glasses", "Meta headset 2027", "Meta Connect 2026", "Quest 4"],
-    "new": true
+    "keywords": [
+      "Meta VR Glasses",
+      "Meta headset 2027",
+      "Meta Connect 2026",
+      "Quest 4"
+    ],
+    "new": false
   }
 ]
